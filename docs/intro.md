@@ -1,24 +1,29 @@
-# ECE382 Embedded Computer Systems I
+# ECE383 Embedded Computer Systems I
 
 ## 👨‍🏫 Instructors
-- [![baek](https://img.shields.io/badge/Dr.%20Stan%20Baek-2E38-red)](https://stanbaek.github.io)
-- ![york](https://img.shields.io/badge/Dr.%20George%20York-2E44-green)
-- ![seery](https://img.shields.io/badge/Maj%20Michael%20Seery-2F46A-yellow)
-- ![yabrough](https://img.shields.io/badge/Capt%20Brian%20Yabrough-2E46C-blue)
+- ![trimble](https://img.shields.io/badge/Lt%20Col%20James%20Trimble-2E46D-red)
 
 ## 📝 Course information
-- **Course Goal**: Develop skills to design, implement, test, and debug microcontroller-based systems by developing operational assembly and C language programs that incorporate the built-in microcontroller functions, and by successfully interfacing the microcontroller to the external world.
+- **Course Goals**:
+- Cadets shall design, build, and debug hardware / software to drive peripheral devices.
+- Cadets shall design, build, and debug an advanced digital system. Three different approaches will be taken: (a) a fully custom-built hardware solution, (b) using a general-purpose software processor, and (c) using a general-purpose software processor combined with custom-built hardware.
+- Express the tradeoffs between choosing a microcontroller versus a custom digital system
 
-- **Course Text**: [Embedded Systems: Introduction to Robotics](https://www.amazon.com/Embedded-Systems-Introduction-Jonathan-Valvano/dp/1074544307), Johnathan W. Valvano, First Edition, 2019. ISBN: 978-1074544300.
+- **Course Text**: RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability - Pong P. Chu (ISBN 0471720925)
 - **Syllabus**: Posted [here](syllabus.md).
 - **Course Schedule**: Posted [here](schedule.md) and subject to change.
 
 ## 📡 Communication and Control (C2)
+- Microsoft Teams - The 383 Teams site and Outlook email will be used for course announcements. The virtual class sessions will be held your sections 383 Teams site when we do not have in person class
+- Blackboard - Blackboard will only be used at the "official" grades
+- Gradescope - Gradescope will be used to grade most assignments
+- Github - You will use github for your software repository.
+
 - All communication and announcement 📣 will be provided through MS Teams
 - All lecture 📓 materials will be provided through MS Teams.
 - Laboratory 🔬 work will be posted in this course web.
 - All assignments must be submitted in [Gradescope](https://www.gradecope.com)
-- [Bitbucket](https://www.bitbucket.com) will be used for students to provide their source code 📄 for homework and laboratory assignments.
+- [Github](https://www.github.com) will be used for students to provide their source code 📄 for homework and laboratory assignments.
 
 
 ## ⏰ Late Policy:  
@@ -65,7 +70,7 @@ Consider the following examples when writing your own detailed documentation sta
 
 
 ## 🔑 Recommendations from 23ers - $\color{red}{\text{Early!!}}$
-
+### Update ###
 - Be prepared to spend a lot of time on this course.
 - Work $\color{red}{\text{early}}$ and ask for EI
 - Get the Labs and HW's done on time! If you don't know how, get EI. 
