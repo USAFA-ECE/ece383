@@ -1,5 +1,5 @@
-# ece382
-ECE382 Course Web
+# ece383
+ECE383 Course Web
 
 ### How to install required Python packages? 
 - Open a terminal.
