@@ -1,0 +1,7 @@
+# 💎 Resources
+
+## Textbook Errata 😵
+
+
+
+
