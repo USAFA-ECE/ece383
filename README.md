@@ -1,3 +1,9 @@
+# ECE 383 Course Website
+
+This is the GitHub repository for the ECE 383 Course Website.  If you're looking for course information, visit the site [here](https://usafa-ece.github.io/ece383/intro.html).
+
+This site uses Jupyter Book.  The remaining information below concerns setting up and using Jupyter Book.
+
 # Jupyter Book Template for GitHub Pages
 
 A simple demo of how to deploy a [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) static website to [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) that is automatically built with [GitHub Actions](https://docs.github.com/en/actions).
