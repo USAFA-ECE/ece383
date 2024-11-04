@@ -1,4 +1,4 @@
-# ECE383 Embedded Computer Systems I
+# ECE383 Embedded Computer Systems II
 
 ## 👨‍🏫 Instructors
 - ![trimble](https://img.shields.io/badge/Lt%20Col%20James%20Trimble-2E46D-red)
@@ -25,6 +25,36 @@
 - All assignments must be submitted in [Gradescope](https://www.gradecope.com)
 - [Github](https://www.github.com) will be used for students to provide their source code 📄 for homework and laboratory assignments.
 
+## 💯 Grading
+Grading will primarily be performed in Gradescope, with official grades listed in Blackboard.
+
+### Grade Distribution and Policy
+| | Prog	| Final |
+|--|------|-------|
+|GRs|	40 (1)	| 25 (2) |
+|Lab 1	|20	|10|
+|Lab 2	|20	|10|
+|Lab 3	|0	|10|
+|Lab 4	|	|10|
+|Quizzes / Assignments	|20	|10|
+|Final Project	|	|25|
+|Subjective	|	|0|
+|TOTAL	|100	|100|
+
+| Grade	| Max (Exclusive)	| Min (Inclusive) |
+|-------|-----------------|-----------------|
+|A	|100	|93|
+|A- |93	|90|
+|B+ |90	|87|
+|B	|87	|83|
+|B- |83	|80|
+|C+ |80	|77|
+|C	|77	|73|
+|C- |73	|70|
+|D	|70	|60|
+|F	|60	|0|
+
+
 
 ## ⏰ Late Policy:  
 **If problems arise with graded assignments, see your instructor in advance**
@@ -33,7 +63,7 @@
 - Late days are counted in 24-hour periods. Submitting between 07:00:01 on the due date and 07:00:00 the next day is one day late, and so on.
 - You are given **5 grace days (self-granted extensions)** which you can use to give yourself extra time without penalty. No more than **2 grace days** (calendar days) can used for each assignment.
 - Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations. Computer problems such as hard-drive reimaging are **not** considered as exceptional situations and you must use grace days.
-- Late work handed in when you have run out of grace is 💥 **discounted up to 20% (-3/17 for homework and -4/20 for labs) for the first day late and up to 15% (-2/17 for homework and -3/20 for labs) per day late thereafter**.
+- Late work handed in when you have run out of grace days is 💥 **discounted up to 20% (-3/17 for homework and -4/20 for labs) for the first day late and up to 15% (-2/17 for homework and -3/20 for labs) per day late thereafter**.
 - Every assignment has a hard deadline; **4 calendar days** past the original due date. 
 - Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
 
@@ -68,31 +98,10 @@ Consider the following examples when writing your own detailed documentation sta
 <br>
 **Good Example**: Cadet McFly showed me how the factorial() method works by looking at my code and talking me through each line as I wrote it. Prior to this help my own factorial() method was wrong.  My factorial() method is now nearly identical to Cadet McFly's factorial() method. _Note: In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code._
 
+## 🧩 Miscellaneous
 
-## 🔑 Recommendations from 23ers - $\color{red}{\text{Early!!}}$
-### Update ###
-- Be prepared to spend a lot of time on this course.
-- Work $\color{red}{\text{early}}$ and ask for EI
-- Get the Labs and HW's done on time! If you don't know how, get EI. 
-- Start labs $\color{red}{\text{early}}$. Get help $\color{red}{\text{early}}$. $\color{red}{\text{Early}}$. $\color{red}{\text{Early}}$. $\color{red}{\text{Early}}$.
-- $\color{blue}{\text{Don't even think about starting any assignments the night before... you will regret your decision every time.}}$
-- Start $\color{red}{\text{early}}$ and ask questions. 
-- Look to the textbook first for questions on code and try to start the labs the night they are assigned so that if you have a question it can be answered the next day, where as if you start the night before its due you are largely on your own.
-- Start $\color{red}{\text{early}}$ on every assignment. Set a personal due date at least 2 days before the actual due date to prevent needing to pull all-nighters when stuff doesn't go right.
-- Set aside a lot of time to complete assignments for this class. 
-- Start $\color{red}{\text{early}}$, don't get behind. Work $\color{red}{\text{early}}$
-- Work on labs $\color{red}{\text{early}}$ and make sure you understand all the code, it builds on itself.
-- Start working $\color{red}{\text{early}}$
-- Use the object files if you get behind in Labs rather than fall farther behind.
-- Try to understand everything. If you don't make sure you reach out earlier than you think. Labs and homework will take twice the amount of time you expect. Make sure you understand the overall reason for each lab; it will make the final project 50x easier.
-- Stay on top of the assignments- don't wait until the last minute and reach out for help if you need it
-- DO NOT WAIT UNTIL THE LAST MINUTE!!! Go in for EI $\color{red}{\text{early}}$ and often
-- Start $\color{red}{\text{early}}$ and ask lots of questions
-- Start the labs and the HW the day they are assigned, some of those puppies are more time intensive than you would think. Don't fall behind because a bunch of the labs build on each other.
-- Stay on top of HW and Labs. Utilize the discussions channel a lot. If I had an issue someone else usually had the same problem. Review missed questions on HW before the tests. Don't make the same mistakes twice.
-- Take time to get the labs right.
-- $\color{red}{\text{Early}}$ Birds help you stay on top of your work, and makes nights before demo days less stressful.
-- Read the textbook and for homework and labs if you understand them
+This course is designed to help in your development as a computer or an electrical engineer. As such, we introduce economic considerations as well as manufacturability and sustainability during the first half of the semester and re-emphasize these as we progress through the semester. Feel free to provide feedback on the lessons and labs at any time. If you have ideas to improve or enhance the course, please let me know. The class builds on concepts from the prerequisites so it is important for you to seek help as soon as you need it. Procrastination is truly the enemy in a hardware design course. A little foresight and planning and a lot of effort will result in an extremely rewarding experience serving as the basis for future microprocessor design work.
+
 
 ```{tableofcontents}
 ```
