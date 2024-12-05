@@ -1,6 +1,6 @@
 # ✏️ HW 1 
 
-## 📜 Agenda
+## 📜 Instructions
 - Assignment is here
 - Submit via gradescope
 
