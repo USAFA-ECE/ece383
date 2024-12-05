@@ -24,9 +24,14 @@ parts:
     - file: Assignments/homework6
     - file: Assignments/homework7
     - file: Assignments/homework8
-    - file: Assignments/lab2.md    
+    - file: Assignments/lab2.md
+    - file: Assignments/gr1
     - file: Assignments/homework9
     - file: Assignments/homework10    
-    - file: Assignments/lab3.md    
-    - file: Assignments/lab4.md 
+    - file: Assignments/homework11
+    - file: Assignments/lab3.md
+    - file: Assignments/homework12
+    - file: Assignments/homework13
+    - file: Assignments/lab4.md
+    - file: Assignments/gr2
     - file: Assignments/lab5.md
