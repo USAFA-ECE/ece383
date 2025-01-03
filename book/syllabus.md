@@ -147,5 +147,9 @@ All work is due as shown on Gradescope. If problems arise with graded assignment
 - Every assignment has a hard deadline; 4 calendar days past the original due date. 
 - Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
 
+## Parting Thoughts
+This course is designed to help you in your development as an electrical and computer engineer. Feel free to provide feedback on the lessons and labs at any time. If you have ideas to improve or enhance the course, please let me know. The class builds on concepts from the prerequisites, so it's important that you seek help as soon as you need it. Procrastination is truly the enemy in any engineering course. A little foresight and planning and a lot of effort will result in an extremely rewarding experience serving as the basis for future embedded systems design work.
+
+Good luck!
 
 
