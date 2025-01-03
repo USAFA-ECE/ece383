@@ -3,98 +3,120 @@
 (faq-vhdl_programming)=
 ## VHDL Programming Language
 
-### TODO: Update
+# VHDL Cheat-Sheet
+**© Copyright: 2007 Bryan J. Mealy**
 
-### _What is the operator precedence in C?_
- 
-What will the value of Y be when you have Y = X & 0xE0 >> 2? Are you anticipating that the operation will involve bit masking followed by shifting, as in (P4->IN & 0xE0) >> 2? In C/C++, it's important to note that << and >> take precedence over & (bitwise AND). Therefore, X & 0xE0 >> 2 is equivalent to P4->IN & (0xE0 >> 2) or P4->IN & 0x03.
+---
 
-Remember the arithmetic order of operations; for instance, 2 + 2 x 2 equals 6, not 8. If you're uncertain about the precedence order, it's advisable to use parentheses. I may not recall the entire precedence order, but I follow best coding practices by using parentheses. Otherwise, you might spend hours or even days debugging your code. For further reference, you can check operator precedence on the table below. 
+## Concurrent Statements vs. Sequential Statements
 
-Here is a quiz:
+### Concurrent Signal Assignment (Dataflow Model) ⇔ Signal Assignment
 
-One of these is correct.  One is incorrect. Or are they both the same?
-```C
-while( (SysTick->CTRL & 0x00010000) == 0 );
+#### Concurrent Signal Assignment
+```vhdl
+target <= expression;
+A <= B AND C;
+DAT <= (D AND E) OR (F AND G);
 ```
-or
-```C
-while( SysTick->CTRL & 0x00010000 == 0 );   
-``` 
 
-You can find the precedence order in the textbook on page 111 or below:
+#### Sequential Signal Assignment
+```vhdl
+target <= expression;
+A <= B AND C;
+DAT <= (D AND E) OR (F AND G);
+```
 
-![Operator Precedence](./figures/OperatorPrecedence.png)
- 
-**_Are there different versions of C?_**
+---
 
-Indeed, there are several versions or variations of the C programming language standard. These versions include C79, C89, C99, C11, and C17, among others. You can find more detailed information about these different versions on this Wikipedia page: https://en.wikipedia.org/wiki/C_(programming_language)#History
+### Conditional Signal Assignment (Dataflow Model) ⇔ `if` Statements
 
+#### Concurrent
+```vhdl
+target <= expression when condition else
+          expression when condition else
+          expression;
+F3 <= '1' when (L = '0' AND M = '0') else
+      '1' when (L = '1' AND M = '1') else
+      '0';
+```
 
-The most recent standard is C17, but the most widely used versions are likely C89 (also known as ANSI C) and C79 (K&R C). CCS offers support for K&R, C89, C99, and C11.
+#### Sequential
+```vhdl
+if (condition) then
+    -- sequence of statements
+elsif (condition) then
+    -- sequence of statements
+else -- (the else is optional)
+    -- sequence of statements
+end if;
 
-If you want to switch between these variations, you can do so by going to project properties, then navigating to CCS Build > Advanced Options > Language Options, and selecting your preferred variation, as shown in the image below:
+if (SEL = "111") then
+    F_CTRL <= D(7);
+elsif (SEL = "110") then
+    F_CTRL <= D(6);
+elsif (SEL = "101") then
+    F_CTRL <= D(1);
+elsif (SEL = "000") then
+    F_CTRL <= D(0);
+else
+    F_CTRL <= '0';
+end if;
+```
 
-![C Dialect](./figures/C_Dialect.png)
+---
 
-It's worth noting that the default dialect in CCS is C89, but ECE382 employs C11 to facilitate features like variable declaration within for-loops, as seen in the example: `(int i = 0; ... )`.
+### Selective Signal Assignment (Dataflow Model) ⇔ `case` Statements
 
+#### Concurrent
+```vhdl
+with chooser_expression select
+    target <= expression when choices,
+             expression when choices;
+with SEL select
+    MX_OUT <= D3 when "11",
+              D2 when "10",
+              D1 when "01",
+              D0 when "00",
+              '0' when others;
+```
 
-### _What is the switch statement, and how does it work?_
+#### Sequential
+```vhdl
+case ABC is
+    when "100" => F_OUT <= '1';
+    when "011" => F_OUT <= '1';
+    when "111" => F_OUT <= '1';
+    when others => F_OUT <= '0';
+end case;
+```
 
-The switch statement is a multi-way decision that tests whether an expression matches one of several constant integer values and branches accordingly.
+---
 
-```C
-switch (expression) {
-    case const-expr:  
-        statements
-        break;
-    case const-expr:  
-        statements
-        break;
-    default:
-        statements
-        break;
-}
-``` 
+### Process (Behavioral Model)
 
-If you don't add `break`, the program will flow through the following case statements.  Here is an example
+#### Syntax
+```vhdl
+opt_label: process(sensitivity_list)
+begin
+    -- sequential_statements
+end process opt_label;
+```
 
-```C
-int nwhite, nother, ndigit[10]; 
+#### Example
+```vhdl
+proc1: process(A, B, C)
+begin
+    if (A = '1' and B = '0') then
+        F_OUT <= '1';
+    elsif (B = '1' and C = '1') then
+        F_OUT <= '1';
+    else
+        F_OUT <= '0';
+    end if;
+end process proc1;
+```
 
-while ((ch == getchar()) != EOF) {
-    switch (ch) {
-        case '0':   case '1':  case '2' :  case '3': case '4' :       
-        case '5':   case '6':  case '7' :  case '8': case '9' :   
-        // if ch is between '0' and '9'
-            ndigit[ch-'0']++;
-            break;
-        case ' ': 
-        case '\n':
-        case '\t':   
-        // if ch is a space, \n, or \t
-            nwhite++;
-            break;
-        default:
-            nother++;
-            break;
-    }
-}
-``` 
-Reference: B. Kernighan & D. Ritchie, "The C Programming Language," 2nd ed, pp. 58, 1988, Pearson Education.**
+---
 
-### _What is the _static_ qualifier?_
+This cheat sheet summarizes key VHDL constructs, focusing on the differences between concurrent and sequential statement structures and their implementations.
 
-The functions within C files are inherently global functions. Even if they are not declared in the associated .h files, these functions can be accessed by other files, potentially leading to a compilation error if two functions with the same name exist in separate C files.
-
-So, how can you restrict a function's visibility to only the file it's defined in? You can achieve this by using the **_static_** qualifier. This makes the functions private, ensuring that they remain within the scope of the C file in which they are defined.
-
-Similarly, variables declared outside of functions are global variables, and like functions, they are accessible to other files. These variables can also be made static to restrict their visibility, effectively making them private and hidden from other files. It's worth noting that this is different from the concept of static variables inside a function.
-
-## C Programming Language, 2nd Ed.  by Kernighan and Ritche
-
-Ritche invented the C programming language.  This is the **best book** for C programming and the most popular one. 
-[Amazon link](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628)
-
-![C Programming](./figures/C_Programming.jpg)
