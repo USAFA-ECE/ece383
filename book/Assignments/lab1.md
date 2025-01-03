@@ -22,6 +22,11 @@ In this lab, you will write a VGA controller in VHDL and implement it on your FP
 :align: center
 ```
 
+```{image} ./figures/lab1-timing.jpg
+:width: 760
+:align: center
+```
+
 ## 🚚 Deliverables (2 extra points)
 
 ### Deliverable 1 
