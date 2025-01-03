@@ -2,9 +2,7 @@
 
 (faq-vhdl_programming)=
 ## VHDL Programming Language
-
-# VHDL Cheat-Sheet
-**© Copyright: 2007 Bryan J. Mealy**
+**Based on the VHDL Cheat Sheet, © Copyright: 2007 Bryan J. Mealy, https://www.ee.hacettepe.edu.tr/~alkar/ELE432/VHDL%20Cheat%20Sheet.pdf**
 
 ---
 
