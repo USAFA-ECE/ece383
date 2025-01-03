@@ -17,12 +17,12 @@ In this lab, you will write a VGA controller in VHDL and implement it on your FP
 
 ### 💻 VGA Background
 
-```{image} ./figures/lab1-layout.jpg
+```{image} ./figures/Lab01_Layout.jpg
 :width: 760
 :align: center
 ```
 
-```{image} ./figures/lab1-timing.jpg
+```{image} ./figures/Lab01_Timing.jpg
 :width: 760
 :align: center
 ```
