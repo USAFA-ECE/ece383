@@ -8,6 +8,7 @@
 
 ## Xilinx
 
+- [Vivado/Vitis Installation Instructions](./files/Vivado%20WebPack%20Installation%20Instructions.pdf)
 - [Xilinx Development Tools Download](https://www.xilinx.com/support/download.html)
 - [Artix-7 XC7A200T-1SBG484C Digikey Page](https://www.digikey.com/en/products/detail/xilinx-inc/XC7A200T-1SBG484C/520-1463-ND)
 
