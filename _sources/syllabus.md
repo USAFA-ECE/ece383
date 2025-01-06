@@ -29,7 +29,7 @@ The course schedule is [here](schedule.md)
 
 ## Course Materials and Websites
 - **Course Text**: *RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability* by Pong P. Chu (ISBN 0471720925)  Free on O'Reilly Books through [DoD Libraries](https://daf.dodmwrlibraries.org/databases?q=o%27reilly&%3Fq=o%27reilly&g=none)
-- **Course URL**: [https://usafa-ece.github.io/ece383/](https://usafa-ece.github.io/ece383/) — this site has the course schedule, course handouts, and course assignments
+- **Course URL**: [https://usafa-ece.github.io/ece383/](https://usafa-ece.github.io/ece383/) — this site has the course schedule, course handouts, and course assignments.  This year we're updating the course website to the Jupyter Book format used in other DFEC courses.  In case you encounter something that's missing or unclear it may be helpful to access the previous course website at [https://georgeyork.github.io/ECE383_web/](https://georgeyork.github.io/ECE383_web/).
 - **Microsoft Teams**: The 383 Teams site will be used for course announcements. The virtual class sessions will be held in your section's 383 Teams site when we do not have in-person class.
 - **Blackboard**: Blackboard will only be used for the "official" grades.
 - **Gradescope**: Gradescope will be used to grade most assignments.
