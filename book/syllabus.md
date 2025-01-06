@@ -28,7 +28,7 @@ ECE 382 - Embedded Systems I
 The course schedule is [here](schedule.md)
 
 ## Course Materials and Websites
-- **Course Text**: *RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability* by Pong P. Chu (ISBN 0471720925)
+- **Course Text**: *RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability* by Pong P. Chu (ISBN 0471720925)  Free on O'Reilly Books through [DoD Libraries](https://daf.dodmwrlibraries.org/databases?q=o%27reilly&%3Fq=o%27reilly&g=none)
 - **Course URL**: [https://usafa-ece.github.io/ece383/](https://usafa-ece.github.io/ece383/) — this site has the course schedule, course handouts, and course assignments
 - **Microsoft Teams**: The 383 Teams site will be used for course announcements. The virtual class sessions will be held in your section's 383 Teams site when we do not have in-person class.
 - **Blackboard**: Blackboard will only be used for the "official" grades.
