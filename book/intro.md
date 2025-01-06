@@ -9,7 +9,7 @@
 - Cadets shall design, build, and debug an advanced digital system. Three different approaches will be taken: (a) a fully custom-built hardware solution, (b) using a general-purpose software processor, and (c) using a general-purpose software processor combined with custom-built hardware.
 - Express the tradeoffs between choosing a microcontroller versus a custom digital system
 
-- **Course Text**: RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability - Pong P. Chu (ISBN 0471720925)
+- **Course Text**: RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability - Pong P. Chu (ISBN 0471720925). Available for free via [DoD Libraries](https://daf.dodmwrlibraries.org/databases?q=o%27reilly&%3Fq=o%27reilly&g=none)
 - **Syllabus**: Posted [here](syllabus.md).
 - **Course Schedule**: Posted [here](schedule.md) and subject to change.
 
