@@ -34,11 +34,10 @@ Grading will primarily be performed in Gradescope, with official grades listed i
 |GRs|	40 (1)	| 25 (2) |
 |Lab 1	|20	|10|
 |Lab 2	|20	|10|
-|Lab 3	|0	|10|
+|Lab 3	|	|10|
 |Lab 4	|	|10|
 |Quizzes / Assignments	|20	|10|
 |Final Project	|	|25|
-|Subjective	|	|0|
 |TOTAL	|100	|100|
 
 | Grade	| Max (Exclusive)	| Min (Inclusive) |
