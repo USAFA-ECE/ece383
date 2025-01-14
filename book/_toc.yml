@@ -18,7 +18,7 @@ parts:
     - file: Assignments/homework1
     - file: Assignments/homework2
     - file: Assignments/homework3   
-#    - file: Assignments/homework4
+    - file: Assignments/homework4
 #    - file: Assignments/homework5
 #    - file: Assignments/lab1.md
 #    - file: Assignments/homework6
