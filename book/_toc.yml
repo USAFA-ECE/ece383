@@ -13,6 +13,7 @@ parts:
     - file: c_programming.md
     - file: faq.md
     - file: resources.md
+    - file: debugging.md
   - caption: Assignments
     chapters:
     - file: Assignments/homework1
