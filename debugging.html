@@ -377,7 +377,7 @@ document.write(`
 <li><p>ERROR: [VRFC 10-1360] signal cannot be unconstrained</p>
 <ul>
 <li><p>SOLUTION: This problem arose from assigning an unsigned number of 10 bits to a signal without a size specified.
-Problem code was <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code> and solution code was <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">(9</span> <span class="pre">downto</span> <span class="pre">0)</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code></p></li>
+Problem code was <code class="docutils literal notranslate"><span class="pre">vhdl</span> <span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code> and solution code was <code class="docutils literal notranslate"><span class="pre">vhdl</span> <span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">(9</span> <span class="pre">downto</span> <span class="pre">0)</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code></p></li>
 </ul>
 </li>
 </ul>
