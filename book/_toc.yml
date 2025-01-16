@@ -14,14 +14,15 @@ parts:
     - file: faq.md
     - file: resources.md
     - file: debugging.md
-  - caption: Assignments
+  - caption: Homeworks
     chapters:
     - file: Assignments/homework1
     - file: Assignments/homework2
     - file: Assignments/homework3   
     - file: Assignments/homework4
     - file: Assignments/homework5
-#    - file: Assignments/lab1.md
+  - caption: Labs
+    - file: Assignments/lab1.md
 #    - file: Assignments/homework6
 #    - file: Assignments/homework7
 #    - file: Assignments/homework8
