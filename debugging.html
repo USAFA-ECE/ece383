@@ -374,9 +374,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="debugging">
 <h1>🪲 Debugging<a class="headerlink" href="#debugging" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>ERROR: [VRFC 10-1360] signal cannot be unconstrained
-– SOLUTION: This problem arose from assigning an unsigned number of 10 bits to a signal without a size specified.
+<li><p>ERROR: [VRFC 10-1360] signal cannot be unconstrained</p>
+<ul>
+<li><p>SOLUTION: This problem arose from assigning an unsigned number of 10 bits to a signal without a size specified.
 Problem code was <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code> and solution code was <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">(9</span> <span class="pre">downto</span> <span class="pre">0)</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code></p></li>
+</ul>
+</li>
 </ul>
 </section>
 
