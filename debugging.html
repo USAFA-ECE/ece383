@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Debugging Tips and Known Solutions &#8212; Embedded Systems II</title>
+    <title>🪲 Debugging &#8212; Embedded Systems II</title>
   
   
   
@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="faq.html">🙋 FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">💎 Resources</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Debugging Tips and Known Solutions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">🪲 Debugging</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -357,7 +357,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Debugging Tips and Known Solutions</h1>
+    <h1>🪲 Debugging</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,11 +371,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="debugging-tips-and-known-solutions">
-<h1>Debugging Tips and Known Solutions<a class="headerlink" href="#debugging-tips-and-known-solutions" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="debugging">
+<h1>🪲 Debugging<a class="headerlink" href="#debugging" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>ERROR: [VRFC 10-1360] signal cannot be unconstrained</p></li>
-<li></li>
+<li><p>SOLUTION: This problem arose from assigning an unsigned number of 10 bits to a signal without a size specified.
+Problem code was <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">(9</span> <span class="pre">downto</span> <span class="pre">0)</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code> and solution code was <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">(9</span> <span class="pre">downto</span> <span class="pre">0)</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code></p></li>
 </ul>
 </section>
 
