@@ -385,6 +385,11 @@ document.write(`
 Problem code was <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code> and solution code was <code class="docutils literal notranslate"><span class="pre">signal</span> <span class="pre">vga_col:</span> <span class="pre">unsigned</span> <span class="pre">(9</span> <span class="pre">downto</span> <span class="pre">0)</span> <span class="pre">:=</span> <span class="pre">to_unsigned(0,10);</span></code></p></li>
 </ul>
 </li>
+<li><p>ERROR: Unspecified I/O Standard</p>
+<ul>
+<li><p>SOLUTION: This problem usually comes from having the wrong device selected.  In Vivado, go to Tools-&gt;Settings, then under Project Settings-&gt;General, then Project Device, you should see Nexys Video.  If you don’t, click the ellipses to change the device.  If Nexys Video is not listed, following the instructions for adding board files.</p></li>
+</ul>
+</li>
 </ul>
 </section>
 
