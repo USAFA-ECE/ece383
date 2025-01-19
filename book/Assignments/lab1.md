@@ -51,7 +51,7 @@ In order to get you going in this lab, some of the VHDL code has been provided f
 - vga_tb.vhdl
 - dvid.vhdl
 - tdms.vhdl
-- All this code is in this ZIP file: lab1_cadet_code.zip
+- All this code is in this ZIP file: [lab1_cadet_code.zip](https://georgeyork.github.io/ECE383_web/lab/lab1/code/lab1_cadet_code.zip)
 
 ### Architecture
 
