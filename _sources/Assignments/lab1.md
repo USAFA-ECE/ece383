@@ -156,7 +156,7 @@ Your Digilent board will have a lot of connections required to make this lab wor
 - By end of day on Lesson 7, you must have finished setting up the VGA counters to generate the proper rows and columns on the waveform. This can be shown with waveform screenshots from the VGA testbench showing the h count rolling over causing the v count to increment. Be sure to also show both max counts. You must implement the two counters similar to the method implemented for the counters in Homework 4.
 - Show both the row and column max counts rolling over back to zero
 - Place all screenshots in a single document and upload it to GradeScope.
-- Push your code to your GitHub repository using git with the tag `Lab1_GC1`
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_GC1`
 
 ### Gate Check 2 
 - **[5 Points]**
@@ -164,7 +164,7 @@ Your Digilent board will have a lot of connections required to make this lab wor
   - Show the h_synch going high, low, and high in relation to column count.
   - Show the v_synch going high, low, and high in relation to row count AND column count.
   - Show the blank signals going high, low, and high in relation to column count and row count.
-- Push your code to your GitHub repository using git with the tag `Lab1_GC2`
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_GC2`
 - Demo can be live to your instructor or an image uploaded to GitHub.
 
 ### Required Functionality
@@ -177,7 +177,7 @@ Your Digilent board will have a lot of connections required to make this lab wor
   - This test code should be placed in the Lab1 entity.
   - You need to draw the channel 1 trace (yellow) along a diagonal where (row = column). The channel 2 trace (green) should be drawn along a diagonal where (row = 440-column). This test code should be placed in the Lab1 entity (not in scopeface). This means you have some logic in the Lab1 entity that uses the column coming out of the Video component to provide an input row value for each channel.
 - Demo can be live to your instructor or a video uploaded to Teams.
-- Push your code to your repository using git with the tag `Lab1_ReqdFunc`
+- Push your code to your repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_ReqdFunc`
 
 ### A Functionality
 - **[15 Points]**
