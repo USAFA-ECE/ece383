@@ -151,4 +151,66 @@ Your Digilent board will have a lot of connections required to make this lab wor
 
 ## 🚚 Deliverables
 
-*Coming Soon!*
+### Gate Check 1 
+- **[5 Points]**
+- By end of day on Lesson 7, you must have finished setting up the VGA counters to generate the proper rows and columns on the waveform. This can be shown with waveform screenshots from the VGA testbench showing the h count rolling over causing the v count to increment. Be sure to also show both max counts. You must implement the two counters similar to the method implemented for the counters in Homework 4.
+- Show both the row and column max counts rolling over back to zero
+- Place all screenshots in a single document and upload it to GradeScope.
+- Push your code to your GitHub repository using git with the tag `Lab1_GC1`
+
+### Gate Check 2 
+- **[5 Points]**
+- By end of day on Lesson 8, you must have setup the appropriate v_synch, v_blank, h_synch, and h_blank signals on the waveform and created the scopeFace module to draw at least one line on the display. Include picture of the line on the display and associated .bit file for the scopeFace module proof. Additionally, include screenshots of waveforms showing:
+  - Show the h_synch going high, low, and high in relation to column count.
+  - Show the v_synch going high, low, and high in relation to row count AND column count.
+  - Show the blank signals going high, low, and high in relation to column count and row count.
+- Push your code to your GitHub repository using git with the tag `Lab1_GC2`
+- Demo can be live to your instructor or an image uploaded to GitHub.
+
+### Required Functionality
+- **[35 Points]**
+- For Required Functionality your code must generate the white oscilloscope grid pattern shown in the Figure above and draw the two channels of traces. To test this draw:
+  - The channel 1 trace (yellow) along a diagonal where (row = column).
+  - The channel 2 trace (green) should be drawn along a diagonal where (row = 440-column).
+  - Switch(0) should be able to enable and disable channel 1
+  - Switch(1) should be able to enable and disable channel 2
+  - This test code should be placed in the Lab1 entity.
+  - You need to draw the channel 1 trace (yellow) along a diagonal where (row = column). The channel 2 trace (green) should be drawn along a diagonal where (row = 440-column). This test code should be placed in the Lab1 entity (not in scopeface). This means you have some logic in the Lab1 entity that uses the column coming out of the Video component to provide an input row value for each channel.
+- Demo can be live to your instructor or a video uploaded to Teams.
+- Push your code to your repository using git with the tag `Lab1_ReqdFunc`
+
+### A Functionality
+- **[15 Points]**
+- Demo to the instructor your live program with the o'scope grid pattern generated on the monitor, ch1 with a yellow diagonal line and ch2 with a green diagonal line. Demo the ability to enable and disable ch1 and ch2 with switches. See figure above.
+- A-level functionality is shown in the figure in the Lab Overview section at the top of the page. In addition to drawing the display, the display must update when one of the buttons is pressed according to the list below.
+  - Pressing the upper directional button (BTNU) once should move the Trigger Level Marker up.
+  - Pressing the lower directional button (BTND) once should move the Trigger Level Marker down.
+  - Pressing the left directional button (BTNL) once should move the Trigger Time Marker left.
+  - Pressing the right directional button (BTNR) once should move the Trigger Time Marker right.
+  - In order to achieve this level of functionality, you will need to implement the two trigger components in the Lab1 schematic. These buttons do not need to be "debounced." However, if you debounce your buttons properly you can earn 3 bonus points.
+- Demo can be live to your instructor or a video uploaded to Teams.
+- Push your code to your repository using git with the tag `Lab1_AFunc`
+
+### README
+- **[25 Points]**
+- All your work in this lab is to be uploaded to GitHub and you will make submission in Gradescope to record the time each milestone is completed. The main part of the lab is your README, documenting your design. The README should be in markdown in the Lab1 folder so it displays when viewing the folder on github.com.
+- Your README must include the following:
+  - **Introduction** - Provide a brief overview of the problem.
+  - **Design/Implementation** - Include your diagrams from HW5. Provide the block-diagram of your solution using the signal names in your code. The block diagram given above is somewhat incomplete, make sure to include corrections to this diagram. An editable block diagram PPT is provided at the top of the page. For each module that you built, explain its overall purpose, inputs, outputs, and behavior. You do not need to include code in this report (instead put all your vhdl files (code and testbench), wcfg file, and bit files in GitHub)
+  - **Test/Debug** - Briefly describe the methods used to verify system functionality (such as products from gate check 1 and 2).
+    - Show at least three excerpts from your testbench for the VGA module (as screen shots):
+      - Show the h_synch going high, low, and high in relation to column count.
+      - Show the v_synch going high, low, and high in relation to row count AND column count.
+      - Show the blank signals going high, low, and high in relation to column count and row count.
+      - Show the column count rolling over causing the row count to increment and max counts for both counters.
+    - List the major problems you encountered and how you fixed them. This should cover all the problems you encountered in the lab and how you fixed them. Break each problem and solution into separate paragraphs.
+  - **Results** - This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and evidence you proved it worked (e.g., via demo or images/videos). We no longer use the printed lab cutsheets signed by your instructor as you meet each milestone, but instead have you make a submission in Gradescope for each milestone.
+  - **Conclusion** - Explain what your learned from this lab and what changes you would recommend in future years to this lab or the lectures leading up to this lab.
+
+### Coding Practices
+- **[5 Points]** Use of Git and GitHub
+- **[10 Points]** Code style.  Your code should be readable, concise, and well-organized.  Points will be deducted for code that is difficult to understand and maintain.  Write your code as if someone else is going to have to update it.
+
+```{warning}
+Keep an eye on individual gate check turn in dates.  The final turn in of all products (code, demos, and README) is end of day on Lesson 9.
+```
