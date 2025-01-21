@@ -44,7 +44,8 @@ More details on the VGA protocol can be found at http://www-mtl.mit.edu/Courses/
 
 ### VHDL Code
 
-In order to get you going in this lab, some of the VHDL code has been provided for you. In most cases, you should refrain from changing the modules given. In order to get a better understanding how these modules interact with one another, the following section provides a schematic and the input, output and behavior of some of the modules.
+In order to get you going in this lab, some of the VHDL code has been provided for you. In most cases, you should refrain from changing the modules given. In order to get a better understanding how these modules interact with one another, the following sections provides a schematic and the input, output and behavior of some of the modules.
+
 - lab1.vhdl
 - lab1.xdc
 - video.vhdl
@@ -52,6 +53,9 @@ In order to get you going in this lab, some of the VHDL code has been provided f
 - dvid.vhdl
 - tdms.vhdl
 - All this code is in this ZIP file: [lab1_cadet_code.zip](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/lab1_cadet_code.zip)
+
+- Project Setup
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GLp0vFmNsxk?si=qujzdiuMjtfbA_h-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Architecture
 
