@@ -52,6 +52,7 @@ In order to get you going in this lab, some of the VHDL code has been provided f
 - vga_tb.vhdl
 - dvid.vhdl
 - tdms.vhdl
+- scopeface.vhd
 - All this code is in this ZIP file: [lab1_cadet_code.zip](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/lab1_cadet_code.zip)
 
 - Project Setup
