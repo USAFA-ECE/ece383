@@ -96,13 +96,13 @@ In Lab 3, we will be integrating most of the components from this lab with the M
 | rising | 1 | 1 | 1 | X |
 
 ### Lab Files
-- [Lab 2 File](./code/lab2.vhd)
-- [Lab 2 Datapath](./code/lab2_datapath.vhdl)
-- [Audio Codec Wrapper](./code/Audio_Codec_Wrapper.vhd)
-- [Clocking Wizard](./code/clocking_wizard.vhd)
-- [FSM Template](./code/lab2_fsm.vhdl)
-- [Constraint File](./code/Lab2.xdc)
-- [Complete Lab 2 Code (ZIP)](./code/lab2_code_for_cadets.zip)
+- [Lab 2 File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2.vhd)
+- [Lab 2 Datapath](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_datapath.vhdl)
+- [Audio Codec Wrapper](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Audio_Codec_Wrapper.vhd)
+- [Clocking Wizard](https://georgeyork.github.io/ECE383_web/lab/lab2/code/clocking_wizard.vhd)
+- [FSM Template](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_fsm.vhdl)
+- [Constraint File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Lab2.xdc)
+- [Complete Lab 2 Code (ZIP)](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_code_for_cadets.zip)
 
 ### BRAM
 You need to map the ports of BRAM to include it in your lab2_datapath. The component is declared in the UNIMACRO library - look at that library to figure out how to port map BRAM.
