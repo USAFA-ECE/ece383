@@ -18,7 +18,7 @@ This schedule is subject to change as appropriate.
 | 9      | Finite State Machines                            | 10.2.1, 10.3.2, 10.4, 10.6.1 | [Lab1-Final](Assignments/lab1.md) |
 | 10     | Datapath and Control                             | 11.1, 11.2, 14.4.2   |       |
 | 11     | Datapath and Control                             | 11.5                 | [HW7](Assignments/homework7.md)       |
-| 12     | Datapath and Control, Lab intro                  |                      | [HW8a](Assignments/homework8a.md)       |
+| 12     | Datapath and Control, Lab intro                  |                      | [HW8a](Assignments/homework8.md)       |
 | 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) |                  | [HW8b](Assignments/homework8b.md)       |
 | 14     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck1](Assignments/lab2.md)         |
 | 15     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck2](Assignments/lab2.md)         |
