@@ -384,8 +384,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-s-complement-to-unsigned-conversion">Two’s Complement to Unsigned Conversion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datapath-entity">Datapath Entity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flag-register">Flag Register</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-files">Lab Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bram">BRAM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-files">Lab Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switches">Switches</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connections">Connections</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-audio-waveforms">Generating Audio Waveforms</a></li>
@@ -570,6 +570,15 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<p>The 1-bit flag register will interface our lab2 component with a MicroBlaze in lab3 as follows: The LAB2 component will produce some data, put it on a data line to the MicroBlaze, and then set the flag register using the READY signal. Then, the MicroBlaze will, at some point, look at the flag register bit. When it sees that the ‘set’ bit is 1, the MicroBlaze will grab the data from the register and clear the set bit. These are just like the flag bits on the 382 ARM processor.</p>
+</section>
+<section id="bram">
+<h3>BRAM<a class="headerlink" href="#bram" title="Permalink to this heading">#</a></h3>
+<p>You need to map the ports of BRAM to include it in your lab2_datapath. The component is declared in the UNIMACRO library - look at that library to figure out how to port map BRAM.</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="k">library</span><span class="w"> </span><span class="nn">UNIMACRO</span><span class="p">;</span><span class="w">		</span><span class="c1">-- This contains links to the Xilinx block RAM</span>
+<span class="w">	</span><span class="k">use</span><span class="w"> </span><span class="nn">UNIMACRO.vcomponents.</span><span class="k">all</span><span class="p">;</span>
+</pre></div>
+</div>
 </section>
 <section id="lab-files">
 <h3>Lab Files<a class="headerlink" href="#lab-files" title="Permalink to this heading">#</a></h3>
@@ -582,14 +591,6 @@ document.write(`
 <li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/Lab2.xdc">Constraint File</a></p></li>
 <li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_code_for_cadets.zip">Complete Lab 2 Code (ZIP)</a></p></li>
 </ul>
-</section>
-<section id="bram">
-<h3>BRAM<a class="headerlink" href="#bram" title="Permalink to this heading">#</a></h3>
-<p>You need to map the ports of BRAM to include it in your lab2_datapath. The component is declared in the UNIMACRO library - look at that library to figure out how to port map BRAM.</p>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">library</span><span class="w"> </span><span class="nn">UNIMACRO</span><span class="p">;</span><span class="w">		</span><span class="c1">-- This contains links to the Xilinx block RAM</span>
-<span class="w">	</span><span class="k">use</span><span class="w"> </span><span class="nn">UNIMACRO.vcomponents.</span><span class="k">all</span><span class="p">;</span>
-</pre></div>
-</div>
 </section>
 <section id="switches">
 <h3>Switches<a class="headerlink" href="#switches" title="Permalink to this heading">#</a></h3>
@@ -606,7 +607,7 @@ document.write(`
 </section>
 <section id="generating-audio-waveforms">
 <h3>Generating Audio Waveforms<a class="headerlink" href="#generating-audio-waveforms" title="Permalink to this heading">#</a></h3>
-<p>Since you need to use a 3.5mm jack to input signals to the Nexys board, your phone’s audio output works quite well. However, make sure you get an app where you can control both the left and right audio channels individually (i.e. the green and yellow signals in the figure above). The <a class="reference external" href="http://keuwl.com/FunctionGenerator">Keuwl Dual Channel Function Generator</a> is recommended for Android.</p>
+<p>Since you need to use a 3.5mm jack to input signals to the Nexys board, your computer’s audio output works quite well. You can use an <a class="reference external" href="https://onlinetonegenerator.com/multiple-tone-generator.html">online tone generator</a> to create a test signal.</p>
 </section>
 </section>
 <section id="deliverables">
@@ -626,7 +627,7 @@ document.write(`
 <p>There are 3 gate checks associated with this lab, each worth 5 points - see the rubric below. This year we will use Gradescope to track when you complete the milestones.</p>
 <ol class="arabic simple">
 <li><p><strong>Gate Check 1</strong>
-By end of day 1 you must have started a Lab 2 Vivado project and downloaded the template files and drop in your Video, VGA, Scopeface, dvid, and tdms files from Lab 1 into your Lab 2 project in order to test your Lab 1 Scopeface works when you implement your BRAM using the two initialized signal examples in BRAM_example_init.vhd. This does not require the audio wrapper (and clockwiz_1) or your control unit is working yet, so you do not need to include these vhdl files in your design yet if you don’t want to. Your Scopeface/Video should continuously be reading the left and right BRAM signals displaying them on the monitor. You must implement Video entity (from Lab 1) to take the channel output from the left and right BRAMs and send it to the Channel 1 and 2 inputs to be displayed when the readL and readR values equal the row value. Implement this on the hardware and verify that your scopeface is still present and some values are being displayed for Channel 1 (at this point the scaling may be wrong).</p></li>
+By end of day 1 (submit by day 2), you must have started a Lab 2 Vivado project and downloaded the template files and drop in your Video, VGA, Scopeface, dvid, and tdms files from Lab 1 into your Lab 2 project in order to test your Lab 1 Scopeface works when you implement your BRAM using the two initialized signal examples in BRAM_example_init.vhd. This does not require the audio wrapper (and clockwiz_1) or your control unit is working yet, so you do not need to include these vhdl files in your design yet if you don’t want to. Your Scopeface/Video should continuously be reading the left and right BRAM signals displaying them on the monitor. You must implement Video entity (from Lab 1) to take the channel output from the left and right BRAMs and send it to the Channel 1 and 2 inputs to be displayed when the readL and readR values equal the row value. Implement this on the hardware and verify that your scopeface is still present and some values are being displayed for Channel 1 (at this point the scaling may be wrong).</p></li>
 </ol>
 <p>How do you read from BRAM continuously? From last lesson, to read we need to put the address we want to read on RDADDR, which in this case is the column requested by video; and when we enable the read RDEN, the BRAM will place the 16-bit data value at this address on DO. So to continually read, we set RDEN &lt;= ‘1’. You can then compare this DO value with the current video’s row, and if they are equal, let ch1 &lt;= ‘1’.</p>
 <p>After you demo this, this is a good opportunity to work on scaling the signals so their DC value is centered on your grids y-axis. Note: the DC center value on your scope is row 220, while if you grabbed the upper ten bits from the BRAM DO, its DC center value will be 512 (a difference of del_x = 512-220 = 292). How does this change the comparitor you use to assign ch1 and ch2? (which compares if ReadL = row… does it need to now compare something like if ReadL = row +/- del_x ?)</p>
@@ -634,14 +635,14 @@ By end of day 1 you must have started a Lab 2 Vivado project and downloaded the 
 <p>The demo can be live to your instructor or an image uploaded to teams.</p>
 <ol class="arabic simple" start="2">
 <li><p><strong>Gate Check 2</strong>
-NOTE: THIS IS THE HARDEST PART! By end of day 2, you must have implemented and connected the BRAM Address Counter to left and right BRAMs, instantiated the Audio Codec Wrapper in Simulation mode (sim_live = ‘0’), and your control unit, such that your control unit writes the simulated audio data to the left and right BRAM and you can see the waveforms plotted on the monitor. (at this point, since there is no trigger, the waveform may or may not be scrolling across the display and the scaling may be wrong. The simulated Audio Wrapper is continually sending out 1024 samples, and if your counter (with FSM) are in sync writing 1024 values, it will be writing the same 1024 values over and over, making the output waveforms on appear stationary. If you want the simulated waveforms to scroll as if they are not triggered, change your counter rollover to a lesser value like 640… remember there are only 640 columns on scopeface displayed. Another note about this counter: since your first column on your scopeface is column 20, should you initialize the counter at 20?).</p></li>
+NOTE: THIS IS THE HARDEST PART! By end of day 2 (submit by day 3), you must have implemented and connected the BRAM Address Counter to left and right BRAMs, instantiated the Audio Codec Wrapper in Simulation mode (sim_live = ‘0’), and your control unit, such that your control unit writes the simulated audio data to the left and right BRAM and you can see the waveforms plotted on the monitor. (at this point, since there is no trigger, the waveform may or may not be scrolling across the display and the scaling may be wrong. The simulated Audio Wrapper is continually sending out 1024 samples, and if your counter (with FSM) are in sync writing 1024 values, it will be writing the same 1024 values over and over, making the output waveforms on appear stationary. If you want the simulated waveforms to scroll as if they are not triggered, change your counter rollover to a lesser value like 640… remember there are only 640 columns on scopeface displayed. Another note about this counter: since your first column on your scopeface is column 20, should you initialize the counter at 20?).</p></li>
 </ol>
 <p>How do you write a sample from the audio wrapper to the BRAM? From last lesson, to write we need to: (1) set WE =&gt; “11” [not using this feature], (2) put the address we want to write to on WRADDR, (3) put the converted data sample from the audio wrapper on the 16-bit data input DI, and (3) signal write enable WREN = ‘1’ with a CW from your FSM. Since the address we are writing to in the BRAM is controlled by the counter, your FSM needs to first reset the counter. Then it should wait for the Ready signal. When ready goes high, you can then save the sample (let WE = ‘1’ with a CW), then increment the counter (with a CW to increment the counter), then compare to see if you are done counting (by checking a SW). If not done counting, then jump back to wait for ready, otherwise, start the process over by jumping to the state to reset the counter.</p>
 <p>Reminder: You must successfully convert the signed audio data from the Audio_Codec_Wrapper into unsigned data needed for the monitor. After you demo this, this is a good opportunity to work on scaling the signals so their DC value is centered on your grids y-axis and possibly work on the trigger hardware. If this does not work, you must create a Testbench to help debug why it is not working (see example testbenches in the zip file). Reminder: implement another Clocking Wizard and the Audio Codec Wrapper inside the Datapath entity to get your Audio Codec to begin functioning (if not done in gate check 1).</p>
 <p>The demo can be live to your instructor or an image (if stationary) or video (if scrolling) uploaded to streams.</p>
 <ol class="arabic simple" start="3">
 <li><p><strong>Gate Check 3</strong> - Implementing live audio input.
-By end of day 3, redo Gate Check 2, except with the Audio Codec Wrapper in Live mode (sim_live = ‘1’). (at this point, since there is no trigger, the waveform will be scrolling across the display). Also make connections to loopback the serial ADC input back out to the DAC output (i.e. send the signal back into the Codec). Once you implement the design on the board, you can verify functionality by applying an audio signal to the audio line in jack (blue) and listening to it on the audio line out jack (Green), and seeing the output on the monitor. After you finish Gate Check 3, this is a good time to implement proper triggering on the trig_volt value. Besides the hardware to create the SW to signal the trigger, you’ll also need to add an initial state to “wait for trigger” in your FSM. The rest of the FSM is basically the same. If this does not work, you must create a Testbench to help debug why it is not working.</p></li>
+By end of day 3 (submit by day 4), redo Gate Check 2, except with the Audio Codec Wrapper in Live mode (sim_live = ‘1’). (at this point, since there is no trigger, the waveform will be scrolling across the display). Also make connections to loopback the serial ADC input back out to the DAC output (i.e. send the signal back into the Codec). Once you implement the design on the board, you can verify functionality by applying an audio signal to the audio line in jack (blue) and listening to it on the audio line out jack (Green), and seeing the output on the monitor. After you finish Gate Check 3, this is a good time to implement proper triggering on the trig_volt value. Besides the hardware to create the SW to signal the trigger, you’ll also need to add an initial state to “wait for trigger” in your FSM. The rest of the FSM is basically the same. If this does not work, you must create a Testbench to help debug why it is not working.</p></li>
 </ol>
 <p>The demo can be live to your instructor or a video uploaded to Teams.</p>
 </section>
@@ -649,8 +650,8 @@ By end of day 3, redo Gate Check 2, except with the Audio Codec Wrapper in Live 
 <h3>Required Functionality<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Get a single channel of the oscilloscope to display with reliable triggering that holds the waveform at a single point on the left edge of the display (like having a fixed trigger_volt). A 220Hz waveform should display something similar to what is shown in the screenshot at the top of this page. Additionally, you must have the following done:</p>
 <ul class="simple">
-<li><p>The waveform displayed should be centered about the center of the grid (row 220)
-Use separate datapath and control unit.</p></li>
+<li><p>The waveform displayed should be centered about the center of the grid (row 220)</p></li>
+<li><p>Use separate datapath and control unit.</p></li>
 <li><p>The Mini-C design technique can be used but is NOT required. However, your instructor will expect you create Lab2_cu using the state machine coding style used in Lesson 9, with a process for state transitions, separated from a CSA LUT section for generating the output CWs.</p></li>
 <li><p>Your datapath must use processes which are similar to our basic building block (counter, register, mux, etc.). I do not want to see one massive process that attempts to do all the work in the datapath.</p></li>
 </ul>
@@ -659,10 +660,10 @@ Use separate datapath and control unit.</p></li>
 <section id="b-level-functionality">
 <h3>B-level Functionality<a class="headerlink" href="#b-level-functionality" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>You can swap the A and B functionality order if you like</p></li>
-<li><p>Meet all the requirements of required functionality</p></li>
+<li><p>You can swap the A and B functionality order if you’d like.</p></li>
+<li><p>Meet all the requirements of required functionality.</p></li>
 <li><p>Add a second channel (in green).</p></li>
-<li><p>Include the flag register and exSel (and other ex___ signals) with their muxes as shown in the block diagram</p></li>
+<li><p>Include the flag register and exSel (and other ex___ signals) with their muxes as shown in the block diagram.</p></li>
 </ul>
 <p>The demo can be live to your instructor or a video uploaded to Teams.</p>
 </section>
@@ -670,7 +671,7 @@ Use separate datapath and control unit.</p></li>
 <h3>A-level Functionality<a class="headerlink" href="#a-level-functionality" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Meet all the requirements of B-level functionality.</p></li>
-<li><p>Use the trigger voltage marker to establish the actual trigger voltage used to capture the waveform. As the trigger is moved up and down, you should see the point at which the waveform intersects the left side of the screen change. The trigger arrow marker must be calibrated with the start of the waveform at column 20</p></li>
+<li><p>Use the trigger voltage marker to establish the actual trigger voltage used to capture the waveform. As the trigger is moved up and down, you should see the point at which the waveform intersects the left side of the screen change. The trigger arrow marker must be calibrated with the start of the waveform at column 20.</p></li>
 <li><p>Integrate the button debouncing strategy in HW #7 (or an equivalent debouncing method) to debounce the buttons controlling the trigger time and trigger voltage.</p></li>
 <li><p>Move the trigger volt and trigger time cursors on the screen using the buttons.</p></li>
 </ul>
@@ -678,7 +679,7 @@ Use separate datapath and control unit.</p></li>
 </section>
 <section id="turn-in">
 <h3>Turn In<a class="headerlink" href="#turn-in" title="Permalink to this heading">#</a></h3>
-<p>All of your work in this lab is to be submitted using Github and you will make submission in Gradescope to record the time each milestone is completed. The main part of the lab is your README, documenting your design. The README can be in markdown, word, or a pdf, and should be uploaded to GitHub. Your README must include the following:</p>
+<p>All of your work in this lab is to be submitted using Github and you will make submission in Gradescope to record the time each milestone is completed. The main part of the lab is your README, documenting your design. The README should be in markdown and should be uploaded to GitHub. Your README must include the following:</p>
 <ul class="simple">
 <li><p><strong>Introduction</strong> - Provide a brief overview of the problem.</p></li>
 <li><p><strong>Design/Implementation</strong> - Provide block-diagram of your solution using the signal names in your code. The block diagram given above is somewhat incomplete, so make sure to include corrections to it. Also, include a state transition diagram for your Lab2_cu.
@@ -686,14 +687,43 @@ Note: the Mini-C design technique can be used but is NOT required. However, your
 For each module that you built, explain its overall purpose, inputs, outputs, and behavior. Include all your vhdl files (code and testbench), wcfg file, and bit files. Put these in a folder called “code”.</p></li>
 <li><p><strong>Test/Debug</strong> - Briefly describe the methods used to verify system functionality. Include/discuss any testbench simulation plots you used.
 List the major problems you encountered and how you fixed them. This should cover all the problems you encountered in the lab and how you fixed them. Break each problem and solution into separate paragraphs.</p></li>
-<li><p><strong>Results</strong> - This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and how you proved it (via demo or evidence like images/videos). For example, you could have a table like this:
-Milestone	Date/Time	What was achieved
-Gate Check 1		Achieved: demonstrated lab#1 worked with the two test signals in the BRAM displayed on scopeface monitor and buttons working
-Gate Check 2		Achieved: Not demo’d to instructor. See video show the two simulated audio signals scrolling on monitor (not triggered)
-Gate Check 3		Achieved: demo’d to instructor audio loopback test and the live audio waves scrolling on monitor
-Required Functionality		Achieved, demo’d to instructor that audio waveform properly triggers at a set point on the display (not using trig_volt buttons). Code has separate FSM and datapath as required.
-B Functionality		Partially Achieved: demo’d to instructor the 2nd channel working (see B_funct.jpg, showing sine wave on ch1 and triangle wave on ch2), however, never got the buttons to properly debounce.
-A Functionality		Not Achieved</p></li>
+<li><p><strong>Results</strong> - This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and how you proved it (via demo or evidence like images/videos). For example, you could have a table like this:</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Milestone</p></th>
+<th class="head"><p>Date/Time</p></th>
+<th class="head"><p>What was achieved</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gate Check 1</p></td>
+<td><p></p></td>
+<td><p>Achieved: demonstrated lab#1 worked with the two test signals in the BRAM displayed on scopeface monitor and buttons working</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gate Check 2</p></td>
+<td><p></p></td>
+<td><p>Achieved: Not demo’d to instructor. See video show the two simulated audio signals scrolling on monitor (not triggered)</p></td>
+</tr>
+<tr class="row-even"><td><p>Gate Check 3</p></td>
+<td><p></p></td>
+<td><p>Achieved: demo’d to instructor audio loopback test and the live audio waves scrolling on monitor</p></td>
+</tr>
+<tr class="row-odd"><td><p>Required Functionality</p></td>
+<td><p></p></td>
+<td><p>Achieved, demo’d to instructor that audio waveform properly triggers at a set point on the display (not using trig_volt buttons). Code has separate FSM and datapath as required.</p></td>
+</tr>
+<tr class="row-even"><td><p>B Functionality</p></td>
+<td><p></p></td>
+<td><p>Partially Achieved: demo’d to instructor the 2nd channel working (see B_funct.jpg, showing sine wave on ch1 and triangle wave on ch2), however, never got the buttons to properly debounce.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A Functionality</p></td>
+<td><p></p></td>
+<td><p>Not Achieved</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
 <li><p><strong>Conclusion</strong> - Explain what your learned from this lab and what changes you would recommend in future years to this lab or the lectures leading up to this lab.</p></li>
 </ul>
 </section>
@@ -807,8 +837,8 @@ A Functionality		Not Achieved</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-s-complement-to-unsigned-conversion">Two’s Complement to Unsigned Conversion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datapath-entity">Datapath Entity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flag-register">Flag Register</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-files">Lab Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bram">BRAM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-files">Lab Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switches">Switches</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connections">Connections</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-audio-waveforms">Generating Audio Waveforms</a></li>
