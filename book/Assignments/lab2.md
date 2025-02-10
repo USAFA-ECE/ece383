@@ -147,7 +147,8 @@ The lab requires displaying a single channel waveform with reliable triggering a
 ### Gate Checks
 There are 3 gate checks associated with this lab, each worth 5 points - see the rubric below. This year we will use Gradescope to track when you complete the milestones.
 
-1. **Gate Check 1**
+#### Gate Check 1
+
    By end of day 1 (submit by day 2), you must have started a Lab 2 Vivado project and downloaded the template files and drop in your Video, VGA, Scopeface, dvid, and tdms files from Lab 1 into your Lab 2 project in order to test your Lab 1 Scopeface works when you implement your BRAM using the two initialized signal examples in BRAM_example_init.vhd. This does not require the audio wrapper (and clockwiz_1) or your control unit is working yet, so you do not need to include these vhdl files in your design yet if you don't want to. Your Scopeface/Video should continuously be reading the left and right BRAM signals displaying them on the monitor. You must implement Video entity (from Lab 1) to take the channel output from the left and right BRAMs and send it to the Channel 1 and 2 inputs to be displayed when the readL and readR values equal the row value. Implement this on the hardware and verify that your scopeface is still present and some values are being displayed for Channel 1 (at this point the scaling may be wrong).
 
 How do you read from BRAM continuously? From last lesson, to read we need to put the address we want to read on RDADDR, which in this case is the column requested by video; and when we enable the read RDEN, the BRAM will place the 16-bit data value at this address on DO. So to continually read, we set RDEN <= '1'. You can then compare this DO value with the current video's row, and if they are equal, let ch1 <= '1'.
@@ -158,7 +159,7 @@ Notice from the block diagram you will copy your Video instantiation and button 
 
 The demo can be live to your instructor or an image uploaded to teams.
 
-2. **Gate Check 2**
+#### Gate Check 2
    NOTE: THIS IS THE HARDEST PART! By end of day 2 (submit by day 3), you must have implemented and connected the BRAM Address Counter to left and right BRAMs, instantiated the Audio Codec Wrapper in Simulation mode (sim_live = '0'), and your control unit, such that your control unit writes the simulated audio data to the left and right BRAM and you can see the waveforms plotted on the monitor. (at this point, since there is no trigger, the waveform may or may not be scrolling across the display and the scaling may be wrong. The simulated Audio Wrapper is continually sending out 1024 samples, and if your counter (with FSM) are in sync writing 1024 values, it will be writing the same 1024 values over and over, making the output waveforms on appear stationary. If you want the simulated waveforms to scroll as if they are not triggered, change your counter rollover to a lesser value like 640... remember there are only 640 columns on scopeface displayed. Another note about this counter: since your first column on your scopeface is column 20, should you initialize the counter at 20?).
 
 How do you write a sample from the audio wrapper to the BRAM? From last lesson, to write we need to: (1) set WE => "11" [not using this feature], (2) put the address we want to write to on WRADDR, (3) put the converted data sample from the audio wrapper on the 16-bit data input DI, and (3) signal write enable WREN = '1' with a CW from your FSM. Since the address we are writing to in the BRAM is controlled by the counter, your FSM needs to first reset the counter. Then it should wait for the Ready signal. When ready goes high, you can then save the sample (let WE = '1' with a CW), then increment the counter (with a CW to increment the counter), then compare to see if you are done counting (by checking a SW). If not done counting, then jump back to wait for ready, otherwise, start the process over by jumping to the state to reset the counter.
@@ -167,7 +168,8 @@ Reminder: You must successfully convert the signed audio data from the Audio_Cod
 
 The demo can be live to your instructor or an image (if stationary) or video (if scrolling) uploaded to streams.
 
-3. **Gate Check 3** - Implementing live audio input.
+#### Gate Check 3 - Implementing live audio input.
+
    By end of day 3 (submit by day 4), redo Gate Check 2, except with the Audio Codec Wrapper in Live mode (sim_live = '1'). (at this point, since there is no trigger, the waveform will be scrolling across the display). Also make connections to loopback the serial ADC input back out to the DAC output (i.e. send the signal back into the Codec). Once you implement the design on the board, you can verify functionality by applying an audio signal to the audio line in jack (blue) and listening to it on the audio line out jack (Green), and seeing the output on the monitor. After you finish Gate Check 3, this is a good time to implement proper triggering on the trig_volt value. Besides the hardware to create the SW to signal the trigger, you'll also need to add an initial state to "wait for trigger" in your FSM. The rest of the FSM is basically the same. If this does not work, you must create a Testbench to help debug why it is not working.
 
 The demo can be live to your instructor or a video uploaded to Teams.
