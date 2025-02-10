@@ -218,8 +218,13 @@ The demo can be live to your instructor or a video uploaded to Teams.
 - Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_AFunc`
 
 ### Turn In
+
+- All of your work in this lab is to be submitted using Github and you will make submission in Gradescope to record the time each milestone is completed.
+
+#### README
+
 - *[20 Points]*
-All of your work in this lab is to be submitted using Github and you will make submission in Gradescope to record the time each milestone is completed. The main part of the lab is your README, documenting your design. The README should be in markdown and should be uploaded to GitHub. Your README must include the following:
+- The main part of the lab is your README, documenting your design. The README should be in markdown and should be uploaded to GitHub. Your README must include the following:
 - **Introduction** - Provide a brief overview of the problem.
 - **Design/Implementation** - Provide block-diagram of your solution using the signal names in your code. The block diagram given above is somewhat incomplete, so make sure to include corrections to it. Also, include a state transition diagram for your Lab2_cu.
 Note: the Mini-C design technique can be used but is NOT required. However, your instructor will expect you create Lab2_cu using the state machine coding style used in Lesson 9, with a process for state transitions, separated from a CSA LUT section for generating the output CWs.
