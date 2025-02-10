@@ -12,6 +12,10 @@ Just like the design of Lab 1, Lab 2 is broken down into a bunch of separate mod
 
 ![Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab2/img/ECE383_Lab2_Block_Diagram_v6.jpg)
 
+
+#### Schematic Walk-through
+<iframe width="560" height="315" src="https://www.youtube.com/embed/laV6lPauTq4?si=Ga6vHA1WDk5i1H3W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Consider the data in the diagram as flowing from left to right. You will provide an input signal to the Nexys board via a 3.5mm cable connected to the blue line-in jack. This signal then passes through an [Analog Devices ADAU1761 SigmaDSP Audio Codec](http://www.analog.com/media/en/technical-documentation/data-sheets/ADAU1761.pdf). The ADAU1761 samples the audio input at 48kHz into separate 18-bit 2's complement left and right channels. The ADAU1761 then transfers this data to our Artix 7 chip over a serial bus through the 7 signals on the left side of the Lab 2 component. You can read more about the audio codec on page 27 of the [Nexys Video manual](https://reference.digilentinc.com/_media/nexys-video/nexysvideo_rm.pdf).
 
 The serial protocol coming from the audio codec is quite complex, so you will be given the Audio Codec Wrapper component as an interface to extract the incoming signal (Audio Codec Wrapper in the Figure above). Whenever new converted data is ready from the Audio Codec, the ready signal will go high for a single clock cycle. Your circuit will then do two things with the incoming L_bus_out and R_bus_out signals: First, it will loop both of these signals back into the Audio Codec so that you can verify (by listening on the green line-out jack) that the Audio Codec hardware and firmware are operating correctly. This is accomplished using the VHDL code below.
@@ -105,15 +109,6 @@ You need to map the ports of BRAM to include it in your lab2_datapath. The compo
 	use UNIMACRO.vcomponents.all;
 ```
 
-### Lab Files
-- [Lab 2 File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2.vhd)
-- [Lab 2 Datapath](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_datapath.vhdl)
-- [Audio Codec Wrapper](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Audio_Codec_Wrapper.vhd)
-- [Clocking Wizard](https://georgeyork.github.io/ECE383_web/lab/lab2/code/clocking_wizard.vhd)
-- [FSM Template](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_fsm.vhdl)
-- [Constraint File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Lab2.xdc)
-- [Complete Lab 2 Code (ZIP)](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_code_for_cadets.zip)
-  
 ### Switches
 - Switch(0): ch1_enable
 - Switch(1): ch2_enable
@@ -125,6 +120,20 @@ You need to map the ports of BRAM to include it in your lab2_datapath. The compo
 
 ### Generating Audio Waveforms
 Since you need to use a 3.5mm jack to input signals to the Nexys board, your computer's audio output works quite well. You can use an [online tone generator](https://onlinetonegenerator.com/multiple-tone-generator.html) to create a test signal. 
+
+### Lab Files
+- [Lab 2 File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2.vhd)
+- [Lab 2 Datapath](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_datapath.vhdl)
+- [Audio Codec Wrapper](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Audio_Codec_Wrapper.vhd)
+- [Clocking Wizard](https://georgeyork.github.io/ECE383_web/lab/lab2/code/clocking_wizard.vhd)
+- [FSM Template](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_fsm.vhdl)
+- [Constraint File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Lab2.xdc)
+- [Complete Lab 2 Code (ZIP)](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_code_for_cadets.zip)
+
+### Project Setup
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vhUR2jx8q18?si=OBSWOjCiMWm4M3a9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  
+
 
 ## 🚚 Deliverables
 
