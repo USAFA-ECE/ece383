@@ -379,16 +379,20 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-overview">📜 Lab Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#schematic-walk-through">Schematic Walk-through</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loopback-code-example">Loopback Code Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-s-complement-to-unsigned-conversion">Two’s Complement to Unsigned Conversion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datapath-entity">Datapath Entity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flag-register">Flag Register</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bram">BRAM</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-files">Lab Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switches">Switches</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connections">Connections</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-audio-waveforms">Generating Audio Waveforms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-files">Lab Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-setup">Project Setup</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
@@ -425,8 +429,12 @@ document.write(`
 <h3>Architecture<a class="headerlink" href="#architecture" title="Permalink to this heading">#</a></h3>
 <p>Just like the design of Lab 1, Lab 2 is broken down into a bunch of separate modules, shown in the block diagram below. Some of the components in the block diagram will be given to you and some you created in Lab 1. It is important to note that some of the components and signals associated with this diagram will not be needed for Lab 2, but have been included because you will need them in Labs 3 and 4.</p>
 <p><img alt="Block Diagram" src="https://georgeyork.github.io/ECE383_web/lab/lab2/img/ECE383_Lab2_Block_Diagram_v6.jpg" /></p>
+<section id="schematic-walk-through">
+<h4>Schematic Walk-through<a class="headerlink" href="#schematic-walk-through" title="Permalink to this heading">#</a></h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/laV6lPauTq4?si=Ga6vHA1WDk5i1H3W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <p>Consider the data in the diagram as flowing from left to right. You will provide an input signal to the Nexys board via a 3.5mm cable connected to the blue line-in jack. This signal then passes through an <a class="reference external" href="http://www.analog.com/media/en/technical-documentation/data-sheets/ADAU1761.pdf">Analog Devices ADAU1761 SigmaDSP Audio Codec</a>. The ADAU1761 samples the audio input at 48kHz into separate 18-bit 2’s complement left and right channels. The ADAU1761 then transfers this data to our Artix 7 chip over a serial bus through the 7 signals on the left side of the Lab 2 component. You can read more about the audio codec on page 27 of the <a class="reference external" href="https://reference.digilentinc.com/_media/nexys-video/nexysvideo_rm.pdf">Nexys Video manual</a>.</p>
 <p>The serial protocol coming from the audio codec is quite complex, so you will be given the Audio Codec Wrapper component as an interface to extract the incoming signal (Audio Codec Wrapper in the Figure above). Whenever new converted data is ready from the Audio Codec, the ready signal will go high for a single clock cycle. Your circuit will then do two things with the incoming L_bus_out and R_bus_out signals: First, it will loop both of these signals back into the Audio Codec so that you can verify (by listening on the green line-out jack) that the Audio Codec hardware and firmware are operating correctly. This is accomplished using the VHDL code below.</p>
+</section>
 </section>
 <section id="loopback-code-example">
 <h3>Loopback Code Example<a class="headerlink" href="#loopback-code-example" title="Permalink to this heading">#</a></h3>
@@ -580,18 +588,6 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="lab-files">
-<h3>Lab Files<a class="headerlink" href="#lab-files" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2.vhd">Lab 2 File</a></p></li>
-<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_datapath.vhdl">Lab 2 Datapath</a></p></li>
-<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/Audio_Codec_Wrapper.vhd">Audio Codec Wrapper</a></p></li>
-<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/clocking_wizard.vhd">Clocking Wizard</a></p></li>
-<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_fsm.vhdl">FSM Template</a></p></li>
-<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/Lab2.xdc">Constraint File</a></p></li>
-<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_code_for_cadets.zip">Complete Lab 2 Code (ZIP)</a></p></li>
-</ul>
-</section>
 <section id="switches">
 <h3>Switches<a class="headerlink" href="#switches" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
@@ -608,6 +604,22 @@ document.write(`
 <section id="generating-audio-waveforms">
 <h3>Generating Audio Waveforms<a class="headerlink" href="#generating-audio-waveforms" title="Permalink to this heading">#</a></h3>
 <p>Since you need to use a 3.5mm jack to input signals to the Nexys board, your computer’s audio output works quite well. You can use an <a class="reference external" href="https://onlinetonegenerator.com/multiple-tone-generator.html">online tone generator</a> to create a test signal.</p>
+</section>
+<section id="lab-files">
+<h3>Lab Files<a class="headerlink" href="#lab-files" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2.vhd">Lab 2 File</a></p></li>
+<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_datapath.vhdl">Lab 2 Datapath</a></p></li>
+<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/Audio_Codec_Wrapper.vhd">Audio Codec Wrapper</a></p></li>
+<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/clocking_wizard.vhd">Clocking Wizard</a></p></li>
+<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_fsm.vhdl">FSM Template</a></p></li>
+<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/Lab2.xdc">Constraint File</a></p></li>
+<li><p><a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_code_for_cadets.zip">Complete Lab 2 Code (ZIP)</a></p></li>
+</ul>
+</section>
+<section id="project-setup">
+<h3>Project Setup<a class="headerlink" href="#project-setup" title="Permalink to this heading">#</a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vhUR2jx8q18?si=OBSWOjCiMWm4M3a9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </section>
 </section>
 <section id="deliverables">
@@ -832,16 +844,20 @@ List the major problems you encountered and how you fixed them. This should cove
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-overview">📜 Lab Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#schematic-walk-through">Schematic Walk-through</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loopback-code-example">Loopback Code Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-s-complement-to-unsigned-conversion">Two’s Complement to Unsigned Conversion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datapath-entity">Datapath Entity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flag-register">Flag Register</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bram">BRAM</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-files">Lab Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switches">Switches</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connections">Connections</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-audio-waveforms">Generating Audio Waveforms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-files">Lab Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-setup">Project Setup</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
