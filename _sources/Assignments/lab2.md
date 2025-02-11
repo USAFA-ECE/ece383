@@ -156,6 +156,23 @@ There are 3 gate checks associated with this lab, each worth 5 points - see the 
 
 - After you demo this, this is a good opportunity to work on scaling the signals so their DC value is centered on your grids y-axis. Note: the DC center value on your scope is row 220, while if you grabbed the upper ten bits from the BRAM DO, its DC center value will be 512 (a difference of del_x = 512-220 = 292). How does this change the comparitor you use to assign ch1 and ch2? (which compares if ReadL = row... does it need to now compare something like if ReadL = row +/- del_x ?)
 
+- In the Lab2 Datapath there are comments that describe three tests you can do to progressively build towards displaying signals from the BRAM.  Those tests should look like the following images.
+
+```{image} ./figures/Lab02_GC1-1.png
+:width: 480
+:align: center
+```
+
+```{image} ./figures/Lab02_GC1-2.png
+:width: 480
+:align: center
+```
+
+```{image} ./figures/Lab02_GC1-3.png
+:width: 480
+:align: center
+```
+
 - Notice from the block diagram you will copy your Video instantiation and button processes from Lab 1 into your Lab 2 Datapath.  You will also have to re-implement the Lab 1 Clocking Wizard in you Lab 2 project.  Doing this will eliminate a lot of errors from un-driven output signals on lab 2 top. Additionally your Scopeface and Button inputs from Lab 1 should be functional as well. Also, you may need to have implement another Clocking Wizard for the Audio Codec Wrapper inside the Datapath entity to get the bit stream to generate.
 
 - The demo can be live to your instructor or an image uploaded to teams.
