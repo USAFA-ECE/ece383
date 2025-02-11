@@ -159,17 +159,15 @@ There are 3 gate checks associated with this lab, each worth 5 points - see the 
 - In the Lab2 Datapath there are comments that describe three tests you can do to progressively build towards displaying signals from the BRAM.  Those tests should look like the following images.
 
 ```{image} ./figures/Lab02_GC1-1.png
-:width: 480
+:width: 240
 :align: center
 ```
-
 ```{image} ./figures/Lab02_GC1-2.png
-:width: 480
+:width: 240
 :align: center
 ```
-
 ```{image} ./figures/Lab02_GC1-3.png
-:width: 480
+:width: 240
 :align: center
 ```
 
