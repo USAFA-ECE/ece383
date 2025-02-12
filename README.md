@@ -4,6 +4,24 @@ This is the GitHub repository for the ECE 383 Course Website.  If you're looking
 
 This site uses Jupyter Book.  The remaining information below concerns setting up and using Jupyter Book.
 
+# Spring 2025 Repos
+## M Day
+- [Jake Edwards](https://github.com/jakeedwards1/ECE383)
+- [Payton Nunn](https://github.com/pnunn15/ECE383)
+- [Jack Rust](https://github.com/jrust45/ECE383)
+- [Grant Zimmerman](https://github.com/Roadrunner26/ece383)
+- [Dustin Mock](https://github.com/HawkMock/ece383)
+- [Ethan Chapman](https://github.com/echap1/ece383)
+
+## T Day
+- [Parker Douglas](https://github.com/parkerdouglas00/ece382-es2)
+- [Andres Samson](https://github.com/aplsamson/Samson-ECE383)
+- [Jonathon Watson](https://github.com/Jonathonw478/ECE_383)
+- [Sam Quick](https://github.com/Quicks5605/ECE383)
+- [Alex Sick](https://github.com/alexbsick/ece383)
+- [Noah Chavez](https://github.com/NoahFCh/ECE_383)
+
+
 # Jupyter Book Template for GitHub Pages
 
 A simple demo of how to deploy a [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) static website to [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) that is automatically built with [GitHub Actions](https://docs.github.com/en/actions).
