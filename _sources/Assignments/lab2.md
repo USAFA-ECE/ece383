@@ -122,12 +122,12 @@ You need to map the ports of BRAM to include it in your lab2_datapath. The compo
 Since you need to use a 3.5mm jack to input signals to the Nexys board, your computer's audio output works quite well. You can use an [online tone generator](https://onlinetonegenerator.com/multiple-tone-generator.html) to create a test signal. 
 
 ### Lab Files
-- [Lab 2 File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2.vhd)
-- [Lab 2 Datapath](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_datapath.vhdl)
-- [Audio Codec Wrapper](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Audio_Codec_Wrapper.vhd)
-- [Clocking Wizard](https://georgeyork.github.io/ECE383_web/lab/lab2/code/clocking_wizard.vhd)
-- [FSM Template](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_fsm.vhdl)
-- [Constraint File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Lab2.xdc)
+- Lab 2 File
+- Lab 2 Datapath
+- Audio Codec Wrapper
+- Clocking Wizard
+- FSM Template
+- Constraint File
 - [Lab 2 Cadet Code (ZIP)](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_cadet_code.zip)
 
 ### Project Setup
