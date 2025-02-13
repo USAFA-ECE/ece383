@@ -17,6 +17,7 @@
 - [Overview](https://store.digilentinc.com/nexys-video-artix-7-fpga-trainer-board-for-multimedia-applications/)
 - [Introduction to the Digilent Nexys Video](https://reference.digilentinc.com/reference/programmable-logic/nexys-video/start)
 - [Datasheet on BRAMs](https://docs.amd.com/r/en-US/ug953-vivado-7series-libraries/BRAM_SDP_MACRO)
+- [Memory Resources Guide](https://docs.amd.com/v/u/en-US/ug473_7Series_Memory_Resources)
 - [Nexys Video Board Reference Manual](https://reference.digilentinc.com/reference/programmable-logic/nexys-video/reference-manual)
   - [Reference Manual on Digilent Website](https://reference.digilentinc.com/reference/programmable-logic/nexys-video/reference-manual)
 - [Nexys Video Board Schematic](https://reference.digilentinc.com/_media/programmable-logic/nexys-video/nexys_video_sch.pdf)
