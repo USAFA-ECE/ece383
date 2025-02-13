@@ -128,7 +128,7 @@ Since you need to use a 3.5mm jack to input signals to the Nexys board, your com
 - [Clocking Wizard](https://georgeyork.github.io/ECE383_web/lab/lab2/code/clocking_wizard.vhd)
 - [FSM Template](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_fsm.vhdl)
 - [Constraint File](https://georgeyork.github.io/ECE383_web/lab/lab2/code/Lab2.xdc)
-- [Complete Lab 2 Code (ZIP)](https://georgeyork.github.io/ECE383_web/lab/lab2/code/lab2_code_for_cadets.zip)
+- [Lab 2 Cadet Code (ZIP)](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_cadet_code.zip)
 
 ### Project Setup
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vhUR2jx8q18?si=OBSWOjCiMWm4M3a9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
