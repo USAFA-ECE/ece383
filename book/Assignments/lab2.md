@@ -175,7 +175,7 @@ There are 3 gate checks associated with this lab, each worth 5 points - see the 
 
 - The demo can be live to your instructor or an image uploaded to teams.
 
-- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_GC1`
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab2_GC1`
 
 #### Gate Check 2
 - *[5 Points]*
@@ -188,7 +188,7 @@ There are 3 gate checks associated with this lab, each worth 5 points - see the 
 
 - The demo can be live to your instructor or an image (if stationary) or video (if scrolling) uploaded to Teams.
 
-- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_GC2`
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab2_GC2`
 
 #### Gate Check 3 - Implementing live audio input.
 
