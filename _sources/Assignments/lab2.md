@@ -3,7 +3,7 @@
 ## 📜 Lab Overview
 In this lab, we will integrate the video display controller developed in Lab 1 with the audio codec on the Nexys Video board to build a basic 2-channel oscilloscope. When complete, your lab should generate an output similar to the picture below.
 
-![Completed Lab Output](https://usafa-ece.github.io/ece383/Assignments/files/Lab02_Complete.png)
+![Completed Lab Output](./figures/Lab02_Complete.png)
 
 ## 💻 Procedure
 
