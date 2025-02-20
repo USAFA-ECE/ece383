@@ -121,6 +121,63 @@ You need to map the ports of BRAM to include it in your lab2_datapath. The compo
 ### Generating Audio Waveforms
 Since you need to use a 3.5mm jack to input signals to the Nexys board, your computer's audio output works quite well. You can use an [online tone generator](https://onlinetonegenerator.com/multiple-tone-generator.html?f[]=600&f[]=300&w[]=si&w[]=si&v[]=57&v[]=33) to create a test signal. 
 
+```{html}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sine Wave Generator</title>
+</head>
+<body>
+    <h1>Sine Wave Generator</h1>
+    <label for="frequency">Frequency (Hz):</label>
+    <input type="range" id="frequency" min="20" max="2000" value="440" step="1">
+    <span id="freqValue">440</span> Hz
+    <br><br>
+    <button id="startStop">Start</button>
+
+    <script>
+        let audioContext = null;
+        let oscillator = null;
+        let isPlaying = false;
+
+        const frequencySlider = document.getElementById('frequency');
+        const freqValue = document.getElementById('freqValue');
+        const startStopButton = document.getElementById('startStop');
+
+        frequencySlider.addEventListener('input', () => {
+            const frequency = frequencySlider.value;
+            freqValue.textContent = frequency;
+            if (oscillator) {
+                oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            }
+        });
+
+        startStopButton.addEventListener('click', () => {
+            if (!isPlaying) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                oscillator = audioContext.createOscillator();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(frequencySlider.value, audioContext.currentTime);
+                oscillator.connect(audioContext.destination);
+                oscillator.start();
+
+                startStopButton.textContent = 'Stop';
+                isPlaying = true;
+            } else {
+                oscillator.stop();
+                oscillator.disconnect();
+                audioContext.close();
+
+                startStopButton.textContent = 'Start';
+                isPlaying = false;
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+
 ### Lab Files
 - Lab 2 File
 - Lab 2 Datapath
