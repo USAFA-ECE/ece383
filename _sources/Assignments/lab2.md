@@ -119,10 +119,10 @@ You need to map the ports of BRAM to include it in your lab2_datapath. The compo
 ![Lab 2 Connections](https://georgeyork.github.io/ECE383_web/lab/lab2/img/lab2Connections_v2.jpg)
 
 ### Generating Audio Waveforms
-Since you need to use a 3.5mm jack to input signals to the Nexys board, your computer's audio output works quite well. You can use an [online tone generator](https://onlinetonegenerator.com/multiple-tone-generator.html?f[]=600&f[]=300&w[]=si&w[]=si&v[]=57&v[]=33) to create a test signal. 
+Since you need to use a 3.5mm jack to input signals to the Nexys board, your computer's audio output works quite well. You can use the embedded tone generator below or a [third-party tone generator](https://onlinetonegenerator.com/multiple-tone-generator.html?f[]=600&f[]=300&w[]=si&w[]=si&v[]=57&v[]=33) to create a test signal. 
 
 ```{raw} html
-<iframe src="_static/sine_wave_generator.html" width="100%" height="400px" style="border: none;"></iframe>
+<iframe src="https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_signal_generator.html" width="100%" height="400px" style="border: none;"></iframe>
 ```
 
 
