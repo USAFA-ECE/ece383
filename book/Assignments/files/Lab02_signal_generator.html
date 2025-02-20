@@ -4,48 +4,124 @@
     <title>Sine Wave Generator</title>
 </head>
 <body>
-    <h1>Sine Wave Generator</h1>
-    <label for="frequency">Frequency (Hz):</label>
-    <input type="range" id="frequency" min="20" max="2000" value="440" step="1">
-    <span id="freqValue">440</span> Hz
-    <br><br>
+    <div>
+        <h2>Left Channel</h2>
+        <label for="leftFrequency">Frequency (Hz):</label>
+        <input type="range" id="leftFrequency" min="20" max="2000" value="440" step="1">
+        <span id="leftFreqValue">440</span> Hz
+        <br>
+        <label for="leftWaveform">Waveform:</label>
+        <select id="leftWaveform">
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Sawtooth</option>
+        </select>
+    </div>
+
+    <div>
+        <h2>Right Channel</h2>
+        <label for="rightFrequency">Frequency (Hz):</label>
+        <input type="range" id="rightFrequency" min="20" max="2000" value="440" step="1">
+        <span id="rightFreqValue">440</span> Hz
+        <br>
+        <label for="rightWaveform">Waveform:</label>
+        <select id="rightWaveform">
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Sawtooth</option>
+        </select>
+    </div>
+
+    <br>
     <button id="startStop">Start</button>
 
     <script>
         let audioContext = null;
-        let oscillator = null;
+        let leftOscillator = null;
+        let rightOscillator = null;
+        let leftGain = null;
+        let rightGain = null;
         let isPlaying = false;
 
-        const frequencySlider = document.getElementById('frequency');
-        const freqValue = document.getElementById('freqValue');
+        const leftFrequencySlider = document.getElementById('leftFrequency');
+        const rightFrequencySlider = document.getElementById('rightFrequency');
+        const leftFreqValue = document.getElementById('leftFreqValue');
+        const rightFreqValue = document.getElementById('rightFreqValue');
+        const leftWaveformSelect = document.getElementById('leftWaveform');
+        const rightWaveformSelect = document.getElementById('rightWaveform');
         const startStopButton = document.getElementById('startStop');
 
-        frequencySlider.addEventListener('input', () => {
-            const frequency = frequencySlider.value;
-            freqValue.textContent = frequency;
-            if (oscillator) {
-                oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+        leftFrequencySlider.addEventListener('input', () => {
+            const frequency = leftFrequencySlider.value;
+            leftFreqValue.textContent = frequency;
+            if (leftOscillator) {
+                leftOscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            }
+        });
+
+        rightFrequencySlider.addEventListener('input', () => {
+            const frequency = rightFrequencySlider.value;
+            rightFreqValue.textContent = frequency;
+            if (rightOscillator) {
+                rightOscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
             }
         });
 
         startStopButton.addEventListener('click', () => {
             if (!isPlaying) {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                oscillator = audioContext.createOscillator();
-                oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(frequencySlider.value, audioContext.currentTime);
-                oscillator.connect(audioContext.destination);
-                oscillator.start();
+
+                // Create left channel
+                leftOscillator = audioContext.createOscillator();
+                leftOscillator.type = leftWaveformSelect.value;
+                leftOscillator.frequency.setValueAtTime(leftFrequencySlider.value, audioContext.currentTime);
+
+                leftGain = audioContext.createGain();
+                const leftChannel = audioContext.createChannelMerger(2);
+                leftOscillator.connect(leftGain);
+                leftGain.connect(leftChannel, 0, 0);
+                leftChannel.connect(audioContext.destination);
+
+                // Create right channel
+                rightOscillator = audioContext.createOscillator();
+                rightOscillator.type = rightWaveformSelect.value;
+                rightOscillator.frequency.setValueAtTime(rightFrequencySlider.value, audioContext.currentTime);
+
+                rightGain = audioContext.createGain();
+                const rightChannel = audioContext.createChannelMerger(2);
+                rightOscillator.connect(rightGain);
+                rightGain.connect(rightChannel, 0, 1);
+                rightChannel.connect(audioContext.destination);
+
+                // Start oscillators
+                leftOscillator.start();
+                rightOscillator.start();
 
                 startStopButton.textContent = 'Stop';
                 isPlaying = true;
             } else {
-                oscillator.stop();
-                oscillator.disconnect();
+                leftOscillator.stop();
+                rightOscillator.stop();
+
+                leftOscillator.disconnect();
+                rightOscillator.disconnect();
+
                 audioContext.close();
 
                 startStopButton.textContent = 'Start';
                 isPlaying = false;
+            }
+        });
+
+        leftWaveformSelect.addEventListener('change', () => {
+            if (leftOscillator) {
+                leftOscillator.type = leftWaveformSelect.value;
+            }
+        });
+
+        rightWaveformSelect.addEventListener('change', () => {
+            if (rightOscillator) {
+                rightOscillator.type = rightWaveformSelect.value;
             }
         });
     </script>
