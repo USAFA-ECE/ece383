@@ -4,6 +4,7 @@
     <title>Sine Wave Generator</title>
 </head>
 <body>
+    <h1>Stereo Waveform Generator</h1>
     <div>
         <h2>Left Channel</h2>
         <label for="leftFrequency">Frequency (Hz):</label>
@@ -16,6 +17,12 @@
             <option value="square">Square</option>
             <option value="sawtooth">Sawtooth</option>
         </select>
+        <br>
+        <label for="leftVolume">Volume:</label>
+        <input type="range" id="leftVolume" min="0" max="1" value="0.5" step="0.01">
+        <br>
+        <label for="leftEnable">Enable Output:</label>
+        <input type="checkbox" id="leftEnable" checked>
     </div>
 
     <div>
@@ -30,6 +37,12 @@
             <option value="square">Square</option>
             <option value="sawtooth">Sawtooth</option>
         </select>
+        <br>
+        <label for="rightVolume">Volume:</label>
+        <input type="range" id="rightVolume" min="0" max="1" value="0.5" step="0.01">
+        <br>
+        <label for="rightEnable">Enable Output:</label>
+        <input type="checkbox" id="rightEnable" checked>
     </div>
 
     <br>
@@ -49,6 +62,10 @@
         const rightFreqValue = document.getElementById('rightFreqValue');
         const leftWaveformSelect = document.getElementById('leftWaveform');
         const rightWaveformSelect = document.getElementById('rightWaveform');
+        const leftVolumeSlider = document.getElementById('leftVolume');
+        const rightVolumeSlider = document.getElementById('rightVolume');
+        const leftEnableCheckbox = document.getElementById('leftEnable');
+        const rightEnableCheckbox = document.getElementById('rightEnable');
         const startStopButton = document.getElementById('startStop');
 
         leftFrequencySlider.addEventListener('input', () => {
@@ -67,44 +84,61 @@
             }
         });
 
+        leftVolumeSlider.addEventListener('input', () => {
+            if (leftGain) {
+                leftGain.gain.setValueAtTime(leftVolumeSlider.value, audioContext.currentTime);
+            }
+        });
+
+        rightVolumeSlider.addEventListener('input', () => {
+            if (rightGain) {
+                rightGain.gain.setValueAtTime(rightVolumeSlider.value, audioContext.currentTime);
+            }
+        });
+
         startStopButton.addEventListener('click', () => {
             if (!isPlaying) {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
                 // Create left channel
-                leftOscillator = audioContext.createOscillator();
-                leftOscillator.type = leftWaveformSelect.value;
-                leftOscillator.frequency.setValueAtTime(leftFrequencySlider.value, audioContext.currentTime);
+                if (leftEnableCheckbox.checked) {
+                    leftOscillator = audioContext.createOscillator();
+                    leftOscillator.type = leftWaveformSelect.value;
+                    leftOscillator.frequency.setValueAtTime(leftFrequencySlider.value, audioContext.currentTime);
 
-                leftGain = audioContext.createGain();
-                const leftChannel = audioContext.createChannelMerger(2);
-                leftOscillator.connect(leftGain);
-                leftGain.connect(leftChannel, 0, 0);
-                leftChannel.connect(audioContext.destination);
+                    leftGain = audioContext.createGain();
+                    leftGain.gain.setValueAtTime(leftVolumeSlider.value, audioContext.currentTime);
+                    leftOscillator.connect(leftGain);
+                    leftGain.connect(audioContext.destination);
+
+                    leftOscillator.start();
+                }
 
                 // Create right channel
-                rightOscillator = audioContext.createOscillator();
-                rightOscillator.type = rightWaveformSelect.value;
-                rightOscillator.frequency.setValueAtTime(rightFrequencySlider.value, audioContext.currentTime);
+                if (rightEnableCheckbox.checked) {
+                    rightOscillator = audioContext.createOscillator();
+                    rightOscillator.type = rightWaveformSelect.value;
+                    rightOscillator.frequency.setValueAtTime(rightFrequencySlider.value, audioContext.currentTime);
 
-                rightGain = audioContext.createGain();
-                const rightChannel = audioContext.createChannelMerger(2);
-                rightOscillator.connect(rightGain);
-                rightGain.connect(rightChannel, 0, 1);
-                rightChannel.connect(audioContext.destination);
+                    rightGain = audioContext.createGain();
+                    rightGain.gain.setValueAtTime(rightVolumeSlider.value, audioContext.currentTime);
+                    rightOscillator.connect(rightGain);
+                    rightGain.connect(audioContext.destination);
 
-                // Start oscillators
-                leftOscillator.start();
-                rightOscillator.start();
+                    rightOscillator.start();
+                }
 
                 startStopButton.textContent = 'Stop';
                 isPlaying = true;
             } else {
-                leftOscillator.stop();
-                rightOscillator.stop();
-
-                leftOscillator.disconnect();
-                rightOscillator.disconnect();
+                if (leftOscillator) {
+                    leftOscillator.stop();
+                    leftOscillator.disconnect();
+                }
+                if (rightOscillator) {
+                    rightOscillator.stop();
+                    rightOscillator.disconnect();
+                }
 
                 audioContext.close();
 
