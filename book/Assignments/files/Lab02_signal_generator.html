@@ -68,6 +68,20 @@
         const rightEnableCheckbox = document.getElementById('rightEnable');
         const startStopButton = document.getElementById('startStop');
 
+        function updateOscillator(oscillator, gain, enable) {
+            if (oscillator && gain) {
+                gain.gain.setValueAtTime(enable ? 1.0 : 0.0, audioContext.currentTime);
+            }
+        }
+
+        leftEnableCheckbox.addEventListener('change', () => {
+            updateOscillator(leftOscillator, leftGain, leftEnableCheckbox.checked);
+        });
+
+        rightEnableCheckbox.addEventListener('change', () => {
+            updateOscillator(rightOscillator, rightGain, rightEnableCheckbox.checked);
+        });
+
         leftFrequencySlider.addEventListener('input', () => {
             const frequency = leftFrequencySlider.value;
             leftFreqValue.textContent = frequency;
@@ -100,7 +114,6 @@
             if (!isPlaying) {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-                // Create left channel
                 if (leftEnableCheckbox.checked) {
                     leftOscillator = audioContext.createOscillator();
                     leftOscillator.type = leftWaveformSelect.value;
@@ -114,7 +127,6 @@
                     leftOscillator.start();
                 }
 
-                // Create right channel
                 if (rightEnableCheckbox.checked) {
                     rightOscillator = audioContext.createOscillator();
                     rightOscillator.type = rightWaveformSelect.value;
@@ -141,7 +153,6 @@
                 }
 
                 audioContext.close();
-
                 startStopButton.textContent = 'Start';
                 isPlaying = false;
             }
