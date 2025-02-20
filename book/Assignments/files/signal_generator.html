@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sine Wave Generator</title>
+</head>
+<body>
+    <h1>Sine Wave Generator</h1>
+    <label for="frequency">Frequency (Hz):</label>
+    <input type="range" id="frequency" min="20" max="2000" value="440" step="1">
+    <span id="freqValue">440</span> Hz
+    <br><br>
+    <button id="startStop">Start</button>
+
+    <script>
+        let audioContext = null;
+        let oscillator = null;
+        let isPlaying = false;
+
+        const frequencySlider = document.getElementById('frequency');
+        const freqValue = document.getElementById('freqValue');
+        const startStopButton = document.getElementById('startStop');
+
+        frequencySlider.addEventListener('input', () => {
+            const frequency = frequencySlider.value;
+            freqValue.textContent = frequency;
+            if (oscillator) {
+                oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            }
+        });
+
+        startStopButton.addEventListener('click', () => {
+            if (!isPlaying) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                oscillator = audioContext.createOscillator();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(frequencySlider.value, audioContext.currentTime);
+                oscillator.connect(audioContext.destination);
+                oscillator.start();
+
+                startStopButton.textContent = 'Stop';
+                isPlaying = true;
+            } else {
+                oscillator.stop();
+                oscillator.disconnect();
+                audioContext.close();
+
+                startStopButton.textContent = 'Start';
+                isPlaying = false;
+            }
+        });
+    </script>
+</body>
+</html>
