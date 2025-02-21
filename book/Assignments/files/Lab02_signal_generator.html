@@ -81,16 +81,23 @@
         let rightOscillator = null;
         let leftGain = null;
         let rightGain = null;
+        let leftPanner = null;
+        let rightPanner = null;
 
-        function createOscillator(frequency, type, volume) {
+        function createChannel(frequency, type, volume, pan) {
             const oscillator = audioContext.createOscillator();
             const gain = audioContext.createGain();
+            const panner = audioContext.createStereoPanner();
+
             oscillator.type = type;
             oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
             gain.gain.setValueAtTime(volume, audioContext.currentTime);
-            oscillator.connect(gain).connect(audioContext.destination);
+            panner.pan.setValueAtTime(pan, audioContext.currentTime);
+
+            oscillator.connect(gain).connect(panner).connect(audioContext.destination);
             oscillator.start();
-            return { oscillator, gain };
+
+            return { oscillator, gain, panner };
         }
 
         function startLeftChannel() {
@@ -98,9 +105,10 @@
                 const frequency = document.getElementById('leftFrequency').value;
                 const type = document.getElementById('leftWaveform').value;
                 const volume = document.getElementById('leftVolume').value;
-                const { oscillator, gain } = createOscillator(frequency, type, volume);
+                const { oscillator, gain, panner } = createChannel(frequency, type, volume, -1);
                 leftOscillator = oscillator;
                 leftGain = gain;
+                leftPanner = panner;
             }
         }
 
@@ -109,9 +117,10 @@
                 const frequency = document.getElementById('rightFrequency').value;
                 const type = document.getElementById('rightWaveform').value;
                 const volume = document.getElementById('rightVolume').value;
-                const { oscillator, gain } = createOscillator(frequency, type, volume);
+                const { oscillator, gain, panner } = createChannel(frequency, type, volume, 1);
                 rightOscillator = oscillator;
                 rightGain = gain;
+                rightPanner = panner;
             }
         }
 
@@ -121,6 +130,7 @@
                 leftOscillator.disconnect();
                 leftOscillator = null;
                 leftGain = null;
+                leftPanner = null;
             }
         }
 
@@ -130,6 +140,7 @@
                 rightOscillator.disconnect();
                 rightOscillator = null;
                 rightGain = null;
+                rightPanner = null;
             }
         }
 
