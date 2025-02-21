@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sine Wave Generator</title>
+    <style>
+        .channel-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .channel {
+            flex: 1 1 300px;
+            min-width: 300px;
+        }
+    </style>
 </head>
 <body>
     <h1>Stereo Waveform Generator</h1>
-    <div>
-        <h2>Left Channel</h2>
-        <label for="leftFrequency">Frequency (Hz):</label>
-        <input type="range" id="leftFrequency" min="20" max="2000" value="440" step="1">
-        <span id="leftFreqValue">440</span> Hz
-        <br>
-        <label for="leftWaveform">Waveform:</label>
-        <select id="leftWaveform">
-            <option value="sine">Sine</option>
-            <option value="square">Square</option>
-            <option value="sawtooth">Sawtooth</option>
-        </select>
-        <br>
-        <label for="leftVolume">Volume:</label>
-        <input type="range" id="leftVolume" min="0" max="1" value="0.5" step="0.01">
-        <br>
-        <label for="leftEnable">Enable Output:</label>
-        <input type="checkbox" id="leftEnable" checked>
-    </div>
+    <div class="channel-container">
+        <div class="channel">
+            <h2>Left Channel</h2>
+            <label for="leftFrequency">Frequency (Hz):</label>
+            <input type="range" id="leftFrequency" min="20" max="2000" value="440" step="1">
+            <span id="leftFreqValue">440</span> Hz
+            <br>
+            <label for="leftWaveform">Waveform:</label>
+            <select id="leftWaveform">
+                <option value="sine">Sine</option>
+                <option value="square">Square</option>
+                <option value="sawtooth">Sawtooth</option>
+            </select>
+            <br>
+            <label for="leftVolume">Volume:</label>
+            <input type="range" id="leftVolume" min="0" max="1" value="0.5" step="0.01">
+            <br>
+            <label for="leftEnable">Enable Output:</label>
+            <input type="checkbox" id="leftEnable">
+        </div>
 
-    <div>
-        <h2>Right Channel</h2>
-        <label for="rightFrequency">Frequency (Hz):</label>
-        <input type="range" id="rightFrequency" min="20" max="2000" value="440" step="1">
-        <span id="rightFreqValue">440</span> Hz
-        <br>
-        <label for="rightWaveform">Waveform:</label>
-        <select id="rightWaveform">
-            <option value="sine">Sine</option>
-            <option value="square">Square</option>
-            <option value="sawtooth">Sawtooth</option>
-        </select>
-        <br>
-        <label for="rightVolume">Volume:</label>
-        <input type="range" id="rightVolume" min="0" max="1" value="0.5" step="0.01">
-        <br>
-        <label for="rightEnable">Enable Output:</label>
-        <input type="checkbox" id="rightEnable" checked>
+        <div class="channel">
+            <h2>Right Channel</h2>
+            <label for="rightFrequency">Frequency (Hz):</label>
+            <input type="range" id="rightFrequency" min="20" max="2000" value="440" step="1">
+            <span id="rightFreqValue">440</span> Hz
+            <br>
+            <label for="rightWaveform">Waveform:</label>
+            <select id="rightWaveform">
+                <option value="sine">Sine</option>
+                <option value="square">Square</option>
+                <option value="sawtooth">Sawtooth</option>
+            </select>
+            <br>
+            <label for="rightVolume">Volume:</label>
+            <input type="range" id="rightVolume" min="0" max="1" value="0.5" step="0.01">
+            <br>
+            <label for="rightEnable">Enable Output:</label>
+            <input type="checkbox" id="rightEnable">
+        </div>
     </div>
-
-    <br>
-    <button id="startStop">Start</button>
 
     <script>
-        let audioContext = null;
+        let audioContext = new (window.AudioContext || window.webkitAudioContext)();
         let leftOscillator = null;
         let rightOscillator = null;
         let leftGain = null;
         let rightGain = null;
-        let isPlaying = false;
 
         const leftFrequencySlider = document.getElementById('leftFrequency');
         const rightFrequencySlider = document.getElementById('rightFrequency');
@@ -66,35 +74,84 @@
         const rightVolumeSlider = document.getElementById('rightVolume');
         const leftEnableCheckbox = document.getElementById('leftEnable');
         const rightEnableCheckbox = document.getElementById('rightEnable');
-        const startStopButton = document.getElementById('startStop');
 
-        function updateOscillator(oscillator, gain, enable) {
-            if (oscillator && gain) {
-                gain.gain.setValueAtTime(enable ? 1.0 : 0.0, audioContext.currentTime);
+        function createOscillator(channel) {
+            const oscillator = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            oscillator.connect(gain);
+            gain.connect(audioContext.destination);
+            return { oscillator, gain };
+        }
+
+        function startLeftChannel() {
+            if (!leftOscillator) {
+                const { oscillator, gain } = createOscillator('left');
+                leftOscillator = oscillator;
+                leftGain = gain;
+                leftOscillator.type = leftWaveformSelect.value;
+                leftOscillator.frequency.setValueAtTime(leftFrequencySlider.value, audioContext.currentTime);
+                leftGain.gain.setValueAtTime(leftVolumeSlider.value, audioContext.currentTime);
+                leftOscillator.start();
+            }
+        }
+
+        function startRightChannel() {
+            if (!rightOscillator) {
+                const { oscillator, gain } = createOscillator('right');
+                rightOscillator = oscillator;
+                rightGain = gain;
+                rightOscillator.type = rightWaveformSelect.value;
+                rightOscillator.frequency.setValueAtTime(rightFrequencySlider.value, audioContext.currentTime);
+                rightGain.gain.setValueAtTime(rightVolumeSlider.value, audioContext.currentTime);
+                rightOscillator.start();
+            }
+        }
+
+        function stopLeftChannel() {
+            if (leftOscillator) {
+                leftOscillator.stop();
+                leftOscillator.disconnect();
+                leftOscillator = null;
+                leftGain = null;
+            }
+        }
+
+        function stopRightChannel() {
+            if (rightOscillator) {
+                rightOscillator.stop();
+                rightOscillator.disconnect();
+                rightOscillator = null;
+                rightGain = null;
             }
         }
 
         leftEnableCheckbox.addEventListener('change', () => {
-            updateOscillator(leftOscillator, leftGain, leftEnableCheckbox.checked);
+            if (leftEnableCheckbox.checked) {
+                startLeftChannel();
+            } else {
+                stopLeftChannel();
+            }
         });
 
         rightEnableCheckbox.addEventListener('change', () => {
-            updateOscillator(rightOscillator, rightGain, rightEnableCheckbox.checked);
+            if (rightEnableCheckbox.checked) {
+                startRightChannel();
+            } else {
+                stopRightChannel();
+            }
         });
 
         leftFrequencySlider.addEventListener('input', () => {
-            const frequency = leftFrequencySlider.value;
-            leftFreqValue.textContent = frequency;
+            leftFreqValue.textContent = leftFrequencySlider.value;
             if (leftOscillator) {
-                leftOscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                leftOscillator.frequency.setValueAtTime(leftFrequencySlider.value, audioContext.currentTime);
             }
         });
 
         rightFrequencySlider.addEventListener('input', () => {
-            const frequency = rightFrequencySlider.value;
-            rightFreqValue.textContent = frequency;
+            rightFreqValue.textContent = rightFrequencySlider.value;
             if (rightOscillator) {
-                rightOscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                rightOscillator.frequency.setValueAtTime(rightFrequencySlider.value, audioContext.currentTime);
             }
         });
 
@@ -107,54 +164,6 @@
         rightVolumeSlider.addEventListener('input', () => {
             if (rightGain) {
                 rightGain.gain.setValueAtTime(rightVolumeSlider.value, audioContext.currentTime);
-            }
-        });
-
-        startStopButton.addEventListener('click', () => {
-            if (!isPlaying) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
-                if (leftEnableCheckbox.checked) {
-                    leftOscillator = audioContext.createOscillator();
-                    leftOscillator.type = leftWaveformSelect.value;
-                    leftOscillator.frequency.setValueAtTime(leftFrequencySlider.value, audioContext.currentTime);
-
-                    leftGain = audioContext.createGain();
-                    leftGain.gain.setValueAtTime(leftVolumeSlider.value, audioContext.currentTime);
-                    leftOscillator.connect(leftGain);
-                    leftGain.connect(audioContext.destination);
-
-                    leftOscillator.start();
-                }
-
-                if (rightEnableCheckbox.checked) {
-                    rightOscillator = audioContext.createOscillator();
-                    rightOscillator.type = rightWaveformSelect.value;
-                    rightOscillator.frequency.setValueAtTime(rightFrequencySlider.value, audioContext.currentTime);
-
-                    rightGain = audioContext.createGain();
-                    rightGain.gain.setValueAtTime(rightVolumeSlider.value, audioContext.currentTime);
-                    rightOscillator.connect(rightGain);
-                    rightGain.connect(audioContext.destination);
-
-                    rightOscillator.start();
-                }
-
-                startStopButton.textContent = 'Stop';
-                isPlaying = true;
-            } else {
-                if (leftOscillator) {
-                    leftOscillator.stop();
-                    leftOscillator.disconnect();
-                }
-                if (rightOscillator) {
-                    rightOscillator.stop();
-                    rightOscillator.disconnect();
-                }
-
-                audioContext.close();
-                startStopButton.textContent = 'Start';
-                isPlaying = false;
             }
         });
 
