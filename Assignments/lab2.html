@@ -660,7 +660,7 @@ document.write(`
 <ul class="simple">
 <li><p>Notice from the block diagram you will copy your Video instantiation and button processes from Lab 1 into your Lab 2 Datapath.  You will also have to re-implement the Lab 1 Clocking Wizard in you Lab 2 project.  Doing this will eliminate a lot of errors from un-driven output signals on lab 2 top. Additionally your Scopeface and Button inputs from Lab 1 should be functional as well. Also, you may need to have implement another Clocking Wizard for the Audio Codec Wrapper inside the Datapath entity to get the bit stream to generate.</p></li>
 <li><p>The demo can be live to your instructor or an image uploaded to teams.</p></li>
-<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab1_GC1</span></code></p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab2_GC1</span></code></p></li>
 </ul>
 </section>
 <section id="gate-check-2">
@@ -671,7 +671,7 @@ document.write(`
 <li><p>How do you write a sample from the audio wrapper to the BRAM? From last lesson, to write we need to: (1) set WE =&gt; “11” [not using this feature], (2) put the address we want to write to on WRADDR, (3) put the converted data sample from the audio wrapper on the 16-bit data input DI, and (3) signal write enable WREN = ‘1’ with a CW from your FSM. Since the address we are writing to in the BRAM is controlled by the counter, your FSM needs to first reset the counter. Then it should wait for the Ready signal. When ready goes high, you can then save the sample (let WE = ‘1’ with a CW), then increment the counter (with a CW to increment the counter), then compare to see if you are done counting (by checking a SW). If not done counting, then jump back to wait for ready, otherwise, start the process over by jumping to the state to reset the counter.</p></li>
 <li><p>Reminder: You must successfully convert the signed audio data from the Audio_Codec_Wrapper into unsigned data needed for the monitor. After you demo this, this is a good opportunity to work on scaling the signals so their DC value is centered on your grids y-axis and possibly work on the trigger hardware. If this does not work, you must create a Testbench to help debug why it is not working (see example testbenches in the zip file). Reminder: implement another Clocking Wizard and the Audio Codec Wrapper inside the Datapath entity to get your Audio Codec to begin functioning (if not done in gate check 1).</p></li>
 <li><p>The demo can be live to your instructor or an image (if stationary) or video (if scrolling) uploaded to Teams.</p></li>
-<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab1_GC2</span></code></p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab2_GC2</span></code></p></li>
 </ul>
 </section>
 <section id="gate-check-3-implementing-live-audio-input">
@@ -693,7 +693,7 @@ document.write(`
 <li><p>The Mini-C design technique can be used but is NOT required. However, your instructor will expect you create Lab2_cu using the state machine coding style used in Lesson 9, with a process for state transitions, separated from a CSA LUT section for generating the output CWs.</p></li>
 <li><p>Your datapath must use processes which are similar to our basic building block (counter, register, mux, etc.). I do not want to see one massive process that attempts to do all the work in the datapath.</p></li>
 <li><p>The demo can be live to your instructor or a video uploaded to Teams.</p></li>
-<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab1_ReqdFunc</span></code></p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab2_ReqdFunc</span></code></p></li>
 </ul>
 </section>
 <section id="b-level-functionality">
@@ -707,7 +707,7 @@ document.write(`
 </ul>
 <p>The demo can be live to your instructor or a video uploaded to Teams.</p>
 <ul class="simple">
-<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab1_BFunc</span></code></p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab2_BFunc</span></code></p></li>
 </ul>
 </section>
 <section id="a-level-functionality">
@@ -719,7 +719,7 @@ document.write(`
 <li><p>Integrate the button debouncing strategy in HW #7 (or an equivalent debouncing method) to debounce the buttons controlling the trigger time and trigger voltage.</p></li>
 <li><p>Move the trigger volt and trigger time cursors on the screen using the buttons.</p></li>
 <li><p>The demo can be live to your instructor or a video uploaded to Teams.</p></li>
-<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab1_AFunc</span></code></p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab2_AFunc</span></code></p></li>
 </ul>
 </section>
 <section id="turn-in">
