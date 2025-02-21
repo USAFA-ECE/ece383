@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Sine Wave Generator</title>
     <style>
+        /* Example styles based on the lab2.html page */
+        body {
+            font-family: Arial, sans-serif; /* Replace with the actual font-family used */
+            color: #333; /* Replace with the actual text color used */
+            background-color: #fff; /* Replace with the actual background color used */
+        }
         .channel-container {
             display: flex;
             flex-wrap: wrap;
@@ -10,6 +17,17 @@
         .channel {
             flex: 1 1 300px;
             min-width: 300px;
+        }
+        h1, h2 {
+            color: #0056b3; /* Replace with the actual heading color used */
+        }
+        label {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="range"], select, input[type="checkbox"] {
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -141,42 +159,6 @@
         });
 
         leftFrequencySlider.addEventListener('input', () => {
-            leftFreqValue.textContent = leftFrequencySlider.value;
-            if (leftOscillator) {
-                leftOscillator.frequency.setValueAtTime(leftFrequencySlider.value, audioContext.currentTime);
-            }
-        });
-
-        rightFrequencySlider.addEventListener('input', () => {
-            rightFreqValue.textContent = rightFrequencySlider.value;
-            if (rightOscillator) {
-                rightOscillator.frequency.setValueAtTime(rightFrequencySlider.value, audioContext.currentTime);
-            }
-        });
-
-        leftVolumeSlider.addEventListener('input', () => {
-            if (leftGain) {
-                leftGain.gain.setValueAtTime(leftVolumeSlider.value, audioContext.currentTime);
-            }
-        });
-
-        rightVolumeSlider.addEventListener('input', () => {
-            if (rightGain) {
-                rightGain.gain.setValueAtTime(rightVolumeSlider.value, audioContext.currentTime);
-            }
-        });
-
-        leftWaveformSelect.addEventListener('change', () => {
-            if (leftOscillator) {
-                leftOscillator.type = leftWaveformSelect.value;
-            }
-        });
-
-        rightWaveformSelect.addEventListener('change', () => {
-            if (rightOscillator) {
-                rightOscillator.type = rightWaveformSelect.value;
-            }
-        });
-    </script>
-</body>
-</html>
+            leftFreqValue.textContent = leftFrequency
+::contentReference[oaicite:0]{index=0}
+ 
