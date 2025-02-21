@@ -3,6 +3,13 @@
 <head>
     <title>Sine Wave Generator</title>
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
         .channel-container {
             display: flex;
             flex-wrap: wrap;
@@ -11,6 +18,17 @@
         .channel {
             flex: 1 1 300px;
             min-width: 300px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -59,63 +77,114 @@
 
     <script>
         let audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        let leftOscillator = audioContext.createOscillator();
-        let rightOscillator = audioContext.createOscillator();
-        let leftGain = audioContext.createGain();
-        let rightGain = audioContext.createGain();
+        let leftOscillator = null;
+        let rightOscillator = null;
+        let leftGain = null;
+        let rightGain = null;
 
-        // Connect oscillators to gain nodes and the audio context
-        leftOscillator.connect(leftGain).connect(audioContext.destination);
-        rightOscillator.connect(rightGain).connect(audioContext.destination);
+        function createOscillator(frequency, type, volume) {
+            const oscillator = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            oscillator.type = type;
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            gain.gain.setValueAtTime(volume, audioContext.currentTime);
+            oscillator.connect(gain).connect(audioContext.destination);
+            oscillator.start();
+            return { oscillator, gain };
+        }
 
-        leftOscillator.type = document.getElementById('leftWaveform').value;
-        rightOscillator.type = document.getElementById('rightWaveform').value;
+        function startLeftChannel() {
+            if (!leftOscillator && document.getElementById('leftEnable').checked) {
+                const frequency = document.getElementById('leftFrequency').value;
+                const type = document.getElementById('leftWaveform').value;
+                const volume = document.getElementById('leftVolume').value;
+                const { oscillator, gain } = createOscillator(frequency, type, volume);
+                leftOscillator = oscillator;
+                leftGain = gain;
+            }
+        }
 
-        leftOscillator.frequency.setValueAtTime(document.getElementById('leftFrequency').value, audioContext.currentTime);
-        rightOscillator.frequency.setValueAtTime(document.getElementById('rightFrequency').value, audioContext.currentTime);
+        function startRightChannel() {
+            if (!rightOscillator && document.getElementById('rightEnable').checked) {
+                const frequency = document.getElementById('rightFrequency').value;
+                const type = document.getElementById('rightWaveform').value;
+                const volume = document.getElementById('rightVolume').value;
+                const { oscillator, gain } = createOscillator(frequency, type, volume);
+                rightOscillator = oscillator;
+                rightGain = gain;
+            }
+        }
 
-        leftGain.gain.setValueAtTime(document.getElementById('leftVolume').value, audioContext.currentTime);
-        rightGain.gain.setValueAtTime(document.getElementById('rightVolume').value, audioContext.currentTime);
+        function stopLeftChannel() {
+            if (leftOscillator) {
+                leftOscillator.stop();
+                leftOscillator.disconnect();
+                leftOscillator = null;
+                leftGain = null;
+            }
+        }
 
-        leftOscillator.start();
-        rightOscillator.start();
+        function stopRightChannel() {
+            if (rightOscillator) {
+                rightOscillator.stop();
+                rightOscillator.disconnect();
+                rightOscillator = null;
+                rightGain = null;
+            }
+        }
 
-        // Update frequency display
+        document.getElementById('leftEnable').addEventListener('change', (e) => {
+            if (e.target.checked) {
+                startLeftChannel();
+            } else {
+                stopLeftChannel();
+            }
+        });
+
+        document.getElementById('rightEnable').addEventListener('change', (e) => {
+            if (e.target.checked) {
+                startRightChannel();
+            } else {
+                stopRightChannel();
+            }
+        });
+
         document.getElementById('leftFrequency').addEventListener('input', (e) => {
             document.getElementById('leftFreqValue').textContent = e.target.value;
-            leftOscillator.frequency.setValueAtTime(e.target.value, audioContext.currentTime);
+            if (leftOscillator) {
+                leftOscillator.frequency.setValueAtTime(e.target.value, audioContext.currentTime);
+            }
         });
 
         document.getElementById('rightFrequency').addEventListener('input', (e) => {
             document.getElementById('rightFreqValue').textContent = e.target.value;
-            rightOscillator.frequency.setValueAtTime(e.target.value, audioContext.currentTime);
+            if (rightOscillator) {
+                rightOscillator.frequency.setValueAtTime(e.target.value, audioContext.currentTime);
+            }
         });
 
-        // Update waveform
-        document.getElementById('leftWaveform').addEventListener('change', (e) => {
-            leftOscillator.type = e.target.value;
-        });
-
-        document.getElementById('rightWaveform').addEventListener('change', (e) => {
-            rightOscillator.type = e.target.value;
-        });
-
-        // Update volume
         document.getElementById('leftVolume').addEventListener('input', (e) => {
-            leftGain.gain.setValueAtTime(e.target.value, audioContext.currentTime);
+            if (leftGain) {
+                leftGain.gain.setValueAtTime(e.target.value, audioContext.currentTime);
+            }
         });
 
         document.getElementById('rightVolume').addEventListener('input', (e) => {
-            rightGain.gain.setValueAtTime(e.target.value, audioContext.currentTime);
+            if (rightGain) {
+                rightGain.gain.setValueAtTime(e.target.value, audioContext.currentTime);
+            }
         });
 
-        // Enable/disable output
-        document.getElementById('leftEnable').addEventListener('change', (e) => {
-            leftGain.gain.setValueAtTime(e.target.checked ? document.getElementById('leftVolume').value : 0, audioContext.currentTime);
+        document.getElementById('leftWaveform').addEventListener('change', (e) => {
+            if (leftOscillator) {
+                leftOscillator.type = e.target.value;
+            }
         });
 
-        document.getElementById('rightEnable').addEventListener('change', (e) => {
-            rightGain.gain.setValueAtTime(e.target.checked ? document.getElementById('rightVolume').value : 0, audioContext.currentTime);
+        document.getElementById('rightWaveform').addEventListener('change', (e) => {
+            if (rightOscillator) {
+                rightOscillator.type = e.target.value;
+            }
         });
     </script>
 </body>
