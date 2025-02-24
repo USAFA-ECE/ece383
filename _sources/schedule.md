@@ -23,8 +23,8 @@ This schedule is subject to change as appropriate.
 | 14     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck1](Assignments/lab2.md)         |
 | 15     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck2](Assignments/lab2.md)         |
 | 16     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck3](Assignments/lab2.md)         |
-| 17     | GR 1                                             |                      |                                                    |
-| 18     | Soft CPU                                         |                      | [Lab2-Final](Assignments/lab2.md)  |
+| 17     | Review and Lab 2: Data acquisition, storage, and display    |                      |                                                    |
+| 18     | GR 1                                             |                      | [Lab2-Final](Assignments/lab2.md)  |
 | 19     | Soft CPU                                         |                      | [HW9](Assignments/homework9.md)       |
 | 20     | Soft CPU                                         |                      | [HW10](Assignments/homework10.md)       |
 | 21     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) | [Final Project Ideas|https://youtube.com] |[HW11](Assignments/homework11.md)       |
