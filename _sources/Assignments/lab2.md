@@ -135,6 +135,7 @@ Since you need to use a 3.5mm jack to input signals to the Nexys board, your com
 - FSM Template
 - Constraint File
 - [Lab 2 Cadet Code (ZIP)](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_cadet_code.zip)
+- [Block Diagram Template](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_Block_Diagram.pptx)
 
 ### Project Setup
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vhUR2jx8q18?si=OBSWOjCiMWm4M3a9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
