@@ -31,6 +31,7 @@
 - [MicroBlaze Processor Reference Guide](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_1/ug984-vivado-microblaze-ref.pdf)
 - [BYU MicroBlaze Tutorial (uses Digilent Atlys)](https://ee427plblabs.groups.et.byu.net/mb_tutorial/mb_tutorial.html)
 - [Xilinx MicroBlaze Documentation](https://www.xilinx.com/products/design-tools/microblaze.html)
+- [CMake Fix](https://adaptivesupport.amd.com/s/question/0D52E00006hpL4aSAE/vitis-20192-unable-to-select-libmetal-and-openamp?language=en_US)
 
 ## Final Project Help
 
