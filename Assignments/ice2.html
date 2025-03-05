@@ -387,7 +387,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">🧮 Procedure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-snippets">💻 Code Snippets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-block-1">Code Block 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#my-counter-ip-slave-lite-v1-0-s00-axi-vhd">My_Counter_IP_slave_lite_v1_0_S00_AXI.vhd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#my-counter-ip-vhd">My_Counter_IP.vhd</a></li>
 </ul>
 </li>
 </ul>
@@ -422,14 +423,48 @@ document.write(`
 </section>
 <section id="code-snippets">
 <h2>💻 Code Snippets<a class="headerlink" href="#code-snippets" title="Permalink to this heading">#</a></h2>
-<section id="code-block-1">
-<h3>Code Block 1<a class="headerlink" href="#code-block-1" title="Permalink to this heading">#</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<section id="my-counter-ip-slave-lite-v1-0-s00-axi-vhd">
+<h3>My_Counter_IP_slave_lite_v1_0_S00_AXI.vhd<a class="headerlink" href="#my-counter-ip-slave-lite-v1-0-s00-axi-vhd" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">LED</span><span class="w">	  </span><span class="p">:</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="nf">std_logic_vector</span><span class="p">(</span><span class="mi">7</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="n">component</span><span class="w"> </span><span class="n">lec10</span><span class="w"> </span><span class="n">is</span>
+<span class="w">    </span><span class="n">generic</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">:</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">    </span><span class="n">port</span><span class="p">(</span>
+<span class="w">        </span><span class="nl">clk</span><span class="p">:</span><span class="w"> </span><span class="n">in</span><span class="w">  </span><span class="n">STD_LOGIC</span><span class="p">;</span>
+<span class="w">        </span><span class="nl">reset_n</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">in</span><span class="w">  </span><span class="n">STD_LOGIC</span><span class="p">;</span>
+<span class="w">        </span><span class="nl">ctrl</span><span class="p">:</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">std_logic_vector</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="nl">D</span><span class="p">:</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">unsigned</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="mi">-1</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="nl">Q</span><span class="p">:</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="nf">unsigned</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="mi">-1</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">component</span><span class="p">;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, 383!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">signal</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="p">(</span><span class="mi">7</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">X</span><span class="s">&quot;000000&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">std_logic_vector</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nl">counter</span><span class="p">:</span><span class="w"> </span><span class="n">lec10</span><span class="w"> </span>
+<span class="w">    </span><span class="n">generic</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="w">    </span><span class="n">port</span><span class="w"> </span><span class="n">map</span><span class="p">(</span>
+<span class="w">        </span><span class="n">clk</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">S_AXI_ACLK</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">reset_n</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">S_AXI_ARESETN</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">ctrl</span><span class="w"> </span><span class="o">=&gt;</span><span class="w">    </span><span class="n">slv_reg1</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">        </span><span class="n">D</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">unsigned</span><span class="p">(</span><span class="n">slv_reg0</span><span class="p">(</span><span class="mi">7</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">        </span><span class="n">Q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Q</span><span class="p">);</span>
+<span class="w">    </span><span class="n">LED</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">std_logic_vector</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="my-counter-ip-vhd">
+<h3>My_Counter_IP.vhd<a class="headerlink" href="#my-counter-ip-vhd" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nl">LED</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="nf">std_logic_vector</span><span class="p">(</span><span class="mi">7</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nl">LED</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="nf">std_logic_vector</span><span class="p">(</span><span class="mi">7</span><span class="w"> </span><span class="n">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">LED</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">LED</span><span class="p">,</span>
 </pre></div>
 </div>
 </section>
@@ -498,7 +533,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">🧮 Procedure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-snippets">💻 Code Snippets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-block-1">Code Block 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#my-counter-ip-slave-lite-v1-0-s00-axi-vhd">My_Counter_IP_slave_lite_v1_0_S00_AXI.vhd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#my-counter-ip-vhd">My_Counter_IP.vhd</a></li>
 </ul>
 </li>
 </ul>
