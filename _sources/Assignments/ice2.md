@@ -15,6 +15,7 @@ In this ice, you will add a counter to the Microblaze hardware design then use a
 
 ## 💻 Code Snippets
 
+### Code Block 1
 ```{code-block} c
 #include <stdio.h>
 
