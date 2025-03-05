@@ -17,10 +17,10 @@ In this ice, you will add a counter to the Microblaze hardware design then use a
 
 ### My_Counter_IP_slave_lite_v1_0_S00_AXI.vhd
 ```{code-block} c
-LED	  : out std_logic_vector(7 downto 0);
+    LED : out std_logic_vector(7 downto 0);
 ```
 ```{code-block} c
-	component lec10 is
+    component lec10 is
     generic (N: integer := 4);
     port(
         clk: in  STD_LOGIC;
