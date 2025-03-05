@@ -13,6 +13,8 @@ In this ICE, you will add a counter with LEDs to the Microblaze hardware design 
 - Download [ice2.zip](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/ice2.zip)
 - [Part 1: Create Custom IP](https://guidejar.com/guides/1ebb47ec-55d2-4f3f-b81d-8580d2e4bf47)
 - [Part 2: Modify Custom IP](https://guidejar.com/guides/b711882d-cac2-43c3-9f04-f4e694d5cfbb)
+- [Part 3: Package IP and Generate Bitstream](https://guidejar.com/guides/6c5e6144-d1ff-493f-b89a-799b0b429ccf)
+- [Part 4: Export Hardware, Create C Project, and Run the Program](https://guidejar.com/guides/1ae960f7-193d-4831-9270-beee56c90420)
 - The previous version of this tutorial is [here](https://georgeyork.github.io/ECE383_web/hand/Lec18_Install_short_version.pdf).
 
 ## 💻 Code Snippets
