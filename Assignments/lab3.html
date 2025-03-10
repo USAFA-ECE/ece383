@@ -386,6 +386,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware">Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-setup">Hardware Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-and-testing">Implementation and Testing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
@@ -437,6 +440,81 @@ document.write(`
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <p>In order to accomplish this lab you will need to make some minor changes to the lab2 component, create a new piece of IP, and then program that IP using the MicroBlaze, as described in the block diagram below. We will walk through these steps below.</p>
 <p><img alt="Lab2_Hardware" src="https://georgeyork.github.io/ECE383_web/lab/lab3/img/lab3-2.jpg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember the Ready signal in the diagram above is coming from the Flag Register (FlagQ). It is assumed that you hooked the Ready signal coming from the Audio Codec into the “Set Flag” input to the Flag Register and the output of the Flag register FlagQ is the new “Ready” signal coming out of the lab2_dp, and eventually connecting toe Microblaze’s interrupt pin. If you accidentally skip the Flag Register and hook the audio codec’s Ready signal directly to the interrupt pin, you will find your system plots the sinusoid’s incorrectly, plotting what looks to be a very high frequency sinusoid instead of the correct frequency.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your Flag Register is 8-bits wide, you will need to extract the single bit of Q (the std_logic_vector output from the flag register) as the interrupt signal (the one set by the Ready signal). This may require you to extract the one bit Q as a separate signal to connect to the MicroBlaze in your block design.</p>
+</div>
+</section>
+<section id="hardware">
+<h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this heading">#</a></h3>
+<p>Quick instructions for creating your Microblaze project can be found at Lab3 Install.</p>
+<p>For the most part, your hardware you developed in lab2 will be unchanged. For controlling your TriggerVolt and TriggerTime, you can either
+(1) Retain your Lab2 buttons to control Trigger Volt and Trigger Time, but you must input these signals into Microblaze, and be able to display the values on the UART monitor
+or
+(2) Control TriggerVolt and TriggerTime from your Microblaze UART keyboard interface by using the slv_regs for microblaze to be able to write to TrigVolt and TrigTime into lab2 datapath ports</p>
+</section>
+<section id="hardware-setup">
+<h3>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this heading">#</a></h3>
+<p>Your first step will be to create a component for your lab2 component in your Vivado repository. This will require you to think about what signals are routed to the MicroBlaze and what signals are going outside the Artix 7 chip. The following table should help.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Signals To/From MicroBlaze</p></th>
+<th class="head"><p>Signals Going Outside Artix 7</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>exWrAddr</p></td>
+<td><p>clk</p></td>
+</tr>
+<tr class="row-odd"><td><p>exWen</p></td>
+<td><p>reset</p></td>
+</tr>
+<tr class="row-even"><td><p>exSel</p></td>
+<td><p>ac_mclk</p></td>
+</tr>
+<tr class="row-odd"><td><p>L_bus_out, R_bus_out</p></td>
+<td><p>ac_adc_sdata</p></td>
+</tr>
+<tr class="row-even"><td><p>exLbus, exRbus</p></td>
+<td><p>ac_dac_sdata</p></td>
+</tr>
+<tr class="row-odd"><td><p>flagQ</p></td>
+<td><p>ac_bclk</p></td>
+</tr>
+<tr class="row-even"><td><p>flagClear</p></td>
+<td><p>ac_lrclk</p></td>
+</tr>
+<tr class="row-odd"><td><p>triggerTime</p></td>
+<td><p>sda</p></td>
+</tr>
+<tr class="row-even"><td><p>triggerVolt</p></td>
+<td><p>scl</p></td>
+</tr>
+<tr class="row-odd"><td><p>ready</p></td>
+<td><p>tmds</p></td>
+</tr>
+<tr class="row-even"><td><p>ch1_enb, ch2_enb?</p></td>
+<td><p>tmdsb</p></td>
+</tr>
+</tbody>
+</table>
+<p>For the mapping of the MicroBlaze slv_reg to/from lab2 ports, you need to specify not only which 32-bit slv_reg for each signal, but also which bits are used, and whether it is read/write (in or out to microblaze). Hint: use this spreadsheet: <a class="reference external" href="https://georgeyork.github.io/ECE383_web/hand/lab3_signal_mapping.xlsx">lab3_signal_mapping.xlsx</a></p>
+</section>
+<section id="implementation-and-testing">
+<h3>Implementation and Testing<a class="headerlink" href="#implementation-and-testing" title="Permalink to this heading">#</a></h3>
+<p>Lessons from previous years:</p>
+<ul class="simple">
+<li><p>For all the lab2 signals you are reading into Microblaze AXI registers, add them to your C-code menu, using printf to print their values when you type the “?” command. This is very useful in debugging</p></li>
+</ul>
+<p>Build your C-code incrementally, with baby-step tests such as these (and add each of these tests as one of your C-code menu options):</p>
+<ul class="simple">
+<li><p>Draw a horizontal line on channel 1 and a diagonal line on channel 2, by writing the proper values to the BRAM (this test does not require your interface with the audio codec or the interrupt to work, and tests if you can write to the BRAM, and see the correct output on the scopeface)</p></li>
+</ul>
+<p>Or you could modify the above case ‘d’ to plot a sine wave, using a hardcoded sine wave look-up-table [this is only 64 samples so you would have to repeat it 16 times for 1024 samples]. Also, you need to scale these values to move to the upper 10-bits of the 16-bit values you write to the BRAM… like shift left 7, or multiply by 128.</p>
 </section>
 </section>
 <section id="deliverables">
@@ -647,6 +725,9 @@ For this lab, README only needs</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware">Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-setup">Hardware Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-and-testing">Implementation and Testing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
