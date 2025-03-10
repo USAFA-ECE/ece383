@@ -20,6 +20,70 @@ In order to accomplish this lab you will need to make some minor changes to the 
 
 ![Lab2_Hardware](https://georgeyork.github.io/ECE383_web/lab/lab3/img/lab3-2.jpg)
 
+```{note}
+Remember the Ready signal in the diagram above is coming from the Flag Register (FlagQ). It is assumed that you hooked the Ready signal coming from the Audio Codec into the "Set Flag" input to the Flag Register and the output of the Flag register FlagQ is the new "Ready" signal coming out of the lab2_dp, and eventually connecting toe Microblaze's interrupt pin. If you accidentally skip the Flag Register and hook the audio codec's Ready signal directly to the interrupt pin, you will find your system plots the sinusoid's incorrectly, plotting what looks to be a very high frequency sinusoid instead of the correct frequency.
+```
+
+```{note}
+If your Flag Register is 8-bits wide, you will need to extract the single bit of Q (the std_logic_vector output from the flag register) as the interrupt signal (the one set by the Ready signal). This may require you to extract the one bit Q as a separate signal to connect to the MicroBlaze in your block design.
+```
+
+### Hardware
+
+Quick instructions for creating your Microblaze project can be found at Lab3 Install.
+
+For the most part, your hardware you developed in lab2 will be unchanged. For controlling your TriggerVolt and TriggerTime, you can either
+(1) Retain your Lab2 buttons to control Trigger Volt and Trigger Time, but you must input these signals into Microblaze, and be able to display the values on the UART monitor
+or
+(2) Control TriggerVolt and TriggerTime from your Microblaze UART keyboard interface by using the slv_regs for microblaze to be able to write to TrigVolt and TrigTime into lab2 datapath ports
+
+### Hardware Setup
+
+Your first step will be to create a component for your lab2 component in your Vivado repository. This will require you to think about what signals are routed to the MicroBlaze and what signals are going outside the Artix 7 chip. The following table should help.
+
+| Signals To/From MicroBlaze | Signals Going Outside Artix 7 |
+|----------------------------|-------------------------------|
+| exWrAddr                   | clk                           |
+| exWen                      | reset                         |
+| exSel                      | ac_mclk                       |
+| L_bus_out, R_bus_out       | ac_adc_sdata                  |
+| exLbus, exRbus             | ac_dac_sdata                  |
+| flagQ                      | ac_bclk                       |
+| flagClear                  | ac_lrclk                      |
+| triggerTime                | sda                           |
+| triggerVolt                | scl                           |
+| ready                      | tmds                          |
+| ch1_enb, ch2_enb?          | tmdsb                         |
+
+For the mapping of the MicroBlaze slv_reg to/from lab2 ports, you need to specify not only which 32-bit slv_reg for each signal, but also which bits are used, and whether it is read/write (in or out to microblaze). Hint: use this spreadsheet: [lab3_signal_mapping.xlsx](https://georgeyork.github.io/ECE383_web/hand/lab3_signal_mapping.xlsx)
+
+### Implementation and Testing
+Lessons from previous years:
+- For all the lab2 signals you are reading into Microblaze AXI registers, add them to your C-code menu, using printf to print their values when you type the "?" command. This is very useful in debugging
+
+Build your C-code incrementally, with baby-step tests such as these (and add each of these tests as one of your C-code menu options):
+- Draw a horizontal line on channel 1 and a diagonal line on channel 2, by writing the proper values to the BRAM (this test does not require your interface with the audio codec or the interrupt to work, and tests if you can write to the BRAM, and see the correct output on the scopeface)
+```{C}
+pseudo code:
+        case 'd':     // some of these will be XIL commands
+            for (i=0;i<1024;i++) {
+			   exWrAddr = i; // set BRAM address
+			   exLBus = 185; // row for horz line 
+			                 // need to shift to upper 10bits?
+			   exRBus = i;   // diagnonal line [need to shift?]
+			   exWen = 1;    // write data to address in BRAM
+			   exWen = 0;    // turn off write
+            }
+			break;
+```
+
+Or you could modify the above case 'd' to plot a sine wave, using a hardcoded sine wave look-up-table [this is only 64 samples so you would have to repeat it 16 times for 1024 samples]. Also, you need to scale these values to move to the upper 10-bits of the 16-bit values you write to the BRAM... like shift left 7, or multiply by 128.
+```{C}
+u16 sinFunc[64] = {128,141,153,165,177,189,200,210,219,227,235,241,246,250,253,255,
+255,254,252,248,244,238,231,223,214,205,194,183,171,159,147,134,
+122,109, 97, 85, 73, 62, 51, 42, 33, 25, 18, 12,  8,  4,  2,  1,
+1,  3,  6, 10, 15, 21, 29, 37, 46, 56, 67, 79, 91,103,115,128};
+```
 
 ## 🚚 Deliverables
 
