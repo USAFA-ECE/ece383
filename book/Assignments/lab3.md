@@ -63,7 +63,8 @@ Lessons from previous years:
 
 Build your C-code incrementally, with baby-step tests such as these (and add each of these tests as one of your C-code menu options):
 - Draw a horizontal line on channel 1 and a diagonal line on channel 2, by writing the proper values to the BRAM (this test does not require your interface with the audio codec or the interrupt to work, and tests if you can write to the BRAM, and see the correct output on the scopeface)
-```{C}
+
+```{code-block} c
 pseudo code:
         case 'd':     // some of these will be XIL commands
             for (i=0;i<1024;i++) {
@@ -77,13 +78,109 @@ pseudo code:
 			break;
 ```
 
-Or you could modify the above case 'd' to plot a sine wave, using a hardcoded sine wave look-up-table [this is only 64 samples so you would have to repeat it 16 times for 1024 samples]. Also, you need to scale these values to move to the upper 10-bits of the 16-bit values you write to the BRAM... like shift left 7, or multiply by 128.
-```{C}
+- Or you could modify the above case 'd' to plot a sine wave, using a hardcoded sine wave look-up-table [this is only 64 samples so you would have to repeat it 16 times for 1024 samples]. Also, you need to scale these values to move to the upper 10-bits of the 16-bit values you write to the BRAM... like shift left 7, or multiply by 128.
+
+```{code-block} c
 u16 sinFunc[64] = {128,141,153,165,177,189,200,210,219,227,235,241,246,250,253,255,
 255,254,252,248,244,238,231,223,214,205,194,183,171,159,147,134,
 122,109, 97, 85, 73, 62, 51, 42, 33, 25, 18, 12,  8,  4,  2,  1,
 1,  3,  6, 10, 15, 21, 29, 37, 46, 56, 67, 79, 91,103,115,128};
 ```
+
+- Use polling (polling the ready flag) to grab each sample and write them into your C-array. (This is a good test to see if you are getting the ready flag, able to read live samples, able to clear the flag, and repeat to fill your array)
+
+```{code-block} c
+pseudo code:
+        case 'm':     // some of these will be XIL commands
+            for (i=0;i<1024;i++) {
+              while(flagQ==0){}; //wait on ready
+              array_L[i] = LbusReg; // read audio values
+              array_R[i] = RbusReg;
+              ClearFlag = 1;   //clear the flag
+              ClearFlag = 0;   //release the clear, so can be set again
+            }
+			break;
+```
+
+- Use printf to print all the values in your array to the UART terminal (This is a good test to see if you are successfully reading audio codec samples in and storing them in your c arrary, or not)
+
+```{code-block} c
+        case 'p':     
+			for (i=0; i<1024; i++){
+				printf("%x\r\n",array_L[i]);
+			}
+			break;
+```
+- case 'w': Write your 1024 C-array samples (not triggered) to the BRAM (This is a good test to use, after you fill the array in the test case 'm' above, to see if you can write it to the BRAM and see it appear on scopeface... and fix any calibration issues)
+- case 't': Given trig_volt, trig_time, and Array_L, write a command to search through the C-array to find the trigger point, and printf this location to the terminal
+- case 'z': Given this trigger location in the Array_L, write the appropriate data values in the Array_L to the BRAM, so the sine wave appears triggerd.
+- case 'g': Now you have all the pieces to create the "continuous" mode using polling and triggering
+- case 'i': Use interrupts (ISR) to fill the Array_L and Array_R with samples (Then use case 't' and case 'z' above to write the arrays to BRAM)
+- case 'c': Now you have all the pieces to create the "continuous" mode with interrupts
+- Note on the "continuous" mode with interrupts using a linear buffer: Remember Main() and ISR() communicate with each other through global variables.
+```{code-block} c
+ Main() would set a global variable ARRAY_FULL = 0. 
+  Whenever the ISR() wakes up, 
+     It clears the flag ( 1 then 0),  
+     If ARRAY_FULL = 0, then 
+	   the ISR() saves the samples in the array, 
+	   increments the pointer for the next set of samples, 
+	   and eventually when this pointer = 1023, 
+	      the ISR() sets ARRAY_FULL = 1 and 
+		  resets the pointer to zero. 
+  Meanwhile, main() has been polling ARRAY_FULL waiting for it to be == 1. 
+     When it is, main() calls a function to look for the proper trigger location in the array, 
+	 and then another function to copy the correct 620 values in the array to the BRAMs based on the trigger location,
+	 And then main() sets ARRAY_FULL=0, 
+	 and the ISR starts working again...
+```
+
+#### Lessons Learned the Hard Way in Previous Years
+
+- Depending on your design, you will want to control some signals (like TrigVolt, TrigTime, Ch1_enb, Ch2_enb) from the UART keyboard Terminal while your program is running in continuous mode. (You will not want to halt the program in order to change these settings, but rather change them "live"). Therefore, in your C code "while loop", you may want to check if the user has hit the key on the keyboard without having to actually read the key. For these cases, the command XUartLite_IsReceiveEmpty() will prove useful. Note that "uartRegAddr" is a constant, the address of the uart.
+```{code-block} c
+...
+while(1) {   // run forever
+	if (!XUartLite_IsReceiveEmpty(uartRegAddr)) {
+    	c=XUartLite_RecvByte(uartRegAddr);
+		switch(c) {  
+		  ...   // handle case for key press
+		}  // end switch
+	} // end if
+	If (live_mode == 1) {
+		Do live mode...  
+			grab samples from audio codec and put in Array;
+			find trigger location in Array;
+			Write 620 samples from Array to proper location in BRAM;
+	} // end if
+} // end while
+```
+
+- Do NOT have polling FlagQ running at the same time as the ISR, as both would be attempting to clear the Flag, and you may find your system is missing samples, making the wave form plot appear to be a higher frequency than it actually is. One way to protect against this is to have all your polling cases disable interrupts with microblaze_disable_interrupts(), then microblaze_enable_interrupts() when you are done
+```{code-block} c
+pseudo code:
+        case 'm':     // some of these will be XIL commands
+		    microblaze_disable_interrupts();
+            for (i=0;i<1024;i++) {
+              while(flagQ==0){}; //wait on ready
+              array_L[i] = LbusReg; // read audio values
+              array_R[i] = RbusReg;
+              ClearFlag = 1;   //clear the flag
+              ClearFlag = 0;   //release the clear, so can be set again
+            }
+			microblaze_enable_interrupts();
+			break;
+```
+
+- When you are finding your trigger point in lab3, just like in lab2, you need to compare apples to apples. If your number in your C-array is 16-bits, it will be a large number in decimal like 26572, and this large 16-bit value you will want to write to your BRAM (as your VHDL code will later pull out the upper 10 or 9 bits) Meanwhile your triggerVolt is a small 10-bit number, like decimal 220. So to compare apples to apples in your C-code, (just for the purpose of finding the trigger) you might what to change the value in your C-array to the scale of the trigger volt by grabbing only its upper 10-bits (or in math, shift right 6 times, or divide by 2^6). Remember, in lab2 you probably also added (or subtracted?) an offset like the number like 34 (for the DC offset), so you would also need to add or subtract this from either trigvolt or the scale array number when you are doing the search for the trigger value.
+- Also, when doing your triggering math, make sure all your variables are declared as unsigned (like u16), not signed (like int), as the values are all unsigned and the comparisons will not work properly if declared as signed.
+
+- In the past, some students in their datapath hooked up L_Bus_out/R_Bus_Out directly to the 18-bit "signed" value coming out of the audio codec, not the 18-bit value converted to "unsigned". If you do this, your sine wave will look strange (or maybe off the screen)... this can also impact your triggering. At some point, you need to convert from signed to unsigned. If you didn't do this in your VHDL datapath, you could always do this in your C-code. If you are doing this conversion in C, remember you cannot just cast a variable from signed to unsigned. casting to unsigned in C would not do what you want (as we explained back in lab2). For example, if you have a signed value X = -7, and you cast X to an unsigned variable, what would -7 become? Unsigned values must be Zero or greater. -7 is undefined. If you go back to slide 11 in the lab2.pdf, you can see the pattern of this conversion with the 5 example numbers. It looks like all the lower bits stay the same, and only the MSB changes... it flips its value. I know two simple ways to flip the MSB (there are some other ways also), either (1) inverting the bit with a bitwise operator like XOR, or (2) adding a special number that keeps all the lower bits the same but only changes the MSB For method (2), adding the special number, look at the slide 11, you should be able to figure it out. For method (1), using XOR, ask yourself (a) what happens to a bit if I XOR it with ZERO?, and (b) what happens to a bit if I XOR it with ONE?
+
+- The XIL in and out functions are either 8-bit, 16-bit, or 32-bit [like Xil_Out16(exWraddr, i)], while you have some lab2 values that are different sizes (like trigvolt is 10-bits), so you may need to append bits in your VHDL code to make them match
+
+- Do not doing anything "slow" inside your ISR or while you are polling the samples into the array. Printf() is very slow. Also, writing your array_L values to the BRAM is very slow. So write your values from the Array_L to the BRAM in a different "for loop" than the route that grabs your samples from the audio codec into the Array_L.
+
 
 ## 🚚 Deliverables
 
