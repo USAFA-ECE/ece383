@@ -1,131 +1,115 @@
-# 🔬 Lab 3 Memory 
+# 🔬 Lab 3 Software Control of a Datapath 
 
 ## 📌 Objectives
-- Students should be able to write assembly code to access memory using the LDR and STR instructions.
-- Students should be able to find values stored in registers and memory space using the CCS debugging tools.
-
-```{note}
-Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
-```
-
-
-```{tip}
-**START EARLY!** You need to write only 10 - 15 lines of assembly code, but it may take **much longer** than you expect. Start early and seek EI if needed!
-```
+- Students should implement a soft CPU in the fabric of the FPGA and use it to control a hardware datapath
 
 ## 📜 Synopsis
-In this lab, you will write an Assembly program determining whether given integers are prime or composite.  A prime number is a positive integer that is divisible by only 1 and itself.  The equivalent C program is provided in `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project.
+In this lab, we will integrate the video display controller developed in Lab 2 with the MicroBlaze processor built using the fabric of the Artix-7 FPGA. In the preceding lectures, we learned about the Vivado and SDK tool chains, now it's time to put that knowledge to the test by building a software controlled datapath. Lab 2 revealed some shortcomings of our oscilloscope that this lab intends on correcting. Specifically, we will add:
+- Using both trigger volt and trigger time for the trigger
+- Using polling and/or interrupts
+- The ability to enable and disable which channels are being displayed
 
-The array of numbers to test is {1, 2, 7, 10, 15, 62, 97, 282, 408, 467, 967, 6687, 25913, 25481, 118061, 0}. The number 0 at the end of the array is to indicate the end of array.  The result array should be {0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, x}, where 1 denotes `prime`, 0 denotes `composite`, and x denotes `don't care`.
+The following figure shows required functionality - your program should allow the user to change the position of the triggerVolt and triggerTime indicators with the result that the waveform should be drawn so that the periodic waveform is increasing through that voltage at that time.
 
-An integer $n$ is not divisible by a number $m$ if $n/2 < m < n$.  For example, 15 is not divisible by any number between 7.5 and 15, i.e., 15 is not divisible by 8, 9, ... , or 14.  So, you don't have to check if 15 is divisible by these numbers.  That's why we have
-```C
-for (int i = 2; i <= m; i++)  //  m is  n/2
-```
+![Triggering](https://georgeyork.github.io/ECE383_web/lab/lab3/img/lab3-1.gif)
 
 ## 💻 Procedure
 
 ### Setup
-- Connect the LaunchPad to your computer via the provided USB cable.
-- Open Code Composer Studio (CCS) and select your workspace.
-- Ensure your Project Explorer is open on the left of the CCS screen. Otherwise, select View > Project Explorer.
-- Open the `Lab03_PrimeNumbers` project by double-clicking it.
+In order to accomplish this lab you will need to make some minor changes to the lab2 component, create a new piece of IP, and then program that IP using the MicroBlaze, as described in the block diagram below. We will walk through these steps below.
 
+![Lab2_Hardware](https://georgeyork.github.io/ECE383_web/lab/lab3/img/lab3-2.jpg)
 
-### Run main.c
-
-Open `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project and carefully read the code. If you click on `Resume` (F8) followed by `Suspend` (Alt+F8), it will stop at `while(1);`.  Observe the values of the `Res` array in the `Expressions` tab. You may need to click on `>` next to `Res` to expand the array into individual variables. Take a screenshot of the contents of `Res` after execution of the code.
-
-```{warning}
-Please take a screenshot of the region of interest and ensure that it is legible. If your instructor has trouble reading it, you might not get full credit.
-```
-
-```{attention}
-You will receive a grade of **-10 points** if you submit a picture of a computer screen taken by your phone or mobile device.
-```
-
-### Complete `Lab03_Prime.asm`
-
-
-```{tip}
-Before you start writing code, carefully read both `Lab03_PrimeMain.c` and `Lab03_Prime.asm` and the comments in them.
-```
-
-- Exclude `Lab03_PrimeMain.c` from Build and include `Lab03_Prime.asm`.
-
-
-**Modulo**
-
-For the modulo operation, use the assembly code provided below.  
-
-```asm
-UDIV R8, R0, R6 ; R8 = R0/R6 (n/i)
-MUL  R9, R8, R6 ; R9 = int(n/i) * i
-CMP  R0, R9     ; n == int(n/i) * i ?,  n is divisible by i if R0 == R9.
-```
-
-**Add your code to `Lab03_Prime.asm`**
-
-- Use `Lab03_PrimeMain.c` as a reference to complete the assembly code. Please read all the comments before writing any code. 
-- It is important to **comment your code**. You must add a comment to every line for this assignment. 
-- You can search the `Memory Browser` by variable name or memory address, such as the contents of `ResAddr` after execution of the code.  You need to change the encoding style (number format) to **8-Bit Hex - TI Style** as shown below. If you click on Resume (F8 or green arrow) followed by Suspend (Alt+F8), it will stop at `Stall B Stall`. Then, you can browse the memory.
-
-```{figure} ./figures/Lab03_PrimeResultMemory.png
----
-width: 380
-align: center
-name: 8bit_encoding
----
-Memory Browser with 8-Bit Hex encoding style.
-```
-
-- If you select a wrong encoding style as shown below, you will not be able to correctly read the values inside `Result`.  
-
-```{figure} ./figures/Lab03_PrimeResultMemoryBad.png
----
-width: 380
-align: center
-name: 32bit_encoding
----
-Memory Browser with 32-Bit Hex encoding style.
-```
-
-```{tip}
-There are many assembly examples in CCS if you are looking for assembly syntax.  For example, take a look at `Example04_ArrayAdd` for LDR, LDRB, STRB, loops, etc.  
-```
-
-```{note}
-`ASR` is a shift operator, which is the same as `>>` in C.  If you right shift a number by 1, it is the same as dividing by 2.  For example, b1000 (8) >> 1 = b0100 (4).
-```
-
-```{tip}
-If you divide 7 by 2, the answer is 3, not 3.5 in C.  If you divide 7.0 by 2, the answer is 3.5.
-```
-
-```C
-float y = 7/2;   // y is 3.0, integer division (3) followed by type casting w/ float
-float y = 7.0/2; // y is 3.5
-int y = 7.0/2;   // y is 3, floating division (3.5) followed by type casting w/ int
-```
 
 ## 🚚 Deliverables
 
-### Deliverable 1
-- **[4 pts]** Run `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project and take a screenshot showing the contents of `Res` after the execution of the code. You must **expand** the array to show the individual values in the array.
+#### Gate Check 1 - Design
+- *[5 Points]*
 
+- You need to decide if TrigVolt, TrigTime, Ch1_enb, and Ch2_enb will be controlled via buttons on the FGPA board or using the UART keyboard controlling them through Microblaze.
+- For this Gate Check you will turn in a revised Lab2_datapath block diagram, correctly showing all these signals (and their directions), and adding or removing parts (like button debouncing).
+- Also for this Gate Check, you will turn in a mapping of 32 AXI registers (slv_reg) to lab2 signals. or the mapping of the MicroBlaze slv_reg to/from lab2 ports, you need to specify not only which 32-bit slv_reg for each signal, but also which bits are used, and whether it is read/write (in or out to microblaze). Hint: use this spreadsheet: [lab3_signal_mapping.xlsx](https://georgeyork.github.io/ECE383_web/hand/lab3_signal_mapping.xlsx)
 
-### Deliverable 2
-- **[7.5 pts]** Complete `LaLab03_Prime.asm` and add a comment to every line of your code. Push your code to your repository. **It is your responsibility to check your files have been successfully pushed to your Bitbucket repository.**
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab3_GC1`
 
-```{warning}
-Your code must be **compilable**.  If your code throws any compile errors, you will get **a grade of 0** for Deliverable 2.
-```
+#### Gate Check 2 - Lab 2 with ExSel Off ('0')
+- *[5 Points]*
 
-### Deliverable 3
+- You need to have all of your Lab 2 functionality implemented with the Microblaze. That is, you need to be able to set ExSel to '0' from your microblaze C program and be able to achieve the same functionality as you did in Lab 2.
+  
+- The demo can be live to your instructor or a video uploaded to Teams.
 
-- **[4 pts]** Provide screenshots showing the **addresses** of `Result` and `Nums`, stored in RAM/ROM (use the Memory Browser and the pointers you created).
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab3_GC2`
+  
+#### Gate Check 3 - CPU Interface
+- *[5 Points]*
 
-### Deliverable 4
-- **[4 pts]** Provide a screenshot showing the **contents** of `Result`, stored in memory after execution of the code (use the Memory Browser and change the format to **8-Bit Hex - TI Style**).
+- You need to be able to send UART commands using the terminal to your FPGA to adjust the trigger on the screen. The trigger on the screen should properly react to moving the trigger either up or down. Or, if you choose to not to control the trigger from the terminal and kept the lab 2 Trigger Volt and Time buttons, then show on your UART display that your C program can read the Trigger Volt and Trigger Time from the hardware buttons.
 
-- **[-10 pts]** Take pictures of your screen with a mobile device or digital camera and submit them in Gradescope. Yes, I am serious...
+- You need to implement at least one of the baby-step tests mentioned above in the "Implementation and Testing" section.
+
+- The demo can be live to your instructor or a video uploaded to Teams.
+
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab3_GC3`
+
+### Required Functionality
+- *[40 Points]*
+
+In order to achieve required functionality, you will need to properly trigger the oscilloscope on channel 1 using a positive edge trigger. Control of this process is to be performed using the MicroBlaze. The main tasks of the MicroBlaze will include:
+- Move audio samples into a pair of linear or circular buffers. These circular buffers will be maintained in the address space of the MicroBlaze. That is, you should have two big arrays defined in your program. Use interrupts or polling of the ready bit through the flag register.
+- Examine the samples, looking for a trigger event.
+- Fill the remaining sample slots in memory.
+- Move the appropriate buffer values into the display memory of the oscilloscope (lab2) component.
+- Provide a user menu (through the terminal) allowing the user to adjust the trigger voltage and trigger time. (Or if you did not implement trigger control in C show that your MicroBlaze can read trigger volt and time by displaying on the UART monitor)
+- Your system must operate in continuous mode (not blocked waiting on user key-press)
+- For partial credit if the full system is not working, enumerate the test cases that do work (like case 'm')
+
+- The demo can be live to your instructor or a video uploaded to Teams.
+
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab3_ReqdFunc`
+
+### A-level Functionality
+- *[10 Points]*
+- Achieve required functionality.
+- Use the ready bit of the flag register to trigger an interrupt. The ISR should store the samples, look for a triggering event, and signal when the stored samples should be transfered to the BRAM in the oscilloscope component.
+- Add means to control Ch1_enb and Ch2_enb either by adding two FPGA board switches or controlled by MicroBlaze terminal interface.
+
+- The demo can be live to your instructor or a video uploaded to Teams.
+
+- Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab3_AFunc`
+
+### Turn In
+
+- All of your work in this lab is to be submitted using Github and you will make submission in Gradescope to record the time each milestone is completed.
+
+#### README
+
+- *[20 Points]*
+For this lab, README only needs
+- **Design**: Updated lab2 block diagram with correct signals
+- **Design**: Mapping of 32 AXI registers to lab2 signals
+- **Functionality**
+  - Evidence of completing Gate Checks 1 and 2, required functionality, and A-functionality, along with the date/time achieved. This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and how you proved it (via demo or evidence like images/videos). For example, you could have a table like this:
+
+| Milestone | Date/Time | What was achieved |
+|-----------|-----------|-------------------|
+| Gate Check 1	||	|
+|Gate Check 2	||	|
+|Gate Check 3	||	|
+|Required Functionality	||	 |
+|A Functionality	||	 |
+
+- **Conclusion** - Explain what your learned from this lab and what changes you would recommend in future years to this lab or the lectures leading up to this lab.
+
+### Grading
+| Item | Points |
+|------|--------|
+| Gate Check 1 | 5 |
+| Gate Check 2 | 5 |
+| Gate Check 3 | 5 |
+| Required Functionality | 40 |
+| A-Level Functionality | 10 |
+| Use of Git / GitHub | 5 |
+| Code Style | 10 |
+| README | 20 |
+| **Total** | **100** |

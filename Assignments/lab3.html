@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>🔬 Lab 3 Memory &#8212; Embedded Systems II</title>
+    <title>🔬 Lab 3 Software Control of a Datapath &#8212; Embedded Systems II</title>
   
   
   
@@ -63,8 +63,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Assignments/lab3';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -374,7 +372,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>🔬 Lab 3 Memory</h1>
+    <h1>🔬 Lab 3 Software Control of a Datapath</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,15 +386,19 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-main-c">Run main.c</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-lab03-prime-asm">Complete <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1">Deliverable 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gate-check-1-design">Gate Check 1 - Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gate-check-2-lab-2-with-exsel-off-0">Gate Check 2 - Lab 2 with ExSel Off (‘0’)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gate-check-3-cpu-interface">Gate Check 3 - CPU Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-functionality">Required Functionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-level-functionality">A-level Functionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-in">Turn In</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#readme">README</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
 </ul>
 </li>
 </ul>
@@ -410,141 +412,184 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-memory">
-<h1>🔬 Lab 3 Memory<a class="headerlink" href="#lab-3-memory" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-software-control-of-a-datapath">
+<h1>🔬 Lab 3 Software Control of a Datapath<a class="headerlink" href="#lab-3-software-control-of-a-datapath" title="Permalink to this heading">#</a></h1>
 <section id="objectives">
 <h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Students should be able to write assembly code to access memory using the LDR and STR instructions.</p></li>
-<li><p>Students should be able to find values stored in registers and memory space using the CCS debugging tools.</p></li>
+<li><p>Students should implement a soft CPU in the fabric of the FPGA and use it to control a hardware datapath</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><strong>START EARLY!</strong> You need to write only 10 - 15 lines of assembly code, but it may take <strong>much longer</strong> than you expect. Start early and seek EI if needed!</p>
-</div>
 </section>
 <section id="synopsis">
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
-<p>In this lab, you will write an Assembly program determining whether given integers are prime or composite.  A prime number is a positive integer that is divisible by only 1 and itself.  The equivalent C program is provided in <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeNumbers</span></code> project.</p>
-<p>The array of numbers to test is {1, 2, 7, 10, 15, 62, 97, 282, 408, 467, 967, 6687, 25913, 25481, 118061, 0}. The number 0 at the end of the array is to indicate the end of array.  The result array should be {0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, x}, where 1 denotes <code class="docutils literal notranslate"><span class="pre">prime</span></code>, 0 denotes <code class="docutils literal notranslate"><span class="pre">composite</span></code>, and x denotes <code class="docutils literal notranslate"><span class="pre">don't</span> <span class="pre">care</span></code>.</p>
-<p>An integer <span class="math notranslate nohighlight">\(n\)</span> is not divisible by a number <span class="math notranslate nohighlight">\(m\)</span> if <span class="math notranslate nohighlight">\(n/2 &lt; m &lt; n\)</span>.  For example, 15 is not divisible by any number between 7.5 and 15, i.e., 15 is not divisible by 8, 9, … , or 14.  So, you don’t have to check if 15 is divisible by these numbers.  That’s why we have</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">  </span><span class="c1">//  m is  n/2</span>
-</pre></div>
-</div>
+<p>In this lab, we will integrate the video display controller developed in Lab 2 with the MicroBlaze processor built using the fabric of the Artix-7 FPGA. In the preceding lectures, we learned about the Vivado and SDK tool chains, now it’s time to put that knowledge to the test by building a software controlled datapath. Lab 2 revealed some shortcomings of our oscilloscope that this lab intends on correcting. Specifically, we will add:</p>
+<ul class="simple">
+<li><p>Using both trigger volt and trigger time for the trigger</p></li>
+<li><p>Using polling and/or interrupts</p></li>
+<li><p>The ability to enable and disable which channels are being displayed</p></li>
+</ul>
+<p>The following figure shows required functionality - your program should allow the user to change the position of the triggerVolt and triggerTime indicators with the result that the waveform should be drawn so that the periodic waveform is increasing through that voltage at that time.</p>
+<p><img alt="Triggering" src="https://georgeyork.github.io/ECE383_web/lab/lab3/img/lab3-1.gif" /></p>
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
-<li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
-<li><p>Ensure your Project Explorer is open on the left of the CCS screen. Otherwise, select View &gt; Project Explorer.</p></li>
-<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeNumbers</span></code> project by double-clicking it.</p></li>
-</ul>
-</section>
-<section id="run-main-c">
-<h3>Run main.c<a class="headerlink" href="#run-main-c" title="Permalink to this heading">#</a></h3>
-<p>Open <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeNumbers</span></code> project and carefully read the code. If you click on <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (F8) followed by <code class="docutils literal notranslate"><span class="pre">Suspend</span></code> (Alt+F8), it will stop at <code class="docutils literal notranslate"><span class="pre">while(1);</span></code>.  Observe the values of the <code class="docutils literal notranslate"><span class="pre">Res</span></code> array in the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> tab. You may need to click on <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> next to <code class="docutils literal notranslate"><span class="pre">Res</span></code> to expand the array into individual variables. Take a screenshot of the contents of <code class="docutils literal notranslate"><span class="pre">Res</span></code> after execution of the code.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Please take a screenshot of the region of interest and ensure that it is legible. If your instructor has trouble reading it, you might not get full credit.</p>
-</div>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>You will receive a grade of <strong>-10 points</strong> if you submit a picture of a computer screen taken by your phone or mobile device.</p>
-</div>
-</section>
-<section id="complete-lab03-prime-asm">
-<h3>Complete <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code><a class="headerlink" href="#complete-lab03-prime-asm" title="Permalink to this heading">#</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Before you start writing code, carefully read both <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code> and the comments in them.</p>
-</div>
-<ul class="simple">
-<li><p>Exclude <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> from Build and include <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code>.</p></li>
-</ul>
-<p><strong>Modulo</strong></p>
-<p>For the modulo operation, use the assembly code provided below.</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">UDIV</span><span class="w"> </span><span class="no">R8</span><span class="p">,</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R6</span><span class="w"> </span><span class="c1">; R8 = R0/R6 (n/i)</span>
-<span class="nf">MUL</span><span class="w">  </span><span class="no">R9</span><span class="p">,</span><span class="w"> </span><span class="no">R8</span><span class="p">,</span><span class="w"> </span><span class="no">R6</span><span class="w"> </span><span class="c1">; R9 = int(n/i) * i</span>
-<span class="nf">CMP</span><span class="w">  </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R9</span><span class="w">     </span><span class="c1">; n == int(n/i) * i ?,  n is divisible by i if R0 == R9.</span>
-</pre></div>
-</div>
-<p><strong>Add your code to <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code></strong></p>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> as a reference to complete the assembly code. Please read all the comments before writing any code.</p></li>
-<li><p>It is important to <strong>comment your code</strong>. You must add a comment to every line for this assignment.</p></li>
-<li><p>You can search the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> by variable name or memory address, such as the contents of <code class="docutils literal notranslate"><span class="pre">ResAddr</span></code> after execution of the code.  You need to change the encoding style (number format) to <strong>8-Bit Hex - TI Style</strong> as shown below. If you click on Resume (F8 or green arrow) followed by Suspend (Alt+F8), it will stop at <code class="docutils literal notranslate"><span class="pre">Stall</span> <span class="pre">B</span> <span class="pre">Stall</span></code>. Then, you can browse the memory.</p></li>
-</ul>
-<figure class="align-center" id="bit-encoding">
-<a class="reference internal image-reference" href="../_images/Lab03_PrimeResultMemory.png"><img alt="../_images/Lab03_PrimeResultMemory.png" src="../_images/Lab03_PrimeResultMemory.png" style="width: 380px;" /></a>
-<figcaption>
-<p><span class="caption-text">Memory Browser with 8-Bit Hex encoding style.</span><a class="headerlink" href="#bit-encoding" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<ul class="simple">
-<li><p>If you select a wrong encoding style as shown below, you will not be able to correctly read the values inside <code class="docutils literal notranslate"><span class="pre">Result</span></code>.</p></li>
-</ul>
-<figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/Lab03_PrimeResultMemoryBad.png"><img alt="../_images/Lab03_PrimeResultMemoryBad.png" src="../_images/Lab03_PrimeResultMemoryBad.png" style="width: 380px;" /></a>
-<figcaption>
-<p><span class="caption-text">Memory Browser with 32-Bit Hex encoding style.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>There are many assembly examples in CCS if you are looking for assembly syntax.  For example, take a look at <code class="docutils literal notranslate"><span class="pre">Example04_ArrayAdd</span></code> for LDR, LDRB, STRB, loops, etc.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">ASR</span></code> is a shift operator, which is the same as <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> in C.  If you right shift a number by 1, it is the same as dividing by 2.  For example, b1000 (8) &gt;&gt; 1 = b0100 (4).</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you divide 7 by 2, the answer is 3, not 3.5 in C.  If you divide 7.0 by 2, the answer is 3.5.</p>
-</div>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w">   </span><span class="c1">// y is 3.0, integer division (3) followed by type casting w/ float</span>
-<span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.0</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// y is 3.5</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.0</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w">   </span><span class="c1">// y is 3, floating division (3.5) followed by type casting w/ int</span>
-</pre></div>
-</div>
+<p>In order to accomplish this lab you will need to make some minor changes to the lab2 component, create a new piece of IP, and then program that IP using the MicroBlaze, as described in the block diagram below. We will walk through these steps below.</p>
+<p><img alt="Lab2_Hardware" src="https://georgeyork.github.io/ECE383_web/lab/lab3/img/lab3-2.jpg" /></p>
 </section>
 </section>
 <section id="deliverables">
 <h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
-<section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
+<section id="gate-check-1-design">
+<h3>Gate Check 1 - Design<a class="headerlink" href="#gate-check-1-design" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[4 pts]</strong> Run <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeNumbers</span></code> project and take a screenshot showing the contents of <code class="docutils literal notranslate"><span class="pre">Res</span></code> after the execution of the code. You must <strong>expand</strong> the array to show the individual values in the array.</p></li>
+<li><p><em>[5 Points]</em></p></li>
+<li><p>You need to decide if TrigVolt, TrigTime, Ch1_enb, and Ch2_enb will be controlled via buttons on the FGPA board or using the UART keyboard controlling them through Microblaze.</p></li>
+<li><p>For this Gate Check you will turn in a revised Lab2_datapath block diagram, correctly showing all these signals (and their directions), and adding or removing parts (like button debouncing).</p></li>
+<li><p>Also for this Gate Check, you will turn in a mapping of 32 AXI registers (slv_reg) to lab2 signals. or the mapping of the MicroBlaze slv_reg to/from lab2 ports, you need to specify not only which 32-bit slv_reg for each signal, but also which bits are used, and whether it is read/write (in or out to microblaze). Hint: use this spreadsheet: <a class="reference external" href="https://georgeyork.github.io/ECE383_web/hand/lab3_signal_mapping.xlsx">lab3_signal_mapping.xlsx</a></p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab3_GC1</span></code></p></li>
 </ul>
 </section>
-<section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
+<section id="gate-check-2-lab-2-with-exsel-off-0">
+<h3>Gate Check 2 - Lab 2 with ExSel Off (‘0’)<a class="headerlink" href="#gate-check-2-lab-2-with-exsel-off-0" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[7.5 pts]</strong> Complete <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code> and add a comment to every line of your code. Push your code to your repository. <strong>It is your responsibility to check your files have been successfully pushed to your Bitbucket repository.</strong></p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Your code must be <strong>compilable</strong>.  If your code throws any compile errors, you will get <strong>a grade of 0</strong> for Deliverable 2.</p>
-</div>
-</section>
-<section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>[4 pts]</strong> Provide screenshots showing the <strong>addresses</strong> of <code class="docutils literal notranslate"><span class="pre">Result</span></code> and <code class="docutils literal notranslate"><span class="pre">Nums</span></code>, stored in RAM/ROM (use the Memory Browser and the pointers you created).</p></li>
+<li><p><em>[5 Points]</em></p></li>
+<li><p>You need to have all of your Lab 2 functionality implemented with the Microblaze. That is, you need to be able to set ExSel to ‘0’ from your microblaze C program and be able to achieve the same functionality as you did in Lab 2.</p></li>
+<li><p>The demo can be live to your instructor or a video uploaded to Teams.</p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab3_GC2</span></code></p></li>
 </ul>
 </section>
-<section id="deliverable-4">
-<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
+<section id="gate-check-3-cpu-interface">
+<h3>Gate Check 3 - CPU Interface<a class="headerlink" href="#gate-check-3-cpu-interface" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[4 pts]</strong> Provide a screenshot showing the <strong>contents</strong> of <code class="docutils literal notranslate"><span class="pre">Result</span></code>, stored in memory after execution of the code (use the Memory Browser and change the format to <strong>8-Bit Hex - TI Style</strong>).</p></li>
-<li><p><strong>[-10 pts]</strong> Take pictures of your screen with a mobile device or digital camera and submit them in Gradescope. Yes, I am serious…</p></li>
+<li><p><em>[5 Points]</em></p></li>
+<li><p>You need to be able to send UART commands using the terminal to your FPGA to adjust the trigger on the screen. The trigger on the screen should properly react to moving the trigger either up or down. Or, if you choose to not to control the trigger from the terminal and kept the lab 2 Trigger Volt and Time buttons, then show on your UART display that your C program can read the Trigger Volt and Trigger Time from the hardware buttons.</p></li>
+<li><p>You need to implement at least one of the baby-step tests mentioned above in the “Implementation and Testing” section.</p></li>
+<li><p>The demo can be live to your instructor or a video uploaded to Teams.</p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab3_GC3</span></code></p></li>
 </ul>
+</section>
+<section id="required-functionality">
+<h3>Required Functionality<a class="headerlink" href="#required-functionality" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>[40 Points]</em></p></li>
+</ul>
+<p>In order to achieve required functionality, you will need to properly trigger the oscilloscope on channel 1 using a positive edge trigger. Control of this process is to be performed using the MicroBlaze. The main tasks of the MicroBlaze will include:</p>
+<ul class="simple">
+<li><p>Move audio samples into a pair of linear or circular buffers. These circular buffers will be maintained in the address space of the MicroBlaze. That is, you should have two big arrays defined in your program. Use interrupts or polling of the ready bit through the flag register.</p></li>
+<li><p>Examine the samples, looking for a trigger event.</p></li>
+<li><p>Fill the remaining sample slots in memory.</p></li>
+<li><p>Move the appropriate buffer values into the display memory of the oscilloscope (lab2) component.</p></li>
+<li><p>Provide a user menu (through the terminal) allowing the user to adjust the trigger voltage and trigger time. (Or if you did not implement trigger control in C show that your MicroBlaze can read trigger volt and time by displaying on the UART monitor)</p></li>
+<li><p>Your system must operate in continuous mode (not blocked waiting on user key-press)</p></li>
+<li><p>For partial credit if the full system is not working, enumerate the test cases that do work (like case ‘m’)</p></li>
+<li><p>The demo can be live to your instructor or a video uploaded to Teams.</p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab3_ReqdFunc</span></code></p></li>
+</ul>
+</section>
+<section id="a-level-functionality">
+<h3>A-level Functionality<a class="headerlink" href="#a-level-functionality" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>[10 Points]</em></p></li>
+<li><p>Achieve required functionality.</p></li>
+<li><p>Use the ready bit of the flag register to trigger an interrupt. The ISR should store the samples, look for a triggering event, and signal when the stored samples should be transfered to the BRAM in the oscilloscope component.</p></li>
+<li><p>Add means to control Ch1_enb and Ch2_enb either by adding two FPGA board switches or controlled by MicroBlaze terminal interface.</p></li>
+<li><p>The demo can be live to your instructor or a video uploaded to Teams.</p></li>
+<li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab3_AFunc</span></code></p></li>
+</ul>
+</section>
+<section id="turn-in">
+<h3>Turn In<a class="headerlink" href="#turn-in" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>All of your work in this lab is to be submitted using Github and you will make submission in Gradescope to record the time each milestone is completed.</p></li>
+</ul>
+<section id="readme">
+<h4>README<a class="headerlink" href="#readme" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><em>[20 Points]</em>
+For this lab, README only needs</p></li>
+<li><p><strong>Design</strong>: Updated lab2 block diagram with correct signals</p></li>
+<li><p><strong>Design</strong>: Mapping of 32 AXI registers to lab2 signals</p></li>
+<li><p><strong>Functionality</strong></p>
+<ul>
+<li><p>Evidence of completing Gate Checks 1 and 2, required functionality, and A-functionality, along with the date/time achieved. This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and how you proved it (via demo or evidence like images/videos). For example, you could have a table like this:</p></li>
+</ul>
+</li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Milestone</p></th>
+<th class="head"><p>Date/Time</p></th>
+<th class="head"><p>What was achieved</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gate Check 1</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Gate Check 2</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Gate Check 3</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Required Functionality</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>A Functionality</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Conclusion</strong> - Explain what your learned from this lab and what changes you would recommend in future years to this lab or the lectures leading up to this lab.</p></li>
+</ul>
+</section>
+</section>
+<section id="grading">
+<h3>Grading<a class="headerlink" href="#grading" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Points</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gate Check 1</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gate Check 2</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>Gate Check 3</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Required Functionality</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>A-Level Functionality</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Use of Git / GitHub</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>Code Style</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>README</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Total</strong></p></td>
+<td><p><strong>100</strong></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 </section>
@@ -602,15 +647,19 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-main-c">Run main.c</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-lab03-prime-asm">Complete <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1">Deliverable 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gate-check-1-design">Gate Check 1 - Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gate-check-2-lab-2-with-exsel-off-0">Gate Check 2 - Lab 2 with ExSel Off (‘0’)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gate-check-3-cpu-interface">Gate Check 3 - CPU Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-functionality">Required Functionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-level-functionality">A-level Functionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-in">Turn In</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#readme">README</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
 </ul>
 </li>
 </ul>
