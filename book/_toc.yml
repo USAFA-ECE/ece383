@@ -34,6 +34,7 @@ parts:
     chapters:
     - file: Assignments/ice1.md
     - file: Assignments/ice2.md
+    - file: Assignments/ice3.md
 #    - file: Assignments/homework7
 #    - file: Assignments/homework8
 #    - file: Assignments/lab2.md
