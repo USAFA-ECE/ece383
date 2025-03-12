@@ -445,7 +445,7 @@ document.write(`
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
-<p>In order to accomplish this lab you will need to make some minor changes to the lab2 component, create a new piece of IP, and then program that IP using the MicroBlaze, as described in the block diagram below. We will walk through these steps below.</p>
+<p>In order to accomplish this lab you will need to make some minor changes to the lab2 component, create a new custom IP, and then program that IP using the MicroBlaze, as described in the block diagram below. We will walk through these steps below.</p>
 <p><img alt="Lab2_Hardware" src="https://georgeyork.github.io/ECE383_web/lab/lab3/img/lab3-2.jpg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -458,7 +458,7 @@ document.write(`
 </section>
 <section id="hardware">
 <h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this heading">#</a></h3>
-<p>Quick instructions for creating your Microblaze project can be found at Lab3 Install.</p>
+<p>Lab 3 will be setup similar to ICE 3.  You will create a new microblaze project, create a custom IP which contains all of your Lab 2 datapath and control unit (and everything inside it), recreate your clock wizard clocks, connect the ready flag register to the interrupt pin, and pass any data needed through the slave registers.  The ICE instructions will be helpful and the Lab 3 setup instructions from last year are <a class="reference external" href="https://georgeyork.github.io/ECE383_web/hand/Lab3_Install_short_version.pdf">here</a>, in case you want them.</p>
 <p>For the most part, your hardware you developed in lab2 will be unchanged. For controlling your TriggerVolt and TriggerTime, you can either
 (1) Retain your Lab2 buttons to control Trigger Volt and Trigger Time, but you must input these signals into Microblaze, and be able to display the values on the UART monitor
 or
