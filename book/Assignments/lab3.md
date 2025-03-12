@@ -16,7 +16,7 @@ The following figure shows required functionality - your program should allow th
 ## 💻 Procedure
 
 ### Setup
-In order to accomplish this lab you will need to make some minor changes to the lab2 component, create a new piece of IP, and then program that IP using the MicroBlaze, as described in the block diagram below. We will walk through these steps below.
+In order to accomplish this lab you will need to make some minor changes to the lab2 component, create a new custom IP, and then program that IP using the MicroBlaze, as described in the block diagram below. We will walk through these steps below.
 
 ![Lab2_Hardware](https://georgeyork.github.io/ECE383_web/lab/lab3/img/lab3-2.jpg)
 
@@ -30,7 +30,7 @@ If your Flag Register is 8-bits wide, you will need to extract the single bit of
 
 ### Hardware
 
-Quick instructions for creating your Microblaze project can be found at Lab3 Install.
+Lab 3 will be setup similar to ICE 3.  You will create a new microblaze project, create a custom IP which contains all of your Lab 2 datapath and control unit (and everything inside it), recreate your clock wizard clocks, connect the ready flag register to the interrupt pin, and pass any data needed through the slave registers.  The ICE instructions will be helpful and the Lab 3 setup instructions from last year are [here](https://georgeyork.github.io/ECE383_web/hand/Lab3_Install_short_version.pdf), in case you want them.
 
 For the most part, your hardware you developed in lab2 will be unchanged. For controlling your TriggerVolt and TriggerTime, you can either
 (1) Retain your Lab2 buttons to control Trigger Volt and Trigger Time, but you must input these signals into Microblaze, and be able to display the values on the UART monitor
