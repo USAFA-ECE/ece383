@@ -28,6 +28,9 @@ Remember the Ready signal in the diagram above is coming from the Flag Register 
 If your Flag Register is 8-bits wide, you will need to extract the single bit of Q (the std_logic_vector output from the flag register) as the interrupt signal (the one set by the Ready signal). This may require you to extract the one bit Q as a separate signal to connect to the MicroBlaze in your block design.
 ```
 
+### 💾 Lab Files
+  - [Lab 3 Diagram](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab03_Diagram.pptx)
+
 ### Hardware
 
 Lab 3 will be setup similar to ICE 3.  You will create a new microblaze project, create a custom IP which contains all of your Lab 2 datapath and control unit (and everything inside it), recreate your clock wizard clocks, connect the ready flag register to the interrupt pin, and pass any data needed through the slave registers.  The ICE instructions will be helpful and the Lab 3 setup instructions from last year are [here](https://georgeyork.github.io/ECE383_web/hand/Lab3_Install_short_version.pdf), in case you want them.
