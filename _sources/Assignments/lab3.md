@@ -196,7 +196,7 @@ pseudo code:
 #### Gate Check 2 - Lab 2 with ExSel Off ('0')
 - *[5 Points]*
 
-- You need to have all of your Lab 2 functionality implemented with the Microblaze. That is, you need to be able to set ExSel to '0' from your microblaze C program and be able to achieve the same functionality as you did in Lab 2.
+- You need to have all of your Lab 2 functionality implemented with the Microblaze. That is, you need to be able to set ExSel to '0' from your microblaze C program (or via switch) and be able to achieve the same functionality as you did in Lab 2.
   
 - The demo can be live to your instructor or a video uploaded to Teams.
 
