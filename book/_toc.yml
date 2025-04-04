@@ -25,6 +25,7 @@ parts:
     - file: Assignments/homework8
     - file: Assignments/homework8b
     - file: Assignments/homework9
+    - file: Assignments/homework12
   - caption: Labs
     chapters:
     - file: Assignments/lab1.md
