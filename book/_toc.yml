@@ -31,6 +31,7 @@ parts:
     - file: Assignments/lab1.md
     - file: Assignments/lab2.md
     - file: Assignments/lab3.md
+    - file: Assignments/lab4.md
   - caption: ICEs
     chapters:
     - file: Assignments/ice1.md
