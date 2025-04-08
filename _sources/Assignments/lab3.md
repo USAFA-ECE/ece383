@@ -182,7 +182,7 @@ pseudo code:
 
 - The XIL in and out functions are either 8-bit, 16-bit, or 32-bit [like Xil_Out16(exWraddr, i)], while you have some lab2 values that are different sizes (like trigvolt is 10-bits), so you may need to append bits in your VHDL code to make them match
 
-- Do not doing anything "slow" inside your ISR or while you are polling the samples into the array. Printf() is very slow. Also, writing your array_L values to the BRAM is very slow. So write your values from the Array_L to the BRAM in a different "for loop" than the route that grabs your samples from the audio codec into the Array_L.
+- Do not doing anything "slow" inside your ISR or while you are polling the samples into the array. Printf() is very slow. Also, writing your array_L values to the BRAM is very slow. So write your values from the Array_L to the BRAM in a different "for loop" than the route that grabs your samples from the audio codec into the Array_L.  Along with this, you should make sure that new interrupt requests are not triggering while you're serving the current interrupt.
 
 
 ## 🚚 Deliverables
