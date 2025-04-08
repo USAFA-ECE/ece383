@@ -26,24 +26,25 @@ Since your update rate is given (48kHz) and the required frequency when X = 1.0 
 ```
 
 ### Hardware
-You will have to create the block diagram for your lab4 function generator and upload it to bitbucket for milestone 1. Your design must be segregated into a lab4 datapath and a lab4 control unit, and will need your lab2 control unit and a modified lab2 datapath. Your design must show the all the needed BBB design blocks in the lab4 datapath, the states in the FSM, the control word, and the status word joining the datapath and control unit. All bus widths and Q formats for registers must be shown. This diagram must be neat and readable.
+~~You will have to create the block diagram for your lab4 function generator and upload it to GitHub for milestone 1. Your design must be segregated into a lab4 datapath and a lab4 control unit, and will need your lab2 control unit and a modified lab2 datapath. Your design must show the all the needed BBB design blocks in the lab4 datapath, the states in the FSM, the control word, and the status word joining the datapath and control unit. All bus widths and Q formats for registers must be shown. This diagram must be neat and readable.~~
 
 Here is a draft of the top_level [Lab 4 Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Lab4_Block_Diagram.pptx) and a draft of a portion of the example Lab4_datapath block diagram, [Interpolation Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Interpolation_block_diagram.pptx) you can use as a starting point.
 
 The final value for your left (un-interpolated) and right (interpolated) signal you generate will be connected to the Codec's L_Bus_in and R_Bus_in (signed values) so you can listen to the output tones using ear-buds or a speaker, and will also be sent to your Lab2 O'Scope, so a good insertion point would be where your lab2 datapath receives the L_Bus_Out and R_Bus_Out (signed values). Since you created an O'Scope in Lab2, you will use this to see your output signal on your monitor. Since your lab4 FSM and lab4 datapath will need the Audio_Codec_Wrapper (with Clock_Wiz_1) and "Ready" signal from Lab2, put your Lab4 FSM and Lab4 datapath inside your lab2 block diagram (see [Lab4_Block_Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Lab4_Block_Diagram.pptx)). Therefore, you will also turn in a modified Lab2 block diagram showing the interface to the Lab4 FSM and Lab4 datapath for milestone 1. So you can easily test if your lab2 is working, switch(2) will be used to select lab2 or 4, for lab2 selecting the audio codec L_bus_out and R_bus_out as inputs, and for lab4 selecting your uninterpolated and interpolated signals to send to the Lab2 video.
 
-For lab4, you will use switch(5:4) to select 4 pre-calulated phase-increments (see milestone 1) for 4 output frequencies (see [Interpolation Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Interpolation_block_diagram.pptx) ):
-- Exactly 2 Cycles of Sinusiod on Scopeface Monitor
-- 440 hz
-- Phase_increment = X = 1.0
-- low frequency such that you can see the difference between uninterpolated and interpolated on the monitor
+~~For lab4, you will use switch(5:4) to select 4 pre-calulated phase-increments (see milestone 1) for 4 output frequencies~~ (see [Interpolation Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Interpolation_block_diagram.pptx) ):
+~~- Exactly 2 Cycles of Sinusiod on Scopeface Monitor~~
+~~- 440 hz~~
+~~- Phase_increment = X = 1.0~~
+~~- low frequency such that you can see the difference between uninterpolated and interpolated on the monitor~~
+- Choose a frequency so that you can see exactly 1.5 cycles of a sine wave on your display.
 
 ```{tip}
 Think about how many pixels across your scopeface display is.  If each horizontal pixel corresponds to a sample and you know your sample rate you should be able to find the period that corresponds to half of the drawing area.
 ```
 
 Also for lab4,
-- Switch(7:6) will be used to amplify or attenuate the signal.
+~~- Switch(7:6) will be used to amplify or attenuate the signal.~~
 
 ```{note}
 Signed Multiplication with Unsigned Data: Our VHDL multiplier does signed multiplication, not unsigned multiplication. It assumes the numbers being multiplied are signed, not unsigned. (For example, if the two numbers being multiplied have a '1' in the MSB, it assumes they are negative and produces a positive result, with a '0' in the MSB. So, if your two numbers were really intended to be unsigned positive numbers, you might get the wrong result).
@@ -63,12 +64,12 @@ Looking at the data flow going into the two multipliers, the above ensured NEXT 
 ## 🚚 Deliverables
 
 ### Required Functionality
-Use switch(5:4) to demonstrate your system can generate the 4 different frequencies. For required functionality, Interpolation between the output samples is not required. The waveform should be played back through the Audio Codec interface on the left channel producing an audible tone on a speaker and the appropriate waveform should be displayed on your lab2 scopeface monitor. Remember to wait for the ready signal.
+~~Use switch(5:4) to demonstrate your system can generate the 4 different frequencies.~~ Just need to show you can create a sine wave and interpolate it. For required functionality, Interpolation between the output samples is not required. The waveform should be played back through the Audio Codec interface on the left channel producing an audible tone on a speaker and the appropriate waveform should be displayed on your lab2 scopeface monitor. Remember to wait for the ready signal.
 
-### B-level Functionality
-Switch(7:6) must be able to amplify or attenuate the signal to 4 different amplification levels. The signal must be equally amplified about the DC axis (row = 220).
+~~### B-level Functionality~~
+~~Switch(7:6) must be able to amplify or attenuate the signal to 4 different amplification levels. The signal must be equally amplified about the DC axis (row = 220).~~
 
-For B-level Functionality interpolation between the output samples is not required.
+~~For B-level Functionality interpolation between the output samples is not required.~~
 
 ### A-level Functionality
 Modify the hardware for the right channel to interpolate between samples using (base + (next-base)*offset) method. You must create the Interpolated signal (for channel 2), you also must create the un-interpolated signal (for channel 1), so you can compare ch1 and ch2 to see the difference (and include an image of your scopeface monitor showing this difference). 
@@ -76,13 +77,13 @@ Modify the hardware for the right channel to interpolate between samples using (
 ```{note}
 This does NOT require duplicate hardware, since in calculating the interpolated signal, you also already create the un-interpolated signal (known as BASE).  However, you will need to amplify the BASE the same way you amplify the interpolated signal before if goes to channel 2.
 ```
-You may swap A and B functionality if desired.
+~~You may swap A and B functionality if desired.~~
 
-### Bonus Functionality
-Modify your design to continuously create a "chirp" signal, by continuously incrementing the phase increment (with an appropriate time delay  between increments), and demonstrate using a speaker. 
+~~### Bonus Functionality~~
+~~Modify your design to continuously create a "chirp" signal, by continuously incrementing the phase increment (with an appropriate time delay  between increments), and demonstrate using a speaker.~~
 
 ### Milestone 1
-- **[15 Points]** At the COB of the day of the first lab session, you should have completed your design and uploaded it to github. This should include the mathematical analysis you did to meet the requirements in the "Requirements" section above, and answering the following questions.
+- **[15 Points]** ~~At the COB of the day of the first lab session,~~ With your final lab turn-in you should have completed your design and uploaded it to github. This should include the mathematical analysis you did to meet the requirements in the "Requirements" section above, and answering the following questions.
 (0) Given the mathematical analysis you did to meet the requirements in the "Requirements" section above, what is the Q format required for your index.offset register (like Qxx.xx)? Given this Q format, answer and show calculations for the following questions:
 (1) phase increment needed for the maximum frequency of 12,000 Hz. Give this answer in decimal and in binary in the proper Q format.
 (2) the size of the BRAM buffer needed, assuming it contains one cycle of a sinusoid
@@ -106,8 +107,8 @@ You should also include the hardware block diagram design and the State Machine 
 (12) The FSM state transition diagram and CW output table
 (13) The overall top-level lab4 block diagram modified from the old lab2 diagram, showing blocks for the lab4 datapath, lab4 FSM, and how they interact with the remaining lab2 components.
 
-### Deliverable 2
-- **[15 Points]** At the COB of the day of the second lab period, you should have a working testbench testing your lab4 interpolation hardware block diagram (with your BRAM LUT inside) and lab4 FSM. When simulating your design, you can have the testbench supply a mock system clock (100 MHz) and a mock ready signal (clock at 48 kHz) in place of the ready signal generated the Audio_Codec_Wrapper.
+### Milestone 2
+- **[15 Points]** ~~At the COB of the day of the second lab period,~~ With your final lab turn-in you should have a working testbench testing your lab4 interpolation hardware block diagram (with your BRAM LUT inside) and lab4 FSM. When simulating your design, you can have the testbench supply a mock system clock (100 MHz) and a mock ready signal (clock at 48 kHz) in place of the ready signal generated the Audio_Codec_Wrapper.
 
 You do not need to have your switches working for this test bench nor interfacing with your lab2 FSM or lab2 datapath.
 
@@ -159,9 +160,9 @@ For Milestone 2, also describe your method for creating your BRAM look-up tables
 
 For **Required functionality**, did your audio out work? Include images and analysis of your scopeface plots showing:
 
-1. The output waveform when x is set to produce exactly 2 cycles of a sine wave across the 600 pixels on your scopeface display (did this produce exactly two cycles of your sine wave? does this match your calculated frequency, based on your scopeface grid timing calculations? What is the percentage error? show calculations.)
+1. The output waveform when x is set to produce exactly 2 cycles of a sine wave across the 600 pixels on your scopeface display (did this produce exactly two cycles of your sine wave? does this match your calculated frequency, based on your scopeface grid timing calculations? ~~What is the percentage error? show calculations.~~)
 
-For B-level functionality, include images of scopeface plots showing (1) the output waveform with your default amplitude, and (2) the output waveform after you increase (or decrease) the amplitude of your signal [does this match your calculations based on the switch settings? You should be comparing the relative amplitudes seen for the peak-to-peak signals displayed on your scope with the two different amplitude settings.]
+~~For B-level functionality, include images of scopeface plots showing (1) the output waveform with your default amplitude, and (2) the output waveform after you increase (or decrease) the amplitude of your signal [does this match your calculations based on the switch settings? You should be comparing the relative amplitudes seen for the peak-to-peak signals displayed on your scope with the two different amplitude settings.]~~
 
 For A-level functionality, include an image of your o'scope plot showing channel-1 (not interpolated) and channel-2 (interpolated). Try to pick a frequency such that interpolated looks better than non-interpolated.
 - Remember to upload your code with proper headers and comments
