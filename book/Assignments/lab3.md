@@ -1,4 +1,4 @@
-# 🔬 Lab 3 Software Control of a Datapath 
+# 🔬 Lab 3: Software Control of a Datapath 
 
 ## 📌 Objectives
 - Students should implement a soft CPU in the fabric of the FPGA and use it to control a hardware datapath
