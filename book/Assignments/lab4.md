@@ -1,4 +1,4 @@
-# 🔬 Lab 4 Direct Digital Synthesis
+# 🔬 Lab 4: Direct Digital Synthesis
 
 ## 📌 Objectives
 - The goal of this lab is to generate an audio waveform of a desired frequency with a high degree of accuracy.
