@@ -22,7 +22,7 @@ While you have the flexibility to design the waveform generator as you see fit, 
 - Microblaze is not required, but may be used if desired in place of the FSM.
 
 ```{tip}
-Since your update rate is given (48kHz) and the required frequency when X = 1.0 is given, you can apply the formula you learned in class to find a suitable LUT size.
+Since your update rate is given (48kHz) and the required frequency when X = 1.0 is given, you can apply the formula you learned in class to find a suitable LUT size.  Similarly, these requirements will drive your selection of Qxx.xx
 ```
 
 ### Hardware
