@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MIDI to DDS CSV Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi"></script>
+</head>
+<body>
+  <h1>MIDI to DDS CSV Generator</h1>
+
+  <input type="file" id="midiFile" accept=".mid,.midi" />
+  <br><br>
+
+  <label>LUT Size:</label>
+  <input type="number" id="lutSize" placeholder="e.g., 1024">
+  <label>or LUT Bits:</label>
+  <input type="number" id="lutBits" placeholder="e.g., 10">
+  <br><br>
+
+  <button onclick="processMidi()">Convert</button>
+  <br><br>
+
+  <a id="downloadLink" style="display:none">Download CSV</a>
+  <pre id="log"></pre>
+
+  <script>
+    function log(msg) {
+      document.getElementById("log").textContent += msg + "\n";
+    }
+
+    function midiNoteToFrequency(noteNumber) {
+      return 440 * Math.pow(2, (noteNumber - 69) / 12);
+    }
+
+    async function processMidi() {
+      const fileInput = document.getElementById("midiFile");
+      const file = fileInput.files[0];
+      if (!file) return alert("Please upload a MIDI file.");
+
+      const lutSizeInput = document.getElementById("lutSize").value;
+      const lutBitsInput = document.getElementById("lutBits").value;
+      const LUT_SIZE = lutBitsInput ? Math.pow(2, parseInt(lutBitsInput)) : parseInt(lutSizeInput);
+
+      if (!LUT_SIZE || LUT_SIZE <= 0) return alert("Please provide a valid LUT size or bit value.");
+
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const midi = new Midi(e.target.result);
+        const track = midi.tracks[0]; // single track only
+
+        const events = [];
+        let lastNoteOn = null;
+
+        for (const note of track.notes) {
+          if (lastNoteOn && note.time < lastNoteOn.time + lastNoteOn.duration) {
+            // Overlapping note
+            log(`Overlap detected: Ending note ${lastNoteOn.midi} early at ${note.time}`);
+            const endTime = note.time;
+            events.push({
+              midi: lastNoteOn.midi,
+              start: lastNoteOn.time,
+              end: endTime
+            });
+            lastNoteOn = note;
+          } else {
+            if (lastNoteOn) {
+              events.push({
+                midi: lastNoteOn.midi,
+                start: lastNoteOn.time,
+                end: lastNoteOn.time + lastNoteOn.duration
+              });
+            }
+            lastNoteOn = note;
+          }
+        }
+        if (lastNoteOn) {
+          events.push({
+            midi: lastNoteOn.midi,
+            start: lastNoteOn.time,
+            end: lastNoteOn.time + lastNoteOn.duration
+          });
+        }
+
+        const rows = ["counter,phase_increment"];
+        for (const e of events) {
+          const freq = midiNoteToFrequency(e.midi);
+          const duration_s = e.end - e.start;
+          const counter = Math.round(duration_s / 1e-8);
+          const phase_increment = (freq * LUT_SIZE) / 48000;
+          rows.push(`${counter},${phase_increment.toFixed(2)}`);
+        }
+
+        const csvContent = rows.join("\n");
+        const blob = new Blob([csvContent], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const downloadLink = document.getElementById("downloadLink");
+        downloadLink.href = url;
+        downloadLink.download = "dds_notes.csv";
+        downloadLink.style.display = "inline";
+        downloadLink.textContent = "Download CSV";
+
+        log("Done! Click the link above to download.");
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  </script>
+</body>
+</html>
