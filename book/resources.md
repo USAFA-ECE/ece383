@@ -27,26 +27,26 @@
 
 ## MicroBlaze
 
-- [MicroBlaze Tutorial (Spring 2016 - uses Digilent Atlys)](https://georgeyork.github.io/ECE383_web/datasheets/MicroBlaze_Tutorial.docx)
-- [MicroBlaze Processor Reference Guide](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_1/ug984-vivado-microblaze-ref.pdf)
-- [BYU MicroBlaze Tutorial (uses Digilent Atlys)](https://ee427plblabs.groups.et.byu.net/mb_tutorial/mb_tutorial.html)
-- [Xilinx MicroBlaze Documentation](https://www.xilinx.com/products/design-tools/microblaze.html)
+- [MicroBlaze Tutorial (Spring 2016 - uses Digilent Atlys)](https://georgeyork.github.io/ECE383_web/hand/hand17.docx)
+- [MicroBlaze Processor Reference Guide](http://www.xilinx.com/support/documentation/sw_manuals/mb_ref_guide.pdf)
+- [BYU MicroBlaze Tutorial (uses Digilent Atlys)](http://ee427plblabs.groups.et.byu.net/wiki/lib/exe/fetch.php?media=lab1-how-to.pdf)
+- [Xilinx MicroBlaze Documentation](http://www.xilinx.com/tools/microblaze.htm)
 - [CMake Fix](https://adaptivesupport.amd.com/s/question/0D52E00006hpL4aSAE/vitis-20192-unable-to-select-libmetal-and-openamp?language=en_US)
 
 ## Final Project Help
 
-- [IR controller hints](https://georgeyork.github.io/ECE383_web/datasheets/IR_Controller_Hints.pdf)
-- [NES controller hints](https://georgeyork.github.io/ECE383_web/datasheets/NES_Controller_Hints.pdf)
-- [PS2 Mouse interface hints](https://georgeyork.github.io/ECE383_web/datasheets/PS2_Mouse_Interface_Hints.pdf)
-- [Example Grid Memory with BRAMs (zip)](https://georgeyork.github.io/ECE383_web/datasheets/Example_Grid_Memory_with_BRAMs.zip)
-- [Example Grid Memory with 2D Arrays (zip)](https://georgeyork.github.io/ECE383_web/datasheets/Example_Grid_Memory_with_2D_Arrays.zip)
-- [Example Graphics Memory, 2 bits per pixel (zip)](https://georgeyork.github.io/ECE383_web/datasheets/Example_Graphics_Memory_2bpp.zip)
-- [Reading UART keyboard without being locked out](https://georgeyork.github.io/ECE383_web/datasheets/Reading_UART_Keyboard.pdf)
-- [Analog to Digital Converter hints](https://georgeyork.github.io/ECE383_web/datasheets/ADC_Hints.pdf)
+- [IR controller hints](https://georgeyork.github.io/ECE383_web/datasheets/IR_controller_hints.pptx)
+- [NES controller hints](https://georgeyork.github.io/ECE383_web/datasheets/NES%20controller%20hints.pptx)
+- [PS2 Mouse interface hints](https://georgeyork.github.io/ECE383_web/datasheets/PS2_Mouse_HowTo.zip)
+- [Example Grid Memory with BRAMs (zip)](https://georgeyork.github.io/ECE383_web/datasheets/grid%20memory.zip)
+- [Example Grid Memory with 2D Arrays (zip)](https://georgeyork.github.io/ECE383_web/datasheets/2Darray_memory.zip)
+- [Example Graphics Memory, 2 bits per pixel (zip)](https://georgeyork.github.io/ECE383_web/datasheets/graphics%20memory%202bits%20per%20pixel.zip)
+- [Reading UART keyboard without being locked out](https://georgeyork.github.io/ECE383_web/datasheets/Using%20keyboard%20buffer.pdf)
+- [Analog to Digital Converter hints](https://georgeyork.github.io/ECE383_web/datasheets/Analog%20to%20Digital%20Converter.zip)
 - [Random Number Hints](https://georgeyork.github.io/ECE383_web/datasheets/Random_Number_Hints.pdf)
-- [How to 3D print a case for your FPGA board](https://georgeyork.github.io/ECE383_web/datasheets/3D_Print_FPGA_Case.pdf)
-- [How to use the logic analyzer](https://georgeyork.github.io/ECE383_web/datasheets/Using_Logic_Analyzer.pdf)
-- [Example code: How to print to OLED display](https://georgeyork.github.io/ECE383_web/datasheets/Printing_to_OLED.pdf)
+- [How to 3D print a case for your FPGA board](https://georgeyork.github.io/ECE383_web/datasheets/3D_Print_Case.zip)
+- [How to use the logic analyzer](https://georgeyork.github.io/ECE383_web/datasheets/Logic_Analyzer.pdf)
+- [Example code: How to print to OLED display](https://georgeyork.github.io/ECE383_web/datasheets/OLED_example2.zip)
 
 ## Debugging Hints
 
