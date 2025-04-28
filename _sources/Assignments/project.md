@@ -1,6 +1,6 @@
 # 🚀 ECE 383 - Final Project
 
-The final project in this class will be the design and implementation of an engineering prototype to address some need. The final projects in this class are to be completed individually. The following are significant deliverables in the completion of the final project. See [Final Project Document](https://georgeyork.github.io/ECE383_web/lab/final_project/project.html) for more details.
+The final project in this class will be the design and implementation of an engineering prototype to address some need. The final projects in this class are to be completed individually. The following are significant deliverables in the completion of the final project. 
 
 ## 📝 Proposal
 
