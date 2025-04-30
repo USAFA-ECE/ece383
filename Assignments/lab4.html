@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>✏️ HW 7 &#8212; Embedded Systems II</title>
+    <title>🔬 Lab 4: Direct Digital Synthesis &#8212; Embedded Systems II</title>
   
   
   
@@ -63,12 +63,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Assignments/homework7';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Assignments/lab4';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="✏️ HW 8" href="homework8.html" />
-    <link rel="prev" title="✏️ HW 5" href="homework5.html" />
+    <link rel="next" title="🔬 ICE 1: Intro to Microblaze" href="ice1.html" />
+    <link rel="prev" title="🔬 Lab 3: Software Control of a Datapath" href="lab3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,24 +171,24 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../debugging.html">🪲 Debugging</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="homework1.html">✏️ HW 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework2.html">✏️ HW 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework3.html">✏️ HW 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework4.html">✏️ HW 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework5.html">✏️ HW 5</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">✏️ HW 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homework7.html">✏️ HW 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework8.html">✏️ HW 8</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework8b.html">✏️ HW 8b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework9.html">✏️ HW 9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework12.html">✏️ HW 12</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">🔬 Lab 1: VGA Synchronization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2.html">🔬 Lab 2: Data Acquisition, Storage and Display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab3.html">🔬 Lab 3: Software Control of a Datapath</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab4.html">🔬 Lab 4: Direct Digital Synthesis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">🔬 Lab 4: Direct Digital Synthesis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ICEs</span></p>
 <ul class="nav bd-sidenav">
@@ -266,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/USAFA-ECE/ece383/issues/new?title=Issue%20on%20page%20%2FAssignments/homework7.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/USAFA-ECE/ece383/issues/new?title=Issue%20on%20page%20%2FAssignments/lab4.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Assignments/homework7.md" target="_blank"
+      <li><a href="../_sources/Assignments/lab4.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -378,7 +378,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>✏️ HW 7</h1>
+    <h1>🔬 Lab 4: Direct Digital Synthesis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,7 +388,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">📜 Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware">Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-items">TODO items</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a></li>
 </ul>
             </nav>
         </div>
@@ -400,14 +408,63 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hw-7">
-<h1>✏️ HW 7<a class="headerlink" href="#hw-7" title="Permalink to this heading">#</a></h1>
-<section id="instructions">
-<h2>📜 Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-4-direct-digital-synthesis">
+<h1>🔬 Lab 4: Direct Digital Synthesis<a class="headerlink" href="#lab-4-direct-digital-synthesis" title="Permalink to this heading">#</a></h1>
+<section id="objectives">
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Assignment is <a class="reference external" href="https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/Homework_7.pdf">here</a></p></li>
-<li><p>Supplemental files are <a class="reference external" href="https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Homework_7.zip">here</a></p></li>
-<li><p>Submit via gradescope</p></li>
+<li><p>The goal of this lab is to generate an audio waveform of a desired frequency with a high degree of accuracy.</p></li>
+</ul>
+</section>
+<section id="synopsis">
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
+<p>You are to use Direct Digital Synthesis to reproduce your audio waveform. You are given a template which implements the <a class="reference external" href="https://georgeyork.github.io/ECE383_web/lab/lab4/Interpolation_block_diagram.pptx">Interpolation Block Diagram</a> from the class lecture.  Your task will be to create the lookup table, implement the equations for interpolation, and choose an appropriate phase increment to create the desired frequency.</p>
+</section>
+<section id="procedure">
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">#</a></h3>
+<p>While you have the flexibility to design the waveform generator as you see fit, your system must meet the following requirements:</p>
+<ul class="simple">
+<li><p>Use an update rate of 48kHz</p></li>
+<li><p>Your function generator should be able to create a maximum frequency of 12000 Hz.</p></li>
+<li><p>Your function generator should be able to create a minimum frequency between a 0.5 Hz and 1.0 Hz (this is also the minimum change in frequency).</p></li>
+<li><p>The provided code uses a phase increment of Q8.8 to meet the above requirements.</p></li>
+<li><p>When your phase increment X = 1.0, the output frequency should be 200 Hz +/- 20 Hz.</p></li>
+<li><p>Produce a frequency which is equal to your birth month and birth day concatenated together.  For example, if your birthday is July 6th, you should produce a frequency of 0706 = 706Hz.  Note that your final frequency may be slightly off from this desired frequency.  This is ok as long as your phase increment calculation is correct.</p></li>
+</ul>
+</section>
+<section id="hardware">
+<h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this heading">#</a></h3>
+<p>Provided Code: <a class="reference external" href="https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab04_cadet_code.zip">Lab04_cadet_code.zip</a></p>
+<p>The provided VHDL code will allow you to reproduce 5 different frequencies, selectable by button press, via the audio codec’s line out interface.  You can plug a speaker or headset into the line out jack and then use a spectrum analyzer to view the frequency of the output.</p>
+<p>The code template breaks the design into the following components: Control Unit and Data Path.</p>
+<p>Within the Data Path are:</p>
+<ul class="simple">
+<li><p>ResultReg for storing the final result</p></li>
+<li><p>LUT to hold the BRAM and return either the base or next value</p></li>
+<li><p>Amplify to multiply the output for amplification</p></li>
+<li><p>Interpolate to interpolate between the base and next value by the offset amount</p></li>
+<li><p>IndexOffsetReg to hold the index.offset value and increment it by the phase increment</p></li>
+</ul>
+<p>Each of the components above has its own test bench.  Note that the overall Lab4_tb is not intended to be used at this time.  For the other components, feel free to use the test bench to assist you in completing the lab.</p>
+</section>
+<section id="todo-items">
+<h3>TODO items<a class="headerlink" href="#todo-items" title="Permalink to this heading">#</a></h3>
+<p>To complete the lab you will need to make the following changes.</p>
+<ul class="simple">
+<li><p>Complete the interpolate component by adding equations for delta x offset and base + delta x offset.</p></li>
+<li><p>Create a LUT based on the requirements above.</p></li>
+<li><p>Choose a phase increment to produce a frequency which is your birth month and day concatenated together.  <a class="reference external" href="https://www.exploringbinary.com/binary-converter/">This site </a> can be useful for converting to fixed point binary format.</p></li>
+</ul>
+</section>
+</section>
+<section id="deliverables">
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To be submitted via gradescope.</p></li>
+<li><p>Submit a picture from a spectrum analyzer showing that you can produce the birth month/day frequency.</p></li>
+<li><p>Answer the follow up questions.</p></li>
 </ul>
 </section>
 </section>
@@ -444,20 +501,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="homework5.html"
+       href="lab3.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">✏️ HW 5</p>
+        <p class="prev-next-title">🔬 Lab 3: Software Control of a Datapath</p>
       </div>
     </a>
     <a class="right-next"
-       href="homework8.html"
+       href="ice1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">✏️ HW 8</p>
+        <p class="prev-next-title">🔬 ICE 1: Intro to Microblaze</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -479,7 +536,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">📜 Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware">Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-items">TODO items</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a></li>
 </ul>
   </nav></div>
 
