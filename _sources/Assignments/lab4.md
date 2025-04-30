@@ -50,3 +50,9 @@ To complete the lab you will need to make the following changes.
 - Submit a picture from a spectrum analyzer showing that you can produce the birth month/day frequency.
 - Answer the follow up questions.
 
+## Spectrum Analyzer
+
+```{raw} html
+<iframe src="https://htmlpreview.github.io/?https://raw.githubusercontent.com/USAFA-ECE/ece383/refs/heads/main/book/Assignments/files/Lab04_spectrum_analyzer.htm" width="100%" height="400px" style="border: none;"></iframe>
+```
+
