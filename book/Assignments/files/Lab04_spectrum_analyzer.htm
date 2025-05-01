@@ -21,6 +21,7 @@
 <body>
   <canvas id="canvas"></canvas>
   <script>
+    const VERSION = "v1.0";
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
@@ -31,21 +32,21 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    let audioContext, analyser, dataArray;
+    let audioContext, analyser, dataArray, started = false;
 
     async function setupAudio() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         analyser = audioContext.createAnalyser();
-        analyser.fftSize = 2048; // resolution: ~21 Hz per bin at 44.1 kHz
+        analyser.fftSize = 2048;
+        analyser.smoothingTimeConstant = 0.8;
 
         const source = audioContext.createMediaStreamSource(stream);
         source.connect(analyser);
 
-        const bufferLength = analyser.frequencyBinCount;
-        dataArray = new Uint8Array(bufferLength);
-
+        dataArray = new Uint8Array(analyser.frequencyBinCount);
+        started = true;
         draw();
       } catch (err) {
         alert('Microphone access denied.');
@@ -55,6 +56,8 @@
 
     function draw() {
       requestAnimationFrame(draw);
+      if (!started) return;
+
       analyser.getByteFrequencyData(dataArray);
 
       ctx.fillStyle = 'black';
@@ -63,38 +66,51 @@
       const nyquist = audioContext.sampleRate / 2;
       const freqPerBin = nyquist / dataArray.length;
       const maxFreq = 2000;
-      const maxIndex = Math.floor(maxFreq / freqPerBin);
+      const maxBin = Math.floor(maxFreq / freqPerBin);
+      const barWidth = canvas.width / maxBin;
 
-      const barWidth = canvas.width / maxIndex;
       let peakVal = 0;
       let peakIndex = 0;
+      let hasSignal = false;
 
-      for (let i = 0; i < maxIndex; i++) {
+      for (let i = 0; i < maxBin; i++) {
         const val = dataArray[i];
         if (val > peakVal) {
           peakVal = val;
           peakIndex = i;
         }
+        if (val > 10) hasSignal = true;
       }
 
-      for (let i = 0; i < maxIndex; i++) {
+      for (let i = 0; i < maxBin; i++) {
+        const val = dataArray[i];
         const x = i * barWidth;
-        const heightScale = 2.5; // adjust for more visible bars
-        const barHeight = dataArray[i] * heightScale;
-        ctx.fillStyle = `rgb(${barHeight + 50}, 50, 180)`;
-        ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+        const scaledHeight = Math.pow(val / 255, 2) * canvas.height;
+        ctx.fillStyle = `rgb(${val + 100}, 50, 180)`;
+        ctx.fillRect(x, canvas.height - scaledHeight, barWidth, scaledHeight);
       }
 
-      if (peakVal > 0) {
+      if (hasSignal && peakVal > 10) {
         const freq = Math.round(peakIndex * freqPerBin);
         const x = peakIndex * barWidth;
-        const y = canvas.height - (dataArray[peakIndex] * 2.5) - 10;
+        const y = canvas.height - Math.pow(peakVal / 255, 2) * canvas.height - 10;
 
         ctx.fillStyle = 'white';
         ctx.font = '16px sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(`${freq} Hz`, x + barWidth / 2, y);
+      } else {
+        ctx.fillStyle = 'gray';
+        ctx.font = '14px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(`Waiting for signal...`, 10, 30);
       }
+
+      // Draw version number in top-left
+      ctx.fillStyle = 'gray';
+      ctx.font = '12px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(`Spectrum Analyzer ${VERSION}`, 10, 14);
     }
 
     setupAudio();
