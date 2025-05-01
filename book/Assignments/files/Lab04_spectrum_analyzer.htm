@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Spectrum Analyzer (0–2kHz)</title>
+  <title>Spectrum Analyzer (1 Hz Resolution)</title>
   <style>
     html, body {
       margin: 0;
@@ -21,7 +21,7 @@
 <body>
   <canvas id="canvas"></canvas>
   <script>
-    const VERSION = "v1.0";
+    const VERSION = "v1.1 (1 Hz Resolution)";
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
@@ -39,8 +39,8 @@
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         analyser = audioContext.createAnalyser();
-        analyser.fftSize = 2048;
-        analyser.smoothingTimeConstant = 0.8;
+        analyser.fftSize = 65536; // resolution ~0.67 Hz
+        analyser.smoothingTimeConstant = 0.85;
 
         const source = audioContext.createMediaStreamSource(stream);
         source.connect(analyser);
@@ -106,7 +106,7 @@
         ctx.fillText(`Waiting for signal...`, 10, 30);
       }
 
-      // Draw version number in top-left
+      // Version label
       ctx.fillStyle = 'gray';
       ctx.font = '12px sans-serif';
       ctx.textAlign = 'left';
