@@ -52,7 +52,5 @@ To complete the lab you will need to make the following changes.
 
 ## Spectrum Analyzer
 
-```{raw} html
-<iframe src="https://htmlpreview.github.io/?https://raw.githubusercontent.com/USAFA-ECE/ece383/refs/heads/main/book/Assignments/files/Lab04_spectrum_analyzer.htm" width="100%" height="400px" style="border: none;" allow="microphone;"></iframe>
-```
+You can use the spectrum analyzer [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/USAFA-ECE/ece383/refs/heads/main/book/Assignments/files/Lab04_spectrum_analyzer.htm).
 
