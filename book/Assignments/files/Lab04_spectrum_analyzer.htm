@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Spectrum Analyzer (0–2kHz)</title>
   <style>
-    body { margin: 0; background: black; overflow: hidden; }
-    canvas { display: block; width: 100%; height: 100%; }
+    html, body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      height: 100%;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
@@ -14,71 +23,77 @@
   <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    let audioContext, analyser, dataArray, source;
 
     function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
     }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
+
+    let audioContext, analyser, dataArray;
 
     async function setupAudio() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         analyser = audioContext.createAnalyser();
-        source = audioContext.createMediaStreamSource(stream);
+        analyser.fftSize = 2048; // resolution: ~21 Hz per bin at 44.1 kHz
+
+        const source = audioContext.createMediaStreamSource(stream);
         source.connect(analyser);
 
-        analyser.fftSize = 2048; // Higher resolution for better frequency discrimination
         const bufferLength = analyser.frequencyBinCount;
         dataArray = new Uint8Array(bufferLength);
 
-        draw(bufferLength);
+        draw();
       } catch (err) {
         alert('Microphone access denied.');
         console.error(err);
       }
     }
 
-    function draw(bufferLength) {
-      requestAnimationFrame(() => draw(bufferLength));
+    function draw() {
+      requestAnimationFrame(draw);
       analyser.getByteFrequencyData(dataArray);
 
       ctx.fillStyle = 'black';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const nyquist = audioContext.sampleRate / 2;
-      const freqPerBin = nyquist / bufferLength;
+      const freqPerBin = nyquist / dataArray.length;
       const maxFreq = 2000;
-      const maxBin = Math.floor(maxFreq / freqPerBin);
+      const maxIndex = Math.floor(maxFreq / freqPerBin);
 
-      const barWidth = canvas.width / maxBin;
-      let maxVal = 0;
-      let maxIndex = 0;
+      const barWidth = canvas.width / maxIndex;
+      let peakVal = 0;
+      let peakIndex = 0;
 
-      for (let i = 0; i < maxBin; i++) {
+      for (let i = 0; i < maxIndex; i++) {
         const val = dataArray[i];
-        if (val > maxVal) {
-          maxVal = val;
-          maxIndex = i;
+        if (val > peakVal) {
+          peakVal = val;
+          peakIndex = i;
         }
       }
 
-      for (let i = 0; i < maxBin; i++) {
-        const barHeight = dataArray[i] * 2; // Amplify bar height
-        ctx.fillStyle = `rgb(${barHeight + 100}, 50, 150)`;
+      for (let i = 0; i < maxIndex; i++) {
         const x = i * barWidth;
+        const heightScale = 2.5; // adjust for more visible bars
+        const barHeight = dataArray[i] * heightScale;
+        ctx.fillStyle = `rgb(${barHeight + 50}, 50, 180)`;
         ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+      }
 
-        if (i === maxIndex) {
-          const peakFreq = Math.round(i * freqPerBin);
-          ctx.fillStyle = 'white';
-          ctx.font = '16px sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillText(`${peakFreq} Hz`, x + barWidth / 2, canvas.height - barHeight - 10);
-        }
+      if (peakVal > 0) {
+        const freq = Math.round(peakIndex * freqPerBin);
+        const x = peakIndex * barWidth;
+        const y = canvas.height - (dataArray[peakIndex] * 2.5) - 10;
+
+        ctx.fillStyle = 'white';
+        ctx.font = '16px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(`${freq} Hz`, x + barWidth / 2, y);
       }
     }
 
