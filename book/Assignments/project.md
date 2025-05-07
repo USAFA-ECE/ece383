@@ -20,21 +20,18 @@ The second milestone generally seeks to integrate the units of the design. You s
 
 ## 	🧑‍🏫 Presentation
 
-A presentation in front of the class covering the design needs, high level architecture, detailed design, and a demo of the final product.
+A poster presentation or a presentation in front of the class covering the design needs, high level architecture, detailed design, and a demo of the final product.
 
 ## 📄 Write-up
 
-A written document describing your design, its performance, and its operation.
+A written document (README) describing your design, its performance, and its operation.
 
 ## 💯 Grading
 
 | Item | Points |
 |:-----|:-------|
-| Proposal | 10 |
-| Plan | 10 |
-| Milestone #1 | 10 |
-| Milestone #2 | 10 |
+| Proposal | 20 |
 | Technical Basic -> Advanced | 25 -> 40 |
-| Presentation | 15 |
-| Write-up | 5 |
+| Presentation & Demo | 25 |
+| Write-up | 15 |
 | **Total** | **100** |
