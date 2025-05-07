@@ -1,4 +1,4 @@
-# Final Project
+# 🕹️ Final Project
 
 The final project in this class will be the design and implementation of an engineering prototype to address some need. The final projects in this class are to be completed individually. The following are significant deliverables in the completion of the final project. 
 
