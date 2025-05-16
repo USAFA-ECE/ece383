@@ -35,8 +35,8 @@ A written document (README) describing your design, its performance, and its ope
 | Item | Points |
 |:-----|:-------|
 | Proposal | 5 |
-| Functionality | 25 | 
-| Technical Basic -> Advanced | 25 -> 40 |
+| Functionality | 40 | 
+| Technical Basic -> Advanced | 10 -> 25 |
 | Presentation & Demo | 15 |
 | Write-up | 15 |
 | **Total** | **100** |
