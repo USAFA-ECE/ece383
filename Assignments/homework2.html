@@ -175,6 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="homework1.html">✏️ HW 1</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">✏️ HW 2</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="homework3.html">✏️ HW 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework4.html">✏️ HW 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homework5.html">✏️ HW 5</a></li>
@@ -390,12 +391,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">✏️ HW 2</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">📜 Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scancode-decoder-vhdl">1. Scancode Decoder (VHDL)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-scancode-table">Keyboard Scancode Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-specification">Component Specification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">Behavior</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hw2-code">a. HW2_CODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-hw2">b. HW2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-a-new-project-in-vivado">How to Create a New Project in Vivado</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -415,6 +431,87 @@ document.write(`
 <li><p>Submit via gradescope</p></li>
 </ul>
 </section>
+<section id="scancode-decoder-vhdl">
+<h2>1. Scancode Decoder (VHDL)<a class="headerlink" href="#scancode-decoder-vhdl" title="Permalink to this heading">#</a></h2>
+<p>In this problem, you will build a VHDL entity called <strong><code class="docutils literal notranslate"><span class="pre">scancode_decoder</span></code></strong> which processes keyboard scancodes.</p>
+<p>When you press a key on a keyboard, the keyboard sends an 8-bit code to the computer called a <strong>PS/2 scancode</strong>. Each key has its own scancode listed below. The relationship between the keys and their scancodes is <strong>not based on ASCII nor any other discernible pattern</strong>.</p>
+<p>Build a component which converts an <strong>8-bit scancode for the digits 0–9</strong> into a <strong>4-bit hexadecimal value</strong>.</p>
+<hr class="docutils" />
+<section id="keyboard-scancode-table">
+<h3>Keyboard Scancode Table<a class="headerlink" href="#keyboard-scancode-table" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyboard Key</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Scancode (hex)</p></td>
+<td><p>0x45</p></td>
+<td><p>0x16</p></td>
+<td><p>0x1E</p></td>
+<td><p>0x26</p></td>
+<td><p>0x25</p></td>
+<td><p>0x2E</p></td>
+<td><p>0x36</p></td>
+<td><p>0x3D</p></td>
+<td><p>0x3E</p></td>
+<td><p>0x46</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="component-specification">
+<h3>Component Specification<a class="headerlink" href="#component-specification" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Nomenclature:</strong> <code class="docutils literal notranslate"><span class="pre">scancode_decoder</span></code></p></li>
+<li><p><strong>Data Input:</strong><br />
+<code class="docutils literal notranslate"><span class="pre">scancode</span> <span class="pre">=</span> <span class="pre">std_logic_vector(7</span> <span class="pre">downto</span> <span class="pre">0);</span></code></p></li>
+<li><p><strong>Data Output:</strong><br />
+<code class="docutils literal notranslate"><span class="pre">decoded_value</span> <span class="pre">=</span> <span class="pre">std_logic_vector(3</span> <span class="pre">downto</span> <span class="pre">0);</span></code></p></li>
+<li><p><strong>Control:</strong> none</p></li>
+<li><p><strong>Status:</strong> none</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="behavior">
+<h3>Behavior<a class="headerlink" href="#behavior" title="Permalink to this heading">#</a></h3>
+<p>Converts a <code class="docutils literal notranslate"><span class="pre">scancode</span></code>, representing a keypress of a decimal digit, into its 4-bit value.</p>
+<p><strong>Example:</strong><br />
+If <code class="docutils literal notranslate"><span class="pre">scancode</span> <span class="pre">=</span> <span class="pre">25₁₆</span></code> (the scancode for the character <strong>“4”</strong>), then the converter should output: 0b0100</p>
+<p>Assume that the inputs are always <strong>legal hexadecimal scancodes</strong>.</p>
+<p>Use the <strong><code class="docutils literal notranslate"><span class="pre">when</span></code> statement syntax</strong> to describe the output in terms of the input.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="deliverables">
+<h1>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h1>
+<section id="a-hw2-code">
+<h2>a. HW2_CODE<a class="headerlink" href="#a-hw2-code" title="Permalink to this heading">#</a></h2>
+<p>In gradescope, submit a zip file to the HW2_CODE assignment.  The zip file should contain only your scancode_decoder.vhd and scancode_decoder_tb.vhd in the root of the zip file (no subfolders).</p>
+</section>
+<section id="b-hw2">
+<h2>b. HW2<a class="headerlink" href="#b-hw2" title="Permalink to this heading">#</a></h2>
+<p>In gradescope there is a second assignment called HW2.  This is where you’ll submit the following:</p>
+<ul class="simple">
+<li><p>Provide a <strong>cropped screenshot</strong> of the resulting <strong>simulation timing diagram</strong></p></li>
+<li><p>Ensure the <strong>signal values are legible</strong></p></li>
+<li><p>GitHub commit and tagged with the VHDL code for your <strong>Scancode Decoder component</strong> and the <strong>testbench</strong></p></li>
+<li><p>Tag your commit with the tag “HW2”</p></li>
+</ul>
+</section>
+<hr class="docutils" />
 <section id="additional-resources">
 <h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h2>
 <section id="how-to-create-a-new-project-in-vivado">
@@ -491,12 +588,27 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">✏️ HW 2</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">📜 Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scancode-decoder-vhdl">1. Scancode Decoder (VHDL)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-scancode-table">Keyboard Scancode Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-specification">Component Specification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">Behavior</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hw2-code">a. HW2_CODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-hw2">b. HW2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-a-new-project-in-vivado">How to Create a New Project in Vivado</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
