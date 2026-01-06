@@ -1,8 +1,7 @@
 # ✏️ HW 2 
 
 ## 📜 Instructions
-- Assignment is [here](https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/Homework_2.pdf)
-- Submit via gradescope
+- Assignment is in gradescope
 
 ## 1. Scancode Decoder (VHDL)
 
