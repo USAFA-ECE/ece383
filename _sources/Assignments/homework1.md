@@ -1,8 +1,7 @@
 # ✏️ HW 1 
 
 ## 📜 Instructions
-- Assignment is [here](https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/Homework_1.pdf)
-- Submit via gradescope
+- View and submit via gradescope
 
 ## 📝 Notes
 - Create a private repository for ECE383 on GitHub and share it with your instructor.
