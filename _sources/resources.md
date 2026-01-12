@@ -6,6 +6,11 @@
 - [Labs](https://georgeyork.github.io/ECE383_web/lab/labs.html)
 - [Admin](https://georgeyork.github.io/ECE383_web/admin.html)
 
+## Digital (Simulator)
+
+- [Digital (Simulator) Homepage](https://github.com/hneemann/Digital)
+- [Digital (Simulator) Download](https://github.com/hneemann/Digital/releases/latest/download/Digital.zip)
+
 ## Xilinx
 
 - [Vivado/Vitis Installation Instructions](./files/Vivado%20and%20Vitis%20Installation%20Instructions.pdf)
