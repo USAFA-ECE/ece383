@@ -1,6 +1,6 @@
 # 💎 Resources
 
-# ECE383 - Embedded Systems II with the Digilent Nexys Video
+## Old ECE383 Site - Embedded Systems II with the Digilent Nexys Video
 
 - [Datasheets](https://georgeyork.github.io/ECE383_web/datasheets.html)
 - [Labs](https://georgeyork.github.io/ECE383_web/lab/labs.html)
