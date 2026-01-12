@@ -3,6 +3,10 @@
 ## 📜 Instructions
 - Assignment is in gradescope
 
+```{warning}
+Be sure to use the correct component and port names.  These are case sensitive.
+```
+
 ## 1. Scancode Decoder (VHDL)
 
 In this problem, you will build a VHDL entity called **`scancode_decoder`** which processes keyboard scancodes.
