@@ -391,6 +391,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">📜 Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3-code">HW3_CODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3">HW3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
 </ul>
             </nav>
         </div>
@@ -407,8 +410,47 @@ document.write(`
 <section id="instructions">
 <h2>📜 Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Assignment is <a class="reference external" href="https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/Homework_3.pdf">here</a></p></li>
 <li><p>Submit via gradescope</p></li>
+<li><p>Use Digital for C-code to Schematic questions</p></li>
+</ul>
+</section>
+<section id="hw3-code">
+<h2>HW3_CODE<a class="headerlink" href="#hw3-code" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create a schematic in Digital (see resources section below), similar to the one at the end of lecture 3, for the following circuits.</p></li>
+</ul>
+<p>You may use comparators, muxes and adders, as well as wires, constants, and splitters.  Do NOT use memory-type devices like Lookup Tables or RAM.  Whenever possible reduce the number of devices required to realize the design. You should assume that X, Y, and Z are unsigned(3 downto O).</p>
+<p>You will need to specify the number of bits on each component for the simulation to run. Be sure to name your inputs and outputs X,Y, and Z.  Name your files “hw3_a.dig”,”hw3_b.dig”,”hw3_c.dig”,”hw3_d.dig”.</p>
+<ul class="simple">
+<li><p>a) if (X==0) then Z = X else Z = Y</p></li>
+<li><p>b) if (X==Y) then Z = Y else Z = X+Y</p></li>
+<li><p>c) if (X &lt; Y) then Z = X+4 else Z = Y+6</p></li>
+<li><p>d) if (X &gt; Y) then Z = X+5 else Z = X+6</p></li>
+<li><p>In VHDL, create a digital circuit that takes as input an 8-bit unsigned value (provided by the DIP switches) and illuminates an LED if the input is a multiple of 17. Do NOT use the remainder or division operations. This can easily be accomplished using a single conditional signal assignment
+statement.</p></li>
+<li><p>Use the following entity for your component.  These names must match exactly for the autograder to work.</p></li>
+</ul>
+<p>entity hw3 is
+port(	d:	in unsigned(7 downto 0);
+h: out std_logic);
+end hw3;</p>
+<ul class="simple">
+<li><p>Commit your VHDL files and XDC file for your component, testbench, and constraints to Github.</p></li>
+<li><p>Create a zip file with hw3.vhdl, hw3_tb.vhdl, hw3_a.dig, hw3_b.dig, hw3_c.dig, and hw3_d.dig and submit this to the HW3_CODE assignment in Gradescope.</p></li>
+<li><p>Save a screenshot of your simulation waveform.  You will submit this in the HW3 assignment. You should test several inputs and show the output. You do not need to test all possibilities. Use a screenshot or image export from
+Vivado, not a photo of your monitor.</p></li>
+</ul>
+</section>
+<section id="hw3">
+<h2>HW3<a class="headerlink" href="#hw3" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Answer the questions in the HW3 assignment in Gradescope.</p></li>
+</ul>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The Digital simulator is linked on the <a class="reference external" href="https://usafa-ece.github.io/ece383/resources.html">Resources page</a></p></li>
 </ul>
 </section>
 </section>
@@ -481,6 +523,9 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">📜 Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3-code">HW3_CODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3">HW3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
 </ul>
   </nav></div>
 
