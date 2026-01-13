@@ -5,6 +5,8 @@
 - Use Digital for C-code to Schematic questions
 
 ## HW3_CODE
+### Part 1: Digital (simulator)
+
 - Create a schematic in Digital (see resources section below), similar to the one at the end of lecture 3, for the following circuits.
 
 You may use comparators, muxes and adders, as well as wires, constants, and splitters.  Do NOT use memory-type devices like Lookup Tables or RAM.  Whenever possible reduce the number of devices required to realize the design. You should assume that X, Y, and Z are unsigned(3 downto O).
@@ -15,6 +17,8 @@ You will need to specify the number of bits on each component for the simulation
 - b) if (X==Y) then Z = Y else Z = X+Y
 - c) if (X < Y) then Z = X+4 else Z = Y+6
 - d) if (X > Y) then Z = X+5 else Z = X+6
+
+### Part 2: Vivado (VHDL)
 
 - In VHDL, create a digital circuit that takes as input an 8-bit unsigned value (provided by the DIP switches) and illuminates an LED if the input is a multiple of 17. Do NOT use the remainder or division operations. This can easily be accomplished using a single conditional signal assignment
 statement.
