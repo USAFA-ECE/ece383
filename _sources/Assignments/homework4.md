@@ -55,6 +55,7 @@ ctrl <= 'O' after 15 us, '1' after 16 us, 'O' after 17 us, 'li after 18 us;
   --- Show clk, reset, Q1, Q0, least-significant roll signal, and the ctrl input to the most-significant counter
   --- Remove all junk signals
   --- Fit waveform on one page
+- Answer the questions on VHDL best practices
 
 ### HW4_CODE
 - Submit a zip file containing counter.vhdl and hw4_tb.vhdl (creating a counter_tb.vhdl testbench is recommended but not required).
