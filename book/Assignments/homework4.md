@@ -41,7 +41,7 @@ value, and the other a most-significant value. When the least-significant counte
 In order to test your cascade counters, you will need to apply a complex test sequence to the control signal. The following VHDL code in your testbench will help achieve this. This is CSA version of the
 process structure given in section 2.2.4 of the textbook.
 
-ctrl <= 'O' after 15 us, '1' after 16 us, 'O' after 17 us, 'li after 18 us;
+ctrl <= '0' after 15 us, '1' after 16 us, '0' after 17 us, '1' after 18 us;
 
 ```
 
