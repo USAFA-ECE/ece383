@@ -391,7 +391,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">📜 Instructions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3-code">HW3_CODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3-code">HW3_CODE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-digital-simulator">Part 1: Digital (simulator)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-vivado-vhdl">Part 2: Vivado (VHDL)</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3">HW3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
 </ul>
@@ -416,6 +420,8 @@ document.write(`
 </section>
 <section id="hw3-code">
 <h2>HW3_CODE<a class="headerlink" href="#hw3-code" title="Permalink to this heading">#</a></h2>
+<section id="part-1-digital-simulator">
+<h3>Part 1: Digital (simulator)<a class="headerlink" href="#part-1-digital-simulator" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Create a schematic in Digital (see resources section below), similar to the one at the end of lecture 3, for the following circuits.</p></li>
 </ul>
@@ -426,6 +432,11 @@ document.write(`
 <li><p>b) if (X==Y) then Z = Y else Z = X+Y</p></li>
 <li><p>c) if (X &lt; Y) then Z = X+4 else Z = Y+6</p></li>
 <li><p>d) if (X &gt; Y) then Z = X+5 else Z = X+6</p></li>
+</ul>
+</section>
+<section id="part-2-vivado-vhdl">
+<h3>Part 2: Vivado (VHDL)<a class="headerlink" href="#part-2-vivado-vhdl" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
 <li><p>In VHDL, create a digital circuit that takes as input an 8-bit unsigned value (provided by the DIP switches) and illuminates an LED if the input is a multiple of 17. Do NOT use the remainder or division operations. This can easily be accomplished using a single conditional signal assignment
 statement.</p></li>
 <li><p>Use the following entity for your component.  These names must match exactly for the autograder to work.</p></li>
@@ -440,6 +451,7 @@ end hw3;</p>
 <li><p>Save a screenshot of your simulation waveform.  You will submit this in the HW3 assignment. You should test several inputs and show the output. You do not need to test all possibilities. Use a screenshot or image export from
 Vivado, not a photo of your monitor.</p></li>
 </ul>
+</section>
 </section>
 <section id="hw3">
 <h2>HW3<a class="headerlink" href="#hw3" title="Permalink to this heading">#</a></h2>
@@ -523,7 +535,11 @@ Vivado, not a photo of your monitor.</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">📜 Instructions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3-code">HW3_CODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3-code">HW3_CODE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-digital-simulator">Part 1: Digital (simulator)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-vivado-vhdl">Part 2: Vivado (VHDL)</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hw3">HW3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
 </ul>
