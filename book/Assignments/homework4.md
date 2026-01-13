@@ -13,6 +13,9 @@ The counters behavior is described in the table below.
 |  rising      |  1       |  0       | Q                 |
 |  rising      |  1       |  1       | Q+1 mod max_value |
 
+`roll` should be 1 when `Q` is at `max_value`.  For example, for a mod-10 counter, `roll` should be 1 when `Q` is 9.
+
+
 Implement your counter in counter.vhdl with the entity below.  Creating a counter_tb.vhdl testbench to test your standalone counter is a good idea, but not required.
 
 ```vhdl
