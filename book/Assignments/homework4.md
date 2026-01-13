@@ -27,9 +27,8 @@ entity counter is
     );
     port ( clk : in STD_LOGIC;
            reset_n : in STD_LOGIC;
-           ctrl : in STD_LOGIC_VECTOR (1 downto 0);
+           ctrl : in STD_LOGIC;
            roll : out STD_LOGIC;
-           D : in unsigned (num_bits-1 downto 0);
            Q : out unsigned (num_bits-1 downto 0));
 end counter;
 ```
