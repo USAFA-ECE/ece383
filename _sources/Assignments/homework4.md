@@ -37,7 +37,7 @@ Create a testbench called hw4_tb.vhdl.  In this testbench, instantiate a pair of
 value, and the other a most-significant value. When the least-significant counter is going to roll over, the most-significant counter will count up by one. At no other time will the most-significant counter increment.
 
 ```{note}
-In order to test your cascade counters, you will need to apply a complex test sequence to the control signal. The following VHDL code in your testbench will help achieve this. This is CSA version of the
+In order to test your cascade counters, you will need to apply a complex test sequence to the control signal. The following VHDL code in your testbench will help achieve this. This is a CSA version of the
 process structure given in section 2.2.4 of the textbook.
 
 ctrl <= '0' after 15 us, '1' after 16 us, '0' after 17 us, '1' after 18 us;
