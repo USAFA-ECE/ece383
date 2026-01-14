@@ -4,7 +4,7 @@
 
 In this homework you will create a generic counter.  By default it will be a mod-10 counter but you can easily customize it by changing the parameters in the generic map.
 
-The counters behavior is described in the table below.
+The counter's behavior is described in the table below.
 
 | clk          | reset_n  | ctrl     | Q+ |
 |:------------:|:--------:|:--------:|:-----------------:|
