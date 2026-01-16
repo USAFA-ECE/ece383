@@ -18,7 +18,7 @@ diagram must be drawn on green engineering paper (or draw using a computer progr
 Set time=0 on the blue dashed line on the left side of the region labeled "Active Video." You should add durations and counts
 for all blue lines.
 
-```{image} ./Assignments/figures/HW5_waveform.png
+```{image} ./figures/HW5_waveform.png
 :width: 760
 :align: center
 ```
