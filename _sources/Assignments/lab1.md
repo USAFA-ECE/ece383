@@ -58,8 +58,8 @@ In order to get you going in this lab, some of the VHDL code has been provided f
 - ece383_pkg.vhd
 - All of this code is in this ZIP file: [Lab1_Cadet_Code_2026.zip](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab1_Cadet_Code_2026.zip)
 
-- Project Setup
-<iframe width="560" height="315" src="https://youtu.be/86Xs9ydyETM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+#### Project Setup
+<iframe width="560" height="315" src="https://www.youtube.com/embed/86Xs9ydyETM?si=w1VIemS1knUBIfjw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Architecture
 
