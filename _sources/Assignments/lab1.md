@@ -67,7 +67,7 @@ The design of Lab 1 is broken down into separate components, some of which are p
 
 Before reading about each component it's recommended to review the ece383_pkg package to get familiar with the subtypes, record types, functions, and component declarations as these are used throughout the project.
 
-```{image} ./figures/Lab01_Architecture.jpg
+```{image} ./figures/Lab1_Architecture_2026.png
 :width: 760
 :align: center
 ```
