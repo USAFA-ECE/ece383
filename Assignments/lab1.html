@@ -401,7 +401,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vga-signal-generator-component">The vga_signal_generator component</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-color-mapper-component">The color_mapper component</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting">Connecting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification">Verification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vga-signal-generator-tb">vga_signal_generator_tb</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vga-log-tb">vga_log_tb</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
@@ -571,9 +576,21 @@ document.write(`
 Since trigger.t can go up to 600 we use 11 bits for the trigger.  This is because 2^11=2048 which gives us 0 to 1023 on the positive side of the range.  Keeping everything positive makes the conversions easier.</p>
 </div>
 </section>
-<section id="connecting">
-<h3>Connecting<a class="headerlink" href="#connecting" title="Permalink to this heading">#</a></h3>
-<p>Your Digilent board will have a lot of connections required to make this lab work. The image below shows where these connections are made.</p>
+<section id="verification">
+<h3>Verification<a class="headerlink" href="#verification" title="Permalink to this heading">#</a></h3>
+<p>You can verify your vga_signal_generator and color_mapper components using the two test benches provided.</p>
+<section id="vga-signal-generator-tb">
+<h4>vga_signal_generator_tb<a class="headerlink" href="#vga-signal-generator-tb" title="Permalink to this heading">#</a></h4>
+<p>The VGA_Signal_Generator testbench runs your signal generator and compares the actual output of your component with the desired spec.</p>
+</section>
+<section id="vga-log-tb">
+<h4>vga_log_tb<a class="headerlink" href="#vga-log-tb" title="Permalink to this heading">#</a></h4>
+<p>This testbench runs your vga_signal_generator along with the color_mapper and logs the VGA signals to a text file.  After running the testbench you should have a log file named <code class="docutils literal notranslate"><span class="pre">vga_log.txt</span></code> in your project folder.  This should be in <code class="docutils literal notranslate"><span class="pre">[Project</span> <span class="pre">Path]\[Project</span> <span class="pre">Name].sim\sim_1\behav\xsim</span></code> by default.  It’s recommended to run for 40 ms or more to capture at least two frames.  Once you have your log file, go to <a class="reference external" href="https://madlittlemods.github.io/vga-simulator/">https://madlittlemods.github.io/vga-simulator/</a>.  Click Choose File and select your <code class="docutils literal notranslate"><span class="pre">vga_log.txt</span></code> file.  The default settings of the simulator should be 640x480 &#64; 25MHz which is what we want.  Click Submit and the simulator will start displaying the frames of the display output.</p>
+</section>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h3>
+<p>Your Digilent board will have a lot of connections required to make this lab work. The image below shows where these connections are made.  You will need to setup your constraints file to connect the FPGA pins to your design.</p>
 <a class="reference internal image-reference" href="../_images/Lab01_Connections.jpg"><img alt="../_images/Lab01_Connections.jpg" class="align-center" src="../_images/Lab01_Connections.jpg" style="width: 760px;" /></a>
 </section>
 </section>
@@ -593,13 +610,13 @@ Since trigger.t can go up to 600 we use 11 bits for the trigger.  This is becaus
 <h3>Gate Check 2<a class="headerlink" href="#gate-check-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong></p></li>
-<li><p>By end of day on Lesson 8, you must have setup the appropriate vsync, hsync, and blank signals on the waveform and created the color_mapper module to draw at least one line on the display. Include a picture of the line on the display. Additionally, include screenshots of waveforms showing:</p>
-<ul>
+<li><p>By end of day on Lesson 8, you must have setup the appropriate vsync, hsync, and blank signals on the waveform and created the color_mapper module to draw at least one line on the display. Include a picture of the line on the display.  Take a picture of an actual monitor to prove your hardware is working.  Don’t use the image from the VGA Simulator.</p></li>
+</ul>
+<p>Additionally, include screenshots of waveforms showing:</p>
+<ul class="simple">
 <li><p>Show the hsync going high, low, and high in relation to column count.</p></li>
 <li><p>Show the vsync going high, low, and high in relation to row count and column count.</p></li>
 <li><p>Show the blank signals going high, low, and high in relation to row count and column count.</p></li>
-</ul>
-</li>
 <li><p>Push your code to your GitHub repository using git with the <a class="reference external" href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag">tag</a> <code class="docutils literal notranslate"><span class="pre">Lab1_GC2</span></code></p></li>
 <li><p>Demo can be live to your instructor or an image uploaded to GradeScope.</p></li>
 </ul>
@@ -760,7 +777,12 @@ Since trigger.t can go up to 600 we use 11 bits for the trigger.  This is becaus
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vga-signal-generator-component">The vga_signal_generator component</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-color-mapper-component">The color_mapper component</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting">Connecting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification">Verification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vga-signal-generator-tb">vga_signal_generator_tb</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vga-log-tb">vga_log_tb</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
