@@ -128,7 +128,7 @@ You can verify your vga_signal_generator and color_mapper components using the t
 
 #### vga_signal_generator_tb
 
-The VGA_Signal_Generator testbench runs your signal generator and compares the actual output of your component with the desired spec.
+The VGA_Signal_Generator testbench runs your signal generator and compares the actual output of your component with the desired spec.  Your instructor will either provide this to you or make it available as a GradeScope autograder after you've completed Gate Check 1.
 
 #### vga_log_tb
 
