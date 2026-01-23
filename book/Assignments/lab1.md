@@ -124,7 +124,11 @@ end color_mapper;
 ```
 ### Verification
 
-You can verify your vga_signal_generator and color_mapper components using the two test benches provided.
+You can verify your vga_signal_generator and color_mapper components using the two test benches provided.  
+
+```{warning}
+Run both of these testbenches for at least 40 ms to ensure all signals get checked and enough frames are produced to see the results.
+```
 
 #### vga_signal_generator_tb
 
