@@ -579,6 +579,10 @@ Since trigger.t can go up to 600 we use 11 bits for the trigger.  This is becaus
 <section id="verification">
 <h3>Verification<a class="headerlink" href="#verification" title="Permalink to this heading">#</a></h3>
 <p>You can verify your vga_signal_generator and color_mapper components using the two test benches provided.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Run both of these testbenches for at least 40 ms to ensure all signals get checked and enough frames are produced to see the results.</p>
+</div>
 <section id="vga-signal-generator-tb">
 <h4>vga_signal_generator_tb<a class="headerlink" href="#vga-signal-generator-tb" title="Permalink to this heading">#</a></h4>
 <p>The VGA_Signal_Generator testbench runs your signal generator and compares the actual output of your component with the desired spec.  Your instructor will either provide this to you or make it available as a GradeScope autograder after you’ve completed Gate Check 1.</p>
