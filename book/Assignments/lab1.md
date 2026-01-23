@@ -122,11 +122,21 @@ end color_mapper;
    trigger.t and trigger.v are signed values, even though they should never be negative, because the numeric_stepper was designed to be general purpose and reusable.  You'll want to convert it back to an unsigned type to work with our other signals.
    Since trigger.t can go up to 600 we use 11 bits for the trigger.  This is because 2^11=2048 which gives us 0 to 1023 on the positive side of the range.  Keeping everything positive makes the conversions easier.
 ```
+### Verification
 
+You can verify your vga_signal_generator and color_mapper components using the two test benches provided.
 
-### Connecting
+#### vga_signal_generator_tb
 
-Your Digilent board will have a lot of connections required to make this lab work. The image below shows where these connections are made.
+The VGA_Signal_Generator testbench runs your signal generator and compares the actual output of your component with the desired spec.
+
+#### vga_log_tb
+
+This testbench runs your vga_signal_generator along with the color_mapper and logs the VGA signals to a text file.  After running the testbench you should have a log file named `vga_log.txt` in your project folder.  This should be in `[Project Path]\[Project Name].sim\sim_1\behav\xsim` by default.  It's recommended to run for 40 ms or more to capture at least two frames.  Once you have your log file, go to [https://madlittlemods.github.io/vga-simulator/](https://madlittlemods.github.io/vga-simulator/).  Click Choose File and select your `vga_log.txt` file.  The default settings of the simulator should be 640x480 @ 25MHz which is what we want.  Click Submit and the simulator will start displaying the frames of the display output.
+
+### Testing
+
+Your Digilent board will have a lot of connections required to make this lab work. The image below shows where these connections are made.  You will need to setup your constraints file to connect the FPGA pins to your design.
 
 ```{image} ./figures/Lab01_Connections.jpg
 :width: 760
@@ -144,7 +154,9 @@ Your Digilent board will have a lot of connections required to make this lab wor
 
 ### Gate Check 2 
 - **[5 Points]**
-- By end of day on Lesson 8, you must have setup the appropriate vsync, hsync, and blank signals on the waveform and created the color_mapper module to draw at least one line on the display. Include a picture of the line on the display. Additionally, include screenshots of waveforms showing:
+- By end of day on Lesson 8, you must have setup the appropriate vsync, hsync, and blank signals on the waveform and created the color_mapper module to draw at least one line on the display. Include a picture of the line on the display.  Take a picture of an actual monitor to prove your hardware is working.  Don't use the image from the VGA Simulator.  
+
+Additionally, include screenshots of waveforms showing:
   - Show the hsync going high, low, and high in relation to column count.
   - Show the vsync going high, low, and high in relation to row count and column count.
   - Show the blank signals going high, low, and high in relation to row count and column count.
