@@ -196,7 +196,60 @@
       </div>
     </div>
   </div>
+---
+<div class="semester">
 
+## Spring 2023
+
+<div class="video-grid">
+
+  <!-- Copy/paste cards here -->
+  <div class="video-card">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/rHXJb6yMhBw"
+        title="Tetris"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-meta">
+      <p class="video-title">Tetris</p>
+      <p class="video-row"><b>Cadet:</b> Rawson</p>
+      <div class="video-links">
+        <a href="_static/bitstreams/SPRING_2024/sp23_tetris.bit">Download bitstream</a>
+      </div>
+    </div>
+  </div>
+  
+  ---
+  <div class="semester">
+
+## Spring 2022
+
+<div class="video-grid">
+
+  <!-- Copy/paste cards here -->
+  <div class="video-card">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/JuFAx5dGMbc"
+        title="DDR"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-meta">
+      <p class="video-title">DDR</p>
+      <p class="video-row"><b>Cadet:</b> Kim</p>
+      <div class="video-links">
+        <a href="_static/bitstreams/SPRING_2024/sp22_ddr.bit">Download bitstream</a>
+      </div>
+    </div>
+  </div>
+ 
 </div>
 </div>
 
