@@ -52,7 +52,7 @@
   <div class="video-card">
     <div class="video-wrap">
       <iframe
-        src="https://www.youtube-nocookie.com/embed/0in4Vn7lrWI"
+        src="https://www.youtube-nocookie.com/embed/rP0ohHMtGr0"
         title="Tetris"
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -94,7 +94,7 @@
       <p class="video-title">Mario</p>
       <p class="video-row"><b>Cadet:</b> Sam Dutt</p>
       <div class="video-links">
-        <a href="_static/bitstreams/SPRING_2024/mario.bit">Download bitstream</a>
+        <a href="_static/bitstreams/SPRING_2024/sp24_mario.bit">Download bitstream</a>
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@
       <p class="video-title">Breakout</p>
       <p class="video-row"><b>Cadet:</b> Sam Cook</p>
       <div class="video-links">
-        <a href="_static/bitstreams/SPRING_2024/breakout.bit">Download bitstream</a>
+        <a href="_static/bitstreams/SPRING_2024/sp24_breakout.bit">Download bitstream</a>
       </div>
     </div>
   </div>
@@ -132,7 +132,7 @@
       <p class="video-title">Connect 4</p>
       <p class="video-row"><b>Cadet:</b> Rushaan Mahajan</p>
       <div class="video-links">
-        <a href="_static/bitstreams/SPRING_2024/connect4.bit">Download bitstream</a>
+        <a href="_static/bitstreams/SPRING_2024/sp24_connect4.bit">Download bitstream</a>
       </div>
     </div>
   </div>
@@ -151,7 +151,7 @@
       <p class="video-title">TRON</p>
       <p class="video-row"><b>Cadet:</b> Nick Cscilla</p>
       <div class="video-links">
-        <a href="_static/bitstreams/SPRING_2024/tron.bit">Download bitstream</a>
+        <a href="_static/bitstreams/SPRING_2024/sp24_tron.bit">Download bitstream</a>
       </div>
     </div>
   </div>
