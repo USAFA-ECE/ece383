@@ -132,7 +132,7 @@ Run both of these testbenches for at least 40 ms to ensure all signals get check
 
 #### vga_signal_generator_tb
 
-The VGA_Signal_Generator testbench runs your signal generator and compares the actual output of your component with the desired spec.  Your instructor will either provide this to you or make it available as a GradeScope autograder after you've completed Gate Check 1.
+The VGA_Signal_Generator testbench runs your signal generator and compares the actual output of your component with the desired spec.  Your instructor will either provide this to you or make it available as a GradeScope autograder after you've completed Gate Check 1.  If you run the test bench on your own, ensure you run it for at least 50 ms to ensure all tests complete.
 
 #### vga_log_tb
 
