@@ -17,7 +17,6 @@
         allowfullscreen>
       </iframe>
     </div>
-
     <div class="video-meta">
       <p class="video-title">Extraterrestrial Encroachers</p>
       <p class="video-row"><b>Cadet:</b> Sam Quick</p>
