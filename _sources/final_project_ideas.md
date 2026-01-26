@@ -196,7 +196,7 @@
       </div>
     </div>
   </div>
----
+
 <div class="semester">
 
 ## Spring 2023
@@ -223,7 +223,7 @@
     </div>
   </div>
   
-  ---
+  
   <div class="semester">
 
 ## Spring 2022
