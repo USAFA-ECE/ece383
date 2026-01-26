@@ -32,6 +32,27 @@
   <div class="video-card">
     <div class="video-wrap">
       <iframe
+        src="https://www.youtube-nocookie.com/embed/lm-P6yzlGZc"
+        title="Flappy Bird"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-meta">
+      <p class="video-title">Flappy Bird</p>
+      <p class="video-row"><b>Cadet:</b> Payton Nunn</p>
+      <div class="video-links">
+        <a href="_static/bitstreams/SPRING_2026/sp25_flappy_bird.bit">Download bitstream</a>
+      </div>
+      <!-- optional -->
+      <!-- <div class="small">Basys3 • Vivado 2023.2</div> -->
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrap">
+      <iframe
         src="https://www.youtube-nocookie.com/embed/XHzA_l0CjeI"
         title="Flight Simulator"
         loading="lazy"
