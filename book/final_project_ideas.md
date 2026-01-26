@@ -10,8 +10,8 @@
   <div class="video-card">
     <div class="video-wrap">
       <iframe
-        src="https://www.youtube-nocookie.com/embed/whp3Dg3S5EA"
-        title="Breakout"
+        src="https://www.youtube-nocookie.com/embed/PEXW6rSSDJU"
+        title="Extraterrestrial Encroachers"
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
@@ -19,10 +19,10 @@
     </div>
 
     <div class="video-meta">
-      <p class="video-title">Breakout</p>
-      <p class="video-row"><b>Cadet:</b> CADET_NAME_HERE</p>
+      <p class="video-title">Extraterrestrial Encroachers</p>
+      <p class="video-row"><b>Cadet:</b> Sam Quick</p>
       <div class="video-links">
-        <a href="_static/bitstreams/SPRING_2026/FILE_NAME.bit">Download bitstream</a>
+        <a href="_static/bitstreams/SPRING_2026/sp25_et_encroachers.bit">Download bitstream</a>
       </div>
       <!-- optional -->
       <!-- <div class="small">Basys3 • Vivado 2023.2</div> -->
@@ -30,22 +30,40 @@
   </div>
   <!-- END CARD TEMPLATE -->
 
-  <!-- Example second card -->
   <div class="video-card">
     <div class="video-wrap">
       <iframe
-        src="https://www.youtube-nocookie.com/embed/ANOTHER_VIDEO_ID"
-        title="VGA Oscilloscope"
+        src="https://www.youtube-nocookie.com/embed/0in4Vn7lrWI"
+        title="Doodle Jump"
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
     <div class="video-meta">
-      <p class="video-title">VGA Oscilloscope</p>
-      <p class="video-row"><b>Cadet:</b> C4C Jane Doe</p>
+      <p class="video-title">Doodle Jump</p>
+      <p class="video-row"><b>Cadet:</b> Jack Rust</p>
       <div class="video-links">
-        <a href="_static/bitstreams/SPRING_2026/vga_oscilloscope.bit">Download bitstream</a>
+        <a href="_static/bitstreams/SPRING_2026/sp25_doodle_jump.bit">Download bitstream</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/0in4Vn7lrWI"
+        title="Tetris"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-meta">
+      <p class="video-title">Tetris</p>
+      <p class="video-row"><b>Cadet:</b> Jon Watson</p>
+      <div class="video-links">
+        <a href="_static/bitstreams/SPRING_2026/sp25_tetris.bit">Download bitstream</a>
       </div>
     </div>
   </div>
