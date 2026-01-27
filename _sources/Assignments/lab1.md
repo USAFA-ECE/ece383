@@ -158,14 +158,11 @@ Your Digilent board will have a lot of connections required to make this lab wor
 
 ### Gate Check 2 
 - **[5 Points]**
-- By end of day on Lesson 8, you must have setup the appropriate vsync, hsync, and blank signals on the waveform and created the color_mapper module to draw at least one line on the display. Include a picture of the line on the display.  Take a picture of an actual monitor to prove your hardware is working.  Don't use the image from the VGA Simulator.  
-
-Additionally, include screenshots of waveforms showing:
-  - Show the hsync going high, low, and high in relation to column count.
-  - Show the vsync going high, low, and high in relation to row count and column count.
-  - Show the blank signals going high, low, and high in relation to row count and column count.
+- By end of day on Lesson 8, you must have setup the appropriate vsync, hsync, and blank signals on the waveform and created the color_mapper module to draw at least one line on the display. Include a picture of the line on the display (may be from a monitor or the VGA simulator).
+- Submit your vga_signal_generator.vhd and counter.vhd to GradeScope under LAB1_GC2_CODE
+- Upload an image of your display showing at least one line to GradeScope under LAB1_GC2
 - Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_GC2`
-- Demo can be live to your instructor or an image uploaded to GradeScope.
+
 
 ### Required Functionality
 - **[35 Points]**
