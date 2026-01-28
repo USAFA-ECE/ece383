@@ -203,6 +203,14 @@ Your Digilent board will have a lot of connections required to make this lab wor
   - **Results** - This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and evidence you proved it worked (e.g., via demo or images/videos). We no longer use the printed lab cutsheets signed by your instructor as you meet each milestone, but instead have you make a submission in Gradescope and Github for each milestone.
   - **Conclusion** - Explain what your learned from this lab and what changes you would recommend in future years to this lab or the lectures leading up to this lab.
 
+Print your README.md to PDF then upload to GradeScope.
+
+```{image} ./figures/Markdown_to_PDF.gif
+:width: 760
+:align: center
+```
+
+
 ### Coding Practices
 - **[5 Points]** Use of Git and GitHub
 - **[10 Points]** Code style.  Your code should be readable, concise, and well-organized.  Points will be deducted for code that is difficult to understand and maintain.  Write your code as if someone else is going to have to update it.  The closer it is to plain english, the better.
