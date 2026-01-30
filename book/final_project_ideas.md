@@ -21,10 +21,10 @@
       <p class="video-title">Extraterrestrial Encroachers</p>
       <p class="video-row"><b>Cadet:</b> Sam Quick</p>
       <div class="video-links">
-        <!-- <a href="_static/bitstreams/sp25_et_encroachers.bit">Download bitstream</a> -->
+        <!-- <a href="_static/bitstreams/sp25_et_encroachers_sam_quick.bit">Download bitstream</a> -->
       </div>
       <!-- optional -->
-      <!-- <div class="small">Basys3 • Vivado 2023.2</div> -->
+      <div class="small">Note: ARCADE configuration</div>
     </div>
   </div>
   <!-- END CARD TEMPLATE -->
@@ -43,7 +43,7 @@
       <p class="video-title">Flappy Bird</p>
       <p class="video-row"><b>Cadet:</b> Payton Nunn</p>
       <div class="video-links">
-        <a href="_static/bitstreams/sp25_flappy_bird.bit">Download bitstream</a>
+        <a href="_static/bitstreams/sp25_flappy_bird_payton_nunn.bit">Download bitstream</a>
       </div>
       <!-- optional -->
        <div class="small">Note: ARCADE configuration</div>
@@ -64,10 +64,10 @@
       <p class="video-title">Flight Simulator</p>
       <p class="video-row"><b>Cadet:</b> Alex Sick</p>
       <div class="video-links">
-        <!-- <a href="_static/bitstreams/sp25_et_flight_sim.bit">Download bitstream</a> -->
+        <!-- <a href="_static/bitstreams/sp25_flight_sim_alex_sick.bit">Download bitstream</a> -->
       </div>
       <!-- optional -->
-      <!-- <div class="small">Basys3 • Vivado 2023.2</div> -->
+      <div class="small">Note: ARCADE configuration</div>
     </div>
   </div>
 
@@ -85,8 +85,9 @@
       <p class="video-title">Doodle Jump</p>
       <p class="video-row"><b>Cadet:</b> Jack Rust</p>
       <div class="video-links">
-        <!-- <a href="_static/bitstreams/sp25_doodle_jump.bit">Download bitstream</a> -->
+        <!-- <a href="_static/bitstreams/sp25_doodle_jump_jack_rust.bit">Download bitstream</a> -->
       </div>
+      <!-- <div class="small">Note: ARCADE configuration</div> -->
     </div>
   </div>
 
@@ -104,7 +105,7 @@
       <p class="video-title">Tetris</p>
       <p class="video-row"><b>Cadet:</b> Jon Watson</p>
       <div class="video-links">
-        <!-- <a href="_static/bitstreams/sp25_tetris.bit">Download bitstream</a> -->
+        <!-- <a href="_static/bitstreams/sp25_tetris_jon_watson.bit">Download bitstream</a> -->
       </div>
     </div>
   </div>
@@ -135,8 +136,9 @@
       <p class="video-title">Mario</p>
       <p class="video-row"><b>Cadet:</b> Sam Dutt</p>
       <div class="video-links">
-        <!-- <a href="_static/bitstreams/SPRING_2024/sp24_mario.bit">Download bitstream</a> -->
+        <a href="_static/bitstreams/SPRING_2024/sp24_mario_sam_dutt.bit">Download bitstream</a>
       </div>
+      <div class="small">Note: Non-standard control configuration</div>
     </div>
   </div>
   
