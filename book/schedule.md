@@ -19,7 +19,7 @@ This schedule is subject to change as appropriate.
 | 10     | Datapath and Control                             | 11.1, 11.2, 14.4.2   |       |
 | 11     | Datapath and Control                             | 11.5                 | [HW7](Assignments/homework7.md)       |
 | 12     | Datapath and Control, Lab intro                  |                      |       |
-| 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) |  [HW8](Assignments/homework8.md) (due beginning of class)                |       |
+| 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) |  | [HW8](Assignments/homework8.md) (due beginning of class)        |
 | 14     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck1](Assignments/lab2.md)         |
 | 15     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck2](Assignments/lab2.md)         |
 | 16     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck3](Assignments/lab2.md)         |
