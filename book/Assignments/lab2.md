@@ -102,7 +102,7 @@ In Lab 3, we will be integrating most of the components from this lab with the M
 The 1-bit flag register will interface our lab2 component with a MicroBlaze in lab3 as follows: The LAB2 component will produce some data, put it on a data line to the MicroBlaze, and then set the flag register using the READY signal. Then, the MicroBlaze will, at some point, look at the flag register bit. When it sees that the 'set' bit is 1, the MicroBlaze will grab the data from the register and clear the set bit. These are just like the flag bits on the 382 ARM processor.
 
 ### BRAM
-You need to map the ports of BRAM to include it in your lab2_datapath. The component is declared in the UNIMACRO library - look at that library to figure out how to port map BRAM.
+You need to map the ports of BRAM to include it in your lab2_datapath. The component is declared in the UNIMACRO library - look at the [BRAM documentation](https://docs.amd.com/r/2024.1-English/ug953-vivado-7series-libraries/BRAM_SDP_MACRO) from that library to figure out how to port map BRAM.
 
 ```vhdl
 	library UNIMACRO;		-- This contains links to the Xilinx block RAM
