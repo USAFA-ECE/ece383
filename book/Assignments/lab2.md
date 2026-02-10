@@ -134,8 +134,8 @@ Since you need to use a 3.5mm jack to input signals to the Nexys board, your com
 - Clocking Wizard
 - FSM Template
 - Constraint File
-- Lab 2 Cadet Code (ZIP) (Coming Soon!)
-- Block Diagram Template (Coming Soon!)
+- [Lab 2 Cadet Code (ZIP)](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_cadet_code.zip)
+- [Block Diagram Template](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_Block_Diagram.pptx)
 
 ### Project Setup
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vhUR2jx8q18?si=OBSWOjCiMWm4M3a9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -157,7 +157,7 @@ There are 3 gate checks associated with this lab, each worth 5 points - see the 
 #### Gate Check 1
 - *[5 Points]*
 
-- By end of day 1 (submit by day 2), you must have started a Lab 2 Vivado project and downloaded the template files and drop in your Video, VGA, Scopeface, dvid, and tdms files from Lab 1 into your Lab 2 project in order to test your Lab 1 Scopeface works when you implement your BRAM using the two initialized BRAM components given in lab2_datapath.vhdl. This does not require the audio wrapper (and clockwiz_1) or your control unit is working yet, so you do not need to include these vhdl files in your design yet if you don't want to. Your Scopeface/Video should continuously be reading the left and right BRAM signals displaying them on the monitor. You must implement Video entity (from Lab 1) to take the channel output from the left and right BRAMs and send it to the Channel 1 and 2 inputs to be displayed when the readL and readR values equal the row value. Implement this on the hardware and verify that your scopeface is still present and some values are being displayed for Channel 1 (at this point the scaling may be wrong).
+- By end of day 1 (submit by day 2), you must have started a Lab 2 Vivado project and downloaded the template files and drop in your Video, VGA, Scopeface, dvid, and tdms files from Lab 1 into your Lab 2 project in order to test your Lab 1 color_mapper works when you implement your BRAM using the two initialized BRAM components given in lab2_datapath.vhdl. This does not require that the audio wrapper (and clockwiz_1) or your control unit is working yet, so you do not need to include these vhdl files in your design yet if you don't want to. Your color_mapper/video should continuously be reading the left and right BRAM signals displaying them on the monitor. You must implement Video entity (from Lab 1) to take the channel output from the left and right BRAMs and send it to the Channel 1 and 2 inputs to be displayed when the readL and readR values equal the row value. Implement this on the hardware and verify that your scopeface is still present and some values are being displayed for Channel 1 (at this point the scaling may be wrong).
 
 - How do you read from BRAM continuously? From last lesson, to read we need to put the address we want to read on RDADDR, which in this case is the column requested by video; and when we enable the read RDEN, the BRAM will place the 16-bit data value at this address on DO. So to continually read, we set RDEN <= '1'. You can then compare this DO value with the current video's row, and if they are equal, let ch1 <= '1'.
 
