@@ -112,8 +112,8 @@ You need to map the ports of BRAM to include it in your lab2_datapath. The compo
 ### Switches
 - Switch(0): ch1_enable
 - Switch(1): ch2_enable
-- Switch(3): ex_Sel
-- Switch(4): sim_live
+- Switch(3): ex_Sel / is_ex : '1' when external control is selected
+- Switch(4): sim_live / is_live : '1' when live data is selected
 
 ### Connections
 ![Lab 2 Connections](https://georgeyork.github.io/ECE383_web/lab/lab2/img/lab2Connections_v2.jpg)
@@ -128,10 +128,10 @@ Since you need to use a 3.5mm jack to input signals to the Nexys board, your com
 
 
 ### Lab Files
-- Lab 2 File
+- Lab 2
 - Lab 2 Datapath
+- ece383_pkg (updated from Lab 1)
 - Audio Codec Wrapper
-- Clocking Wizard
 - FSM Template
 - Constraint File
 - [Lab 2 Cadet Code (ZIP)](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_cadet_code.zip)
@@ -161,7 +161,7 @@ There are 3 gate checks associated with this lab, each worth 5 points - see the 
 
 - How do you read from BRAM continuously? From last lesson, to read we need to put the address we want to read on RDADDR, which in this case is the column requested by video; and when we enable the read RDEN, the BRAM will place the 16-bit data value at this address on DO. So to continually read, we set RDEN <= '1'. You can then compare this DO value with the current video's row, and if they are equal, let ch1 <= '1'.
 
-- After you demo this, this is a good opportunity to work on scaling the signals so their DC value is centered on your grids y-axis. Note: the DC center value on your scope is row 220, while if you grabbed the upper ten bits from the BRAM DO, its DC center value will be 512 (a difference of del_x = 512-220 = 292). How does this change the comparitor you use to assign ch1 and ch2? (which compares if ReadL = row... does it need to now compare something like if ReadL = row +/- del_x ?)
+- After you demo this, this is a good opportunity to work on scaling the signals so their DC value is centered on your grids y-axis. Note: the DC center value on your scope is row 220, while if you grabbed the upper ten bits from the BRAM DO, its DC center value will be 512 (a difference of del_x = 512-220 = 292). How does this change the comparator you use to assign ch1 and ch2? (which compares if ReadL = row... does it need to now compare something like if ReadL = row +/- del_x ?)
 
 - In the Lab2 Datapath there are comments that describe three tests you can do to progressively build towards displaying signals from the BRAM.  Those tests should look like the following images.
 
@@ -178,7 +178,7 @@ There are 3 gate checks associated with this lab, each worth 5 points - see the 
 :align: center
 ```
 
-- Notice from the block diagram you will copy your Video instantiation and button processes from Lab 1 into your Lab 2 Datapath.  You will also have to re-implement the Lab 1 Clocking Wizard in you Lab 2 project.  Doing this will eliminate a lot of errors from un-driven output signals on lab 2 top. Additionally your Scopeface and Button inputs from Lab 1 should be functional as well. Also, you may need to have implement another Clocking Wizard for the Audio Codec Wrapper inside the Datapath entity to get the bit stream to generate.
+- Notice from the block diagram you will copy your Video instantiation and button processes from Lab 1 into your Lab 2 Datapath.  You will also have to re-implement the Lab 1 Clocking Wizard in you Lab 2 project.  Doing this will eliminate a lot of errors from un-driven output signals on lab 2 top. Additionally your color_mapper and Button inputs from Lab 1 should be functional as well. Also, you may need to implement another Clocking Wizard for the Audio Codec Wrapper inside the Datapath entity to get the bit stream to generate.  The settings for the audio codec's clock wizard are inside the audio codec files.
 
 - The demo can be live to your instructor or an image uploaded to teams.
 
@@ -201,7 +201,7 @@ There are 3 gate checks associated with this lab, each worth 5 points - see the 
 
 - *[5 Points]*
   
-- By end of day 3 (submit by day 4), redo Gate Check 2, except with the Audio Codec Wrapper in Live mode (sim_live = '1'). (at this point, since there is no trigger, the waveform will be scrolling across the display). Also make connections to loopback the serial ADC input back out to the DAC output (i.e. send the signal back into the Codec). Once you implement the design on the board, you can verify functionality by applying an audio signal to the audio line in jack (blue) and listening to it on the audio line out jack (Green), and seeing the output on the monitor. After you finish Gate Check 3, this is a good time to implement proper triggering on the trig_volt value. Besides the hardware to create the SW to signal the trigger, you'll also need to add an initial state to "wait for trigger" in your FSM. The rest of the FSM is basically the same. If this does not work, you must create a Testbench to help debug why it is not working.
+- By end of day 3 (submit by day 4), redo Gate Check 2, except with the Audio Codec Wrapper in Live mode (sim_live / is_live = '1'). (at this point, since there is no trigger, the waveform will be scrolling across the display). Also make connections to loopback the serial ADC input back out to the DAC output (i.e. send the signal back into the Codec). Once you implement the design on the board, you can verify functionality by applying an audio signal to the audio line in jack (blue) and listening to it on the audio line out jack (Green), and seeing the output on the monitor. After you finish Gate Check 3, this is a good time to implement proper triggering on the trig_volt value. Besides the hardware to create the SW to signal the trigger, you'll also need to add an initial state to "wait for trigger" in your FSM. The rest of the FSM is basically the same. If this does not work, you must create a Testbench to help debug why it is not working.
 
 - The demo can be live to your instructor or a video uploaded to Teams.
 
