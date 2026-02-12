@@ -112,8 +112,8 @@ You need to map the ports of BRAM to include it in your lab2_datapath. The compo
 ### Switches
 - Switch(0): ch1_enable
 - Switch(1): ch2_enable
-- Switch(3): ex_Sel / is_ex : '1' when external control is selected
-- Switch(4): sim_live / is_live : '1' when live data is selected
+- Switch(2): ex_Sel / is_ex : '1' when external control is selected
+- Switch(3): sim_live / is_live : '1' when live data is selected
 
 ### Connections
 ![Lab 2 Connections](https://georgeyork.github.io/ECE383_web/lab/lab2/img/lab2Connections_v2.jpg)
