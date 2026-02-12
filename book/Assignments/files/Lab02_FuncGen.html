@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BRAM Waveform INIT Generator (16-bit @ 48kHz)</title>
+  <style>
+    :root { --bg:#0b0f14; --card:#121824; --text:#e8eef7; --muted:#9fb0c3; --accent:#5dd6ff; --line:#223044; }
+    html,body{height:100%}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 10%, #152032 0%, var(--bg) 45%, #070a0e 100%);
+      color:var(--text);
+    }
+    .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
+    h1{margin:0 0 8px;font-size:20px}
+    .sub{margin:0 0 18px;color:var(--muted);font-size:13px;line-height:1.35}
+    .grid{display:grid;grid-template-columns: 360px 1fr; gap:16px}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid var(--line);
+      border-radius:14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding:14px;
+    }
+    .row{display:flex; gap:10px; align-items:center; margin:10px 0}
+    label{font-size:13px; color:var(--muted); min-width:110px}
+    select,input[type="number"]{
+      width:100%; padding:9px 10px; border-radius:10px;
+      border:1px solid #2a3a53; background:#0c111a; color:var(--text);
+      outline:none;
+    }
+    input[type="range"]{width:100%}
+    .small{font-size:12px;color:var(--muted)}
+    .btns{display:flex; gap:10px; margin-top:12px}
+    button{
+      flex:1;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid #2a3a53;
+      background: #0c111a;
+      color:var(--text);
+      cursor:pointer;
+      font-weight:600;
+    }
+    button.primary{
+      border-color: rgba(93,214,255,0.45);
+      box-shadow: 0 0 0 2px rgba(93,214,255,0.08) inset;
+    }
+    button:active{transform: translateY(1px)}
+    textarea{
+      width:100%;
+      min-height:520px;
+      resize:vertical;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid #2a3a53;
+      background:#070b12;
+      color:#dfe8f5;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12px;
+      line-height:1.35;
+      outline:none;
+    }
+    canvas{
+      width:100%; height:160px;
+      border-radius:12px;
+      border:1px solid #2a3a53;
+      background:#070b12;
+      display:block;
+    }
+    .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    .pill{
+      border:1px solid #2a3a53;
+      background:#0c111a;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .ok{color:#8dffb2}
+    .warn{color:#ffd38d}
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr}
+      label{min-width:120px}
+      textarea{min-height:420px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>BRAM Waveform INIT Generator</h1>
+    <p class="sub">
+      Generates <b>1024 samples</b> of a selected waveform as <b>16-bit</b> values sampled at <b>48,000 Hz</b>,
+      formatted as Xilinx-style <code>INIT_00</code>…<code>INIT_3F</code> strings.<br>
+      Mapping matches your note: <b>Address 0 is the right-most two bytes in INIT_00</b>, addresses increase moving left across the line, then down.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="row">
+          <label for="wave">Wave</label>
+          <select id="wave">
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="saw">Sawtooth</option>
+            <option value="triangle">Triangle</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="freq">Frequency (Hz)</label>
+          <input id="freq" type="number" min="0" step="0.1" value="1000" />
+        </div>
+
+        <div class="row">
+          <label for="ampPct">Amplitude (%)</label>
+          <input id="ampPct" type="number" min="0" max="100" step="0.1" value="90" />
+        </div>
+
+        <div class="row">
+          <label for="format">Sample format</label>
+          <select id="format">
+            <option value="signed">Signed int16 (two's complement)</option>
+            <option value="unsigned">Unsigned uint16 (offset binary, +32768)</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="phaseDeg">Phase (deg)</label>
+          <input id="phaseDeg" type="number" min="0" max="360" step="1" value="0" />
+        </div>
+
+        <div class="row">
+          <label for="fs">Sample rate</label>
+          <select id="fs">
+            <option value="48000" selected>48000 Hz</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="nSamp">Samples</label>
+          <select id="nSamp">
+            <option value="1024" selected>1024 (INIT_00..INIT_3F)</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>Preview</label>
+          <span class="small">first ~2 ms</span>
+        </div>
+        <canvas id="plot" width="900" height="260"></canvas>
+
+        <div class="meta" id="meta"></div>
+
+        <div class="btns">
+          <button class="primary" id="copyBtn">Copy INIT block</button>
+          <button id="regenBtn">Regenerate</button>
+        </div>
+
+        <div class="small" id="copyStatus" style="margin-top:10px;"></div>
+      </div>
+
+      <div class="card">
+        <textarea id="out" spellcheck="false"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const els = {
+        wave: document.getElementById("wave"),
+        freq: document.getElementById("freq"),
+        ampPct: document.getElementById("ampPct"),
+        format: document.getElementById("format"),
+        phaseDeg: document.getElementById("phaseDeg"),
+        fs: document.getElementById("fs"),
+        nSamp: document.getElementById("nSamp"),
+        out: document.getElementById("out"),
+        plot: document.getElementById("plot"),
+        meta: document.getElementById("meta"),
+        copyBtn: document.getElementById("copyBtn"),
+        regenBtn: document.getElementById("regenBtn"),
+        copyStatus: document.getElementById("copyStatus"),
+      };
+
+      function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+      function waveValue(type, phase01) {
+        // phase01 in [0,1)
+        switch (type) {
+          case "sine":
+            return Math.sin(2 * Math.PI * phase01);
+          case "square":
+            return (phase01 < 0.5) ? 1 : -1;
+          case "saw":
+            // ramp -1..+1
+            return (2 * phase01) - 1;
+          case "triangle":
+            // -1 at 0, +1 at 0.5, -1 at 1
+            return 1 - 4 * Math.abs(phase01 - 0.5);
+          default:
+            return 0;
+        }
+      }
+
+      function toInt16Signed(x) {
+        // x is float in [-1,1] scaled later; here expects already in int range
+        const v = Math.round(x);
+        return clamp(v, -32768, 32767);
+      }
+
+      function toHex16(u16) {
+        return (u16 >>> 0).toString(16).toUpperCase().padStart(4, "0");
+      }
+
+      function int16ToU16Signed(i16) {
+        return (i16 & 0xFFFF) >>> 0;
+      }
+
+      function int16ToU16Unsigned(i16) {
+        // offset binary: add 32768 then clamp to [0..65535]
+        const u = clamp(i16 + 32768, 0, 65535);
+        return u >>> 0;
+      }
+
+      function generateSamples({ wave, freq, ampPct, fs, n, phaseDeg, format }) {
+        const amp = clamp(ampPct, 0, 100) / 100;
+        const peak = amp * 32767; // peak magnitude
+        const phase0 = ((phaseDeg % 360) + 360) % 360 / 360;
+
+        const samplesI16 = new Array(n);
+        const samplesU16 = new Array(n);
+
+        for (let i = 0; i < n; i++) {
+          const phase = (phase0 + (freq * i) / fs) % 1; // [0,1)
+          const w = waveValue(wave, phase);             // [-1,1]
+          const i16 = toInt16Signed(w * peak);
+          samplesI16[i] = i16;
+
+          const u16 = (format === "unsigned")
+            ? int16ToU16Unsigned(i16)
+            : int16ToU16Signed(i16);
+
+          samplesU16[i] = u16;
+        }
+        return { samplesI16, samplesU16, peak };
+      }
+
+      function formatInitBlock(samplesU16) {
+        // 1024 samples => 64 lines, 16 samples per INIT_xx line, 256 bits per line.
+        const lines = [];
+        const total = samplesU16.length;
+        const perLine = 16;
+        const numLines = Math.ceil(total / perLine);
+
+        for (let li = 0; li < numLines; li++) {
+          const base = li * perLine;
+          // Address 0 is right-most 16-bit on INIT_00.
+          // So within each line: left-to-right in the string is addr (base+15) ... addr (base+0).
+          let hex = "";
+          for (let j = perLine - 1; j >= 0; j--) {
+            const idx = base + j;
+            const u16 = (idx < total) ? samplesU16[idx] : 0;
+            hex += toHex16(u16);
+          }
+
+          const tag = "INIT_" + li.toString(16).toUpperCase().padStart(2, "0");
+          const prefix = (li === 0) ? `${tag} => X"` : `            ${tag} => X"`;
+          const suffix = (li === numLines - 1) ? `"` : `",`;
+          lines.push(prefix + hex + suffix);
+        }
+        return lines.join("\n");
+      }
+
+      function drawPreview(samplesI16, fs) {
+        const c = els.plot;
+        const ctx = c.getContext("2d");
+        const W = c.width, H = c.height;
+
+        // background
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = "#070B12";
+        ctx.fillRect(0, 0, W, H);
+
+        // grid
+        ctx.strokeStyle = "rgba(255,255,255,0.08)";
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 10; i++) {
+          const x = Math.round((i / 10) * W) + 0.5;
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+        }
+        for (let i = 0; i <= 6; i++) {
+          const y = Math.round((i / 6) * H) + 0.5;
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+        }
+
+        // centerline
+        ctx.strokeStyle = "rgba(255,255,255,0.18)";
+        ctx.beginPath();
+        ctx.moveTo(0, H / 2 + 0.5);
+        ctx.lineTo(W, H / 2 + 0.5);
+        ctx.stroke();
+
+        // plot first ~2ms (or up to 256 samples)
+        const maxN = Math.min(samplesI16.length, 256);
+        const viewMs = (maxN / fs) * 1000;
+
+        ctx.strokeStyle = "rgba(93,214,255,0.95)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (let i = 0; i < maxN; i++) {
+          const x = (i / (maxN - 1)) * (W - 20) + 10;
+          const y = H / 2 - (samplesI16[i] / 32768) * (H * 0.42);
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        // label
+        ctx.fillStyle = "rgba(159,176,195,0.95)";
+        ctx.font = "12px ui-monospace, Menlo, Consolas, monospace";
+        ctx.fillText(`Preview: ${maxN} samples (~${viewMs.toFixed(2)} ms)`, 12, 18);
+      }
+
+      function setMeta({ fs, n, freq, ampPct, format, peak }) {
+        const nyquist = fs / 2;
+        const aliasWarn = (freq > nyquist) ? true : false;
+        const pills = [
+          `fs=${fs} Hz`,
+          `N=${n}`,
+          `Nyquist=${nyquist} Hz`,
+          `Peak≈${Math.round(peak)} counts`,
+          `Format=${format === "unsigned" ? "uint16 (offset)" : "int16 (2's comp)"}`,
+          aliasWarn ? `⚠ freq>${nyquist} (aliases)` : `OK (freq≤Nyquist)`,
+        ];
+        els.meta.innerHTML = pills.map(p => {
+          const cls = p.startsWith("⚠") ? "pill warn" : (p.startsWith("OK") ? "pill ok" : "pill");
+          return `<span class="${cls}">${p}</span>`;
+        }).join("");
+      }
+
+      function readInputs() {
+        const wave = els.wave.value;
+        const fs = Number(els.fs.value);
+        const n = Number(els.nSamp.value);
+        const freq = Math.max(0, Number(els.freq.value || 0));
+        const ampPct = clamp(Number(els.ampPct.value || 0), 0, 100);
+        const phaseDeg = Number(els.phaseDeg.value || 0);
+        const format = els.format.value;
+        return { wave, fs, n, freq, ampPct, phaseDeg, format };
+      }
+
+      function regenerate() {
+        const inp = readInputs();
+        const { samplesI16, samplesU16, peak } = generateSamples(inp);
+        els.out.value = formatInitBlock(samplesU16);
+        drawPreview(samplesI16, inp.fs);
+        setMeta({ ...inp, peak });
+        els.copyStatus.textContent = "";
+      }
+
+      async function copyInit() {
+        const text = els.out.value;
+        try {
+          await navigator.clipboard.writeText(text);
+          els.copyStatus.textContent = "Copied to clipboard ✅";
+          els.copyStatus.style.color = "#8dffb2";
+        } catch (e) {
+          // fallback
+          els.out.focus();
+          els.out.select();
+          const ok = document.execCommand("copy");
+          if (ok) {
+            els.copyStatus.textContent = "Copied to clipboard ✅ (fallback)";
+            els.copyStatus.style.color = "#8dffb2";
+          } else {
+            els.copyStatus.textContent = "Copy failed. Select the text and copy manually.";
+            els.copyStatus.style.color = "#ffd38d";
+          }
+        }
+      }
+
+      // Live regenerate on changes
+      ["change", "input"].forEach(evt => {
+        els.wave.addEventListener(evt, regenerate);
+        els.freq.addEventListener(evt, regenerate);
+        els.ampPct.addEventListener(evt, regenerate);
+        els.format.addEventListener(evt, regenerate);
+        els.phaseDeg.addEventListener(evt, regenerate);
+      });
+
+      els.regenBtn.addEventListener("click", regenerate);
+      els.copyBtn.addEventListener("click", copyInit);
+
+      // initial
+      regenerate();
+    })();
+  </script>
+</body>
+</html>
