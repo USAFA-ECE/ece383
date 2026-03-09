@@ -29,8 +29,8 @@ This schedule is subject to change as appropriate.
 | 20     | Soft CPU                                         |                      | [HW9](Assignments/homework9.md) (due beginning of class)       |
 | 21     | Soft CPU  | [Final Project Ideas|https://youtube.com] |[HW10](Assignments/homework10.md)       |
 | 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) |                      |         |
-| 23     | Lab 3: Oscilloscope Control |                      |          |
-| 24     | Lab 3: Oscilloscope Control |                      | [Lab3-GateCheck1](Assignments/lab3.md)  [Lab3-GateCheck2](Assignments/lab3.md)         |
+| 23     | Lab 3: Oscilloscope Control |                      |  [Lab3-GateCheck1](Assignments/lab3.md)         |
+| 24     | Lab 3: Oscilloscope Control |                      |  [Lab3-GateCheck2](Assignments/lab3.md)         |
 | 25     | Lab 3: Oscilloscope Control |                      | [Lab3-GateCheck3](Assignments/lab3.md) |
 | 26     | Lab 3: Oscilloscope Control                         |             | [Lab3-Final](Assignments/lab3.md)         |
 | 27     | Direct Digital Synthesis |                      | [HW11](Assignments/homework11.md)       |
