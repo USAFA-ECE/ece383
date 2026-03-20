@@ -406,6 +406,8 @@ Problem code was <code class="docutils literal notranslate"><span class="pre">si
 <li><p>SOLUTION: This problem usually comes from having the wrong device selected.  In Vivado, go to Tools-&gt;Settings, then under Project Settings-&gt;General, then Project Device, you should see Nexys Video.  If you don’t, click the ellipses to change the device.  If Nexys Video is not listed, you can go to Tools-&gt;Vivado Store then the Boards tab to add it or follow the <a class="reference external" href="https://digilent.com/reference/programmable-logic/guides/install-board-files">instructions</a> for manually adding board files.</p></li>
 </ul>
 </li>
+<li><p>If the MIG was working and suddenly stops working it may be because you opened the wizard to recustomize and then canceled.  Once you open it, you need to click Finish.</p></li>
+<li><p>If you have weird behavior, especially with printf, try increasing your heap and stack size.  You can do this in Vitis by clicking on the linker script (lscript.ld) in your Vitis Application.</p></li>
 </ul>
 </section>
 
