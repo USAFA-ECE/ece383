@@ -33,10 +33,10 @@ This schedule is subject to change as appropriate.
 | 24     | Lab 3: Oscilloscope Control |                      |  [Lab3-GateCheck2](Assignments/lab3.md)         |
 | 25     | Lab 3: Oscilloscope Control |                      |  |
 | 26     | Lab 3: Oscilloscope Control                         |             |     [Lab3-GateCheck3](Assignments/lab3.md)    |
-| 27     | Direct Digital Synthesis |    11.6                  | [Lab3-Final](Assignments/lab3.md)       |
-| 28     | [Lab 4: Function Generator](Assignments/lab4.md) |    |   [HW11](Assignments/homework11.md) (due beginning of Class)                                          |
-| 29     | Lab 4: Function Generator |                      | [Lab4-GateCheck1](Assignments/lab4.md)         |
-| 30     | Lab 4: Function Generator |                      | [Lab4-GateCheck2](Assignments/lab4.md)         |
+| 27     | Direct Digital Synthesis |                      |       |
+| 28     | [Lab 4: Function Generator](Assignments/lab4.md) |    |  [Lab3-Final](Assignments/lab3.md)                                            |
+| 29     | Lab 4: Function Generator |                      | [HW11](Assignments/homework11.md) (due beginning of Class)        |
+| 30     | Lab 4: Function Generator |                      | [Lab4-GateCheck1](Assignments/lab4.md)         |
 | 31     | GR 2  |                      | |
 | 32     | [Lab 5: Final Project](Assignments/lab5.md)             |                      |                                 |
 | 33     | Lab 5: Final Project             |                      |                                 |
