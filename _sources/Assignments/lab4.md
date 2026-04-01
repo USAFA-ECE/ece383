@@ -5,7 +5,7 @@
 
 ## 📜 Synopsis
 
-You are to use Direct Digital Synthesis to reproduce your audio waveform. You are given a template which implements the [Interpolation Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Interpolation_block_diagram.pptx) from the class lecture.  Your task will be to create the lookup table, implement the equations for interpolation, and choose an appropriate phase increment to create the desired frequency.
+You are to use Direct Digital Synthesis to reproduce your audio waveform. You are given a template which implements the [Interpolation Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Interpolation_block_diagram.pptx) from the class lecture.  Your task will be to create the lookup table, implement the equations for interpolation, and choose an appropriate phase increment to create the desired frequency.  You will also be asked to recreate and explain the FSM and datapath block diagram based on the template.
 
 ## 💻 Procedure
 
@@ -44,10 +44,13 @@ To complete the lab you will need to make the following changes.
 - Create a LUT based on the requirements above.
 - Choose a phase increment to produce a frequency which is your birth month and day concatenated together.  [This site ](https://www.exploringbinary.com/binary-converter/) can be useful for converting to fixed point binary format.
 
+You also need to sketch the FSM and Datapath based on the template code.
+
 ## 🚚 Deliverables
 
 - To be submitted via gradescope.
 - Submit a picture from a spectrum analyzer showing that you can produce the birth month/day frequency.
+- Submit a drawing of the FSM and DataPath.
 - Answer the follow up questions.
 
 ## Spectrum Analyzer
