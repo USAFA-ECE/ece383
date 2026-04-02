@@ -35,15 +35,15 @@ This schedule is subject to change as appropriate.
 | 26     | Lab 3: Oscilloscope Control                         |             |     [Lab3-GateCheck3](Assignments/lab3.md)    |
 | 27     | Direct Digital Synthesis |                      |       |
 | 28     | [Lab 4: Function Generator](Assignments/lab4.md) |    |  [Lab3-Final](Assignments/lab3.md)                                            |
-| 29     | Lab 4: Function Generator |                      | [HW11](Assignments/homework11.md) (due beginning of Class)        |
-| 30     | Lab 4: Function Generator |                      | [Lab4-GateCheck1](Assignments/lab4.md)         |
-| 31     | GR 2  |                      | |
-| 32     | [Lab 5: Final Project](Assignments/lab5.md)             |                      |                                 |
+| 29     | Lab 4: Function Generator |                      |         |
+| 30     | Lab 4: Function Generator |                      | [Lab 5: Final Project Proposal](Assignments/project.md)        |
+| 31     | GR 2  |                      |   |
+| 32     | [Lab 5: Final Project](Assignments/project.md)             |                 |     [Lab4](Assignments/lab4.md) (due beginning of class)        |
 | 33     | Lab 5: Final Project             |                      |                                 |
 | 34     | Lab 5: Final Project             |                      |                                 |
 | 35     | Lab 5: Final Project             |                      |                                 |
 | 36     | Lab 5: Final Project             |                      |                                 |
 | 37     | Lab 5: Final Project             |                      |                                 |
-| 38     | Lab 5: Final Project             |                      |  [Lab 5: Final Project](Assignments/lab5.md)                                |
-| 39     | Final Project Presentation/Demo Day              |                      |                                 |
-| 40     | Final Report              |                      | [Lab 5: Final Report](Assignments/lab5.md)             |
+| 38     | Lab 5: Final Project             |                      |                                  |
+| 39     | Final Project Presentation/Demo Day              |                    |      [Lab 5: Final Project](Assignments/project.md)       |
+| 40     | Final Report              |                      | [Lab 5: Final Report](Assignments/project.md)             |
