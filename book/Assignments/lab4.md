@@ -53,6 +53,10 @@ You also need to sketch the FSM and Datapath based on the template code.
 - Submit a drawing of the FSM and DataPath.
 - Answer the follow up questions.
 
+## Bonus
+
+- Get 5 bonus points if you make your Lab 4 hardware play a recognizable song.
+
 ## Spectrum Analyzer
 
 You can use the spectrum analyzer [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/USAFA-ECE/ece383/refs/heads/main/book/Assignments/files/Lab04_spectrum_analyzer.htm).
