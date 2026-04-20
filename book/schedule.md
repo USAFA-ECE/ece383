@@ -39,8 +39,8 @@ This schedule is subject to change as appropriate.
 | 30     | Lab 4: Function Generator |                      | [Lab 5: Final Project Proposal](Assignments/project.md)        |
 | 31     | GR 2  |                      |   |
 | 32     | [Lab 5: Final Project](Assignments/project.md)             |                 |     [Lab4](Assignments/lab4.md) (due beginning of class)        |
-| 33     | Lab 5: Final Project             |                      |      [Lab 5: Final Project Plan](Assignments/project.md)      |
-| 34     | Lab 5: Final Project             |                      |                                 |
+| 33     | Lab 5: Final Project             |                      |           |
+| 34     | Lab 5: Final Project             |                      |     [Lab 5: Final Project Plan](Assignments/project.md)                             |
 | 35     | Lab 5: Final Project             |                      |                                 |
 | 36     | Lab 5: Final Project             |                      |                                 |
 | 37     | Lab 5: Final Project             |                      |                                 |
