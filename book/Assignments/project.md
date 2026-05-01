@@ -22,7 +22,8 @@ The second milestone generally seeks to integrate the units of the design. You s
 
 A poster presentation or a presentation in front of the class covering the design needs, high level architecture, detailed design, and a demo of the final product.
 
-[Poster Rubric is here.](https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/Final_Poster_Rubric.pdf)
+<!-- [Poster Rubric is here.](https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/Final_Poster_Rubric.pdf) -->
+[Presentation Rubric is here](https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/ECE_383_Final_Briefing_Rubric.pdf)
 
 ## 📄 Write-up
 
