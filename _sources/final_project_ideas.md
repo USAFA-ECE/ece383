@@ -70,7 +70,27 @@
       <div class="small">Note: ARCADE configuration</div>
     </div>
   </div>  
-  
+
+  <div class="video-card">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/d77SkddixSo"
+        title="ZoGolf"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-meta">
+      <p class="video-title">ZoGolf</p>
+      <p class="video-row"><b>Cadet:</b> Soren Herzog</p>
+      <div class="video-links">
+        <!-- <a href="_static/bitstreams/sp26_zogolf_soren_herzog.bit">Download bitstream</a> -->
+      </div>
+      <!-- optional -->
+      <div class="small">Note: ARCADE configuration</div>
+    </div>
+  </div>  
 
 </div> <!-- /video-grid -->
 </div> <!-- /semester -->
