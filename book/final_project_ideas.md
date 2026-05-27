@@ -2,6 +2,83 @@
 
 <div class="semester">
 
+## Spring 2026
+
+<div class="video-grid">
+
+  <!-- CARD TEMPLATE (copy/paste this block) -->
+  <div class="video-card">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/LCH2cE4ChCs"
+        title="Raycasting Engine"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-meta">
+      <p class="video-title">Raycasting Engine</p>
+      <p class="video-row"><b>Cadet:</b> Anders Enga</p>
+      <div class="video-links">
+        <!-- <a href="_static/bitstreams/sp26_raycasting_anders_enga.bit">Download bitstream</a> -->
+      </div>
+      <!-- optional -->
+      <div class="small">Note: ARCADE configuration</div>
+    </div>
+  </div>
+  <!-- END CARD TEMPLATE -->
+
+  <div class="video-card">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/g4wNA7E5mq0"
+        title="Doodle Jump"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-meta">
+      <p class="video-title">Doodle Jump</p>
+      <p class="video-row"><b>Cadet:</b> Mohamed Metwally</p>
+      <div class="video-links">
+        <!-- <a href="_static/bitstreams/sp26_doodle_jump_mohamed_metwally.bit">Download bitstream</a> -->
+      </div>
+      <!-- optional -->
+      <div class="small">Note: ARCADE configuration</div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/rjiUn3kEj3A"
+        title="Mario Paint Composer"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-meta">
+      <p class="video-title">Mario Paint Composer</p>
+      <p class="video-row"><b>Cadet:</b> Thomas Goglia</p>
+      <div class="video-links">
+        <!-- <a href="_static/bitstreams/sp26_mario_paint_composer_thomas_goglia.bit">Download bitstream</a> -->
+      </div>
+      <!-- optional -->
+      <div class="small">Note: ARCADE configuration</div>
+    </div>
+  </div>  
+  
+
+</div> <!-- /video-grid -->
+</div> <!-- /semester -->
+
+---
+
+<div class="semester">
+
 ## Spring 2025
 
 <div class="video-grid">
