@@ -19,7 +19,7 @@ allowfullscreen>
 <div class="video-meta">
 <p class="video-title">Raycasting Engine</p>
 <p class="video-row"><b>Cadet:</b> Anders Enga</p>
-<div class="small">Note: ARCADE configuration</div>
+<div class="small"></div>
 </div>
 </div>
 
@@ -36,7 +36,7 @@ allowfullscreen>
 <div class="video-meta">
 <p class="video-title">Doodle Jump</p>
 <p class="video-row"><b>Cadet:</b> Mohamed Metwally</p>
-<div class="small">Note: ARCADE configuration</div>
+<div class="small"></div>
 </div>
 </div>
 
@@ -53,7 +53,7 @@ allowfullscreen>
 <div class="video-meta">
 <p class="video-title">Mario Paint Composer</p>
 <p class="video-row"><b>Cadet:</b> Thomas Goglia</p>
-<div class="small">Note: ARCADE configuration</div>
+<div class="small"></div>
 </div>
 </div>
 
@@ -70,7 +70,7 @@ allowfullscreen>
 <div class="video-meta">
 <p class="video-title">Street Fighter</p>
 <p class="video-row"><b>Cadet:</b> Justin Bonilla</p>
-<div class="small">Note: ARCADE configuration</div>
+<div class="small"></div>
 </div>
 </div>
 
@@ -87,7 +87,7 @@ allowfullscreen>
 <div class="video-meta">
 <p class="video-title">ZoGolf</p>
 <p class="video-row"><b>Cadet:</b> Soren Herzog</p>
-<div class="small">Note: ARCADE configuration</div>
+<div class="small"></div>
 </div>
 </div>
 
@@ -104,7 +104,7 @@ allowfullscreen>
 <div class="video-meta">
 <p class="video-title">Atomic Clock</p>
 <p class="video-row"><b>Cadet:</b> Dominick Lisitsin</p>
-<div class="small">Note: ARCADE configuration</div>
+<div class="small"></div>
 </div>
 </div>
 
@@ -121,7 +121,7 @@ allowfullscreen>
 <div class="video-meta">
 <p class="video-title">No Jetpack Joyride</p>
 <p class="video-row"><b>Cadet:</b> Jake Miller</p>
-<div class="small">Note: ARCADE configuration</div>
+<div class="small"></div>
 </div>
 </div>
 
@@ -138,7 +138,24 @@ allowfullscreen>
 <div class="video-meta">
 <p class="video-title">Tetris</p>
 <p class="video-row"><b>Cadet:</b> Brandon Sweitzer</p>
-<div class="small">Note: ARCADE configuration</div>
+<div class="small"></div>
+</div>
+</div>
+
+<div class="video-card">
+<div class="video-wrap">
+<iframe
+src="https://www.youtube-nocookie.com/embed/iBWq_1TESCo"
+title="Crossy Road"
+loading="lazy"
+allowfullscreen>
+</iframe>
+</div>
+
+<div class="video-meta">
+<p class="video-title">Crossy Road</p>
+<p class="video-row"><b>Cadet:</b> Asher Speicher</p>
+<div class="small"></div>
 </div>
 </div>
 
