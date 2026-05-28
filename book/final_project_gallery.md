@@ -1,4 +1,4 @@
-# 🎮 Final Project Ideas
+# 🎮 Final Project Gallery
 
 <div class="semester">
 
