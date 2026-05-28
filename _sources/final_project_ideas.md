@@ -401,6 +401,22 @@ allowfullscreen>
 </div>
 </div>
 
+<div class="video-card">
+<div class="video-wrap">
+<iframe
+src="https://www.youtube-nocookie.com/embed/2sw5z5ikzmE"
+title="Chess"
+loading="lazy"
+allowfullscreen>
+</iframe>
+</div>
+
+<div class="video-meta">
+<p class="video-title">Chess</p>
+<p class="video-row"><b>Cadet:</b> Stiffler</p>
+</div>
+</div>
+
 </div>
 </div>
 
