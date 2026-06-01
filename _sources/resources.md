@@ -42,6 +42,7 @@
 
 - [IR controller hints](https://georgeyork.github.io/ECE383_web/datasheets/IR_controller_hints.pptx)
 - [NES controller hints](https://georgeyork.github.io/ECE383_web/datasheets/NES%20controller%20hints.pptx)
+- [Wii Nunchuk hints](https://github.com/USAFA-ECE/ece383/blob/main/book/files/nunchuk.pdf)
 - [PS2 Mouse interface hints](https://georgeyork.github.io/ECE383_web/datasheets/PS2_Mouse_HowTo.zip)
 - [Example Grid Memory with BRAMs (zip)](https://georgeyork.github.io/ECE383_web/datasheets/grid%20memory.zip)
 - [Example Grid Memory with 2D Arrays (zip)](https://georgeyork.github.io/ECE383_web/datasheets/2Darray_memory.zip)
@@ -52,6 +53,7 @@
 - [How to 3D print a case for your FPGA board](https://georgeyork.github.io/ECE383_web/datasheets/3D_Print_Case.zip)
 - [How to use the logic analyzer](https://georgeyork.github.io/ECE383_web/datasheets/Logic_Analyzer.pdf)
 - [Example code: How to print to OLED display](https://georgeyork.github.io/ECE383_web/datasheets/OLED_example2.zip)
+
 
 ## Debugging Hints
 
