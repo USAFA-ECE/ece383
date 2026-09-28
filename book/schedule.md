@@ -3,9 +3,9 @@
 ```{note}
 This schedule is subject to change as appropriate.
 ```
-**Last Updated: 13 September 2024**
+**Last Updated: 28 September 2026**
 
-| Lesson |                           Topic                  |   Reading            |     Due                     |
+| Lesson |                           Topic                  |   Pre-Flight            |     Graded Event                     |
 |:------:|--------------------------------------------------|:--------------------:|:-----------------------------------------:|
 | 1      | Lec 1: Intro, VHDL, Digital Systems Design       | 1.1-1.7              |                                           |
 | 2      | Lec 2: Digital Systems, hierarchical design, testbench | 2.1, 2.2.1, 2.2.2 | [HW1](Assignments/homework1.md)    |
@@ -44,6 +44,7 @@ This schedule is subject to change as appropriate.
 | 35     | Lab 5: Final Project             |                      |                                 |
 | 36     | Lab 5: Final Project             |                      |                                 |
 | 37     | Lab 5: Final Project             |                      |                                 |
-| 38     | Lab 5: Final Project             |                      |                                  |
-| 39     | Final Project Presentation/Demo Day              |                    |      [Lab 5: Final Project](Assignments/project.md)       |
-| 40     | Final Report              |                      | [Lab 5: Final Report](Assignments/project.md)             |
+| 38     | Lab 5: Final Project             |                      |                                 |
+| 39     | Lab 5: Final Project             |                      |                                  |
+| 40     | Final Project Presentation/Demo Day              |                    |      [Lab 5: Final Project](Assignments/project.md)       |
+| 41     | Final Report              |                      | [Lab 5: Final Report](Assignments/project.md)             |
