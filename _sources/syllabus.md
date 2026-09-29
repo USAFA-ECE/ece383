@@ -95,23 +95,22 @@ The **Grade distribution** for this course is shown below.
 All communication and course material is provided through a course Team's channel.
 
    **Course website:** https://usafa-ece.github.io/ece383/ has the course schedule<br> https://usafa-ece.github.io/ece383/schedule.html, course handouts, and course assignments. The website is being updated to the Jupyter Book format used in other DFEC courses; if something is missing or unclear, the previous course website at https://georgeyork.github.io/ECE383_web/ may help. The course schedule is dynamic and may change (e.g., snow days).
-
+   
    **Microsoft Teams:** The course Teams channel is used for course announcements. Lecture notes will be posted in the Team's channel.
-
+   
    **Blackboard:**  Used only for the official grades.
-
+   
    **Gradescope:** Used to grade most assignments.
-
+   
    **GitHub:** Your software repository; used to provide your source code for labs.
 
 ### Course Philosophy
 This course is designed to help in your development as a computer or electrical engineer. As such, economic considerations as well as manufacturability and sustainability are introduced during the first half of the semester and re-emphasized as the semester progresses. Feel free to provide feedback on the lessons and labs at any time; if you have ideas to improve or enhance the course, let your instructor know. The class builds on concepts from the prerequisites, so it is important to seek help as soon as you need it. Procrastination is truly the enemy in a hardware design course. A little foresight and planning and a lot of effort will result in an extremely rewarding experience, serving as the basis for future microprocessor and embedded systems design work.
 
-### Sample Documentation}: 
+### Sample Documentation: 
 Consider the following examples when writing your own detailed documentation statements:
 
-   **Bad:** Cadet McFly explained how the factorial worked. 
-   **Good:** Cadet McFly explained how a recursive function worked conceptually, using diagrams and the assignment materials. He did not look at my code nor did I look at his code during this discussion.
+   **Bad:** Cadet McFly explained how the factorial worked. <br>    **Good:** Cadet McFly explained how a recursive function worked conceptually, using diagrams and the assignment materials. He did not look at my code nor did I look at his code during this discussion.
 
 \InfoBullet{\textit{Bad:} Cadet McFly helped fix my factorial() method. \textit{Good:} Cadet McFly helped fix my factorial() method by looking at my code and finding that I had n > 0 instead of n >= 0 on line 85. (A situation such as this may result in less than full credit for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
 
