@@ -395,10 +395,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-goals">Course Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-materials">Required Materials</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-materials-and-websites">Course Materials and Websites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-distribution-and-policy">Grade Distribution and Policy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-distribution">Grade Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignments-course-assessments">Assignments/Course Assessments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-scale">Grading Scale</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#labs">Labs</a></li>
@@ -413,6 +412,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-instruction-ei">Extra Instruction (EI)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-policy">CAS Policy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#late-work-policy">Late Work Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-materials-and-websites">Course Materials and Websites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parting-thoughts">Parting Thoughts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-schedule">Course Schedule</a></li>
 </ul>
@@ -515,31 +515,17 @@ document.write(`
 </tbody>
 </table>
 </section>
-<section id="course-materials-and-websites">
-<h2>Course Materials and Websites<a class="headerlink" href="#course-materials-and-websites" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Course Text</strong>: <em>RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability</em> by Pong P. Chu (ISBN 0471720925)  Free on O’Reilly Books through <a class="reference external" href="https://daf.dodmwrlibraries.org/databases?q=o%27reilly&amp;%3Fq=o%27reilly&amp;g=none">DoD Libraries</a></p></li>
-<li><p><strong>Course URL</strong>: <a class="reference external" href="https://usafa-ece.github.io/ece383/">https://usafa-ece.github.io/ece383/</a> — this site has the course schedule, course handouts, and course assignments.  This year we’re updating the course website to the Jupyter Book format used in other DFEC courses.  In case you encounter something that’s missing or unclear it may be helpful to access the previous course website at <a class="reference external" href="https://georgeyork.github.io/ECE383_web/">https://georgeyork.github.io/ECE383_web/</a>.</p></li>
-<li><p><strong>Microsoft Teams</strong>: The 383 Teams site will be used for course announcements. The virtual class sessions will be held in your section’s 383 Teams site when we do not have in-person class.</p></li>
-<li><p><strong>Blackboard</strong>: Blackboard will only be used for the “official” grades.</p></li>
-<li><p><strong>Gradescope</strong>: Gradescope will be used to grade most assignments.</p></li>
-<li><p><strong>Github</strong>: You will use Github for your software repository.</p></li>
-</ul>
-</section>
-<section id="grade-distribution-and-policy">
-<h2>Grade Distribution and Policy<a class="headerlink" href="#grade-distribution-and-policy" title="Permalink to this heading">#</a></h2>
 <section id="grading">
-<h3>Grading<a class="headerlink" href="#grading" title="Permalink to this heading">#</a></h3>
-<p>Grading will primarily be performed in Gradescope, with official grades listed in Blackboard.</p>
-</section>
-<section id="grade-distribution">
-<h3>Grade Distribution<a class="headerlink" href="#grade-distribution" title="Permalink to this heading">#</a></h3>
-<p>The <strong>Grade distribution</strong> for this course is shown below.</p>
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this heading">#</a></h2>
+<section id="assignments-course-assessments">
+<h3>Assignments/Course Assessments<a class="headerlink" href="#assignments-course-assessments" title="Permalink to this heading">#</a></h3>
+<p>Grading will primarily be performed in Gradescope, with official grades listed in Blackboard.
+The <strong>Grade distribution</strong> for this course is shown below.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Component</p></th>
-<th class="head"><p>Prog</p></th>
-<th class="head"><p>Final</p></th>
+<th class="head"><p>Prog(%)</p></th>
+<th class="head"><p>Final(%)</p></th>
 </tr>
 </thead>
 <tbody>
@@ -581,32 +567,34 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<br>
-<p>Electrical and Computer Engineering courses are contract graded using the following 100 point scale.
-<br></p>
+</section>
+<section id="grading-scale">
+<h3>Grading Scale<a class="headerlink" href="#grading-scale" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>Grade</p></th>
-<th class="head text-center"><p>Grade</p></th>
-<th class="head text-center"><p>Grade</p></th>
-<th class="head text-center"><p>Grade</p></th>
+<tr class="row-odd"><th class="head text-center"><p>A</p></th>
+<th class="head text-center"><p>A-</p></th>
+<th class="head text-center"><p>B+</p></th>
+<th class="head text-center"><p>B</p></th>
+<th class="head text-center"><p>B-</p></th>
+<th class="head text-center"><p>C+</p></th>
+<th class="head text-center"><p>C</p></th>
+<th class="head text-center"><p>C-</p></th>
+<th class="head text-center"><p>D</p></th>
+<th class="head text-center"><p>F</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p>93 &lt;= A &lt;= 100</p></td>
-<td class="text-center"><p>87 &lt;= B+ &lt; 90</p></td>
-<td class="text-center"><p>77 &lt;= C+ &lt; 80</p></td>
-<td class="text-center"><p>60 &lt;= D &lt; 70</p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p>90 &lt;= A- &lt; 93</p></td>
-<td class="text-center"><p>83 &lt;= B &lt; 87</p></td>
-<td class="text-center"><p>73 &lt;= C &lt; 77</p></td>
-<td class="text-center"><p>0 &lt;= F &lt; 60</p></td>
-</tr>
-<tr class="row-even"><td class="text-center"><p></p></td>
-<td class="text-center"><p>80 &lt;= B- &lt; 83</p></td>
-<td class="text-center"><p>70 &lt;= C- &lt; 73</p></td>
-<td class="text-center"><p></p></td>
+<tr class="row-even"><td class="text-center"><p>93 - 100</p></td>
+<td class="text-center"><p>90 - 93</p></td>
+<td class="text-center"><p>87 - 90</p></td>
+<td class="text-center"><p>83 - 87</p></td>
+<td class="text-center"><p>80 - 83</p></td>
+<td class="text-center"><p>77 - 80</p></td>
+<td class="text-center"><p>73 - 77</p></td>
+<td class="text-center"><p>70 - 73</p></td>
+<td class="text-center"><p>60 - 70</p></td>
+<td class="text-center"><p>0 - 60</p></td>
 </tr>
 </tbody>
 </table>
@@ -698,6 +686,16 @@ document.write(`
 <li><p>Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.</p></li>
 </ul>
 </section>
+<section id="course-materials-and-websites">
+<h2>Course Materials and Websites<a class="headerlink" href="#course-materials-and-websites" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Course URL</strong>: <a class="reference external" href="https://usafa-ece.github.io/ece383/">https://usafa-ece.github.io/ece383/</a> — this site has the course schedule, course handouts, and course assignments.  This year we’re updating the course website to the Jupyter Book format used in other DFEC courses.  In case you encounter something that’s missing or unclear it may be helpful to access the previous course website at <a class="reference external" href="https://georgeyork.github.io/ECE383_web/">https://georgeyork.github.io/ECE383_web/</a>.</p></li>
+<li><p><strong>Microsoft Teams</strong>: The 383 Teams site will be used for course announcements. The virtual class sessions will be held in your section’s 383 Teams site when we do not have in-person class.</p></li>
+<li><p><strong>Blackboard</strong>: Blackboard will only be used for the “official” grades.</p></li>
+<li><p><strong>Gradescope</strong>: Gradescope will be used to grade most assignments.</p></li>
+<li><p><strong>Github</strong>: You will use Github for your software repository.</p></li>
+</ul>
+</section>
 <section id="parting-thoughts">
 <h2>Parting Thoughts<a class="headerlink" href="#parting-thoughts" title="Permalink to this heading">#</a></h2>
 <p>This course is designed to help you in your development as an electrical and computer engineer. Feel free to provide feedback on the lessons and labs at any time. If you have ideas to improve or enhance the course, please let me know. The class builds on concepts from the prerequisites, so it’s important that you seek help as soon as you need it. Procrastination is truly the enemy in any engineering course. A little foresight and planning and a lot of effort will result in an extremely rewarding experience serving as the basis for future embedded systems design work.</p>
@@ -781,10 +779,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-goals">Course Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-materials">Required Materials</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-materials-and-websites">Course Materials and Websites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-distribution-and-policy">Grade Distribution and Policy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-distribution">Grade Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignments-course-assessments">Assignments/Course Assessments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-scale">Grading Scale</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#labs">Labs</a></li>
@@ -799,6 +796,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-instruction-ei">Extra Instruction (EI)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-policy">CAS Policy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#late-work-policy">Late Work Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-materials-and-websites">Course Materials and Websites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parting-thoughts">Parting Thoughts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-schedule">Course Schedule</a></li>
 </ul>

@@ -42,23 +42,13 @@ A course in the design of digital systems using microprocessors, special-purpose
 | :--- | :--- | :--- | 
 | RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability<br><br>ISBN 0471720925<br><br>Free on O'Reilly Books through DoD Libraries (https://daf.dodmwrlibraries.org/databases?q=o\%27reilly) | Pong P. Chu |  |
 
-## Course Materials and Websites
-- **Course Text**: *RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability* by Pong P. Chu (ISBN 0471720925)  Free on O'Reilly Books through [DoD Libraries](https://daf.dodmwrlibraries.org/databases?q=o%27reilly&%3Fq=o%27reilly&g=none)
-- **Course URL**: [https://usafa-ece.github.io/ece383/](https://usafa-ece.github.io/ece383/) — this site has the course schedule, course handouts, and course assignments.  This year we're updating the course website to the Jupyter Book format used in other DFEC courses.  In case you encounter something that's missing or unclear it may be helpful to access the previous course website at [https://georgeyork.github.io/ECE383_web/](https://georgeyork.github.io/ECE383_web/).
-- **Microsoft Teams**: The 383 Teams site will be used for course announcements. The virtual class sessions will be held in your section's 383 Teams site when we do not have in-person class.
-- **Blackboard**: Blackboard will only be used for the "official" grades.
-- **Gradescope**: Gradescope will be used to grade most assignments.
-- **Github**: You will use Github for your software repository.
+## Grading
 
-## Grade Distribution and Policy
-
-### Grading
+### Assignments/Course Assessments
 Grading will primarily be performed in Gradescope, with official grades listed in Blackboard.
-
-### Grade Distribution
 The **Grade distribution** for this course is shown below.
 
-| Component             | Prog | Final |
+| Component             | Prog(%) | Final(%) |
 |-----------------------|------|-------|
 | GRs                   | 40   | 25    |
 | Lab 1                 | 40   | 10    |
@@ -70,17 +60,11 @@ The **Grade distribution** for this course is shown below.
 | Subjective            |      |       |
 | **TOTAL**             | 100  | 100   |
 
-<br>
+### Grading Scale
 
-Electrical and Computer Engineering courses are contract graded using the following 100 point scale.
-<br>
-
-|     Grade       |     Grade      |     Grade       |     Grade     |   
-|:---------------:|:--------------:|:---------------:|:-------------:|
-| 93 <= A <= 100  | 87 <= B+ < 90  | 77 <= C+ < 80   | 60 <= D < 70  | 
-| 90 <= A- < 93   | 83 <= B < 87   | 73 <= C < 77    | 0 <= F < 60   | 
-|                 | 80 <= B- < 83  | 70 <= C- < 73   |               |
-
+|    A   |   A-   |   B+   |    B   |   B-   |   C+   |    C   |   C-   |    D   |    F   |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| 93 - 100  |  90 - 93  | 87 - 90  |  83 - 87  | 80 - 83 | 77 - 80 | 73 - 77 | 70 - 73 | 60 - 70  | 0 - 60 |
 
 ## Labs ##
 
@@ -161,6 +145,17 @@ All work is due as shown on Gradescope. If problems arise with graded assignment
 - Late work handed in when you have run out of grace is discounted up to 20% for the first day late and up to 10% per day late thereafter.
 - Every assignment has a hard deadline; 4 calendar days past the original due date. 
 - Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
+
+
+
+
+## Course Materials and Websites
+- **Course URL**: [https://usafa-ece.github.io/ece383/](https://usafa-ece.github.io/ece383/) — this site has the course schedule, course handouts, and course assignments.  This year we're updating the course website to the Jupyter Book format used in other DFEC courses.  In case you encounter something that's missing or unclear it may be helpful to access the previous course website at [https://georgeyork.github.io/ECE383_web/](https://georgeyork.github.io/ECE383_web/).
+- **Microsoft Teams**: The 383 Teams site will be used for course announcements. The virtual class sessions will be held in your section's 383 Teams site when we do not have in-person class.
+- **Blackboard**: Blackboard will only be used for the "official" grades.
+- **Gradescope**: Gradescope will be used to grade most assignments.
+- **Github**: You will use Github for your software repository.
+
 
 ## Parting Thoughts
 This course is designed to help you in your development as an electrical and computer engineer. Feel free to provide feedback on the lessons and labs at any time. If you have ideas to improve or enhance the course, please let me know. The class builds on concepts from the prerequisites, so it's important that you seek help as soon as you need it. Procrastination is truly the enemy in any engineering course. A little foresight and planning and a lot of effort will result in an extremely rewarding experience serving as the basis for future embedded systems design work.
