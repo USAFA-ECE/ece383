@@ -112,19 +112,13 @@ Consider the following examples when writing your own detailed documentation sta
 
    **Bad:** Cadet McFly explained how the factorial worked. <br>    **Good:** Cadet McFly explained how a recursive function worked conceptually, using diagrams and the assignment materials. He did not look at my code nor did I look at his code during this discussion.
 
-\InfoBullet{\textit{Bad:} Cadet McFly helped fix my factorial() method. \textit{Good:} Cadet McFly helped fix my factorial() method by looking at my code and finding that I had n > 0 instead of n >= 0 on line 85. (A situation such as this may result in less than full credit for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
+   **Bad:**  Cadet McFly helped fix my factorial() method. <br>    **Good:** Cadet McFly helped fix my factorial() method by looking at my code and finding that I had n > 0 instead of n >= 0 on line 85. (A situation such as this may result in less than full credit for the factorial() method, but due to the documentation statement there is no violation of the honor code.)
 
-\InfoBullet{\textit{Bad:} Cadet McFly and I worked together on the factorial() method. \textit{Good:} Cadet McFly and I worked together on the factorial() method, each contributing equally to its development. Prior to this help, neither of our factorial() methods was working. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, at most half-credit would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
+   **Bad:**  Cadet McFly and I worked together on the factorial() method. <br>    **Good:** Cadet McFly and I worked together on the factorial() method, each contributing equally to its development. Prior to this help, neither of our factorial() methods was working. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, at most half-credit would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)
 
-\InfoBullet{\textit{Bad:} Cadet McFly showed me how the factorial() method works. \textit{Good:} Cadet McFly showed me how the factorial() method works by letting me look at his code. Prior to this help, my own factorial() method was not working. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
+   **Bad:**  Cadet McFly showed me how the factorial() method works. <br>    **Good:** Cadet McFly showed me how the factorial() method works by letting me look at his code. Prior to this help, my own factorial() method was not working. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
 
-\InfoBullet{\textit{Bad:} Cadet McFly showed me how the factorial() method works. \textit{Good:} Cadet McFly showed me how the factorial() method works by looking at my code and talking me through each line as I wrote it. Prior to this help, my own factorial() method was wrong. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
-
-
-
-
-## Miscellaneous
-
+   **Bad:**  Cadet McFly showed me how the factorial() method works. <br>    **Good:** Cadet McFly showed me how the factorial() method works by looking at my code and talking me through each line as I wrote it. Prior to this help, my own factorial() method was wrong. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
 
 
 ## Parting Thoughts
