@@ -1,5 +1,22 @@
 # 🚩 Syllabus
 
+[Syllabus](ECE_383_syllabus.pdf) <-- new format version
+
+## Course Identification
+
+|  |  | 
+| :--- | :--- | 
+| **Department** | Department of Electrical and Computer Engineering | 
+| **Course Numnber** | ECE 383 |
+| **Course Title** | Embedded Computer Systems II |
+| **Semester Hours** | 3.0 |
+| **Term** | Spring 2027 |
+| **Prerequisites** | ECE 382 |
+| **Co-requisites** | None |
+
+## Course Description
+A course in the design of digital systems using microprocessors, special-purpose processors, and field-programmable arrays (FPGAs). Students investigate processor architecture tradeoffs, implementation of high-speed digital circuits, configuration of processors on FPGAs, input/output, peripherals, hardware-software interfacing techniques, memory systems, and bus features, including serial communications. Lab.
+
 ## Course Goals
 1. **Cadets shall design, build, and debug hardware/software to drive peripheral devices.**
 2. **Cadets shall design, build, and debug an advanced digital system.** Three different approaches will be taken:
@@ -20,12 +37,10 @@
 6. **Evaluate, analyze, and modify a given digital system to improve area, power, or speed.**
 7. **Express the tradeoffs between choosing a microcontroller versus a custom digital system.**
 
-
-## Course Prerequisites
-ECE 382 - Embedded Systems I
-
-## Course Schedule
-The course schedule is [here](schedule.md)
+## Required Materials
+| Title / Description | Author | Edition / Notes |
+| :--- | :--- | :--- | 
+| RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability<br><br>ISBN 0471720925<br><br>Free on O'Reilly Books through DoD Libraries (\SyllabusHref{https://daf.dodmwrlibraries.org/databases?q=o\%27reilly}{daf.dodmwrlibraries.org}) | Pong P. Chu |  |
 
 ## Course Materials and Websites
 - **Course Text**: *RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability* by Pong P. Chu (ISBN 0471720925)  Free on O'Reilly Books through [DoD Libraries](https://daf.dodmwrlibraries.org/databases?q=o%27reilly&%3Fq=o%27reilly&g=none)
@@ -152,4 +167,5 @@ This course is designed to help you in your development as an electrical and com
 
 Good luck!
 
-
+## Course Schedule
+The course schedule is [here](schedule.md)
