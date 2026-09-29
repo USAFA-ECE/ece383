@@ -27,8 +27,8 @@ This schedule is subject to change as appropriate.
 | 18     | GR 1                                             |                      |  |
 | 19     | Soft CPU                                         |                      | [Lab2-Final](Assignments/lab2.md) (due beginning of class)        |
 | 20     | Soft CPU                                         |                      | [HW9](Assignments/homework9.md) (due beginning of class)       |
-| 21     | Soft CPU  | [Final Project Ideas|https://youtube.com] |[HW10](Assignments/homework10.md)       |
-| 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) |  [HW11](Assignments/homework11.md)                     |         |
+| 21     | Soft CPU  | [Final Project Ideas|https://youtube.com] |       | [HW10](Assignments/homework10.md)
+| 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) |                      | [HW11](Assignments/homework11.md)         |
 | 23     | Lab 3: Oscilloscope Control |                      |  [Lab3-GateCheck1](Assignments/lab3.md)         |
 | 24     | Lab 3: Oscilloscope Control |                      |  [Lab3-GateCheck2](Assignments/lab3.md)         |
 | 25     | Lab 3: Oscilloscope Control |                      |  |
