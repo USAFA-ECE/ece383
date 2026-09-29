@@ -151,20 +151,21 @@ Your Digilent board will have a lot of connections required to make this lab wor
 
 ### Gate Check 1 
 - **[5 Points]**
-- By end of day on Lesson 7, you must have finished setting up the VGA counters to generate the proper rows and columns on the waveform. This can be shown with waveform screenshots from the VGA testbench showing the h count rolling over causing the v count to increment. Be sure to also show both max counts. You must implement the two counters similar to the method implemented for the counters in Homework 4.
+- By taps on Lesson 6, you must have finished setting up the VGA counters to generate the proper rows and columns on the waveform. This can be shown with waveform screenshots from the VGA testbench showing the h count rolling over causing the v count to increment. Be sure to also show both max counts. You must implement the two counters similar to the method implemented for the counters in Homework 4.
 - Show both the row and column max counts rolling over back to zero
 - Place all screenshots in a single document and upload it to GradeScope.
 - Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_GC1`
 
 ### Gate Check 2 
 - **[5 Points]**
-- By end of day on Lesson 8, you **must** have setup the appropriate vsync, hsync, and blank signals on the waveform.  You **should** also be at the point where you've created the color_mapper module to draw at least one line on the display, though this isn't required for the turn-in.
+- By taps on Lesson 7, you **must** have setup the appropriate vsync, hsync, and blank signals on the waveform.  You **should** also be at the point where you've created the color_mapper module to draw at least one line on the display, though this isn't required for the turn-in.
 - Submit your vga_signal_generator.vhd and counter.vhd to GradeScope under LAB1_GC2_CODE
 - Push your code to your GitHub repository using git with the [tag](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) `Lab1_GC2`
 
 
 ### Required Functionality
 - **[35 Points]**
+- All functionality is due taps Lesson 8
 - For Required Functionality your code must generate the white oscilloscope grid pattern shown in the figure above and draw the two channels of traces. To test this draw:
   - The channel 1 trace (yellow) along a diagonal where (row = column).
   - The channel 2 trace (green) should be drawn along a diagonal where (row = 440-column).
@@ -177,6 +178,7 @@ Your Digilent board will have a lot of connections required to make this lab wor
 
 ### A Functionality
 - **[15 Points]**
+- All functionality is due taps Lesson 8
 - Demo to the instructor your live program with the o'scope grid pattern generated on the monitor, ch1 with a yellow diagonal line and ch2 with a green diagonal line. Demo the ability to enable and disable ch1 and ch2 with switches. See figure above.
 - A-level functionality is shown in the figure in the Lab Overview section at the top of the page. In addition to drawing the display, the display must update when one of the buttons is pressed according to the list below.
   - Pressing the upper directional button (BTNU) once should move the Trigger Level Marker up.
@@ -189,7 +191,8 @@ Your Digilent board will have a lot of connections required to make this lab wor
 
 ### README
 - **[25 Points]**
-- All your work in this lab is to be uploaded to GitHub and you will tag the commits to record the time each milestone is completed. The main part of the lab is your README, documenting your design. The README should be in markdown in the Lab1 folder so it displays when viewing the folder on github.com.
+- Readme is due taps Lesson 9
+  - All your work in this lab is to be uploaded to GitHub and you will tag the commits to record the time each milestone is completed. The main part of the lab is your README, documenting your design. The README should be in markdown in the Lab1 folder so it displays when viewing the folder on github.com.
 - Your README must include the following:
   - **Introduction** - Provide a brief overview of the problem.
   - **Design/Implementation** - Include your diagrams from HW5. Provide the block-diagram of your solution using the signal names in your code. The block diagram given above is somewhat incomplete, make sure to include corrections to this diagram. An editable block diagram PPT is provided [here](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab01_Block_Diagram_2026.pptx). For each component that you built, explain its overall purpose, inputs, outputs, and behavior. You do not need to include code in this report (instead put all your vhdl files (code and testbench), wcfg file, and bit files in GitHub).  Tip: [How to add images to your README](https://stackoverflow.com/questions/14494747/how-to-add-images-to-readme-md-on-github)
