@@ -40,7 +40,7 @@ A course in the design of digital systems using microprocessors, special-purpose
 ## Required Materials
 | Title / Description | Author | Edition / Notes |
 | :--- | :--- | :--- | 
-| RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability<br><br>ISBN 0471720925<br><br>Free on O'Reilly Books through DoD Libraries (\SyllabusHref{https://daf.dodmwrlibraries.org/databases?q=o\%27reilly}{daf.dodmwrlibraries.org}) | Pong P. Chu |  |
+| RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability<br><br>ISBN 0471720925<br><br>Free on O'Reilly Books through DoD Libraries (https://daf.dodmwrlibraries.org/databases?q=o\%27reilly) | Pong P. Chu |  |
 
 ## Course Materials and Websites
 - **Course Text**: *RTL Hardware Design Using VHDL: Coding for Efficiency, Portability, and Scalability* by Pong P. Chu (ISBN 0471720925)  Free on O'Reilly Books through [DoD Libraries](https://daf.dodmwrlibraries.org/databases?q=o%27reilly&%3Fq=o%27reilly&g=none)
