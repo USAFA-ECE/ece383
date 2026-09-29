@@ -39,12 +39,12 @@ This schedule is subject to change as appropriate.
 | 30     | Lab 4: Function Generator | <ul><li>[Lab4-Gate Check2](Assignments/lab4.md) due taps L30</li></ul> |        |
 | 31     | Lab 4: Function Generator | <ul><li>[Lab4-Functionality](Assignments/lab4.md) due taps L31</li></ul> |        |
 | 32     | GR2  |                      | GR2  |
-| 33     | [Lab 5: Final Project](Assignments/project.md)             |                 |     [Lab4](Assignments/lab4.md)        |
-| 34     | Lab 5: Final Project             |                      |           |
-| 35     | Lab 5: Final Project             |                      |     [Lab 5: Final Project Plan](Assignments/project.md)                             |
-| 36     | Lab 5: Final Project             |                      |                                 |
+| 33     | [Lab 5: Final Project](Assignments/project.md)          | <ul><li>[Lab4](Assignments/lab4.md) due BOC </li></ul>|     |
+| 34     | Lab 5: Final Project             |  <ul><li>[Lab 5: Final Project Plan](Assignments/project.md) and revised proposal due BOC    </li></ul>      |           |
+| 35     | Lab 5: Final Project             |                      |                                  |
+| 36     | Lab 5: Final Project             |  <ul><li>[Lab 5: Milestone 1](Assignments/project.md) due BOC    </li></ul>                    |                   |
 | 37     | Lab 5: Final Project             |                      |                                 |
-| 38     | Lab 5: Final Project             |                      |                                 |
+| 38     | Lab 5: Final Project             |  <ul><li>[Lab 5: Milestone 2](Assignments/project.md) due BOC    </li></ul>                    |                   |
 | 39     | Lab 5: Final Project             |                      |                                  |
-| 40     | Final Project Presentation/Demo Day              |                    |      [Lab 5: Final Project](Assignments/project.md)       |
-| 41     | Final Report              |                      | [Lab 5: Final Report](Assignments/project.md)             |
+| 40     | Final Project Presentation/Demo Day  | <ul><li>[Lab 5: Functionality](Assignments/project.md) due BOC </li><li> [Lab 5: Presentation Slides](Assignments/project.md) due BOC  </li></ul>                    |  [Lab 5: Presentation_Demo](Assignments/project.md)  |
+| 41     | Final Report                     | <ul><li> [Lab 5: Final Report](Assignments/project.md)    due taps L41 </li></ul> |         |
