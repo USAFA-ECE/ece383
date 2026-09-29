@@ -75,95 +75,57 @@ The **Grade distribution** for this course is shown below.
 | **Final Project** | Details on the final project are on the class website.  Each student must do a different final project, approved by the instructor. |
 | **Subjective** | Listed in the grade distribution with no points assigned. |
 
-## Labs ##
+## Course Policies
+|  |  |
+| :--- | :--- |
+| **Attendance** |For CAS notification, email your instructor prior to your absence and include the lesson number, the date, and the reason (a descriptive reason; do not just send a CAS code or SCA number) as soon as possible, preferably before the absence occurs. It is your responsibility to check your SCA to see if instructor permission is required; if it is, you must make the request prior to your absence. If you miss class, you are responsible for all material (e.g., assignments, notes, announcements, handouts) covered in class; check with another cadet in your section to find out what you missed. |
+| **Missed Graded Events** |When a cadet is absent on the day that an assignment is due, or on the date of a quiz or GR, the cadet is responsible for meeting the following standards:<br><br> **Scheduled Absence:** If a cadet will miss any graded event due to a scheduled absence such as an SCA, sport team trip, or scheduled LASIK surgery, the cadet is expected to complete all work BEFORE the absence.<br><br> **Unscheduled Absence:** If a cadet misses a graded event for an unscheduled reason such as AOC-approved bedrest or a family emergency, the cadet must complete all work on the first full class day that they return to duty in order to avoid a late penalty. For example, if a cadet is on AOC bedrest for a GR on M17 and can return to duty on T17 or M18, the cadet is expected to make up the work by M18.<br><br> **Unique Circumstances:** For circumstances that do not fall under either of these broad categories (e.g., concussion protocol), the cadet is expected to communicate early and often with the instructor. The instructor and Course Director will work with the cadet on a course of action. |
+| **Academic Integrity** | See the Cadet Wing Honor Code for details.<br><br> All graded work is expected to be your own work. Copying another person's work, with or without documentation, will result in NO academic credit. Furthermore, copying without attribution is dishonorable and will be dealt with as an honor code violation. |
+| **Late Work** | All work is due as shown on Gradescope. If problems arise with graded assignments, see your instructor in advance.<br><br> The cutoff for on-time submission is usually 2359 on the due date or Beginning of Class (BOC), but check Gradescope for official due dates and times. Late turn-in penalties are:<br><br> 10\%  for the first calendar day.<br><br> 30\%  for the second calendar day.<br><br> 60\%  for the third calendar day.<br><br> 100\%  for four or more calendar day (at this point you earn a 0).<br><br> If notified in advance, an instructor can make individual exceptions to this policy or possibly grant extensions. |
+| **Schedule EI** | with an instructor if you are having difficulty with the course material. You must have read the assignment and attempted the homework before requesting EI. You are responsible for material if you miss class, so get notes from someone in your section. For example, if you miss the lesson where the instructor announces a quiz for the next lesson or assigns homework due next lesson, you are still responsible for the quiz, homework, or any other assignments made. It is in your best interest to check with your classmates after an absence. After you have read the assignment, attempted the homework, and checked with your classmates, you may then schedule EI if you have difficulty with the material, not to make up a class you missed. |
+| **Use of AI Tools** | You may use ChatGPT and other LLMs to write test cases and help you debug. You may not use them to write source code for you (e.g., VHDL or C/C++). |
+| **Documentation Statement** | You must document all help received from any sources other than your instructor or instructor-provided course materials (including your textbook). Each documentation statement must be specific enough to explicitly describe what assistance was provided, how it was used to complete the assignment, and who provided the assistance. If no help was received on an assignment, the documentation statement must state **None.** If you checked answers with anyone, you must document with whom on which problems. You must document whether you made any changes or not; if you did make changes, you must document the problems you changed and the reasons why. Vague documentation statements will result in a 5% deduction on the assignment. See the sample documentation statements below. If you use AI tools (see above), you must document this along with including a link to your AI session, which should include the prompts and responses. |
+| **Collaboration** | Unless specifically directed otherwise (or noted on the assignment), you may collaborate on all assignments with any other cadets currently enrolled in the course. However, all your work and code must be your own. You may ask classmates generic questions like "how do you write a For Loop", but not specific code for the assignment. You cannot ask a classmate to debug your code without getting the instructors permission first.<br><br> GRs are individual efforts; no collaboration is allowed while taking these exams. All electronic devices (phones, smartwatches, computers, tablets, etc.) must be placed out of sight for the duration of the event. If any electronic device is seen during the event, the cadet will receive a zero for that effort.
+| **Authorized resources** | include any material from the course site and online sources regarding VHDL/C/C++ programming syntax only. This does not include any solutions or solution stubs for challenges similar to those asked in any assignments.|
+| **Graded Review Make-ups** |<br><br> **Scheduled Absence:** If you know that you will be unable to take the GR during the scheduled GR period, you are required to inform your instructor as soon as possible before the GR to schedule a make-up exam.<br><br> **Unscheduled Absence:** If you miss the GR for reasons beyond your control (e.g., hospitalization, emergency leave, delayed field trip return), you must contact DFEC (x3190) within two working days to schedule a make-up. Exceptions can only be granted by the Department Head. |
 
-The labs in this course are very hardware intensive. A disciplined approach to design, implementation and testing are key to your success! The Big Bang method, or wiring and coding something up and debugging it until it works, usually does not work. We do allow you to turn in incomplete labs, but up to 25% can be deducted for not meeting requirements (See lab grading and late work policies below).
+## Additional Information
 
-## Exams ##
+### Course Website and Communication}: 
+All communication and course material is provided through a course Team's channel.
 
-All exams are closed textbook and notes. Both laboratory and classroom work will appear on exams. For missed GRs, the following policies are outlined:
+   **Course website:** https://usafa-ece.github.io/ece383/ has the course schedule<br> https://usafa-ece.github.io/ece383/schedule.html, course handouts, and course assignments. The website is being updated to the Jupyter Book format used in other DFEC courses; if something is missing or unclear, the previous course website at https://georgeyork.github.io/ECE383_web/ may help. The course schedule is dynamic and may change (e.g., snow days).
 
-- **Scheduled Absence**: If you know that you will be unable to take the GR during the scheduled GR period, you are required to inform your instructor as soon as possible before the GR to schedule a make-up exam.
-- **Unscheduled Absence**: If you miss the GR for reasons beyond your control (e.g., hospitalization, emergency leave, delayed field trip return, etc.), you must contact DFEC (x3190) within two working days to schedule a make-up. Exceptions can only be granted by the Department Head.
+   **Microsoft Teams:** The course Teams channel is used for course announcements. Lecture notes will be posted in the Team's channel.
+
+   **Blackboard:**  Used only for the official grades.
+
+   **Gradescope:** Used to grade most assignments.
+
+   **GitHub:** Your software repository; used to provide your source code for labs.
+
+### Course Philosophy
+This course is designed to help in your development as a computer or electrical engineer. As such, economic considerations as well as manufacturability and sustainability are introduced during the first half of the semester and re-emphasized as the semester progresses. Feel free to provide feedback on the lessons and labs at any time; if you have ideas to improve or enhance the course, let your instructor know. The class builds on concepts from the prerequisites, so it is important to seek help as soon as you need it. Procrastination is truly the enemy in a hardware design course. A little foresight and planning and a lot of effort will result in an extremely rewarding experience, serving as the basis for future microprocessor and embedded systems design work.
+
+### Sample Documentation}: 
+Consider the following examples when writing your own detailed documentation statements:
+
+   **Bad:** Cadet McFly explained how the factorial worked. 
+   **Good:** Cadet McFly explained how a recursive function worked conceptually, using diagrams and the assignment materials. He did not look at my code nor did I look at his code during this discussion.
+
+\InfoBullet{\textit{Bad:} Cadet McFly helped fix my factorial() method. \textit{Good:} Cadet McFly helped fix my factorial() method by looking at my code and finding that I had n > 0 instead of n >= 0 on line 85. (A situation such as this may result in less than full credit for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
+
+\InfoBullet{\textit{Bad:} Cadet McFly and I worked together on the factorial() method. \textit{Good:} Cadet McFly and I worked together on the factorial() method, each contributing equally to its development. Prior to this help, neither of our factorial() methods was working. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, at most half-credit would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
+
+\InfoBullet{\textit{Bad:} Cadet McFly showed me how the factorial() method works. \textit{Good:} Cadet McFly showed me how the factorial() method works by letting me look at his code. Prior to this help, my own factorial() method was not working. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
+
+\InfoBullet{\textit{Bad:} Cadet McFly showed me how the factorial() method works. \textit{Good:} Cadet McFly showed me how the factorial() method works by looking at my code and talking me through each line as I wrote it. Prior to this help, my own factorial() method was wrong. My factorial() method is now nearly identical to Cadet McFly's factorial() method. (In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.)}
+
+
+
 
 ## Miscellaneous
 
-This course is designed to help in your development as a computer or an electrical engineer. As such, we introduce economic considerations as well as manufacturability and sustainability during the first half of the semester and re-emphasize these as we progress through the semester. Feel free to provide feedback on the lessons and labs at any time. If you have ideas to improve or enhance the course, please let me know. The class builds on concepts from the prerequisites, so it is important for you to seek help as soon as you need it. Procrastination is truly the enemy in a hardware design course. A little foresight and planning and a lot of effort will result in an extremely rewarding experience serving as the basis for future microprocessor design work.
-
-## Primary Communication and Control (C2)
-All communication and course material will be provided through a course and section Team. Additionally, videos will be uploaded to a YouTube channel for your convenience. Lastly, Github will be used for cadets to provide their source code for laboratories.
-
-## Collaboration Policy
-
-Unless specifically directed otherwise, the collaboration policy for this course is:
-
-- For all assignments in this course, unless otherwise noted on the assignment, you may collaborate with any other cadets currently enrolled in ECE 383. We expect all graded work to be in your own work. Copying another person’s work, with or without documentation, will result in NO academic credit. Furthermore, copying without attribution is dishonorable and will be dealt with as an honor code violation.
-- GRs are individual efforts. No collaboration is allowed while taking these exams. All electronic devices (phones, smartwatches, computers, tablets, etc.) must be placed out of sight for the duration of the event. If any electronic device is seen during the event, the student will receive a zero for that effort.
-- Authorized resources include any material from the ECE 383 course site and online sources regarding VHDL/C/C++ programming syntax only. This does not include any solutions or solution stubs for challenges similar to those asked in any assignments.
-- You may use ChatGPT and other LLMs to write test cases and help you debug.   You may not use it to write source code for you (e.g. VHDL or C/C++).
-
-## Documentation Requirements
-
-**Documentation Requirements**: You must document all help received from any sources other than your instructor or instructor-provided course materials (including your textbook). 
-- Each documentation statement must be specific enough to explicitly describe what assistance was provided, how it was used to complete the assignment, and who provided the assistance.
-- If no help was received on this assignment, the documentation statement must state “None.”
-- If you checked answers with anyone, you must document with whom on which problems. You must document whether you made any changes or not.  If you did make changes, you must document the problems you changed and the reasons why.
-- Vague documentation statements will result in a 5% deduction on the assignment.
-
-### Sample Documentation 
-Consider the following examples when writing your own detailed documentation statements:
-
-**Bad Example**:  Cadet McFly explained how the factorial worked.
-<br>
-**Good Example**: Cadet McFly explained how a recursive function worked conceptually, using diagrams and the assignment materials. He did not look at my code nor did I look at his code during this discussion.
-
-**Bad Example**: : Cadet McFly helped fix my factorial() method.
-<br>
-**Good Example**: Cadet McFly helped fix my factorial() method by looking at my code** and finding that I had n > 0 instead of n >= 0 on line 85. _Note: A situation such as this may result in **less than full credit for the factorial() method, but due to the documentation statement there is no violation of the honor code._
-
-**Bad Example**: : Cadet McFly and I worked together on the factorial() method.
-<br>
-**Good Example**: Cadet McFly and I worked together on the factorial() method, each contributing equally to its development. Prior to this help, neither of our factorial() methods was working. My factorial() method is now nearly identical to Cadet McFly's factorial() method. _Note: In a situation such as this, at most half-credit would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code._
-
-**Bad Example**: : Cadet McFly showed me how the factorial() method works.
-<br>
-**Good Example**: Cadet McFly showed me how the factorial() method works by letting me look at his code. Prior to this help, my own factorial() method was not working.  My factorial() method is now nearly identical to Cadet McFly's factorial() method. _Note: In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code._
-
-**Bad Example**: : Cadet McFly showed me how the factorial() method works.
-<br>
-**Good Example**: Cadet McFly showed me how the factorial() method works by looking at my code and talking me through each line as I wrote it. Prior to this help my own factorial() method was wrong.  My factorial() method is now nearly identical to Cadet McFly's factorial() method. _Note: In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code._
-
-## Extra Instruction (EI)
-
-Schedule EI with an instructor if you are having difficulty with the course material.  You must have read the assignment and attempted the homework before requesting EI.  Note:  You are responsible for material if you miss class, so get notes from someone in your section.  For example, you miss the lesson where the instructor announces a quiz for the next lesson or the instructor assigns homework due next lesson.  Even though you missed the lesson, you are still responsible for the quiz, homework, or any other assignments made.  It is in your best interest to check with your classmates after an absence.  After you’ve read the assignment, attempted the homework, and checked with your classmates, you may then schedule EI if you have difficulty with the material—not to make up a class you missed.
-
-## CAS Policy  
-For CAS notification, email your instructor prior to your absence and include the lesson number, the date, and the reason (descriptive reason—don’t just send a CAS code or SCA number) as soon as possible, preferably before the absence occurs.  It is your responsibility to check your SCA to see if instructor permission is required.  If it is, you must make the request prior to your absence.  If you miss class, you are responsible for all material (e.g. assignments, notes, announcements, handouts, etc.) covered in class.  Please check with another cadet in your section to find out what you missed.  
-
-When a cadet is absent on the day that an assignment is due, or on the date of a quiz or GR, the cadet is responsible for meeting the following standards: 
-- Scheduled Absence: If a cadet will miss any graded event due to a scheduled absence such as an SCA, sport team trip, or scheduled lasik surgery, the cadet is expected to complete all work BEFORE the absence.  
-- Unscheduled Absence: If a cadet misses a graded event for an unscheduled reason such as AOC approved bedrest or a family emergency, the cadet must complete all work on the first full class day that they return to duty in order to avoid a late penalty.  For example, if a cadet is on AOC bedrest for a GR on M17 and can return to duty on T17 or M18, the cadet is expected to make up the work by M18.
-- Unique Circumstances: For circumstances that do not fall under either of these broad categories (e.g. concussion protocol), the cadet is expected to communicate early and often with the instructor.  The instructor and course director will work with the cadet on a course of action.
-
-## Late Work Policy
-All work is due as shown on Gradescope. If problems arise with graded assignments, see your instructor in advance. 
-- The cutoff for on-time submission is usually 2359 on the due date but check Gradescope for official due dates & times. 
-- Late days are counted in 24-hour periods. Submitting between 23:59:01 on the due date and 23:59:00 the next day is one day late, and so on.
-- You are given 5 grace days (self-granted extensions) which you can use to give yourself extra time without penalty. No more than 3 grace days can used for each assignment.
-- Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations.
-- Late work handed in when you have run out of grace is discounted up to 20% for the first day late and up to 10% per day late thereafter.
-- Every assignment has a hard deadline; 4 calendar days past the original due date. 
-- Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
-
-
-
-
-## Course Materials and Websites
-- **Course URL**: [https://usafa-ece.github.io/ece383/](https://usafa-ece.github.io/ece383/) — this site has the course schedule, course handouts, and course assignments.  This year we're updating the course website to the Jupyter Book format used in other DFEC courses.  In case you encounter something that's missing or unclear it may be helpful to access the previous course website at [https://georgeyork.github.io/ECE383_web/](https://georgeyork.github.io/ECE383_web/).
-- **Microsoft Teams**: The 383 Teams site will be used for course announcements. The virtual class sessions will be held in your section's 383 Teams site when we do not have in-person class.
-- **Blackboard**: Blackboard will only be used for the "official" grades.
-- **Gradescope**: Gradescope will be used to grade most assignments.
-- **Github**: You will use Github for your software repository.
 
 
 ## Parting Thoughts
