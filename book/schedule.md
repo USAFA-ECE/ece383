@@ -23,9 +23,9 @@ This schedule is subject to change as appropriate.
 | 14     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck1](Assignments/lab2.md) due BOC</li></ul>                  |          |
 | 15     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck2](Assignments/lab2.md) due BOC</li></ul>                  |          |
 | 16     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck3](Assignments/lab2.md) due BOC</li></ul>                  |          |
-| 17     | Review and Lab 2: Data acquisition, storage, and display    |                      |                                                    |
-| 18     | GR 1                                             |                      |  |
-| 19     | Soft CPU                                         |                      | [Lab2-Final](Assignments/lab2.md) (due beginning of class)        |
+| 17     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-Functionality](Assignments/lab2.md) due BOC</li></ul>               |          |
+| 18     | GR1                                             |                      | GR1    |
+| 19     | Soft CPU                                         | <ul><li>[Lab2-README](Assignments/lab2.md) due BOC </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
 | 20     | Soft CPU                                         |                      | [HW9](Assignments/homework9.md) (due beginning of class)       |
 | 21     | Soft CPU  |                                      |                      | [HW10](Assignments/homework10.md)
 | 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) |                      | [HW11](Assignments/homework11.md)         |
