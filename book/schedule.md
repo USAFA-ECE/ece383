@@ -8,7 +8,7 @@ This schedule is subject to change as appropriate.
 <ul><li> read 1.1 - 1.6 </li><li>[Skills Review](skillsreview.md) (due lsn 4) </li><li>lesson slides are on course TEAMs site</li><li>[Syllabus](ECE_485_syllabus.pdf)</li></ul>
 
 | Lesson |                           Topic                  |   Pre-Flight            |     Graded Event                     |
-|:------:|--------------------------------------------------|:--------------------:|:-----------------------------------------:|
+|:------:|--------------------------------------------------|:--------------------|:-----------------------------------------:|
 | 1      | Lec 1: Intro, VHDL, Digital Systems Design       | <ul><li> read 1.1-1.7 </li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
 | 2      | Lec 2: Digital Systems, hierarchical design, testbench | 2.1, 2.2.1, 2.2.2 | [HW1](Assignments/homework1.md)    |
 | 3      | Lec 3: Combinational elements, unsigned, constraints file, synthesis | 3.5.4, 4.2.3, 4.3.1 | [HW2](Assignments/homework2.md) |
