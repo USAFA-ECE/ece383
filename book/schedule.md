@@ -32,16 +32,16 @@ This schedule is subject to change as appropriate.
 | 23     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck1](Assignments/lab3.md) due BOC </li></ul>  |        |
 | 24     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck2](Assignments/lab3.md) due BOC </li></ul>  |        |
 | 25     | Lab 3: Oscilloscope Control |                      |  |
-| 26     | Lab 3: Oscilloscope Control                      | <ul><li>[Lab3-GateCheck3](Assignments/lab3.md) </li><li>[Lab3-Functionality](Assignments/lab3.md) due taps L26</li></ul>  |        |
+| 26     | Lab 3: Oscilloscope Control                      | <ul><li>[Lab3-GateCheck3](Assignments/lab3.md) due BOC </li><li>[Lab3-Functionality](Assignments/lab3.md) due taps L26</li></ul>  |       |
 | 27     | Direct Digital Synthesis |                      |       |
-| 28     | [Lab 4: Function Generator](Assignments/lab4.md) |    |  [Lab3-Final](Assignments/lab3.md)                                            |
-| 29     | Lab 4: Function Generator |                      |         |
-| 30     | Lab 4: Function Generator |                      | [Lab 5: Final Project Proposal](Assignments/project.md)        |
-| 31     | GR 2  |                      |   |
-| 32     | [Lab 5: Final Project](Assignments/project.md)             |                 |     [Lab4](Assignments/lab4.md) (due beginning of class)        |
-| 33     | Lab 5: Final Project             |                      |           |
-| 34     | Lab 5: Final Project             |                      |     [Lab 5: Final Project Plan](Assignments/project.md)                             |
-| 35     | Lab 5: Final Project             |                      |                                 |
+| 28     | Direct Digital Synthesis |                      |       |
+| 29     | [Lab 4: Function Generator](Assignments/lab4.md) |    |  [Lab3-Final](Assignments/lab3.md)                                            |
+| 30     | Lab 4: Function Generator |                      |         |
+| 31     | Lab 4: Function Generator |                      | [Lab 5: Final Project Proposal](Assignments/project.md)        |
+| 32     | GR2  |                      | GR2  |
+| 33     | [Lab 5: Final Project](Assignments/project.md)             |                 |     [Lab4](Assignments/lab4.md) (due beginning of class)        |
+| 34     | Lab 5: Final Project             |                      |           |
+| 35     | Lab 5: Final Project             |                      |     [Lab 5: Final Project Plan](Assignments/project.md)                             |
 | 36     | Lab 5: Final Project             |                      |                                 |
 | 37     | Lab 5: Final Project             |                      |                                 |
 | 38     | Lab 5: Final Project             |                      |                                 |
