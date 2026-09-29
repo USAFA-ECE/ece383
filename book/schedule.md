@@ -19,10 +19,10 @@ This schedule is subject to change as appropriate.
 | 10     | Datapath and Control                             | <ul><li>read 11.1, 11.2, 14.4.2</li><li>lesson slides are on course TEAMs site</li></ul>  |        | 
 | 11     | Datapath and Control                             | <ul><li>[HW7](Assignments/homework7.md) due BOC </li><li>read 11.5</li><li>lesson slides are on course TEAMs site</li></ul>  |        |
 | 12     | Datapath and Control, Lab intro                  |  <ul><li>[HW8](Assignments/homework8.md) due BOC </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
-| 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) | <ul><li>[HW8b2](Assignments/homework8b2.md) due BOC |         |
-| 14     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck1](Assignments/lab2.md)         |
-| 15     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck2](Assignments/lab2.md)         |
-| 16     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck3](Assignments/lab2.md)         |
+| 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) | <ul><li>[HW8b2](Assignments/homework8b2.md) due BOC</li></ul> |         |
+| 14     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck1](Assignments/lab2.md) due BOC</li></ul>                  |          |
+| 15     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck2](Assignments/lab2.md) due BOC</li></ul>                  |          |
+| 16     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck3](Assignments/lab2.md) due BOC</li></ul>                  |          |
 | 17     | Review and Lab 2: Data acquisition, storage, and display    |                      |                                                    |
 | 18     | GR 1                                             |                      |  |
 | 19     | Soft CPU                                         |                      | [Lab2-Final](Assignments/lab2.md) (due beginning of class)        |
