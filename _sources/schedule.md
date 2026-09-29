@@ -18,8 +18,8 @@ This schedule is subject to change as appropriate.
 | 9      | Finite State Machines                            |  <ul><li>[Lab1-README](Assignments/lab1.md) due taps L9 </li><li>read 10.2.1, 10.3.2, 10.4, 10.6.1 </li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
 | 10     | Datapath and Control                             | <ul><li>read 11.1, 11.2, 14.4.2</li><li>lesson slides are on course TEAMs site</li></ul>  |        | 
 | 11     | Datapath and Control                             | <ul><li>[HW7](Assignments/homework7.md) due BOC </li><li>read 11.5</li><li>lesson slides are on course TEAMs site</li></ul>  |        |
-| 12     | Datapath and Control, Lab intro                  |                      | [HW8](Assignments/homework8.md)        |
-| 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) |  | [HW8b2](Assignments/homework8b2.md)         |
+| 12     | Datapath and Control, Lab intro                  |  <ul><li>[HW8](Assignments/homework8.md) due BOC </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
+| 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) | <ul><li>[HW8b2](Assignments/homework8b2.md) due BOC |         |
 | 14     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck1](Assignments/lab2.md)         |
 | 15     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck2](Assignments/lab2.md)         |
 | 16     | Lab 2: Data acquisition, storage, and display    |                      | [Lab2-GateCheck3](Assignments/lab2.md)         |
