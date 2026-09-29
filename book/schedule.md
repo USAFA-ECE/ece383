@@ -26,8 +26,8 @@ This schedule is subject to change as appropriate.
 | 17     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-Functionality](Assignments/lab2.md) due BOC</li></ul>               |          |
 | 18     | GR1                                             |                      | GR1    |
 | 19     | Soft CPU                                         | <ul><li>[Lab2-README](Assignments/lab2.md) due BOC </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
-| 20     | Soft CPU                                         |                      | [HW9](Assignments/homework9.md) (due beginning of class)       |
-| 21     | Soft CPU  |                                      |                      | [HW10](Assignments/homework10.md)
+| 20     | Soft CPU                                         | <ul><li>[HW9](Assignments/homework9.md) due BOC </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
+| 21     | Soft CPU  |                                      | <ul><li>[HW10](Assignments/homework10.md) due BOC </li><li>Final Project ideas, youtube</li><li>[final project ideas](https://georgeyork.github.io/ECE383_web/lab/lab5/ideas.html)</li><li>lesson slides are on course TEAMs site</li></ul>  |        |
 | 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) |                      | [HW11](Assignments/homework11.md)         |
 | 23     | Lab 3: Oscilloscope Control |                      |  [Lab3-GateCheck1](Assignments/lab3.md)         |
 | 24     | Lab 3: Oscilloscope Control |                      |  [Lab3-GateCheck2](Assignments/lab3.md)         |
