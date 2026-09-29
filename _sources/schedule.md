@@ -12,7 +12,7 @@ This schedule is subject to change as appropriate.
 | 3      | Lec 3: Combinational elements, unsigned, constraints file, synthesis | <ul><li>[HW2](Assignments/homework2.md) due BOC </li><li>read 3.5.4, 4.2.3, 4.3.1 </li><li>lesson slides are on course TEAMs site</li></ul> |    |
 | 4      | Lec 4: Sequential elements                       | <ul><li>[HW3](Assignments/homework3.md) due BOC </li><li>read 5.1,5.2,5.7,5.8 </li><li>lesson slides are on course TEAMs site</li></ul> |    |
 | 5      | Lec 5: Combinations of elements, Lab intro       | <ul><li>[HW4](Assignments/homework4.md) due BOC </li><li>read 7.2 </li><li>lesson slides are on course TEAMs site</li></ul> |    |
-| 6      | [Lab 1: VGA Synchronization](Assignments/lab1.md)|                      | [HW5](Assignments/homework5.md)       |
+| 6      | [Lab 1: VGA Synchronization](Assignments/lab1.md)|  <ul><li>[HW5](Assignments/homework5.md)  due BOC </li><li>Gate Check 1 due taps L6/li></ul>  |        |
 | 7      | Lab 1: VGA Synchronization                       |                      | [Lab1-GateCheck1](Assignments/lab1.md) |
 | 8      | Lab 1: VGA Synchronization                       |                      | [Lab1-GateCheck2](Assignments/lab1.md) |
 | 9      | Finite State Machines                            | 10.2.1, 10.3.2, 10.4, 10.6.1 | [Lab1-Final](Assignments/lab1.md) |
