@@ -13,10 +13,10 @@ This schedule is subject to change as appropriate.
 | 4      | Lec 4: Sequential elements                       | <ul><li>[HW3](Assignments/homework3.md) due BOC </li><li>read 5.1,5.2,5.7,5.8 </li><li>lesson slides are on course TEAMs site</li></ul> |    |
 | 5      | Lec 5: Combinations of elements, Lab intro       | <ul><li>[HW4](Assignments/homework4.md) due BOC </li><li>read 7.2 </li><li>lesson slides are on course TEAMs site</li></ul> |    |
 | 6      | [Lab 1: VGA Synchronization](Assignments/lab1.md)|  <ul><li>[HW5](Assignments/homework5.md)  due BOC </li><li>[Lab1-GateCheck1](Assignments/lab1.md) due taps L6 </li></ul>  |        |
-| 7      | Lab 1: VGA Synchronization                       |  <ul><li>[Lab1-GateCheck2](Assignments/lab1.md) due taps L7  /li></ul>  |        |
-| 8      | Lab 1: VGA Synchronization                       |                      |  |
-| 9      | Finite State Machines                            | 10.2.1, 10.3.2, 10.4, 10.6.1 | [Lab1-Final](Assignments/lab1.md) |
-| 10     | Datapath and Control                             | 11.1, 11.2, 14.4.2   |       |
+| 7      | Lab 1: VGA Synchronization                       |  <ul><li>[Lab1-GateCheck2](Assignments/lab1.md) due taps L7  </li></ul>  |        |
+| 8      | Lab 1: VGA Synchronization                       |  <ul><li>[Lab1-Functionality](Assignments/lab1.md) due taps L8  </li></ul>  |        |
+| 9      | Finite State Machines                            |  <ul><li>[Lab1-README](Assignments/lab1.md) due taps </li><li>read L8 10.2.1, 10.3.2, 10.4, 10.6.1 </li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
+| 10     | Datapath and Control                             | 11.1, 11.2, 14.4.2   |       | 
 | 11     | Datapath and Control                             | 11.5                 | [HW7](Assignments/homework7.md)       |
 | 12     | Datapath and Control, Lab intro                  |                      | [HW8](Assignments/homework8.md)        |
 | 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) |  | [HW8b2](Assignments/homework8b2.md)         |
