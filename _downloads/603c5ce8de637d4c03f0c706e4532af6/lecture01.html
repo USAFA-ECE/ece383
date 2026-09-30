@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ECE 383 - Lecture Notes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="ECE 383- Embedded Systems II">
+        <meta name="author" content="Jeff Falkinburg">
+        <link rel='stylesheet' type='text/css' href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'>
+        <script src='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'></script>
+		<META HTTP-EQUIV="refresh" CONTENT="120"> <!--added this line to force page refresh every 120 seconds-->
+    </head>
+
+<body>
+        <div class = "container">
+            <div class = "navbar navbar-inverse">
+                <div class = "navbar-inner">
+                    <a class = "brand" href="../index.html">ECE 383</a>
+                    <ul class="nav pull-right">
+                        <li><a href="./lecture01.html">&ltPrev</a></li>
+                        <li><a href="./lecture02.html">Next&gt</a></li>
+                    </ul>
+
+                    </ul>
+                </div>
+            </div>
+
+<table class="table table-striped table-bordered table-condensed">
+<tr><td>Date:</td>	<td>January  4/5</td></tr>
+<tr><td>Lecture:</td>	<td>1</td></tr>
+<tr><td>Next lecture	<td><a href="../hw/Homework01.docx">HW#1</a>
+<tr><td>Status          <td bgcolor = #D0FFD0>Complete <!--<td bgcolor = #FFD0D0>In Progress -->
+<tr><td>Code 		<td><a href="./code/lec01.vhdl">lec01.vhdl</a><br>
+						<a href="./code/lec01_tb.vhdl">lec01_tb.vhdl</a><br>
+						<a href="./code/lec01.xdc">lec01.xdc</a> 
+<tr><td>Vivado Installation Instructions<td><a href="../hand/Vivado Installation Instructions.docx">Vivado Installation Instructions</a>
+<!--<tr><td>Software Installation Instructions<td><a href="../install.docx">Software Installation Instructions</a>-->
+<tr><td>Lesson Slides<td><a href="./slides/ECE_383_Lec1.pdf">ECE_383_Lec1.pdf</a>
+</table>
+
+<h2>Why Use Digital Systems?</h2>
+<ul>
+	<li>Advantages
+	<ol type="a">
+			<li>Reproducibility of information
+			<li>Flexibility and functionality: easier to store, transmit, and manipulate information
+			<li>Economy: Devices are normally cheap and easy to design
+	</ol>
+		<li>Digital circuitry replaces many analog systems:
+	<ol type="a">
+			<li>Audio recording: from tape to music CD to MP3 (MPEG Layer 3) player
+			<li>Image processing: from silver-halide film to digital camera 
+			<li>Telephone switching networks
+			<li>Control of mechanical systems: e.g., "fly-by-wire", as shown in the figure below
+			<br><img width = 600 src="./img/lecture01-1.png"><br><br>
+	</ol>
+</ul>
+<!--<h2> </h2>
+<ul>
+	<li>
+	<ol>
+			<li>
+	</ol>
+</ul>-->
+
+<h2>Admin</h2>
+<ul>
+
+<li><b>Course Text:</b> RTL Hardware Design Using VHDL: Coding for Efficiency, 
+Portability, and Scalability - Pong P. Chu (ISBN 0471720925).  
+Available from:
+
+<br>
+
+<ul>
+<li>
+<b>BitBucket</b> We will be using BitBucket this term.  Please
+sign up for an account if you don't already have one.  You will need
+to create a Repository named "ECE_383_YourLastName" and give your instructor read/write
+access. 
+
+<li>Academic Integrity. When does working together become not okay?
+
+<li>Digilent Nexys Video. Hand them out.
+
+<li>Course web page: (<a href="https://georgeyork.github.io/ECE383_web/index.html">https://georgeyork.github.io/ECE383_web/index.html</a>)
+</ul>
+
+<h2>Course Goals</h2>
+There are several goals for this course:
+<ol>
+<li>You will learn to practice digital design.  You should know
+how to design complex digital systems.  In this class, you will 
+learn how to implement such circuits.  
+<li>You will gain hands-on experience using a variety of common
+devices.  These devices are used by digital designers, and many
+have been used in Capstone design projects.
+<li>You will be exposed to advanced techniques used in
+digital design.  If you pursue an advanced degree, these are the
+topics that you may encounter.
+<li>You will prepare for your Capstone design project by developing a final project idea, plan, and implementation.
+</ol>
+
+<h2>Digital Implementation Methods</h2>
+There is a spectrum of digital implementation methods.
+These can be grouped into three categories:
+<ol>
+	<li>General-purpose hardware with custom software (i.e. microcontroller)
+	<ol type="a">
+			<li>General purpose processor
+			<li>Special purpose processor
+	</ol>
+	<li>Custom software on a custom processor (known as hardware-software co-design) (i.e. softcore FPGA processor)
+	<li>Custom hardware (i.e. ASIC)
+</ol>
+The spectrum of digital implementation can be represented b the figure below:<br>
+<br><img width = 800 src="./img/lecture01-2.gif"><br><br>
+
+<h2>Digital Logic</h2>
+
+If you need to solve an engineering problem, you have the following
+design paths to follow:
+<ul>	<li>Full-custom ASIC - All aspects of a circuit are tailored for a particular application
+		<li>Standard Cell ASIC - layout of gates and simple logic blocks
+		<li>Gate Array - layout uniform reconfigurable logic modules
+		<li>Simple Field Programmable Devices - Programmable device with simple internal structure (i.e. PROM and PAL)
+		<li>Complex field programmable logic device (FPGA) - specify the interconnection of logic modules
+		<li>Off-the-shelf SSI (Small Scaled IC)/MSI (Medium Scaled IC) components - Small parts with limited functionality
+</ul>
+
+You can rate these design paths in terms of:
+<ul>	<li>Development time
+	<li>Unit Cost
+	<li>Task speed
+	<li>Power consumption
+	<li>Best for prototyping
+	<li>Best for high production volume
+	<li>Best time to market
+</ul>
+
+The unit cost for a single chip is fabrication costs for that
+chip plus the engineering labor amortized over the number of 
+units sold. This is represented in the figure below.
+
+<br><img width =600 src="./img/lecture01-3.gif"><br><Br>
+<h2>Types of Cost</h2>
+There are three types of cost associated with digital systems:
+<ul>
+	<li>NRE (Non-Recurrent Engineering) cost: one-time, per-design cost
+	<li>Part cost: per-unit cost
+	<li>Time-to-market cost: loss of revenue
+</ul><br>
+The per-unit cost of a digital part can be modeled by the equation below.<br>
+<img width =600 src="./img/lecture01-4.png"><br><Br>
+
+
+<h2>Abstraction</h2>
+Abstraction is a key part of developing digital systems. In this class, we will consider three main layers of our designs:
+<ul>
+	<li>Behavioral view - Describes functionalities and I/O behavior
+	<li>Structural view - Describes the internal implementation (i.e. components and interconnects)
+	<li>Physical view - Describes the layout on a PCB
+</ul>
+In the figure below, these three layers of abstraction can be seen stacked on top of one another.
+<br><img width = 600 src="./img/lecture01-5.png"><br><br>
+
+<h2>Digital System Design</h2>
+<h3>VHDL</h3>
+VHDL is, simply put, a language used to describe hardware circuits.
+You will find that it is a logically organized language that naturally
+utilizes the concept of hierarchical design - that is, breaking a complex system
+into components which themselves are composed of components.  A piece
+of hardware in VHDL is described in two separate ways:
+<ol>	<li>The <u>Entity</u> describes the inputs and outputs (treating the innards of a component as a 'black box')
+	<li>The <u>Architecture</u> describes what transformation
+	the box performs.  In other words, it describes the behavior of the component.
+</ol>
+
+There are two good reasons to realize a design in VHDL: 1.) you can simulate the hardware specified and 2.) you can synthesize that same hardware. These concepts are covered in the following sections.  
+
+<h3>Simulation</h3>
+When a design is simulated, you have
+complete control of time and the values of all the signals (wires) in 
+your design.  This greatly aids debugging because the entire design is
+transparent. In this course, we will use software called Xilinx Vivado to perform our 
+VHDL simulations.  
+
+<h3>Synthesis</h3>
+Synthesis is the process of making the VHDL description "real". "Real" here means that
+the resulting circuit will have the same I/O and behavior
+as the VHDL description.  Synthesis implicitly implies that there is
+a target piece of hardware to accept the synthesized VHDL description.
+In our class, we will use the Xilinx Artix-7 XC7A200T-1SBG484C chip as our target.
+This chip contains components (Configurable Logic Blocks - CLBs) which can be reconfigured using
+a special file called a bit file.  The Xilinx software performs the
+translation between our VHDL code and the target FPGA chip.<br><br>
+
+<h2>Design Goals</h2>
+When designing VHDL projects, there are many design goals to keep in mind:
+<ul>
+	<li>Design for Efficiency
+	<ol>
+			<li>Synthesis cannot convert bad designs into good ones
+			<li>Know what hardware your HDL will create
+	</ol>
+	<li>Design for Large
+	<ol>
+			<li>Design a large module
+			<li>Design to be incorporated into a larger system
+			<li>Design to facilitate the overall development process
+	</ol>
+	<li>Design for Portability
+	<ol>
+			<li>Device independent
+			<li>Software independent
+			<li>Design reuse
+	</ol>
+</ul>
+
+<h2>Majority circuit</h2>
+
+Digital design is the process of taking an abstract idea for a
+digital system and implementing it.  In order to make
+the process more manageable, we successively refine the design in
+steps, with each step being a little bit more real than the previous.
+Simple digital systems typically have a nice clean design process,
+as exemplified by the following problem:
+<br>
+
+<b>Word Statement:</b> Build a circuit (SOP min) with 3 bits of 
+input and 1 bit of output.  The output equals 1 when a majority 
+of the three inputs equal 1.<br><Br>
+
+<b>Truth Table</b>
+<pre>
+a b c | f
+------|--
+0 0 0 | 0
+0 0 1 | 0
+0 1 0 | 0
+0 1 1 | 1
+1 0 0 | 0
+1 0 1 | 1
+1 1 0 | 1
+1 1 1 | 1
+</pre><br><Br>
+
+
+<b>Kmap</b>
+Recall how to do this from ECE 281.
+<br><Br>
+
+<b>Circuit Diagram</b>
+Diagrams will be very important in VHDL design because, essentially,
+you will be writing a text description of your circuit.  Notice in
+the diagram below that every wire which begins and ends inside
+the box is given its own label.  These wires (labeled s1,s2,s3)
+are like local variables in a regular programming language.
+The inputs (a,b,c) and the output (f) are like the values
+that are passed into and out of a function in a programming
+language.
+<br><img src="./img/lecture01.gif"><br><br>
+
+<b>VHDL</b><br>
+In class, we will examine which of the lines below
+are reserved words and which are created by us, the programmer.  
+
+
+<pre>
+--------------------------------------------------------------------
+-- Name:&ltYour Name>
+-- Date:&ltThe date you stated working on the file>
+-- Course: 	ECE 383
+-- File:&ltThis file's name>
+-- HW:	&ltHW# and name>
+--
+-- Purp:A brief description of what this program does and 
+--	the general solution strategy. 
+--
+-- Doc:	&ltlist the names of the people who you helped>
+-- 	&ltlist the names of the people who assisted you>
+--
+-- Academic Integrity Statement: I certify that, while others may have 
+-- assisted me in brain storming, debugging and validating this program, 
+-- the program itself is my own work. I understand that submitting code 
+-- which is the work of other individuals is a violation of the honor   
+-- code.  I also understand that if I knowingly give my original work to 
+-- another individual is also a violation of the honor code. 
+------------------------------------------------------------------------- 
+library IEEE;			-- This line is EXACTLY like #include in C
+use IEEE.std_logic_1164.all;	
+
+entity majority is
+        port(	a, b, c:	in std_logic; 
+		f:   		out std_logic);
+end majority;
+
+architecture structure of majority is
+signal	s1, s2, s3: std_logic;	-- wires which begin and end in the component
+
+begin
+	s1 <= a and c;		-- These statements are called
+	s2 <= c and c;		-- concurrent signal assignments.
+	s3 <= a and b;		-- They all happen at the same time
+	f <= s1 or s2 or s3;	-- unlike a regular programming lang.
+end structure;
+</pre><br>
+
+
+The real "meat and potatoes" of the VHDL description are the four 
+lines in the architecture:
+<pre>
+        s1 <= a and c;
+        s2 <= c and c;
+        s3 <= a and b;
+        f <= s1 or s2 or s3;
+</pre>
+What separates VHDL from a normal programming language is that these
+four lines are executed continuously in parallel.  This implies that
+the order of the lines is completely irrelevant; any order of these
+four lines would work as well as any other.  In addition, each of
+these lines is always in execution.  This should make sense from a
+hardware perspective; each of the gates in the majority circuit
+is continuously examining its inputs and asserting an appropriate
+output.
+
+
+<br><br>
+
+<h2>Important Notes</h2>
+In VHDL, you can use all of the standard logic gates, including:
+<ul>	<li>AND
+	<li>OR
+	<li>XOR
+	<li>NAND
+	<li>NOR
+	<li>XNOR
+	<li>NOT	</ul>
+
+The "data type" std_logic can represent much more than
+just a logic 0 or 1. It can also represent:
+<ul>	<li>'U',  -- Uninitialized
+	<li>'X',  -- Forcing  Unknown
+	<li>'0',  -- Forcing  0
+	<li>'1',  -- Forcing  1
+	<li>'Z',  -- High Impedance   
+	<li>'W',  -- Weak     Unknown
+	<li>'L',  -- Weak     0       
+	<li>'H',  -- Weak     1       
+	<li>'-'   -- Don't care
+</ul>
+
+
+</body>
+</html>
