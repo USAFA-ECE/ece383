@@ -7,7 +7,7 @@ This schedule is subject to change as appropriate.
 
 | Lesson |                           Topic                  |   Pre-Flight            |     Graded Event                     |
 |:------:|--------------------------------------------------|:--------------------|:-----------------------------------------:|
-| 1      | Lec 1: Intro, VHDL, Digital Systems Design       | <ul><li> read 1.1-1.7 </li><li>read [L1_notes](Lectures/lecture01.html) </li><li>read [L1_notes](https://georgeyork.github.io/ECE383_web/lecture/lecture01.html)</li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
+| 1      | Lec 1: Intro, VHDL, Digital Systems Design       | <ul><li> read 1.1-1.7 </li><li>read [L1_notes](Lectures/lecture01.md) </li><li>read [L1_notes](https://georgeyork.github.io/ECE383_web/lecture/lecture01.html)</li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
 | 2      | Lec 2: Digital Systems, hierarchical design, testbench | <ul><li>[HW1](Assignments/homework1.md) due BOC </li><li>read 2.1, 2.2.1, 2.2.2</li><li>lesson slides are on course TEAMs site</li></ul> |    |
 | 3      | Lec 3: Combinational elements, unsigned, constraints file, synthesis | <ul><li>[HW2](Assignments/homework2.md) due BOC </li><li>read 3.5.4, 4.2.3, 4.3.1 </li><li>lesson slides are on course TEAMs site</li></ul> |    |
 | 4      | Lec 4: Sequential elements                       | <ul><li>[HW3](Assignments/homework3.md) due BOC </li><li>read 5.1,5.2,5.7,5.8 </li><li>lesson slides are on course TEAMs site</li></ul> |    |
