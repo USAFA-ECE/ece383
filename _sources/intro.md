@@ -1,7 +1,7 @@
 # ECE383 Embedded Computer Systems II
 
 ## 👨‍🏫 Instructors
-- ![trimble](https://img.shields.io/badge/Lt%20Col%20James%20Trimble-2E46D-red)
+- Dr George York
 
 ## 📝 Course information
 - **Course Goals**:
