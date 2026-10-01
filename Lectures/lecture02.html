@@ -1,0 +1,784 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Embedded Systems II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lectures/lecture02';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ece383.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ece383.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE383 Embedded Computer Systems II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vhdl_programming.html">💻 VHDL Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">🪲 Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final_project_gallery.html">🎮 Final Project Gallery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework1.html">✏️ HW 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework2.html">✏️ HW 2</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework3.html">✏️ HW 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework4.html">✏️ HW 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework5.html">✏️ HW 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework7.html">✏️ HW 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework8.html">✏️ HW 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework9.html">✏️ HW 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework12.html">✏️ HW 12</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab1.html">🔬 Lab 1: VGA Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab2.html">🔬 Lab 2: Data Acquisition, Storage and Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab3.html">🔬 Lab 3: Software Control of a Datapath</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab4.html">🔬 Lab 4: Direct Digital Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/project.html">🕹️ Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ICEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice1.html">🔬 ICE 1: Intro to Microblaze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice2.html">🔬 ICE 2: Microblaze Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice3.html">🔬 ICE 3: Microblaze Interrupts</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383/issues/new?title=Issue%20on%20page%20%2FLectures/lecture02.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lectures/lecture02.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Lesson Notes for Lesson 2</h1>
+<h1>VHDL</h1>
+When doing digital design, there is more than one way to skin a cat.  This
+expression should make you happy regardless of your feelings towards
+cats because it means that your personality can be expressed through
+the code that you write.  In Lecture 1, we examined a structural
+method of describing a circuit; we transformed the circuit diagram
+into a textual description.  Today, we will examine another method of
+VHDL coding: behavioral.
+<h2>Structural</h2>
+<ul>
+	<li>Using the paradigm of the Structural view, a circuit is constructed by using smaller parts.
+	<li>A Structural description, therefore, specifies the types of parts and connections.
+	<li>Essentially, a structural description is a textual description of a schematic.
+	<li>Structural descriptions are done by using the "component" keyword in VHDL. Components are:
+	<ol>
+			<li>First declared (made known)
+			<li>Then instantiated (used)
+	</ol>
+</ul>
+The majority circuit, using components, can be seen coded in VHDL below.
+<br>
+<pre>
+------------------------------------------
+-- Author:      Maj Jeff Falkinburg
+-- Date:        Spring 2017
+-- Purp:	Structural Majority circuit
+------------------------------------------
+library IEEE;						-- These lines are similar to a #include in C
+use IEEE.std_logic_1164.all;
+library unisim;					-- Use these libraries if you are using primitive components
+use unisim.vcomponents.all;
+
+entity majority is
+	port(	a, b, c:	in std_logic; 
+			f:			out std_logic);
+end majority;
+
+architecture structure of majority is
+component AND2
+	port ( i0, i1	: in std_logic;
+			 o 		: out std_logic);
+end component;
+				
+component OR3
+	port ( i0, i1, i2	: in std_logic;
+			 o 			: out std_logic);
+end component;
+				
+signal	s1, s2, s3: std_logic;	-- wires which begin and end in the component
+
+begin 
+	unit1:	AND2
+	port map (		-- s1 <= a and b;			
+		i0 => a,
+		i1 => b,
+		o => s1);
+	unit2:	AND2
+	port map (		-- s2 <= b and c;			
+		i0 => b,
+		i1 => c,
+		o => s2);
+	unit3:	AND2
+	port map (		-- s3 <= a and c;			
+		i0 => a,
+		i1 => c,
+		o => s3);
+	unit4:	OR3
+	port map (		-- f <= s1 or s2 or s3;			
+		i0 => s1,
+		i1 => s2,
+		i2	=>	s3,
+		o => f);
+
+end structure;
+</pre>
+<h2>Behavioral</h2>
+A behavioral description of a component describes what the circuit
+does rather than how it is done.  For example, we will consider the
+majority circuit from lecture 1 in the code below.
+<pre>
+------------------------------------------
+-- Author:      Maj Jeff Falkinburg
+-- Date:        Spring 2017
+-- Purp:	Behavior Majority circuit
+------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity majority is
+        port(	a, b, c	: in std_logic; 
+		f	: out std_logic);
+end majority;
+
+architecture behavior of majority is
+
+begin
+	
+	f <=	'0' when a='0' and b='0' and c='0' else
+		'0' when a='0' and b='0' and c='1' else
+		'0' when a='0' and b='1' and c='0' else
+		'1' when a='0' and b='1' and c='1' else
+		'0' when a='1' and b='0' and c='0' else
+		'1' when a='1' and b='0' and c='1' else
+		'1' when a='1' and b='1' and c='0' else
+		'1';
+
+end behavior;
+</pre>
+<p>It is important to note that the single (very long) statement in the architecture
+is a concurrent signal assignment (CSA) statement.  This means that this statement is
+simply another hardware statement and can be mixed together with
+some ANDs and some component instantiation statements.
+<br><br></p>
+<p>Coding using the behavioral architecture, while much more intuitive than the combinational
+logic description that was presented in lecture 1, still has some
+room for improvement.  We could take advantage of the concatenation
+operator to make the code more readable.  The idea is to replace
+the (a=’0’ and b=’0’ and c=’0’) statement with something like
+(temp = “000”).  This can be done by creating a local variable
+(a signal) which is just the concatenation of the three input
+variables.  This temporary variable will then be used in the
+“when” statement.  The new streamlined architecture for the majority
+circuit is shown below.<br><br></p>
+<pre>
+architecture behavior of majority is
+
+	signal temp: std_logic_vector(2 downto 0);
+begin
+	
+	temp <= a & b & c;
+	f <=	'0' when temp = "000" else
+		'0' when temp = "001" else
+		'0' when temp = "010" else
+		'1' when temp = "011" else
+		'0' when temp = "100" else
+		'1' when temp = "101" else
+		'1' when temp = "110" else
+		'1'; 
+		
+end behavior;
+</pre>
+<br>
+<h2>A note on literals</h2>
+Notice that individual bits are surrounded with single quotes
+and that std_logic_vectors are surrounded with double quotes.
+<u>Any multi-bit literal must be surrounded by double quotes.</u> Another important note is that
+you can specify hexadecimal literals by putting an x in front 
+of the constant.  So for example, x"4E" is a valid VHDL literal.
+<h2>Component Instantiation</h2>
+In order for VHDL to be useful in the design process, it must allow
+hierarchical design - the ability to include a design unit as a component
+in a higher level design component. This is called creating an
+instance of the entity.  Hierarchical design allows us to abstract away
+some of the details of a design and focus on the high level behavior.
+This is the same concept as writing subroutines in a high level language.
+<br><br>
+<p>The reason to bring this concept up now is because we use VHDL modules to
+test our VHDL designs.  In the following discussion, we are going to
+build a module to test our majority circuit developed above.
+The VHDL module that will do the testing of the majority circuit
+is called a testbench.  Inside this testbench, we will create an
+instance of the majority circuit and apply signals to the majority
+circuit and check to see if the circuit responds with the correct
+value.  It is important to state up front that <u>testbenches are
+only created for simulations; they are not intended to be synthesized
+onto the fabric of an FPGA.</u>
+<br><Br></p>
+<p>In order to instantiate an instance of the majority circuit inside
+the testbench, you will need make 2 declarations; specify the entity
+description of the component (lines 4-9 below) and create an instance of
+the component (line 12-16 below).</p>
+<pre>
+1.  ENTITY majority_tb IS
+2.  END majority_tb;
+
+3.  ARCHITECTURE behavior OF majority_tb IS 
+4.     COMPONENT majority
+5.     PORT(	a : IN  std_logic;
+6. 		b : IN  std_logic;
+7.		c : IN  std_logic;
+8.		f : OUT  std_logic);
+9.     END COMPONENT;
+10.    signal s1, s2, s3, s4: std_logic;
+11. begin
+12.    uut: majority PORT MAP (
+13.          a => s1,
+14.          b => s2,
+15.          c => s3,
+16.          f => s4);
+17. end
+</pre>
+<p>Let’s discuss these two steps further. The first, declaring the entity description
+of the entity to be instantiated (lines 4-9), is really quite easy.  Just
+replace the term “entity” in the description of the majority circuit with the
+term “component”.  Note that this is done inside the architecture of the
+testbench.  The second will require some more explanation, aided by the
+following picture.</p>
+<p><br><img src="./img/lecture02-1.gif"><br></p>
+<p>The description of the majority circuit defines what goes on
+<u>inside</u> the architecture.  In terms of the picture above,
+this includes all the gates and wires in the box labeled “uut:majority”.
+the variables a,b,c,f inside this box are the port variables in
+the entity description of the majority circuit.  The box labeled
+majority_tb is the testbench which creates an instance of the
+majority circuit.  The signals labeled s1, s2, s3, s4 are created
+inside the testbench circuit and used to communicate to the
+majority circuit.  The relationship between these signals and the
+signals inside the majority circuit are described by lines
+13,14,15,16.  For example, line 13 states that the signal a
+inside the majority circuit is connected to s1 outside the circuit.
+<br><br></p>
+<p>One final note about line 12, the one that declares the instance of
+the majority circuit: Each instance of an entity should be given
+a distinct name.  This is because we will frequently need to create
+several instances of the same component.  For example, when creating
+a 4-bit adder, we will require 4 instances of a full adder.  This is
+what the “uut” label is for, it uniquely identifies the instance of
+the majority circuit for the compiler.
+<br><br></p>
+<p>You may have noticed that the testbench does not have any signals
+in its entity description.  This is because the testbench will
+contain code which drives the signals going to the majority circuit.
+We will go into this further in the next section.</p>
+<h2>Simulation and Testbench</h2>
+You have been provided an example testbench at the top of this page in
+lab02.vhdl.  We have already discussed how to instantiate the majority
+circuit.  Now for the part about applying signals to the majority circuit.
+Just inside the architecture statement, you should see the following four
+lines of code.  Line 1 just makes a constant, the value of TEST_ELEMENTS
+cannot be changed.  Lines 2 and 3 create a pair of new data types.  Line
+4 is really the business, creating an array of test values that are going
+to be applied to the majority circuit.  In this case, it is just every
+combination of 3-bits.  A similar array is defined, called TEST_OUTPUT, 
+which contains the corresponding output for each of these inputs.
+These two arrays are used in the body of the testbench.
+<pre>
+1.	CONSTANT TEST_ELEMENTS:integer:=8;
+2.	SUBTYPE INPUT is std_logic_vector(2 downto 0);
+3.	TYPE TEST_INPUT_VECTOR is array (1 to TEST_ELEMENTS) of INPUT;
+4.	SIGNAL TEST_INPUT: TEST_INPUT_VECTOR := ("000", "001", "010", "011", "100", "101", "110", "111");
+</pre>
+<p>I want to take this opportunity to reiterate that test benches are not
+synthesized onto the Xilinx chip, so consequently, the coding style used
+should not be used on any circuit that you intend to synthesize.</p>
+<p><br>Now, for the business end of the testbench shown in the following code snippet from
+lab02.vhdl, The main purpose of the loop below is to apply each of the
+8 TEST_INPUT vectors to the majority circuit and check that the output is
+correct.  Line 2 is where the array is read.  Elsewhere in the body of the
+architecture, testVector is broken into individual std_logic bits and
+applied to the instantiated majority circuit.  The delay in line 3 allows
+the circuit outputs to settle.  Line 4 is a curious artifact only available
+in a simulation; if the output of the majority circuit, f, does not equal
+test_output(i), the value that the majority should equal, then the code
+in lines 5 and 6 is executed.  Line 5 prints an error message in the console
+area of ISim.  Line 6 halts the simulation.</p>
+<pre>
+1.	for i in 1 to TEST_ELEMENTS loop
+2.	    testVector <= test_input(i);
+3.	    wait for 1 us;
+4.	    assert f = test_output(i)
+5.		report "Error in majority circuit for input "  & integer'image(i)
+6.		severity failure;
+7.	    end loop;
+</pre>
+<p>In class, we will experiment with the simulator.  Some things I would like
+to go over are:</p>
+<ul>
+<li>How to add and remove waveforms to the waveform view.
+<li>How to change the radix of a vector waveform
+<li>How to change the colors of the waveforms.
+<li>How to transcend the design hierarchy.
+<li>How to observe signal values in design hierarchy.
+<li>How to observe signals values in the VHDL code.
+<li>How to save a load a simulation waveform wcfg file.
+</ul>
+</html>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By James Trimble
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
