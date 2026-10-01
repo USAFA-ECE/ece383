@@ -45,7 +45,7 @@ access.
 
 <li>Digilent Nexys Video. Hand them out.
 
-<li>Course web page: (<a href="https://georgeyork.github.io/ECE383_web/index.html">https://georgeyork.github.io/ECE383_web/index.html</a>)
+<li>Course web page: (<a href="https://usafa-ece.github.io/ece383/intro.html">https://usafa-ece.github.io/ece383/intro.html</a>)
 </ul>
 
 <h2>Course Goals</h2>
