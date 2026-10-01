@@ -222,7 +222,7 @@ The inputs (a,b,c) and the output (f) are like the values
 that are passed into and out of a function in a programming
 language.
 <br><img src="./img/lecture01.gif"><br><br>
-![image]("./img/lecture01.gif")
+![image](./img/lecture01.gif)
 
 <b>VHDL</b><br>
 In class, we will examine which of the lines below
