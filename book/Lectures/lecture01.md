@@ -2,10 +2,7 @@
 <h1>Lesson Notes for Lesson 1</h1>
 
 <h2>example code for today's class</h2>
-	<ul><li>[lec01](code/lec01.vhdl)
-	</li><li>read 2.1, 2.2.1, 2.2.2
-	</li><li>read [L2_notes](Lectures/lecture02.md) 
-	</li><li>lesson slides are on course TEAMs site</li></ul>
+	<ul><li>[lec01](code/lec01.vhdl)</li><li>[lec01_tb](code/lec01_tb.vhdl)</li><li>[lec01.xdc](code/lec01.xdc)</li></ul>
 <h2>Why Use Digital Systems?</h2>
 <ul>
 	<li>Advantages
