@@ -39,10 +39,7 @@ Available from:
 
 <ul>
 <li>
-<b>BitBucket</b> We will be using BitBucket this term.  Please
-sign up for an account if you don't already have one.  You will need
-to create a Repository named "ECE_383_YourLastName" and give your instructor read/write
-access. 
+<b>GitHub</b> We will be using GitHub this term.  See HW1.
 
 <li>Academic Integrity. When does working together become not okay?
 
@@ -79,7 +76,8 @@ These can be grouped into three categories:
 	<li>Custom hardware (i.e. ASIC)
 </ol>
 The spectrum of digital implementation can be represented b the figure below:<br>
-<br><img width = 800 src="./img/lecture01-2.gif"><br><br>
+<!-- <br><img width = 800 src="./img/lecture01-2.gif"><br><br> -->
+![image](./img/lecture01-2.gif)
 
 <h2>Digital Logic</h2>
 
