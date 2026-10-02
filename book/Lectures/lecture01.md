@@ -107,7 +107,9 @@ The unit cost for a single chip is fabrication costs for that
 chip plus the engineering labor amortized over the number of 
 units sold. This is represented in the figure below.
 
-<br><img width =600 src="./img/lecture01-3.gif"><br><Br>
+<!-- <br><img width =600 src="./img/lecture01-3.gif"><br><Br> --> 
+![image](./img/lecture01-3.gif)
+
 <h2>Types of Cost</h2>
 There are three types of cost associated with digital systems:
 <ul>
@@ -116,8 +118,8 @@ There are three types of cost associated with digital systems:
 	<li>Time-to-market cost: loss of revenue
 </ul><br>
 The per-unit cost of a digital part can be modeled by the equation below.<br>
-<img width =600 src="./img/lecture01-4.png"><br><Br>
-
+<!-- <img width =600 src="./img/lecture01-4.png"><br><Br> -->  
+![image](./img/lecture01-4.png)
 
 <h2>Abstraction</h2>
 Abstraction is a key part of developing digital systems. In this class, we will consider three main layers of our designs:
@@ -127,7 +129,8 @@ Abstraction is a key part of developing digital systems. In this class, we will 
 	<li>Physical view - Describes the layout on a PCB
 </ul>
 In the figure below, these three layers of abstraction can be seen stacked on top of one another.
-<br><img width = 600 src="./img/lecture01-5.png"><br><br>
+<!-- <br><img width = 600 src="./img/lecture01-5.png"><br><br>  -->
+![image](./img/lecture01-5.png)
 
 <h2>Digital System Design</h2>
 <h3>VHDL</h3>
@@ -224,7 +227,7 @@ are like local variables in a regular programming language.
 The inputs (a,b,c) and the output (f) are like the values
 that are passed into and out of a function in a programming
 language.
-<br><img src="./img/lecture01.gif"><br><br>
+<!-- <br><img src="./img/lecture01.gif"><br><br> -->
 ![image](./img/lecture01.gif)
 
 <b>VHDL</b><br>
