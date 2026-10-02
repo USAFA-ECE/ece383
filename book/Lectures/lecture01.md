@@ -3,6 +3,10 @@
 
 <h2>example code for today's class</h2>
 	<ul><li>[lec01](./code/lec01.vhdl)</li><li>[lec01_tb](./code/lec01_tb.vhdl)</li><li>[lec01.xdc](./code/lec01.xdc)</li></ul>
+- ./code/lec01.vhdl
+- ./code/lec01_tb.vhdl
+- ./code/lec01.xdc
+
 <h2>Why Use Digital Systems?</h2>
 <ul>
 	<li>Advantages
