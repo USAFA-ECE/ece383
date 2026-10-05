@@ -53,7 +53,7 @@ Use the **`when` statement syntax** to describe the output in terms of the input
 # Deliverables
 ## a. HW2_CODE
 
-In gradescope, submit a zip file to the HW2_CODE assignment.  The zip file should contain only your scancode_decoder.vhd and scancode_decoder_tb.vhd in the root of the zip file (no subfolders).
+In gradescope, submit a zip file to the HW2_CODE assignment.  The zip file should contain only your scancode_decoder.vhd and scancode_decoder_tb.vhd in the root of the zip file (no subfolders). You will find starter code for scancode_decoder.vhd and scancode_decoder_tb.vhd in the HW2 directory of your git repo.
 
 ## b. HW2
 
