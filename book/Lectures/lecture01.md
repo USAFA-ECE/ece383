@@ -19,10 +19,11 @@
 			<li>Telephone switching networks
 			<li>Control of mechanical systems: e.g., "fly-by-wire", as shown in the figure below
 			<br>
-![image](./img/lecture01-1.png)
-			<br><br>
 	</ol>
 </ul>
+![image](./img/lecture01-1.png)
+			<br><br>
+
 <!--<h2> </h2>
 <ul>
 	<li>
