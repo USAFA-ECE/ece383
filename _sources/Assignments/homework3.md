@@ -23,6 +23,8 @@ You will need to specify the number of bits on each component for the simulation
 - In VHDL, create a digital circuit that takes as input an 8-bit unsigned value (provided by the DIP switches) and illuminates an LED if the input is a multiple of 17. Do NOT use the remainder or division operations. This can easily be accomplished using a single conditional signal assignment
 statement.
 
+- You will find starter code for hw3.vhdl and hw3_tb.vhdl in the HW3 directory of your git repo.
+  
 - Use the following entity for your component.  These names must match exactly for the autograder to work.
 
 entity hw3 is
