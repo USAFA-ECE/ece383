@@ -21,7 +21,7 @@
 			<br>
 	</ol>
 </ul>
-#admin
+
 <img src="./img/lecture01-1.png">
 ![image](./img/lecture01-1.png)
 ![image](./img/lecture01-3.gif)
