@@ -22,7 +22,8 @@
 	</ol>
 </ul>
 ![image](./img/lecture01-1.png)
-			<br><br>
+
+<br><br>
 
 <!--<h2> </h2>
 <ul>
