@@ -22,7 +22,8 @@
 	</ol>
 </ul>
 
-<img src="./img/lecture01-1.png">
+![image](./img/lecture01-1.png)
+<!-- <img src="./img/lecture01-1.png"> -->
 
 <h2>Admin</h2>
 <ul>
