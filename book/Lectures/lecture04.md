@@ -1,0 +1,228 @@
+<h1>Lesson Notes for Lesson 4</h1>
+
+<h2>example code for today's class</h2>
+	See lec04 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+  <br>also see hand04.docx
+
+
+<h2>Sequential Elements</h2>
+
+This lesson has the following goals:
+<ul>	<li>basic sequential process and sensitivity list
+	<li>register, counter in VHDL
+	<li>Combination of sequential and combinational logic (counters)
+	<li>Translate between schematic, truth table, and VHDL code
+</ul>
+
+
+<h2>Mod 10 counter example</h2>
+
+<h3>Truth Table</h3>
+The following state table defines a straightforward mod 10 counter - a
+counter that goes from 0-9 and then wraps back around to 0.  
+
+
+<table class="table table-striped table-bordered table-condensed">
+<tr><td><b>clk</b>		<td><b>reset</b>	<td><b>ctrl</b>	<td><b>D</b>	<td><b>Q+</b>
+<tr><td>0,1,falling	<td>x		<td>xx		<td>x	<td>Q
+<tr><td>rising		<td>0		<td>xx		<td>x	<td>0
+<tr><td>rising		<td>1		<td>00		<td>x	<td>Q
+<tr><td>rising		<td>1		<td>01		<td>x	<td>Q+1 mod 10
+<tr><td>rising		<td>1		<td>10		<td>D	<td>D
+<tr><td>rising		<td>1		<td>11		<td>x	<td>0
+</table>
+
+
+<ul>
+<li>The first
+line tells us that only a rising clock
+edge will result in an action. Any other condition results in the next state of Q (denoted Q+)
+being unchanged (equal to Q). This line is normally assumed to be true and not included in truth tables.
+<li>The second line defines the behavior when
+the reset is active low (to agree with the active-low reset on the 
+Nexys board).  
+<li>The third row tells us that the counter will hold when the 2-bit control 
+is equal to 00.  
+<li>The fourth row tells us that the counter will count up when the 2-bit control 
+is equal to 01.  The "mod 10" (mod ten) means that the counter is supposed to count from
+0 to 9 and then, on the next count, roll back to 0.
+<li>The fifth row tells us that the counter will load in the value 'D' when the 2-bit control 
+is equal to 10. 
+<li>The sixth row tells us that the counter will synchronously reset when the 
+2-bit control is equal to 11 (essentially performing the same function as the reset in line 2). 
+</ul>
+
+<h3>Timing Diagram</h3>
+First, we will fill out the timing diagram
+on the first page of hand04.docx (linked above).  The key idea to remember is that the output
+of the counter does not change until a positive edge of the clock arrives.
+On the first 2 rising clock edges, reset is equal to 0 so Q will go to 0.  After the
+second rising clock edge, though, the reset line is never low, so the behavior of the counter is 
+dictated by the last four rows of the state table.  On clock edges 3 to 30, 
+ctrl is 01, so Q is incremented by 1.  Remember that on the clock edge after Q=9,
+Q rolls back to 0.
+
+The following timing diagram was created in Isim to recreate the timing diagram
+in the handout.
+
+![image](./img/lecture04-1.gif)
+<!-- <br><img src="./img/lecture04-1.gif"><br><br> -->
+
+
+<h3>Circuit Diagram</h3>
+After completing the timing diagram, see if you can figure out how to construct
+the counter using the arrangement of devices show in the picture below (also in the hand04.docx document).  
+<ul>
+<li>You may assume that all these inputs are able to handle 4-bit values - to indicate this, draw a hash through the signal lines with a "4" next to it.  
+<li>You should not draw additional lines in this picture. Instead, label the wires
+ with names and use these names to create logical connections between signals with 
+the same name.
+<li>Draw a border around your circuit.  The only signals that should cross
+the boundary are those which are part of the entity description.
+</ul>
+
+![image](./img/lecture04-2.gif)
+<!-- <br><img src="./img/lecture04-2.gif"><br><br> -->
+
+<h3>VHDL</h3>
+
+As we know, the VHDL description of a circuit consists of two components:
+the entity and the architecture.  The entity is fairly simple, as it consists
+of those signals in the state table description given at the top of this page - all you need to do
+is determine the direction and type of the signals.  Since 'ctrl' is
+selecting which operation to perform and is not a numeric value, its type
+is std_logic_vector.  The Q and D outputs are best thought of as numerical
+values and are consequently unsigned.  In order to use these two types, the top of the 
+VHDL file needs to reference both the std_logic_1164 and numeric_std libraries.
+<br>
+The entity description for the mod 10 counter is shown below.
+
+<pre>
+entity lec4 is
+	Port(	clk: in  STD_LOGIC;
+		reset : in  STD_LOGIC;
+		ctrl: in std_logic_vector(1 downto 0);
+		D: in unsigned (3 downto 0);
+		Q: out unsigned (3 downto 0));
+end lec4;
+</pre>
+
+Below, the architecture code for the mod 10 counter is shown.
+The VHDL code of the mod 10 counter is going to be something new.  To break it down, the code
+consists of three statements: the process (lines 5-23), and the two CSAs (concurrent signal assignments) 
+on lines 24 and 25.  The process realizes the circuit you completed above. A few things to note
+about the code:
+
+<ul>
+<li>processQ needs to be used as a temporary Q signal because Q was part of the entity definition and, as
+was covered last lesson, entity signals cannot be used on the right side of an equation (or in processs).
+processQ is, however, tied to Q, so the signals are the same.
+<li>rollSynch is an internal signal which is set to 1 on the same clock cycle as the one in
+which we reset the count to 0. rollSynch is reset to 0 when we start incrementing again. It is a control signal that will be used later.
+<li>rollCombo is also a control signal which will be used in the future. It is '1' when the count is 9.
+<li>Line 7 enforces the condition on the first row of the truth table: Q can only change on a rising clock edge.  
+<li>Line 8 enforces the condition on the second row of the truth table: whenever reset = 0, the Q output goes to 0.
+Note that the "others" statement is an
+efficient way to assign a vector of 0's to a multi-bit signal.
+<li>Lines 11 and 14 enforce the condition on the fourth row of the truth table: when ctrl=01, the counter counts up mod 10.  Note that I did not include
+any complex mathematical operations like division in order to realize the
+mod-10, but I instead checked when the count equals 9.
+<li>Line 17 enforces the condition on the fifth row of the truth table: when ctrl = 10, Q should be assigned D.
+<li>Line 19 enforces the condition on the sixth row of the truth table: when ctrl = 11, Q should be assigned 0
+</ul>
+
+Note that the condition ctrl = 00 is not assigned a case in the VHDL code.
+This is because if a signal is not explicitly changed inside a process, then
+it retains its previous value (similar to software programming languages).
+
+
+<pre>
+1.  architecture behavior of lec4 is
+	
+2.  	signal rollSynch, rollCombo: STD_LOGIC;
+3.  	signal processQ: unsigned (3 downto 0);
+
+4.  begin
+5.      process(clk)
+6. 	begin
+7.  	    if (rising_edge(clk)) then
+8.  		if (reset = '0') then
+9.  		    processQ <= (others => '0');
+10.  		    rollSynch <= '0';
+11.  		elsif ((processQ < 9) and (ctrl = "01")) then
+12.  		    processQ <= processQ + 1;
+13.  		    rollSynch <= '0';
+14.  		elsif ((processQ = 9) and (ctrl = "01")) then
+15.  		    processQ <= (others => '0');
+16.  		    rollSynch <= '1';
+17.  		elsif (ctrl = "10") then
+18.  		    processQ <= D;
+19.  		elsif (ctrl = "11") then
+20.  		    processQ <= (others => '0');
+21.  		end if;
+22. 	    end if;
+23. 	end process;
+
+24. 	rollCombo  <= '1' when (processQ = 9) else '0';
+25. 	Q <= processQ;
+
+26.  end behavior;
+</pre>
+
+
+<h3>General VHDL Rules</h3>
+Now that we have been working with VHDL for a few lessons, we will introduce the following rules
+that you must follow when designing in VHDL.  The reason for these rules is that following them
+will help ensure that you write code that can be synthesized.
+It may be helpful to refer to these rules in the future.
+
+<ul>	<li>Never use processes for combinational logic.
+	<li>Only the clk should appear in the sensitivity list of a process.
+	<li>The outermost structure should be "if (rising_edge(clk)) then".
+	<li>Inside a process should be "if (reset = '0') then". This is to
+		reinitialize the state element used by the process.
+	<li>The "else" clause of the reset element (the body) should consist of a set 
+		of exclusive signal conditions in an if/then case structure.
+	<li>Any signal on the left-hand side of an assignment statement (in the body)
+		may not be put on the left-hand side of any assignment statement outside
+		the process.
+</ul>
+
+<h3>Adding signals in Vivado Simulator</h3>
+In order to fully understand the behavior of the counter being
+instantiated inside the testbench, it is sometimes necessary to 
+transcend the design hierarchy and examine signals inside modules
+not directly visible at the top layer. As an example, let's say
+you wanted to monitor the control signal into the lab4 counter
+while running the testbench.  This is accomplished in 
+ISim (which has the same functionality as Vivado Simulator) using the following four steps (illustrated in the figure below).
+<ol>	<li>In the Instances and Process subwindow, reveal the 
+	instances inside the lec4_tb by clicking on the arrow
+	to the left of lec4_tb.
+	<li>Reveal the signals inside the lec4 instance (called 
+	uut - unit under test) by clicking on the label "uut".
+	<li>In the Objects subwindow, select the signal that you
+	want to observe on the timing digram.  In our case the
+	ctrl signal.
+	<li>Drag and drop the signal into the timing diagram.
+	<li>In most cases, you will have to restart the simulation 
+	to get a complete trace of the newly added signal.
+	<li>And then rerun it for the needed amount of time.
+</ol>
+
+![image](./img/lecture04-3.gif)
+<!-- <br><img src="./img/lecture04-3.gif"><br> -->
+
+<h3>More Vivado Simulator Tips</h3>
+In the Image below, 4 additional details of the Vivado Simulator are pointed out.
+<ol>	<li> This is where simulations are run from in Vivado. You shouldn't have to mess with the default simulation settings for most projects, but you can set the default simulation time here (normally 1000ns).
+	<li> This is the unit under test, shown as number 2 in the image above.
+	<li> These two arrows are extremely useful in simulations. The left arrow resets all your signals, while the right signal runs the simulation for the amount of time specified next to the arrow. Since 1000ns would only capture 
+	2 clock cycles of a 500ns clock, you are going to need to run your simulation for more time to see the ctrl signal actually change.
+	<li> Whenever you rerun your simulation, it is best to use 'fit to window' to see your whole signal chain. From there, you can zoom in and out.
+</ol>
+
+![image](./img/lecture04-4.gif)
+<!-- <br><img src="./img/lecture04-4.gif"><br> -->
+
+
