@@ -193,8 +193,8 @@ VHDL:	z <= y+3 when (a < 4) else y+7;
 
 The following hardware schematic realizes this 
 
-![image](./img/lecture03-1.png)
-<!-- <img src="./img/lecture03-1.png"> -->
+![image](./img/lecture03-1.gif)
+<!-- <img src="./img/lecture03-1.gif"> -->
 
 However, this circuit is not minimal; one of the adders can be removed.
 This can be done by realizing that the y input to the adders is constant.

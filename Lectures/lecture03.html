@@ -563,8 +563,8 @@ C:	if (a<4) then z=y+3 else z=y+7
 VHDL:	z <= y+3 when (a < 4) else y+7;
 </pre>
 <p>The following hardware schematic realizes this</p>
-<p><img alt="image" src="Lectures/img/lecture03-1.png" /></p>
-<!-- <img src="./img/lecture03-1.png"> -->
+<p><img alt="image" src="../_images/lecture03-1.gif" /></p>
+<!-- <img src="./img/lecture03-1.gif"> -->
 <p>However, this circuit is not minimal; one of the adders can be removed.
 This can be done by realizing that the y input to the adders is constant.
 Therefore, we could have muxed through 3 or 7 into an adder with y on the
