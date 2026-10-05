@@ -2,7 +2,7 @@
 <h1>Lesson Notes for Lesson 1</h1>
 
 <h2>example code for today's class</h2>
-	See lec01 folder in class github repo
+	See lec01 folder in class github repo [https://github.com/USAFA-ECE/ece383_wksp](https://github.com/USAFA-ECE/ece383_wksp) 
 
 <h2>Why Use Digital Systems?</h2>
 <ul>
