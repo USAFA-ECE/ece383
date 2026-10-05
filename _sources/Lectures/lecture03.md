@@ -201,5 +201,5 @@ This can be done by realizing that the y input to the adders is constant.
 Therefore, we could have muxed through 3 or 7 into an adder with y on the
 other port.  You will practice this more in the homework.
 
-</html>
+
 
