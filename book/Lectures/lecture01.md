@@ -21,9 +21,9 @@
 			<br>
 	</ol>
 </ul>
-
-<img src="./img/lecture01-1.png">
 ![image](img/lecture01-1.png)
+<img src="./img/lecture01-1.png">
+
 ![image](./img/lecture01-3.gif)
 
 <br><br>
