@@ -22,11 +22,7 @@
 	</ol>
 </ul>
 
-<img src="lecture01-1.png">
-
-<a href="https://github.com/USAFA-ECE/ece383/blob/main/book/Lectures/img/lecture01-1.png">my image</a>
-
-
+<img src="./img/lecture01-1.png">
 
 <h2>Admin</h2>
 <ul>
