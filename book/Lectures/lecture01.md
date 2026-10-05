@@ -22,7 +22,7 @@
 	</ol>
 </ul>
 
-<img src="file://./img/lecture01-1.png">
+<img src="file:./img/lecture01-1.png">
 
 
 
