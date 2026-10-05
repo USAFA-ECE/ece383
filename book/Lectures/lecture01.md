@@ -18,8 +18,9 @@
 			<li>Image processing: from silver-halide film to digital camera 
 			<li>Telephone switching networks
 			<li>Control of mechanical systems: e.g., "fly-by-wire", as shown in the figure below
-			
-		    <br><img src="./img/lecture01-1.png"><br><br>
+			<br>
+			![image](./img/lecture01-1.png)
+			<br><br>
 	</ol>
 </ul>
 <!--<h2> </h2>
