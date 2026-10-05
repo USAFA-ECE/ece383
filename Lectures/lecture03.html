@@ -423,7 +423,7 @@ to go to an LED.  Making some arbitrary choices, let’s make the associations s
 in the following picture.</p>
 <p><br><img src="./img/lecture03.png"><br><br></p>
 <p>This is accomplished by inserting the following code into a constraints file called
-majority.xdc (formerly called .ucf files with the old ISE software) and adding it to your project (with an implementation association).</p>
+majority.xdc and adding it to your project (with an implementation association).</p>
 <pre>
 # This is slide switch SW0
 set_property -dict { PACKAGE_PIN E22  IOSTANDARD LVCMOS12 } [get_ports { a }]; #IO_L22P_T3_16 Sch=sw[0]

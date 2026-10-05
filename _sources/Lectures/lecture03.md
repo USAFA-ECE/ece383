@@ -28,7 +28,7 @@ in the following picture.
 <br><img src="./img/lecture03.png"><br><br>
 
 This is accomplished by inserting the following code into a constraints file called 
-majority.xdc (formerly called .ucf files with the old ISE software) and adding it to your project (with an implementation association).
+majority.xdc and adding it to your project (with an implementation association).
 
 <pre>
 # This is slide switch SW0
