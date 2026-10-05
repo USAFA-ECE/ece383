@@ -21,19 +21,13 @@
 			<br>
 	</ol>
 </ul>
+#admin
 <img src="./img/lecture01-1.png">
 ![image](./img/lecture01-1.png)
 ![image](./img/lecture01-3.gif)
 
 <br><br>
 
-<!--<h2> </h2>
-<ul>
-	<li>
-	<ol>
-			<li>
-	</ol>
-</ul>-->
 
 <h2>Admin</h2>
 <ul>
