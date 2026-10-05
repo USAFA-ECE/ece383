@@ -1,10 +1,9 @@
 # Lecture 04
 ## Sequential Logic and State Machines
 
-## Lecture Information
-| **Date**       | **Lecture** | **Next Lecture** | **Status**  | **Code**                | **Handout**     | **Lesson Slides**   |
-|-----------------|-------------|------------------|-------------|-------------------------|-----------------|---------------------|
-| January 12/13  | 4           | HW#4             | Complete    | `lec04.vhdl`, `lec04_tb.vhdl` | `hand04.docx`   | `ECE_383_Lec4.pdf` |
+<h2>example code for today's class</h2>
+	See lec04 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+  also see hand04.docx
 
 ---
 
