@@ -216,7 +216,8 @@ term "component".  Note that this is done inside the architecture of the
 testbench.  The second will require some more explanation, aided by the 
 following picture.
 
-<img src="./img/lecture02-1.gif">
+![image](./img/lecture02-1.gif)
+<!-- <img src="./img/lecture02-1.gif"> -->
 
 The description of the majority circuit defines what goes on
 <u>inside</u> the architecture.  In terms of the picture above,
