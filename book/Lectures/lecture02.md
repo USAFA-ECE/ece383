@@ -1,7 +1,7 @@
 <h1>Lesson Notes for Lesson 2</h1>
 
 <h2>example code for today's class</h2>
-	See lec02 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+	See lec02 folder in folder in <a href="https://github.com/USAFA-ECE/ece383_wksp">class github repo</a> 
 
 <h1>VHDL</h1>
 When doing digital design, there is more than one way to skin a cat.  This
