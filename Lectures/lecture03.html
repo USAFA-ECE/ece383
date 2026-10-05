@@ -421,9 +421,11 @@ and LEDs on the board.
 <p>We would like the input to our majority to come from the DIP switches and the output
 to go to an LED.  Making some arbitrary choices, let’s make the associations shown
 in the following picture.</p>
-<p><br><img src="./img/lecture03.png"><br><br></p>
-<p>This is accomplished by inserting the following code into a constraints file called
-majority.xdc and adding it to your project (with an implementation association).</p>
+<p><img alt="image" src="../_images/lecture03.png" /></p>
+<!-- <img src="./img/lecture03.png"> -->
+<br>
+This is accomplished by inserting the following code into a constraints file called 
+majority.xdc and adding it to your project (with an implementation association).
 <pre>
 # This is slide switch SW0
 set_property -dict { PACKAGE_PIN E22  IOSTANDARD LVCMOS12 } [get_ports { a }]; #IO_L22P_T3_16 Sch=sw[0]
@@ -524,7 +526,8 @@ end structure;
 <br>
 In the simulation below, you can see how the values of the signals 
 are correctly updated based on the operations performed.
-<p><br><img src="./img/lecture03-3.gif"><br><br></p>
+<p><img alt="image" src="../_images/lecture03-3.gif" /></p>
+<!-- <img src="./img/lecture03-3.gif"> -->
 <p>From here on out, your program may only have two main datatypes,
 STD_LOGIC_VECTOR and UNSIGNED (this is all you will need). However, there will be times when you need to convert
 between these two representations.  The following code snippet shows how this is
@@ -560,7 +563,8 @@ C:	if (a<4) then z=y+3 else z=y+7
 VHDL:	z <= y+3 when (a < 4) else y+7;
 </pre>
 <p>The following hardware schematic realizes this</p>
-<p><br><img src="./img/lecture03-1.gif"><br><br></p>
+<p><img alt="image" src="Lectures/img/lecture03-1.png" /></p>
+<!-- <img src="./img/lecture03-1.png"> -->
 <p>However, this circuit is not minimal; one of the adders can be removed.
 This can be done by realizing that the y input to the adders is constant.
 Therefore, we could have muxed through 3 or 7 into an adder with y on the

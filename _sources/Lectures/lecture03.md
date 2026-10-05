@@ -25,8 +25,9 @@ We would like the input to our majority to come from the DIP switches and the ou
 to go to an LED.  Making some arbitrary choices, let's make the associations shown
 in the following picture.
 
-<br><img src="./img/lecture03.png"><br><br>
-
+![image](./img/lecture03.png)
+<!-- <img src="./img/lecture03.png"> -->
+<br>
 This is accomplished by inserting the following code into a constraints file called 
 majority.xdc and adding it to your project (with an implementation association).
 
@@ -146,8 +147,8 @@ end structure;
 In the simulation below, you can see how the values of the signals 
 are correctly updated based on the operations performed.
 
-
-<br><img src="./img/lecture03-3.gif"><br><br>
+![image](./img/lecture03-3.gif)
+<!-- <img src="./img/lecture03-3.gif"> -->
 
 From here on out, your program may only have two main datatypes, 
 STD_LOGIC_VECTOR and UNSIGNED (this is all you will need). However, there will be times when you need to convert
@@ -192,7 +193,8 @@ VHDL:	z <= y+3 when (a < 4) else y+7;
 
 The following hardware schematic realizes this 
 
-<br><img src="./img/lecture03-1.gif"><br><br>
+![image](./img/lecture03-1.png)
+<!-- <img src="./img/lecture03-1.png"> -->
 
 However, this circuit is not minimal; one of the adders can be removed.
 This can be done by realizing that the y input to the adders is constant.
