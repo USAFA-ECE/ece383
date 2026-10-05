@@ -3,7 +3,7 @@
 
 <h2>example code for today's class</h2>
 	See lec04 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
-  also see hand04.docx
+  <br>also see hand04.docx
 
 ---
 
