@@ -1,7 +1,7 @@
 <h1>Lesson Notes for Lesson 3</h1>
 
 <h2>example code for today's class</h2>
-	See lec03 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+	See lec03 folder in folder in <a href="https://github.com/USAFA-ECE/ece383_wksp">class github repo</a> 
   <br>also see hand03.docx
 
 
