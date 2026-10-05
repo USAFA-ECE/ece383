@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Embedded Systems II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lectures/lecture05';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ece383.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ece383.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE383 Embedded Computer Systems II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vhdl_programming.html">💻 VHDL Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">🪲 Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final_project_gallery.html">🎮 Final Project Gallery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework1.html">✏️ HW 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework2.html">✏️ HW 2</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework3.html">✏️ HW 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework4.html">✏️ HW 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework5.html">✏️ HW 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework7.html">✏️ HW 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework8.html">✏️ HW 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework9.html">✏️ HW 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework12.html">✏️ HW 12</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab1.html">🔬 Lab 1: VGA Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab2.html">🔬 Lab 2: Data Acquisition, Storage and Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab3.html">🔬 Lab 3: Software Control of a Datapath</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab4.html">🔬 Lab 4: Direct Digital Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/project.html">🕹️ Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ICEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice1.html">🔬 ICE 1: Intro to Microblaze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice2.html">🔬 ICE 2: Microblaze Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice3.html">🔬 ICE 3: Microblaze Interrupts</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383/issues/new?title=Issue%20on%20page%20%2FLectures/lecture05.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lectures/lecture05.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Lesson Notes for Lesson 5</h1>
+<h2>example code for today's class</h2>
+	See lec05 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+  <br>also see hand05.docx
+<h2>Comparator construction</h2>
+In the upcoming lab, you will need to generate a signal that behaves according
+to the following CSA statement:
+<pre>
+	h_synch <= '1' when ((h_count >= 100) and (h_synch < 200)) else '0';
+</pre>
+<p>However, if you implemented the h_synch signal using this method (non-gated
+output), your circuit would not behave correctly.  The fundamental problem
+is that <b>non-gated signals generate glitches on their output.</b>  These
+glitches are generated by the comparators inherent in the CSA above.  Fully
+understanding this problem and its solution will require some discussion, so let’s
+get started.<br><br></p>
+<p>Large comparators are realized by performing a comparison from the most to
+least significant bit. At each step, a bit of X is compared to a bit of Y.
+If the bits are equal, then continue to the next least significant bit.
+Otherwise, either X or Y is larger, and the comparison is over.  In this way,
+the validity of the output ripples from the most to the least significant bit.
+Since real logic gates have delay, there is a delay to get a valid bit.  This
+delay is the focus of this lecture.</p>
+<h2>Gated and non-gated circuits</h2>
+In the upcoming lab, you will have to design a circuit to output 2 signals crucial to the
+proper operation of a VGA display.  In order for these outputs to properly drive the 
+display, they need to be both glitch free and promptly available after a clock edge.  This
+requires that the outputs be gated - they must be output from flip flops, not combinational
+logic.  In order to demonstrate the potential pitfalls of combinational logic, I coded-up
+lec05.vhdl (linked at the top of this page).  
+<br>
+<p><img alt="image" src="../_images/lecture05.png" /></p>
+<!-- <br><img src="./img/lecture05.png"><br><br> -->
+<!-- <br><img src="./img/lecture05-2.gif"><br><br> -->
+<p>The outputs from the two processing blocks depend on the value of the counter’s output
+(processQ) compared to one of three constants: L0, L1, L2 (set inside lec05.vhdl). Both
+the gated and non-gate circuit have the same relationship between processQ and their
+output JB - the difference is how this output is generated. The table below illustrates.</p>
+<table border=1>
+<tr><td>Combinational Realization<br>Non-gated</td>	<td>Sequential Realization<br>Gated</td></tr>
+<tr><td valign="top" halign="left">
+<pre>					
+	JB(3 downto 0) <= "0001" when ((processQ >= 0) and (processQ < L0)) else
+			  "0010" when ((processQ >= L0) and (processQ < L1)) else
+			  "0100" when ((processQ >= L1) and (processQ < L2)) else
+			  "1000";
+</pre></td>
+<td valign="top" halign="left">
+<pre>					
+	process(clk)
+	begin
+	    if (rising_edge(clk)) then
+		if (reset = '0') then
+		    JB(6 downto 4) <= "000";
+		elsif ((processQ >= 0) and (processQ < L0)) then
+		    JB(6 downto 4) <= "001";
+		elsif ((processQ >= L0) and (processQ < L1)) then
+		    JB(6 downto 4) <= "010";
+		elsif ((processQ >= L1) and (processQ < L2)) then
+		    JB(6 downto 4) <= "100";
+		elsif (processQ >= L2) then
+		    JB(6 downto 4) <= "111";
+		end if;
+	    end if;
+	end process;
+</pre></td></tr>
+</table>
+<p>At first glance, you would not be faulted for thinking that these two circuits have
+identical outputs.  Theoretically, they do, but reality has a cruel surprise in the
+the form of glitches.  If you connect an oscilloscope up to the PMOD connector (see
+page 20 of the Nexys Video Board Reference Manual) corresponding
+to pins JB(3) and JB(2) (the most 2 significant bits of the non-gated
+comparator outputs), you would see the trace below.</p>
+<p><img alt="image" src="../_images/lecture05-1.gif" /></p>
+<!-- <br><img src="./img/lecture05-1.gif"><br><br> -->
+<p>You should notice that the output is not entirely smooth in the area between the edges.
+These discontinuities illustrate the fact that the comparator is built from bit-slice
+comparators and, as a consequence, the output is generated by rippling a signal from
+the most significant bit of the comparator to the least.  This allows the output to
+temporarily assume an incorrect output until the rippling output reaches the least
+significant bit.  While the discontinuities look small, this is only the portion of
+the signal that has reached the output pin of the FPGA.  Internally, the glitches
+have a much larger magnitude.</p>
+<h3>Buttons</h3>
+You should notice that the counter only counts with btn(4) = '0'.  A quick glance
+at the silk screen on the Nexys Video board will confirm that this is the center button
+in the 4-way pad on the lower right of the board.  The buttons are nominally logic
+0, meaning that when they are not pressed, they are at logic 0.  When pressed the 
+buttons go to logic 1.
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By James Trimble
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
