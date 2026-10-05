@@ -404,281 +404,167 @@ document.write(`
 <h2>example code for today's class</h2>
 	See lec03 folder in folder in <a href="https://github.com/USAFA-ECE/ece383_wksp">class github repo</a> 
   <br>also see hand03.docx
-<h1>VHDL</h1>
-When doing digital design, there is more than one way to skin a cat.  This
-expression should make you happy regardless of your feelings towards
-cats because it means that your personality can be expressed through
-the code that you write.  In Lecture 1, we examined a structural
-method of describing a circuit; we transformed the circuit diagram
-into a textual description.  Today, we will examine another method of
-VHDL coding: behavioral.
-<h2>Structural</h2>
-<ul>
-	<li>Using the paradigm of the Structural view, a circuit is constructed by using smaller parts.
-	<li>A Structural description, therefore, specifies the types of parts and connections.
-	<li>Essentially, a structural description is a textual description of a schematic.
-	<li>Structural descriptions are done by using the "component" keyword in VHDL. Components are:
-	<ol>
-			<li>First declared (made known)
-			<li>Then instantiated (used)
-	</ol>
-</ul>
-The majority circuit, using components, can be seen coded in VHDL below.
 <br>
+<h2>Synthesis</h2>
+Lets consider how we could synthesize the majority circuit.  The essential
+observation is that we need to create an association between the entity
+specification of the majority circuit and the pin-out of the Xilinx chip.
+Our Xilinx chip is an Artix-7 FPGA (Xilinx part number XC7A200T-1SBG484C), 484 pin, SGB484 Package and can be found  
+<a href="https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf">here</a>
+on page 80.  
+<p>The designers of the Nexys Video board decided to connect some of these
+pins to specific hardware modules.  These connections are described in the
+<a href="../datasheets/nexysvideo_rm.pdf">Nexys Video Board Reference Manual</a>.
+Of interest are the connections described on pages 19, highlighting the switches
+and LEDs on the board.
+<br><br></p>
+<p>We would like the input to our majority to come from the DIP switches and the output
+to go to an LED.  Making some arbitrary choices, let’s make the associations shown
+in the following picture.</p>
+<p><br><img src="./img/lecture03.png"><br><br></p>
+<p>This is accomplished by inserting the following code into a constraints file called
+majority.xdc (formerly called .ucf files with the old ISE software) and adding it to your project (with an implementation association).</p>
 <pre>
-------------------------------------------
--- Author:      Maj Jeff Falkinburg
--- Date:        Spring 2017
--- Purp:	Structural Majority circuit
-------------------------------------------
-library IEEE;						-- These lines are similar to a #include in C
-use IEEE.std_logic_1164.all;
-library unisim;					-- Use these libraries if you are using primitive components
-use unisim.vcomponents.all;
+# This is slide switch SW0
+set_property -dict { PACKAGE_PIN E22  IOSTANDARD LVCMOS12 } [get_ports { a }]; #IO_L22P_T3_16 Sch=sw[0]
+# This is slide switch SW1
+set_property -dict { PACKAGE_PIN F21  IOSTANDARD LVCMOS12 } [get_ports { b }]; #IO_25_16 Sch=sw[1]
+# This is slide switch SW2
+set_property -dict { PACKAGE_PIN G21  IOSTANDARD LVCMOS12 } [get_ports { c }]; #IO_L24P_T3_16 Sch=sw[2]
+# This is LED Led(0)
+set_property -dict { PACKAGE_PIN T14   IOSTANDARD LVCMOS25 } [get_ports { f }]; #IO_L15P_T2_DQS_13 Sch=led[0]
+</pre>
+<h2>Standard Combinational Elements</h2>
+<p>There is a common error that may come up in your design: you cannot
+use a variable listed on the entity as an out port on the right hand
+side of a signal assignment statement. As an example, the code below would not work
+because of the statement not_q &lt;= not q;.</p>
+<pre>
+entity circuit is
+    port (clk, data: in std_logic;
+	  q, not_q: out std_logic);
+end circuit;
 
-entity majority is
-	port(	a, b, c:	in std_logic; 
-			f:			out std_logic);
-end majority;
+architecture error of circuit is
+begin
+    q <= some cool logical stuff using clk and data;
+    not_q <= not q;
+end error;
+</pre>
+<p>The solution is to make a signal called temp and then assign
+“some cool logical stuff using clk and data” to
+that temporary variable. Then, the code would look like:</p>
+<pre>
+    temp <= some cool logical stuff using clk and data;
+    q <= temp;
+    not_q <= not temp;
+</pre>
+<h3>Mux using CSA</h3>
+Using a conditional signal assignment statement greatly simplifies the
+design of muxes.  In the example below, the signals x, y0, y1, y2, and y3
+could be std_logic or std_logic_vector.  The select signal S must be
+defined as std_logic(1 downto 0);
+<pre>
+	x <=	y0 when S = "00" else
+		y1 when S = "01" else
+		y2 when S = "10" else
+		y3;
+</pre>
+<h3>STD_LOGIC_1164 and NUMERIC_STD</h3>
+Up to this point, we have used the STD_LOGIC_1164 library and its associated 9 values
+(see the "Important Notes" section of lecture 1), primary sticking with '0' and '1' along with the
+logic operations AND, OR, and NOT.  All this functionality is made 
+available when you put the following two lines at the top of your file:  
+<pre>
+library IEEE;		
+use IEEE.STD_LOGIC_1164.all; 
+</pre>
+<p>It is worth a few minutes to look at the contents of the STD_LOGIC_1164 library at
+<a href="http://www.csee.umbc.edu/portal/help/VHDL/packages/std_logic_1164.vhd">this</a>
+link.  For all its power, the STD_LOGIC_1164 library does not support numerical
+values and numerical operations like addition and comparisons.
+That is, if you wanted to add two STD_LOGIC_VECTOR’s together, you wouldn’t be able to do it.
+This is where the NUMERIC_STD library comes in.  The NUMERIC_STD library supports two main datatypes:
+unsigned and signed, as well as a host of operations.
+It’s worth a few minutes to look at the contents of the NUMERIC_STD library file at
+<a href="http://www.csee.umbc.edu/portal/help/VHDL/packages/numeric_std.vhd">this</a>
+link. Example code which uses the NUMERIC_STD library is shown below. Notice how the entity inputs
+and outputs are declared using signed and unsigned datatypes rather than STD_LOGIC_VECTOR.
+<br><br></p>
+<pre>
+library IEEE;		
+use IEEE.std_logic_1164.all; 
+use IEEE.NUMERIC_STD.ALL;
 
-architecture structure of majority is
-component AND2
-	port ( i0, i1	: in std_logic;
-			 o 		: out std_logic);
-end component;
-				
-component OR3
-	port ( i0, i1, i2	: in std_logic;
-			 o 			: out std_logic);
-end component;
-				
-signal	s1, s2, s3: std_logic;	-- wires which begin and end in the component
+entity lec3 is
+	port(	au, bu:	in unsigned(3 downto 0); 
+			cu,du,su:	out unsigned(3 downto 0); 
+			as, bs: in signed(3 downto 0);
+			cs,ds,ss:	out signed(3 downto 0));
+end lec3;
 
-begin 
-	unit1:	AND2
-	port map (		-- s1 <= a and b;			
-		i0 => a,
-		i1 => b,
-		o => s1);
-	unit2:	AND2
-	port map (		-- s2 <= b and c;			
-		i0 => b,
-		i1 => c,
-		o => s2);
-	unit3:	AND2
-	port map (		-- s3 <= a and c;			
-		i0 => a,
-		i1 => c,
-		o => s3);
-	unit4:	OR3
-	port map (		-- f <= s1 or s2 or s3;			
-		i0 => s1,
-		i1 => s2,
-		i2	=>	s3,
-		o => f);
+architecture structure of lec3 is
 
+begin
+
+	cu <=	"1000" when (au > bu) else 
+		"0110" when (au = bu) else
+		"0001";		
+	su <= au + bu;
+	du <= au - bu;
+	
+	cs <=	"1000" when (as > bs) else 
+		"0110" when (as = bs) else
+		"0001";
+	ss <= as + bs;
+	ds <= as - bs;
+	
 end structure;
 </pre>
-<h2>Behavioral</h2>
-A behavioral description of a component describes what the circuit
-does rather than how it is done.  For example, we will consider the
-majority circuit from lecture 1 in the code below.
-<pre>
-------------------------------------------
--- Author:      Maj Jeff Falkinburg
--- Date:        Spring 2017
--- Purp:	Behavior Majority circuit
-------------------------------------------
-library IEEE;
-use IEEE.std_logic_1164.all;
-
-entity majority is
-        port(	a, b, c	: in std_logic; 
-		f	: out std_logic);
-end majority;
-
-architecture behavior of majority is
-
-begin
-	
-	f <=	'0' when a='0' and b='0' and c='0' else
-		'0' when a='0' and b='0' and c='1' else
-		'0' when a='0' and b='1' and c='0' else
-		'1' when a='0' and b='1' and c='1' else
-		'0' when a='1' and b='0' and c='0' else
-		'1' when a='1' and b='0' and c='1' else
-		'1' when a='1' and b='1' and c='0' else
-		'1';
-
-end behavior;
-</pre>
-<p>It is important to note that the single (very long) statement in the architecture
-is a concurrent signal assignment (CSA) statement.  This means that this statement is
-simply another hardware statement and can be mixed together with
-some ANDs and some component instantiation statements.
-<br><br></p>
-<p>Coding using the behavioral architecture, while much more intuitive than the combinational
-logic description that was presented in lecture 1, still has some
-room for improvement.  We could take advantage of the concatenation
-operator to make the code more readable.  The idea is to replace
-the (a=’0’ and b=’0’ and c=’0’) statement with something like
-(temp = “000”).  This can be done by creating a local variable
-(a signal) which is just the concatenation of the three input
-variables.  This temporary variable will then be used in the
-“when” statement.  The new streamlined architecture for the majority
-circuit is shown below.<br><br></p>
-<pre>
-architecture behavior of majority is
-
-	signal temp: std_logic_vector(2 downto 0);
-begin
-	
-	temp <= a & b & c;
-	f <=	'0' when temp = "000" else
-		'0' when temp = "001" else
-		'0' when temp = "010" else
-		'1' when temp = "011" else
-		'0' when temp = "100" else
-		'1' when temp = "101" else
-		'1' when temp = "110" else
-		'1'; 
-		
-end behavior;
-</pre>
 <br>
-<h2>A note on literals</h2>
-Notice that individual bits are surrounded with single quotes
-and that std_logic_vectors are surrounded with double quotes.
-<u>Any multi-bit literal must be surrounded by double quotes.</u> Another important note is that
-you can specify hexadecimal literals by putting an x in front 
-of the constant.  So for example, x"4E" is a valid VHDL literal.
-<h2>Component Instantiation</h2>
-In order for VHDL to be useful in the design process, it must allow
-hierarchical design - the ability to include a design unit as a component
-in a higher level design component. This is called creating an
-instance of the entity.  Hierarchical design allows us to abstract away
-some of the details of a design and focus on the high level behavior.
-This is the same concept as writing subroutines in a high level language.
-<br><br>
-<p>The reason to bring this concept up now is because we use VHDL modules to
-test our VHDL designs.  In the following discussion, we are going to
-build a module to test our majority circuit developed above.
-The VHDL module that will do the testing of the majority circuit
-is called a testbench.  Inside this testbench, we will create an
-instance of the majority circuit and apply signals to the majority
-circuit and check to see if the circuit responds with the correct
-value.  It is important to state up front that <u>testbenches are
-only created for simulations; they are not intended to be synthesized
-onto the fabric of an FPGA.</u>
-<br><Br></p>
-<p>In order to instantiate an instance of the majority circuit inside
-the testbench, you will need make 2 declarations; specify the entity
-description of the component (lines 4-9 below) and create an instance of
-the component (line 12-16 below).</p>
+In the simulation below, you can see how the values of the signals 
+are correctly updated based on the operations performed.
+<p><br><img src="./img/lecture03-3.gif"><br><br></p>
+<p>From here on out, your program may only have two main datatypes,
+STD_LOGIC_VECTOR and UNSIGNED (this is all you will need). However, there will be times when you need to convert
+between these two representations.  The following code snippet shows how this is
+accomplished. The process is similar to typecasting in C or another software-driven language.</p>
 <pre>
-1.  ENTITY majority_tb IS
-2.  END majority_tb;
+	a: std_logic_vector(7 downto 0);
+	b: unsigned(7 downto 0);
+	c: std_logic_vector(7 downto 0);
 
-3.  ARCHITECTURE behavior OF majority_tb IS 
-4.     COMPONENT majority
-5.     PORT(	a : IN  std_logic;
-6. 		b : IN  std_logic;
-7.		c : IN  std_logic;
-8.		f : OUT  std_logic);
-9.     END COMPONENT;
-10.    signal s1, s2, s3, s4: std_logic;
-11. begin
-12.    uut: majority PORT MAP (
-13.          a => s1,
-14.          b => s2,
-15.          c => s3,
-16.          f => s4);
-17. end
+	b <= unsigned(a);
+	c <= std_logic_vector(b);
 </pre>
-<p>Let’s discuss these two steps further. The first, declaring the entity description
-of the entity to be instantiated (lines 4-9), is really quite easy.  Just
-replace the term “entity” in the description of the majority circuit with the
-term “component”.  Note that this is done inside the architecture of the
-testbench.  The second will require some more explanation, aided by the
-following picture.</p>
-<p><br><img src="./img/lecture02-1.gif"><br></p>
-<p>The description of the majority circuit defines what goes on
-<u>inside</u> the architecture.  In terms of the picture above,
-this includes all the gates and wires in the box labeled “uut:majority”.
-the variables a,b,c,f inside this box are the port variables in
-the entity description of the majority circuit.  The box labeled
-majority_tb is the testbench which creates an instance of the
-majority circuit.  The signals labeled s1, s2, s3, s4 are created
-inside the testbench circuit and used to communicate to the
-majority circuit.  The relationship between these signals and the
-signals inside the majority circuit are described by lines
-13,14,15,16.  For example, line 13 states that the signal a
-inside the majority circuit is connected to s1 outside the circuit.
-<br><br></p>
-<p>One final note about line 12, the one that declares the instance of
-the majority circuit: Each instance of an entity should be given
-a distinct name.  This is because we will frequently need to create
-several instances of the same component.  For example, when creating
-a 4-bit adder, we will require 4 instances of a full adder.  This is
-what the “uut” label is for, it uniquely identifies the instance of
-the majority circuit for the compiler.
-<br><br></p>
-<p>You may have noticed that the testbench does not have any signals
-in its entity description.  This is because the testbench will
-contain code which drives the signals going to the majority circuit.
-We will go into this further in the next section.</p>
-<h2>Simulation and Testbench</h2>
-You have been provided an example testbench at the top of this page in
-lab02.vhdl.  We have already discussed how to instantiate the majority
-circuit.  Now for the part about applying signals to the majority circuit.
-Just inside the architecture statement, you should see the following four
-lines of code.  Line 1 just makes a constant, the value of TEST_ELEMENTS
-cannot be changed.  Lines 2 and 3 create a pair of new data types.  Line
-4 is really the business, creating an array of test values that are going
-to be applied to the majority circuit.  In this case, it is just every
-combination of 3-bits.  A similar array is defined, called TEST_OUTPUT, 
-which contains the corresponding output for each of these inputs.
-These two arrays are used in the body of the testbench.
+<p>Notice that if we tried to set up the assignment b &lt;= a or c &lt;= b without typecasting, we would get an error.
+<br></p>
+<h3>Combinations</h3>
+One of the most common logic structures you will encounter is a conditional
+statement in the form of if-then-else.  While this statement can be directly
+implemented using the CSA discussed in lecture 2, it's important that you have
+some appreciation of how this construct is realized so that you can better
+arrange your circuit to reduce the logic required.
+<br><br>
+All conditional statements consist of three parts: the condition
+to be checked (the if clause), the statement to be evaluated when the 
+condition is true (the then clause), and the statement to be evaluated when the
+condition is false (the else clause).<br>
+Typically, the condition being evaluated seeks the relative magnitude of
+two unsigned binary numbers, requiring a comparator.  The then and else 
+clauses will typically require some logic or arithmetic operation.
+In order to illustrate the hardware realization of a conditional
+statement, consider the following example.
 <pre>
-1.	CONSTANT TEST_ELEMENTS:integer:=8;
-2.	SUBTYPE INPUT is std_logic_vector(2 downto 0);
-3.	TYPE TEST_INPUT_VECTOR is array (1 to TEST_ELEMENTS) of INPUT;
-4.	SIGNAL TEST_INPUT: TEST_INPUT_VECTOR := ("000", "001", "010", "011", "100", "101", "110", "111");
+C:	if (a<4) then z=y+3 else z=y+7
+VHDL:	z <= y+3 when (a < 4) else y+7;
 </pre>
-<p>I want to take this opportunity to reiterate that test benches are not
-synthesized onto the Xilinx chip, so consequently, the coding style used
-should not be used on any circuit that you intend to synthesize.</p>
-<p><br>Now, for the business end of the testbench shown in the following code snippet from
-lab02.vhdl, The main purpose of the loop below is to apply each of the
-8 TEST_INPUT vectors to the majority circuit and check that the output is
-correct.  Line 2 is where the array is read.  Elsewhere in the body of the
-architecture, testVector is broken into individual std_logic bits and
-applied to the instantiated majority circuit.  The delay in line 3 allows
-the circuit outputs to settle.  Line 4 is a curious artifact only available
-in a simulation; if the output of the majority circuit, f, does not equal
-test_output(i), the value that the majority should equal, then the code
-in lines 5 and 6 is executed.  Line 5 prints an error message in the console
-area of ISim.  Line 6 halts the simulation.</p>
-<pre>
-1.	for i in 1 to TEST_ELEMENTS loop
-2.	    testVector <= test_input(i);
-3.	    wait for 1 us;
-4.	    assert f = test_output(i)
-5.		report "Error in majority circuit for input "  & integer'image(i)
-6.		severity failure;
-7.	    end loop;
-</pre>
-<p>In class, we will experiment with the simulator.  Some things I would like
-to go over are:</p>
-<ul>
-<li>How to add and remove waveforms to the waveform view.
-<li>How to change the radix of a vector waveform
-<li>How to change the colors of the waveforms.
-<li>How to transcend the design hierarchy.
-<li>How to observe signal values in design hierarchy.
-<li>How to observe signals values in the VHDL code.
-<li>How to save a load a simulation waveform wcfg file.
-</ul>
+<p>The following hardware schematic realizes this</p>
+<p><br><img src="./img/lecture03-1.gif"><br><br></p>
+<p>However, this circuit is not minimal; one of the adders can be removed.
+This can be done by realizing that the y input to the adders is constant.
+Therefore, we could have muxed through 3 or 7 into an adder with y on the
+other port.  You will practice this more in the homework.</p>
 </html>
 
     <script type="text/x-thebe-config">
