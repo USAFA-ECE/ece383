@@ -24,6 +24,7 @@
 
 <img src="lecture01-1.png">
 
+<a href="https://usafa-ece.github.io/ece383/Lectures/img/lecture01-1.png">my image</a>
 
 
 <h2>Admin</h2>
