@@ -73,8 +73,10 @@ still a digital system whose inputs and outputs can be categorized into
 Data Input, Data Output, Control and Status. The digital system shown 
 below consists of two components, a datapath and a control unit.
 
+![image](./img/lecture10-1.gif)
+<!-- <br><img src="./img/lecture10-1.gif"><br> -->
+
 <figure>
-<img src="./img/lecture10-1.gif">
 <figcaption>Fig 10.0 - An abstract digital system constructed from a datapath and a
 control unit.</figcaption>
 </figure>
@@ -165,8 +167,9 @@ in their respective bodies. Regardless of which path the control
 unit takes, both threads return to the Next state, which is the next
 statement after the if/then/else statement in the algorithm. <br>
 
+![image](./img/lecture10-4.gif)
+<!-- <br><img src="./img/lecture10-4.gif"><br> -->
 <figure>
-<img src="./img/lecture10-4.gif">
 <figcaption>Fig 10.1 - The datapath and control components required to realize an
 if/then/else structure.</figcaption>
 </figure>
@@ -201,8 +204,9 @@ unit asserts an increment signal on the control lines to the counter.
 This assertion causes the counter to count up on the next edge which
 also causes the control unit to transition back to the Comp state.
 
+![image](./img/lecture10-3.gif)
+<!-- <br><img src="./img/lecture10-3.gif"><br> -->
 <figure>
-<img src="./img/lecture10-3.gif">
 <figcaption>Fig 10.2 - The datapath and control components required 
 to realize a for loop.</figcaption>
 </figure>
@@ -225,8 +229,9 @@ source. Then, the status line shown in Figure 10.3 as emanating from
 the datapath would in fact be sent in from the external world as shown
 in Figure 10.3.
 
+![image](./img/lecture10-5.gif)
+<!-- <br><img src="./img/lecture10-5.gif"><br> -->
 <figure>
-<img src="./img/lecture10-5.gif">
 <figcaption>Fig 10.3 - The datapath and control components required 
 to realize a while statement.  
 </figcaption>
@@ -262,8 +267,9 @@ times? The answer is that the X register will only latch X+Y on the
 positive edge of the clock. So X+Y cannot "get into" the X register
 until the positive clock edge.<br>
 
+![image](./img/lecture10-6.gif)
+<!-- <br><img src="./img/lecture10-6.gif"><br> -->
 <figure>
-<img src="./img/lecture10-6.gif">
 <figcaption>Fig 10.5 - The datapath and control components required 
 to realize an assignment statement of the form X+Y.  
 </figcaption>
@@ -283,8 +289,10 @@ signal on the control2 line.<br>
 
 
 <h2>Basic Building Blocks</h2>
+
+![image](./img/lecture10-2.gif)
+<!-- <br><img src="./img/lecture10-2.gif"><br> -->
 <figure>
-<img src="./img/lecture10-2.gif">
 <figcaption>Table 10.6 - The list of all the basic building blocks and 
 some of their attributes.  
 </figcaption>
