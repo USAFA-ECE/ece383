@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Embedded Systems II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lectures/lecture11';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ece383.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ece383.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE383 Embedded Computer Systems II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vhdl_programming.html">💻 VHDL Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">🪲 Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final_project_gallery.html">🎮 Final Project Gallery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework1.html">✏️ HW 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework2.html">✏️ HW 2</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework3.html">✏️ HW 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework4.html">✏️ HW 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework5.html">✏️ HW 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework7.html">✏️ HW 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework8.html">✏️ HW 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework9.html">✏️ HW 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework12.html">✏️ HW 12</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab1.html">🔬 Lab 1: VGA Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab2.html">🔬 Lab 2: Data Acquisition, Storage and Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab3.html">🔬 Lab 3: Software Control of a Datapath</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab4.html">🔬 Lab 4: Direct Digital Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/project.html">🕹️ Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ICEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice1.html">🔬 ICE 1: Intro to Microblaze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice2.html">🔬 ICE 2: Microblaze Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice3.html">🔬 ICE 3: Microblaze Interrupts</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383/issues/new?title=Issue%20on%20page%20%2FLectures/lecture11.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lectures/lecture11.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Lesson Notes for Lesson 11</h1>
+<h2>example code for today's class</h2>
+	See lec11 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+<h2>Datapath and control - timing</h2>
+There are several important reasons to examine the timing behavior of a datapath
+and control circuit.  First, so that we can make informed predictions about
+the expected clocking frequency of our circuits.  Second, so that we can 
+identify critical paths in our circuit.  Third, so that we can develop our
+intuition about the operation of these complex circuits.<br><br>
+<p>To facilitate a discussion of the timing behavior of the datapath and control
+circuit, lets examine the circuit from last lecture, the search algorithm for
+a minimum shown below.</p>
+<p><img alt="image" src="../_images/lecture11-1.gif" /></p>
+<!-- <br><img src="./img/lecture11-1.gif"><br> -->
+<p>Like we did in our last lecture, we will examine the time its takes, starting from
+a positive clock edge, to get the next state setup on the flip flops in the FSM.
+The positive clock edge has two
+primary effects: It causes the FSM to transition into a new state and it
+causes the registers in the datapath to latch new values. The propagation
+delay of the flip flops is referred to as Tp(A). Since the datapath
+requires a valid control word before it can begin, the critical path includes
+the output equation logic.<br><br></p>
+<p>The D flip flops which store the state of the control unit are the
+input of the OEs. The delay between the application of a
+valid Q to when the OEs assert their new values is referred to as Tp(B).<br><br></p>
+<p>The OEs of the FSM are the control word to the datapath
+telling the elements in the datapath what operation to perform.
+Sequential logic components do not actually perform their instructed operations
+until the next clock edge arrives. On the other hand, combinational
+logic components perform their operations immediately.  It is easy to construct
+datapath instances where the control word effects the status input to
+the control unit. For example, the control word selects an input of a mux,
+whose output is routed to a comparator, whose status output is sent to the
+control unit. Thus, the combinational logic is on the critical path because
+its delay constrains the maximum clocking frequency. The time difference
+between the application of a valid control word to the datapath and the
+status input to the control unit becoming valid is referred to as Tp(C). <br><br></p>
+<p>The status input to the control unit are routed to the MIE logic.
+The delay between the status inputs becoming valid and the
+MIEs becoming valid is referred to as Tp(D).<br><Br></p>
+<p>Once the memory inputs have stabilized, they must be allowed some
+setup time before the next clock edge. The setup time is referred to as Tp(E).<br><br></p>
+<p><img alt="image" src="../_images/lecture11-2.gif" /></p>
+<!-- <br><img src="./img/lecture11-2.gif"><br> -->
+<h2>VHDL Instantiation</h2>
+<p>There are two important points that need to be made regarding
+VHDL instantiation.  <br><br></p>
+<p><b>Binding</b><br>
+The term “binding” is used to refer to the technique of assigning
+signals in the top-level entity (caller) to the signals in the instance.
+Up till now we have been using a verbose binding technique where
+the signals in the top-level and instance are explicitly related.</p>
+<p>For example, in lecture 10, we used the following instantiation to
+bind the signals of a generic counter to the testbench.</p>
+<pre>
+   uut: lec10 
+        Generic map(5)
+        PORT MAP (
+          clk => clk,
+          reset => reset,
+          crtl => crtl,
+          D => loadInput,
+          Q => cntOutput);
+</pre>
+<p>In this case, the signals clk, reset, crtl, D and Q were defined
+inside the lec10 component.  The signals clk, reset, crtl, loadInput,
+and cntOutput were defined as signals in the higher-level testbench.
+However, we could shorten this instantiation by using the default binding
+calling convention shown in the code below.</p>
+<pre>
+   uut: lec10 
+        Generic map(5)
+        PORT MAP (clk, reset, crtl, loadInput, cntOutput);
+</pre>
+<p>The important point to make here is that when you use the default
+binding, the order of the signals must match the exact same order
+that is defined in the entity description.  This generates a
+more compact instantiation statement. <br><Br></p>
+<p><b>Unused outputs and the OPEN keyword</b><br>
+There will be cases where you have a component that you would
+like to instantiate, but do not need all the output signals.
+A good example is given by the comparator below.</p>
+<pre>
+entity compare is
+    generic(N: integer := 4);
+    port(x,y : in unsigned(N-1 downto 0);
+         g,l,e: out std_logic);
+end compare;
+</pre>
+<p>Note that g=1 when x &gt; y, and l=1 when x &amp;lt y, and e=1 when x=y.  If you
+wanted to know if 2 signals (say A and B) were equal to one another
+but did not care about less and greater, then you could use the
+following component instantation.</p>
+<pre>
+    example: compare port map (A,B,OPEN, OPEN, equal);
+</pre>
+<p>This notifies the synthesis engine that it can remove the logic
+associated with any of the OPEN signals and reduce the resources
+used on the FPGA.<br><br></p>
+<p><b>Subvectors and concatenation</b><br>
+There are times when we will need to rebuild a std_logic_vector
+from pieces of other vectors.  In order to accomplish this you
+will need to understand subvectors and the concatenation operation.
+Since vector is defined as signal(7 downto 0), you can replace
+the limits with anything in between to get a small subvector.
+So, for example, you could ask for signal(5 downto 2) for a 4-bit
+sub-vector of signal.<br>
+The concatination operation, &amp;, is a way to “glue” two vectors together.
+So for example, to build a 8-bit vector you could legally
+write in VHDL signal(3 downto 1) &amp; signal (7 downto 3);<br></p>
+<p>These two concepts come together in the shift register used in the
+lecture 11 code, which contains the following line of VHDL code.</p>
+<pre>
+shiftReg <= kbData & shiftReg (10 downto 1);                    
+</pre>
+<h2>Keyboard serial to parallel converter</h2>
+<table class="table table-striped table-bordered table-condensed">
+<tr><td>Nomenclature:		<td>PS/2 Keyboard
+<tr><td>Data Input: 		<td>none
+<tr><td>Data Output: 		<td>1-bit data, nominally logic 1
+<tr><td>Control: 		<td>none
+<tr><td>Status: 		<td>none
+<tr><td>Others: 		<td>1-bit clk, nominally logic 1
+<tr><td>Physical Input: 	<td>key press and key release events
+<tr><td>Physical Output:	<td>none
+<tr><td>Behavior:		<td>When a key is pressed, its 8-bit make code 
+			is transmitted. When a key is released, an 8-bit break code
+			is transmitted, immediately followed by the key's 8-bit scan code.
+</table>
+<p>While the table implies a keyboard is an output-only device, the truth
+is the clock and data lines are open collector signals. In other words, the
+clock and data lines can safely be manipulated by the external world to
+configure a keyboard. A common example of such bidirectional communication
+occurs every time the Caps Lock key is pressed on a keyboard. When
+this happens, the keyboard sends the Caps Lock scan code to the PC and
+the PC in return writes a Toggle Caps Lock LED command to the keyboard.
+Since the keyboard scan code reader does not write to the keyboard,
+it assumes that the clock and data signals are outputs from the keyboard.
+When a keyboard key is pressed, the keyboard sends one packet of information
+as shown at the top of Figure 9.14. The 8-bit data contained in this
+make code is the scan code of the key pressed. The relationship between the
+keys and their scan codes is not at all obvious and is not based on ASCII.
+The exact codes are immaterial to the discussion; the curious reader can
+perform a quick Internet search on PS/2 keyboard scan codes to get a
+complete listing. When a key is released, two packets are transmitted as
+shown at the top of Figure 9.14. The break code is almost always equal to
+0xF0. The final packet is the scan code of the released key.</p>
+<p><img alt="image" src="../_images/lecture11-3.gif" /></p>
+<!-- <br><img src="./img/lecture11-3.gif"><br> -->
+<p>While there is a scan code for “a” key, there is not a scan code for “A”.
+The device reading the keyboard interprets the make code for shift, and
+then sees a make code for “a”. From this, the device reading the keyboard
+should understand that the user wants a capital “A”. More than likely, the
+user will release the “a”, first causing its break code and scan code to be
+transmitted, followed by the break and scan code for the “shift” key.
+Each of these packets consists of 11 bits as shown in the lower half of
+Figure 9.14. The data from the keyboard is always valid on the falling edge
+of the clock signal. The keyboard asserts new data on or around the rising
+edge of the clock. The 11-bit data packet always begins with a start bit
+equal to 0. Following the start bit are 8-bits of data, transmitted
+least-significant bit first. Following the data bits is an odd-parity bit, whose
+value is set by the keyboard so that the total number of 1s transmitted in
+the eight data bits plus the parity bit equals an odd number. For example,
+if the eight data bits are 01100011, then the parity bit would equal 1 so
+that the total number of 1s would be an odd number, in this case 5. By
+adding some additional circuitry, the parity bit can be used to detect errors
+in transmission. Following the parity bit, the final bit of the data packet,
+the stop bit, is sent and is always equal to 1.</p>
+<table class="table table-striped table-bordered table-condensed">
+<tr><td>Nomenclature: 	<td>Keyboard scan code reader
+<tr><td>Data Input: 	<td>1-bit kd data, nominally logic 1 1-bit kd clk, 
+			nominally logic 1
+<tr><td>Data Output: 	<td>8-bit scan code
+<tr><td>Control: 	<td>none
+<tr><td>Status: 	<td>1-bit busy, nominally logic 0
+<tr><td>Others: 	<td>1-bit clk, nominally logic 1
+<tr><td>Behavior: 	<td>Interprets the PS/2 keyboard clk and data signal
+			from a keypress event and outputs the associated scan
+			code. The busy signal goes high when the first data
+			bit arrives and stays high until the last data bit is
+			received. Busy is low only when there is a valid scan
+			code on the output.
+</table>
+<p>Looking at the timing diagram and the description above, I came up with
+the following algorithm.</p>
+<pre>
+1. while(1) {
+2.     busy=0;
+3.     while (kb_clk == 1);
+4.     busy=1;
+5.     for (count=0 count<33; count++) {
+6.         while(kb_clk == 1);
+7.         shift = (shift << 1) | kb_data;
+8.         while(kb_clk == 0);
+9.     } // end for
+10.     scan = shift[9-2]
+11. } // end while 1
+</pre>
+<p>Now lets build the datapath and control using the technique learned in lecture 10.
+Your homework is to build the control unit for the keyboard scancode reader.</p>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By James Trimble
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
