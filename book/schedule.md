@@ -23,7 +23,7 @@ This schedule is subject to change as appropriate.
 | 14     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck1](Assignments/lab2.md) due BOC</li></ul>                  |          |
 | 15     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck2](Assignments/lab2.md) due BOC</li></ul>                  |          |
 | 16     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck3](Assignments/lab2.md) due BOC</li></ul>                  |          |
-| 17     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-Functionality](Assignments/lab2.md) due BOC</li></ul>               |          |
+| 17     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-Functionality](Assignments/lab2.md) due taps</li></ul>               |          |
 | 18     | GR1                                              |                      | GR1    |
 | 19     | Soft CPU                                         | <ul><li>[Lab2-README](Assignments/lab2.md) due BOC </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
 | 20     | Soft CPU                                         | <ul><li>[HW9](Assignments/homework9.md) due BOC </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
