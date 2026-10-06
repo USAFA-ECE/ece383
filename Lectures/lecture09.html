@@ -1,0 +1,834 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Embedded Systems II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lectures/lecture09';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ece383.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ece383.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE383 Embedded Computer Systems II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vhdl_programming.html">💻 VHDL Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">🪲 Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final_project_gallery.html">🎮 Final Project Gallery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework1.html">✏️ HW 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework2.html">✏️ HW 2</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework3.html">✏️ HW 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework4.html">✏️ HW 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework5.html">✏️ HW 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework7.html">✏️ HW 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework8.html">✏️ HW 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework9.html">✏️ HW 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework12.html">✏️ HW 12</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab1.html">🔬 Lab 1: VGA Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab2.html">🔬 Lab 2: Data Acquisition, Storage and Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab3.html">🔬 Lab 3: Software Control of a Datapath</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab4.html">🔬 Lab 4: Direct Digital Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/project.html">🕹️ Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ICEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice1.html">🔬 ICE 1: Intro to Microblaze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice2.html">🔬 ICE 2: Microblaze Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice3.html">🔬 ICE 3: Microblaze Interrupts</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383/issues/new?title=Issue%20on%20page%20%2FLectures/lecture09.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lectures/lecture09.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Lesson Notes for Lesson 9</h1>
+<h2>example code for today's class</h2>
+	See lec09 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+  <br>also see hand09.docx
+<h2>The D flip flop</h2>
+Since D flip flops will be a major part of this lecture, it's worth
+spending a few minutes reviewing their operation. To start out, complete the following
+timing diagram for the output of the negative-edge triggered D flip-flop with
+an asynchronous active low reset line.
+<p><img alt="image" src="../_images/lecture09-7.gif" /></p>
+<!-- <br><img src="./img/lecture09-7.gif"><br><br> -->
+<p>Setup time, denoted t<sub>setup</sub>, is the amount of time before the rising edge
+of the clock in which the data inputs must be stable.
+Hold time, denoted t<sub>hold</sub>, is the amount of time after the rising
+edge of the clock during which the data input must be stable. Finally, propagation
+delay, denoted t<sub>p</sub>, is the amount of time after the rising edge of the clock
+required for the new Q value to become valid. It is also known as t<sub>CQ</sub>, for “time clock to Q”, or t<sub>FF</sub>. These
+time values are illustrated in the image below. Note that LH is low to high and HL
+is high to low.</p>
+<p><img alt="image" src="../_images/lecture09-0.gif" /></p>
+<!-- <br><img src="./img/lecture09-0.gif"><br><br> -->
+<h2>Finite State Machines</h2>
+<p>A Finite State Machine (FSM) is the most general form of a sequential circuit, or
+a circuit whose output is a function of its input and its internal state.<br />
+The logic behind a FSM is illustrated in the figure below.</p>
+<p><img alt="image" src="../_images/lecture09-1.gif" /></p>
+<!-- <br><img src="./img/lecture09-1.gif"><br><br> -->
+<p>The signals X, Y, Q, and Z are all vectors consisting of zero or more bits.
+The X signal is the input to the FSM from the system being controlled -
+also referred to as the <b>status bits</b> of the system.
+The Z signal is the output from the FSM into the system being controlled -
+also referred to as the <b>control bits</b> to the system.
+The combinational logic circuit generating Z are called the output equations
+(OE).
+<br><br>
+The <b>state</b> of the FSM is carried on the Q lines. Each bit of Q is
+the output of a D flip flop, as shown in the figure above.
+Thus, if Q is six bits wide, then the FSM has
+six D flip flops. The Y signals are called the <b>memory inputs</b>; they are the
+data inputs to the D flip flops. The combinational logic circuit generating
+the Y signals is called the memory input equations (MIEs), or “combo logic”. In order to
+improve the readability of circuit diagrams, the clock signal
+will normally not be shown.
+<br><br></p>
+<p>Let’s take a moment to reinterpret the statement <i>”The output of a finite
+state machine is a function of its input and its internal state”</i>.
+In the figure above, you can see that
+Z = F(Q), and Q+ = G(Q,X).
+While the output Z does not directly depend on the input X, it does depend on
+the state Q, which in turn depends on the input X.
+<br><br>
+With respect to this figure, three questions must be answered:</p>
+<ol>	<li>What are the MIEs?
+	<li>What are the OEs?
+	<li>How many D flip flops are required? 
+</ol>
+<p>These questions are answered by first understanding how to convert a word
+statement into a state diagram. Before doing that, though, let’s go over timing some more.</p>
+<h2>FSM Timing</h2>
+The events occurring in the FSM are referenced to the clock input of
+the D flip flops inside the FSM.  The timing diagram below lists events
+(numbered in circles) with respect to the clock signal being applied to
+the figure above.  The following list explains what happens at each of
+these points in time, using the circuit previously discussed.
+<dl>
+<dt>Event 1</dt>
+<dd> Since flip flops sample their
+inputs on the positive edge of the clock, this point is the beginning of the
+timing analysis.
+</dd>
+<dt>Event 2</dt>
+<dd>The propagation delay of
+the flip flops means a small delay occurs between the clock edge and the flip
+flop output, Q, becoming valid.  This is the called the propagation delay of
+the flip flop and is denoted T<sub>FF</sub> in the diagram below.
+</dd>
+<dt>Event 3</dt>
+<dd>In order to maximize the clocking
+frequency of the FSM, the new inputs X to the FSM should be applied at
+the same moment that the flip flop outputs become valid. 
+<dt>Event 4</dt>
+<dd>According to figure above, changing Q and X causes the memory inputs 
+to change (the Y signal above). The delay
+between the application of the new inputs to the MIE logic and Y becoming valid
+is the propagation delay of the combination logic, denoted T<sub>combo</sub>.
+</dd>
+<dt>Event 5</dt>
+When the Y values are valid, a small delay occurs while the flip flops 
+register their new inputs, denoted T<sub>su</sub>. After this setup time, the FSM 
+is ready for another clock edge.
+</dl>
+<p><img alt="image" src="../_images/lecture09-6.gif" /></p>
+<!-- <br> <img src="./img/lecture09-6.gif"><br><br> -->
+<h2>The DAISY system</h2>
+<p>Since you should have some familiarity with FSM’s from previous course work,
+we will jump right into a moderately complex example that will serve as
+an important stepping-stone to an important concept covered in Lectures
+10-13.  Your task in this example is to design a high-tech cow-tracking
+system for a local dairy. The system is called the Dairy Automated
+Information SYstem, or DAISY for short. <br><br></p>
+<p><b>Word Statement</b><br> Cows have an RFID tag attached to their collars. When
+the cow passes through the cattle chute on their way into the barn, a RFID
+reader reads the unique ID stored on the RFID tag and logs the cow into
+the barn. The RFID system outputs a single bit: a 1 means the system has
+read an RFID tag and has successfully checked a cow back into the barn; a
+0 means the RFID system is either still processing a tag or is not currently
+reading a tag.<br><br></p>
+<p>In order to ensure each cow is scanned, the flow of cows into the barn is
+controlled by two gates at either end of the chute. Each gate is controlled by
+a single bit. To lift a gate, this input must be held at logic 1; to lower a gate,
+the input must be held at a logic 0. The sequence of raising and lowering
+the gates in order to control the flow of cows is illustrated in the figure below.</p>
+<p><img alt="image" src="../_images/lecture09-2.gif" /></p>
+<!-- <br><img src="./img/lecture09-2.gif"><br><br> -->
+<dl>
+<dt>Step 1</dt>
+<dd>Gate1 is lifted, allowing cow A to enter the chute.</dd>
+<dt>Step 2</dt>
+<dd>The DAISY system has detected cow A is in the chute and closes gate1.<dd>
+<dt>Step 3</dt>
+<dd>The cow waits in the closed off chute until the RFID reader signals 
+that it has read the tag and checked in cow A. </dd>
+<dt>Step 4</dt>
+<dd>Gate2 is raised allowing cow A to leave.  If the cow takes more than 
+30 seconds to leave, then the cow is "goosed" by a three-second burst of 
+compressed air.  An air bust is repeated at 30-second intervals until the 
+cow leaves the chute. At any time when the cow leaves the chute, Gate 2
+is closed and the system transitions back to Step 1.
+</dd>
+</dl>
+<p>In order to make all this happen, the DAISY is provided with inputs and
+sends the outputs to mechanical actuators, as shown in the figure below.</p>
+<p><img alt="image" src="../_images/lecture09-3.gif" /></p>
+<!-- <br><img src="./img/lecture09-3.gif"><br><br> -->
+<h3>Inputs to DAISY</h3>
+<p>The word statement infers the existence
+of three inputs. The RFID scanner sends the DAISY system a single bit
+which indicates if the cow has been processed. A second input tells the
+DAISY system if a cow is in the chute. The final system input comes from
+a timer used to inform the DAISY system when 3 or 30 seconds have expired.
+We will give each of these inputs a single letter abbreviation (shown in the
+table below) to simplify construction of the state diagram describing the
+FSM.</p>
+<table class="table table-striped table-bordered table-condensed">
+<tr><td>RFID Scanner = r 	<td>Cow Present = c	<td>Timer Status = t
+<tr><td>1 - Cow checked in	<td>1 - cow present	<td>1 - timer up
+<tr><td>0 - Cow not processed	<td>0 - no cow		<td>0 - timer running
+</table>
+<h3>Outputs from  DAISY</h3>
+The word statement infers the existence of four separate outputs. The
+gates in the DAISY system are controlled by a single bit each. Assume a
+logic 1 must be continuously applied to a gate in order to keep it raised.
+In order to give DAISY an accurate sense of time, the system is provided
+with a single timer with two bits of input and one bit of output. To use this
+timer, set the timer to either 3 or 30 seconds for a single clock cycle.
+Then, the control input commanding the timer to count down is continuously 
+applied. The output of the timer will equal 0 until the set time limit has 
+expired at which times its output will stay at 1 until a new time interval is set.
+When the electronic valve controlling the compressed air is open, air rushes 
+out, goosing the cow.
+<table class="table table-striped table-bordered table-condensed">
+<tr><td>Gate1		<td>Gate2	<td>Timer Control	<td>Air Valve
+<tr><td>1-gate up	<td>1-gate up	<td>00 Stop timer	<td>0 closed
+<tr><td>0-gate down	<td>0-gate down	<td>01 Set to 30 secs	<td>1 open
+<tr><td>		<td>		<td>10 Set to 3 secs	<td>
+<tr><td>		<td>		<td>11 Run timer	<td>
+</table>
+<h3>State Diagram</h3>
+The process of creating the state diagram for the DAISY
+system requires considering movement through the steps of the process 
+required to get a single cow through the gated chute. Each step in this process
+then becomes a state or a set of states. Each state asserts some output to
+control the devices connected to the DAISY system. Below is one possible
+list; other arrangements are possible.
+<ol>
+<li> Open gate1
+<li> Wait for cow to enter chute
+<li> Close gate1
+<li> Wait for RFID to read cow
+<li> Open gate2
+<li> Wait for cow to leave
+<li> If 30 seconds has transpired, then "goose" cow; goto Step 6
+<li> Else if the cow has left, then close gate2; goto Step 1
+</ol>
+<p>Note when drawing the state diagram, you want each state to represent a
+particular arrangement of the outputs (state). Each state will be put
+into a circle with its name in it.  Our first step is to get the state
+diagram drawn, we will concern ourselves with the main actions that need
+to be performed, only after this will be focus on the specific outputs
+needed to accomplish them.  The inputs are responsible for moving the FSM
+between these arrangements.  Each input is provided with an abbreviation
+in order to make drawing the state diagram more manageable.  When the
+the variable, equal to logic 1, causes a transition, it is written
+by itself on the arc.  When the variable, equal to 0, causes a transition,
+it is written with a prime above it on the arc.</p>
+<p><img alt="image" src="../_images/lecture09-4.gif" /></p>
+<!-- <br><img src="./img/lecture09-4.gif"><br><br> -->
+<h3>Memory Input equations</h3>
+Remember from the first figure that the memory input equations
+are a function of both the current state and the input.
+The memory input equations depend on the state encoding - what binary
+code is assigned to each state. We will look at two dense and 
+one's hot.  <br><br>
+<p><b>Dense</b>
+If you elect to use a dense encoding, you are trying to given each
+state a binary representation that minimizes the number of flip-
+flops.  While on the surface this seems the most logical course,
+we will see that it in fact creates a number of difficulties.
+For the sake of an example, lets use the state encoding given in the
+table below.</p>
+<table class="table table-striped table-bordered table-condensed">
+<tr><td>State 		<td>Code	
+<tr><td>WaitEnter	<td>000
+<tr><td>WaitRead	<td>001
+<tr><td>Set30		<td>010
+<tr><td>WaitLeave	<td>011
+<tr><td>Set3		<td>100
+<tr><td>Goose		<td>101
+</table>
+<p>This table implies that we will have three flip flops and consequently,
+3-bits for Q.  Since there are 3-bits of inputs, we have a total of
+6-bits of input into the MIE component. Thus, we will have to solve
+three (one for each of the flip flop inputs) 6-input Boolean equations.
+This is a massive pain so I decided to use an automated design tool,
+<a href="http://www.ecs.umass.edu/ece/labs/vlsicad/ece667/links/espresso.html">espresso</a>
+to help me.  Espresso is a 2-level logic minimization tool that takes
+a truth table as input and produces a near optimal SOP description of the
+output.<br><br></p>
+<p><b>Input File to espresso</b></p>
+<pre>
+.i 6			# .i specifies the number of inputs 
+.o 3			# .o specifies the number of outputs 
+.ilb Q2 Q1 Q0 R C T    	# This line specifies the names of the inputs in order 
+.ob  D2 D1 D0		# This line specifies the names of the outputs in order 
+   			# The first six digits (before the space) correspond 
+  			# to the inputs, the three after the space correspond 
+   			# to the outputs, both in order specified above. 
+
+000 -0- 000		# WaitEnter + c' => WaitEnter
+000 -1- 001		# WaitEnter + c => WaitRead
+
+001 0-- 001		# WaitRead + R' => WaitRead
+001 1-- 010		# WaitRead + R => Set30
+
+010 --- 011		# Set30 => WaitLeave
+
+011 -10 011		# WaitLeave + T'C => WaitLeave
+011 -11 100		# WaitLeave + TC => Set3
+011 -0- 000		# WaitLeave + c' => WaitEnter
+
+100 --- 101		# Set3 => Goose
+
+101 --0 101		# Goose + T' => Goose
+101 --1 010		# Goose + T => Set30
+
+.e	     	# Signifies the end of the file.
+</pre>
+<p><b>Output</b></p>
+<p><img alt="image" src="../_images/lecture09-5.gif" /></p>
+<!-- <br><img src="./img/lecture09-5.gif"><br><br> -->
+<p>This level of work to derrive the MIEs takes a lot of time and
+any changes mean that we will have to redo all this work.  Frankly,
+this is just too much of a pain. Lets compare this against a different
+encoding called one’s hot.  <br><br></p>
+<p><b>One’s Hot</b>
+A one’s hot encoding requires an individual flip flop for each state.
+So in our case, we will have 6 flip flops.  Each state is assigned
+a flip flop, which outputs 1 when the FSM is in that state.  Thus
+the term “one’s hot” means that only one of the flip flops will be
+hot (output of logic 1) at a time.  The table below is a one’s hot
+encoding for our state diagram.</p>
+<table class="table table-striped table-bordered table-condensed">
+<tr><td>State 		<td>Code	
+<tr><td>WaitEnter	<td>000001
+<tr><td>WaitRead	<td>000010
+<tr><td>Set30		<td>000100
+<tr><td>WaitLeave	<td>001000
+<tr><td>Set3		<td>010000
+<tr><td>Goose		<td>100000
+</table>
+<p>Using this state assignment, it is an entirely easy to determine the
+memory input equations.  For each state, just ask yourself, how do
+I get into that state?  The answer is that you need to start at a
+state and traverse an arc.  For example, there are two ways to get
+into the WaitEnter state, through WaitEnter (and no cow) or
+WaitLeave (with a cow).</p>
+<pre>
+D_WaitEnter = Q_WaitEnter * c' + Q_WaitLeave * c'
+D_WaitRead = Q_WaitRead * r' + Q_WaitEnter * c
+D_Set30	 = Q_WaitRead * r + Q_Goose * t
+D_WaitLeave = Q_Set30 + Q_WaitLeave * t' * c 
+D_Set3 = Q_WaitLeave * t * c
+D_Goose = Q_Goose * t' + Q_Set3
+</pre>
+<h3>Output Equations</h3>
+The first step in generating the output equations is to build a
+control word table - a table listing, for each state, its output.
+<table class="table table-striped table-bordered table-condensed">
+<tr><td>State 	<td>Gate1	<td>Gate2	<td>Timer	<td>Control Air
+<tr><td>	<td>1-gate up	<td>1-gate up	<td>00 Stop timer<td>0 - closed
+<tr><td>	<td>0-gate down	<td>0-gate down	<td>01 Set to 30 secs<td>1 - open
+<tr><td>	  <td>		<td>		<td>10 Set to 3 secs	<td>
+<tr><td>	  <td>		<td>		<td>11 Run timer	<td>
+<tr><td>WaitEnter <td>1 	<td>0		<td>00		<td>0
+<tr><td>WaitRead  <td>0		<td>0		<td>00		<td>0
+<tr><td>Set30	  <td>0		<td>1		<td>01		<td>0
+<tr><td>WaitLeave <td>0		<td>1		<td>11		<td>0
+<tr><td>Set3	  <td>0		<td>1		<td>10		<td>0
+<tr><td>Goose	  <td>0		<td>1		<td>11		<td>1
+</table>
+<p>In order to generate a set of equations for these equations, we need to
+know the state coding because the OE depend on the Q’s.  Lets use the
+one’s hot encoding.  Then we need to go down each column in the
+control word table and determine for which states the output is equal
+to 1.  Then just list those states as shown in the output equations
+below.</p>
+<pre>
+Z_Gate1 <= Q_WaitEnter;
+Z_Gate2 <= Q_Set30 + Q_WaitLeave + Q_Set3 + Q_Goose
+Z_Timer_1 <= Q_Set3 + Q_WaitLeave + Q_Goose
+Z_Timer_0 <= Q_Set30 + Q_WaitLeave + Q_Goose
+Z_Air = Q_Goose
+</pre>
+<h3>VHDL Simulation</h3>
+<p>The results of the VHDL simulation performed in ISim can be seen below.</p>
+<p><img alt="image" src="../_images/lecture09-8.gif" /></p>
+<!-- <br><img src="./img/lecture09-8.gif"><br><br> -->
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By James Trimble
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
