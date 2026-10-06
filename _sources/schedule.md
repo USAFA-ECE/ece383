@@ -15,7 +15,7 @@ This schedule is subject to change as appropriate.
 | 6      | [Lab 1: VGA Synchronization](Assignments/lab1.md)|  <ul><li>[HW5](Assignments/homework5.md)  due BOC </li><li> [Lab1-GateCheck1](Assignments/lab1.md) due taps L6</li></ul>  |        |
 | 7      | Lab 1: VGA Synchronization                       |  <ul><li>[Lab1-GateCheck2](Assignments/lab1.md) due taps L7  </li></ul>  |        |
 | 8      | Lab 1: VGA Synchronization                       |  <ul><li>[Lab1-Functionality](Assignments/lab1.md) due taps L8  </li></ul>  |        |
-| 9      | Finite State Machines                            |  <ul><li>[Lab1-README](Assignments/lab1.md) due taps L9 </li><li>read 10.2.1, 10.3.2, 10.4, 10.6.1 </li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
+| 9      | Finite State Machines                            |  <ul><li>[Lab1-README](Assignments/lab1.md) due taps L9 </li><li>read 10.2.1, 10.3.2, 10.4, 10.6.1</li><li>read [L9_notes](Lectures/lecture09.md) </li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
 | 10     | Datapath and Control                             | <ul><li>[HW6](Assignments/homework6.md)  due BOC </li><li>read 11.1, 11.2, 14.4.2</li><li>lesson slides are on course TEAMs site</li></ul>  |        | 
 | 11     | Datapath and Control                             | <ul><li>[HW7](Assignments/homework7.md) due BOC </li><li>read 11.5</li><li>lesson slides are on course TEAMs site</li></ul>  |        |
 | 12     | Datapath and Control, Lab intro                  |  <ul><li>[HW8](Assignments/homework8.md) due BOC </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
