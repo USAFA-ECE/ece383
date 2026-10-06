@@ -134,7 +134,7 @@ Since you need to use a 3.5mm jack to input signals to the Nexys board, your com
 - Audio Codec Wrapper
 - FSM Template
 - Constraint File
-- [Lab 2 Cadet Code (ZIP)](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_cadet_code.zip)
+- [Lab 2 Cadet Code (ZIP)](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_cadet_code.zip) - also in your github repo in the lab2 directory
 - [Block Diagram Template](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab02_Block_Diagram.pptx)
 - [Optional OLED component](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab2_OLED.zip) you can place in your Lab2 Top Level Design to show your current configuration on the OLD Display.
 
