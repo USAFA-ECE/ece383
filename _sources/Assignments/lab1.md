@@ -57,6 +57,7 @@ In order to get you going in this lab, some of the VHDL code has been provided f
 - color_mapper.vhd
 - ece383_pkg.vhd
 - All of this code is in this ZIP file: [Lab1_Cadet_Code_2026.zip](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/Lab1_Cadet_Code_2026.zip)
+- All of this code is also preloaded in the lab1 folder in <a href="https://github.com/USAFA-ECE/ece383_wksp">class github repo</a>
 
 #### Project Setup
 <iframe width="560" height="315" src="https://www.youtube.com/embed/86Xs9ydyETM?si=w1VIemS1knUBIfjw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
