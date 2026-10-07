@@ -1,5 +1,7 @@
 # 🔬 ICE 3: Microblaze Interrupts
 
+- Complete this ICE 3 tutorial, and submit answers via Gradescope
+
 ## 📌 Objectives
 
 - Students should know how to trigger Microblaze interrupts
