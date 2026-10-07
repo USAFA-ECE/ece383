@@ -24,21 +24,21 @@ This schedule is subject to change as appropriate.
 | 15     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck2](Assignments/lab2.md) due BOC</li></ul>                  |          |
 | 16     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck3](Assignments/lab2.md) due BOC</li></ul>                  |          |
 | 17     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-Functionality](Assignments/lab2.md) due taps</li></ul>               |          |
-| 18     | GR1                                              |                      | GR1    |
+| 18     | GR1                                              |  GR1                    | GR1    |
 | 19     | Soft CPU: do ICE 1                               | <ul><li>[Lab2-README](Assignments/lab2.md) due BOC</li><li>read [L19_notes](Lectures/lecture19.md) </li></ul>  |        |
 | 20     | Soft CPU: do ICE 2                               | <ul><li>[HW9 - ICE 1](Assignments/homework9.md) due BOC </li></ul>  |        |
 | 21     | Soft CPU: do ICE 3                               | <ul><li>[ICE 2](Assignments/ice2.md) due BOC</li><li>read [L21_notes](Lectures/lecture21.md) </li><li>Final Project ideas, youtube</li><li>[final project ideas](https://georgeyork.github.io/ECE383_web/lab/lab5/ideas.html)</li></ul>  |        |
 | 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) | <ul><li>[ICE 3](Assignments/ice3.md) due BOC </li></ul>  |        |
 | 23     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck1](Assignments/lab3.md) due BOC </li></ul>  |        |
 | 24     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck2](Assignments/lab3.md) due BOC </li></ul>  |        |
-| 25     | Lab 3: Oscilloscope Control |                    | <ul><li>[Lab3-GateCheck3](Assignments/lab3.md) due taps </li></ul> |
-| 26     | Lab 3: Oscilloscope Control                      | <ul><li>[Lab3-Functionality](Assignments/lab3.md) due taps </li></ul>  |       |
+| 25     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck3](Assignments/lab3.md) due taps </li></ul> |        |
+| 26     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-Functionality](Assignments/lab3.md) due taps </li></ul>  |       |
 | 27     | Direct Digital Synthesis    | <ul><li>[Lab 5: Final Project Proposal](Assignments/project.md) due BOC</li><li>[Lab3-README](Assignments/lab3.md) due taps L27 </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
 | 28     | Direct Digital Synthesis    | <ul><li>[HW12](Assignments/homework12.md) due BOC </li><li> lesson slides are on course TEAMs site</li></ul>  |        | 
 | 29     | [Lab 4: Function Generator](Assignments/lab4.md) | <ul><li>[HW13](Assignments/homework13.md) due BOC </li><li>[Lab4-Gate Check1](Assignments/lab4.md) due taps L29</li></ul> |        |
 | 30     | Lab 4: Function Generator | <ul><li>[Lab4-Gate Check2](Assignments/lab4.md) due taps L30</li></ul> |        |
 | 31     | Lab 4: Function Generator | <ul><li>[Lab4-Functionality](Assignments/lab4.md) due taps L31</li></ul> |        |
-| 32     | GR2  |                      | GR2  |
+| 32     | GR2  |   GR2                   | GR2  |
 | 33     | [Lab 5: Final Project](Assignments/project.md)          | <ul><li>[Lab4](Assignments/lab4.md) due BOC </li></ul>|     |
 | 34     | Lab 5: Final Project             |  <ul><li>[Lab 5: Final Project Plan](Assignments/project.md) and revised proposal due BOC    </li></ul>      |           |
 | 35     | Lab 5: Final Project             |                      |                                  |
