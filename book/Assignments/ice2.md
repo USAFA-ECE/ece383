@@ -9,7 +9,7 @@
 ## 📜 Synopsis
 
 In this ICE, you will add a counter with LEDs to the Microblaze hardware design then use a C program to interact with the counter through the serial terminal.
-![image](./img/lecture18-1.gif)
+![image](../Lectures/img/lecture18-1.jpg)
 
 ## 🧮 Procedure
 
