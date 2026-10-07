@@ -31,8 +31,8 @@ This schedule is subject to change as appropriate.
 | 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) | <ul><li>[ICE 3](Assignments/ice3.md) due BOC </li></ul>  |        |
 | 23     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck1](Assignments/lab3.md) due BOC </li></ul>  |        |
 | 24     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck2](Assignments/lab3.md) due BOC </li></ul>  |        |
-| 25     | Lab 3: Oscilloscope Control |                      |  |
-| 26     | Lab 3: Oscilloscope Control                      | <ul><li>[Lab3-GateCheck3](Assignments/lab3.md) due BOC </li><li>[Lab3-Functionality](Assignments/lab3.md) due taps L26</li></ul>  |       |
+| 25     | Lab 3: Oscilloscope Control |                    | <ul><li>[Lab3-GateCheck3](Assignments/lab3.md) due taps </li></ul> |
+| 26     | Lab 3: Oscilloscope Control                      | <ul><li>[Lab3-Functionality](Assignments/lab3.md) due taps </li></ul>  |       |
 | 27     | Direct Digital Synthesis    | <ul><li>[Lab 5: Final Project Proposal](Assignments/project.md) due BOC</li><li>[Lab3-README](Assignments/lab3.md) due taps L27 </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
 | 28     | Direct Digital Synthesis    | <ul><li>[HW12](Assignments/homework12.md) due BOC </li><li> lesson slides are on course TEAMs site</li></ul>  |        | 
 | 29     | [Lab 4: Function Generator](Assignments/lab4.md) | <ul><li>[HW13](Assignments/homework13.md) due BOC </li><li>[Lab4-Gate Check1](Assignments/lab4.md) due taps L29</li></ul> |        |
