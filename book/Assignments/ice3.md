@@ -9,6 +9,7 @@
 ## 📜 Synopsis
 
 In this ICE, you will add a roll flag to the counter and connect it to the MicroBlaze's interrupt input
+![image](../Lectures/img/lecture19-1.jpg)
 
 ## 🧮 Procedure
 
