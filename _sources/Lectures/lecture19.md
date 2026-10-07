@@ -22,7 +22,7 @@ VHDL module.  Here are some specifications on the microBlaze processor:
 The following image was copied from the "MicroBlaze Processor Reference Guide"
 and summarizes the major features of the processor.
 
-![image](./img/lecture17-4.gif.gif)
+![image](./img/lecture17-4.gif)
 <!-- <br><img src="./img/lecture17-4.gif"><br><br> -->
 
 
