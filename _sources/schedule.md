@@ -28,7 +28,7 @@ This schedule is subject to change as appropriate.
 | 19     | Soft CPU: do ICE 1                               | <ul><li>[Lab2-README](Assignments/lab2.md) due BOC</li><li>read [L19_notes](Lectures/lecture19.md) </li></ul>  |        |
 | 20     | Soft CPU: do ICE 2                               | <ul><li>[HW9 - ICE 1](Assignments/homework9.md) due BOC </li></ul>  |        |
 | 21     | Soft CPU: do ICE 3                               | <ul><li>[ICE 2](Assignments/ice2.md) due BOC</li><li>read [L21_notes](Lectures/lecture21.md) </li><li>Final Project ideas, youtube</li><li>[final project ideas](https://georgeyork.github.io/ECE383_web/lab/lab5/ideas.html)</li></ul>  |        |
-| 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) | <ul><li>[HW11](Assignments/homework11.md) due BOC </li></ul>  |        |
+| 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) | <ul><li>[ICE 3](Assignments/ice3.md) due BOC </li></ul>  |        |
 | 23     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck1](Assignments/lab3.md) due BOC </li></ul>  |        |
 | 24     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck2](Assignments/lab3.md) due BOC </li></ul>  |        |
 | 25     | Lab 3: Oscilloscope Control |                      |  |
