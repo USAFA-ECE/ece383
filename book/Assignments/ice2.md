@@ -1,5 +1,7 @@
 # 🔬 ICE 2: Microblaze Custom Hardware
 
+- Complete this ICE 2 tutorial, and submit answers via Gradescope
+  
 ## 📌 Objectives
 
 - Students should know how to integrate custom hardware with the Microblaze architecture
@@ -7,6 +9,7 @@
 ## 📜 Synopsis
 
 In this ICE, you will add a counter with LEDs to the Microblaze hardware design then use a C program to interact with the counter through the serial terminal.
+![image](./img/lecture18-1.gif)
 
 ## 🧮 Procedure
 
