@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Embedded Systems II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lectures/lecture28';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ece383.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ece383.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE383 Embedded Computer Systems II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vhdl_programming.html">💻 VHDL Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">🪲 Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final_project_gallery.html">🎮 Final Project Gallery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework1.html">✏️ HW 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework2.html">✏️ HW 2</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework3.html">✏️ HW 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework4.html">✏️ HW 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework5.html">✏️ HW 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework7.html">✏️ HW 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework8.html">✏️ HW 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework9.html">✏️ HW 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework12.html">✏️ HW 12</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab1.html">🔬 Lab 1: VGA Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab2.html">🔬 Lab 2: Data Acquisition, Storage and Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab3.html">🔬 Lab 3: Software Control of a Datapath</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab4.html">🔬 Lab 4: Direct Digital Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/project.html">🕹️ Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ICEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice1.html">🔬 ICE 1: Intro to Microblaze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice2.html">🔬 ICE 2: Microblaze Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice3.html">🔬 ICE 3: Microblaze Interrupts</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383/issues/new?title=Issue%20on%20page%20%2FLectures/lecture28.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lectures/lecture28.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Lesson Notes for Lesson 28</h1>
+<h2>handout and spreadsheet for today's class</h2>
+	See lecture 28 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+<h2>LUT</h2>
+Let's say that you wanted to compute the square root of an value using
+the microBlaze.  If you were lucky enough to have a compiler which
+provided this function you could just use the math library functions.
+If on the other hand, you did not have the use of such a library, you
+would have to figure out a way to compute the square root.
+<br><br>
+<p>There are a lot of ways that you could compute the SQRT function.  You
+could crack open a math book and find an analytic expression which would
+produce a value for the SQRT function.  Unfortunately, this approach
+often leads to timely computations.  Another approach would be to enumerate
+every possible value of x and its square root.  We could then
+<u>look-up</u> a SQRT in the table, by going to the row corresponding to
+x and retrieving its value.  This approach seems silly
+because it would use a lot of space.  If we reduced the size of the table
+by eliminating some of the entries then we would save space at the expense
+of introducing error - if you wanted the SQRT for x and its entry was
+not in the table then you would have to use the closest x in the table.
+A good compromise among all three of these design constraints (space,
+time, and error) is to use interpolation in a partial look-up table (LUT).
+<br><Br></p>
+<p>“Interpolation is a mathematical method of creating missing data. …
+There are many methods of interpolation, but one simple method would be
+to generate a new value by using the average of the value of the two values
+on either side of the one to be created.”  This average is also referred
+to as linear interpolation.  For example if you have a value of x which
+is 1/2 way between 0 and 4 then you <i>assume</i> that the SQRT is 1/2
+between 0 and 2.  <br><br></p>
+<p>We know that if f(x)=y and f(x+4)=z then
+we estimate the intermediate values of f(x+1), f(x+2), and f(x+3)
+by drawing a straight line between y and z and using the points
+on this line to estimate the function between x and x+4.  For
+example, let: F(8)=2.8284 and F(12)=3.4641 then</p>
+<ul>	<li>F(9) = 2.8284 + 1/4(3.4641-2.8284)  = 2.987
+	<li>F(10) = 2.8284 + 2/4(3.4641-2.8284) = 3.146
+	<li>F(11) = 2.8284 + 3/4(3.4641-2.8284) = 3.305
+</ul>
+<p>We understand that this is an approximation and consequently we will
+have error, but sometimes close is better than exact in embedded
+computing especially when time is of the essence.<br><br></p>
+<pre>
+//----------------------------------------------
+//	A code chunk to perform linear
+//	interpolation of some unknown fnc at
+//	x+i where i is between 0 and 4 
+//	inclusive.  You are given that
+//	f(x)=y		f(x+4)=z
+//	You are given i, please return f(x+i)
+//----------------------------------------------
+	delta = (z-y)>>2;
+	f = y + delta*i;
+</pre>
+<p>It would be better to do the division by 4 (shift right by 2-bits)
+after the multiplication of delta*i because the difference (z-y)
+might be small and the division may result in a 0 value.
+<br><br></p>
+<p>Now let’s examine how to determine a square root.
+The purple curve in the graph below shows the true value of the SQRT
+function for the integers 0-15.  If we have a table with 16 rows we
+could store these values and generate really good values for the SQRT
+function.  This approach becomes infeasible as we seek to make the
+table larger.  The yellow curve in the graph below represents the values
+of the SQRT function for 4 equally spaced values.  These values are
+given in the table to the left of the graph.</p>
+<table>
+<tr><td width=300>
+<table border=1>
+<tr><td>x	<td>sqrt(x)	<td>2.6 fixed point
+<tr><td>0	<td>0		<td>0x00
+<tr><td>4	<td>2		<td>0x80
+<tr><td>8	<td>2.828427125	<td>0xB5
+<tr><td>12	<td>3.464101615	<td>0xDE
+<tr><td>16	<td>4		<td>0xFF
+</table>
+<p><img alt="image" src="../_images/lecture24-1.jpg" /></p>
+<!-- <td><img src="./img/lecture24-1.jpg"> -->
+</table>
+<br><br>
+<p>If we stopped here then our values for the SQRT would be very coarse.
+For example if you wanted the SQRT(1), the closest value in our table
+would be 0.  Now that’s a really bad approximation, but an approximation
+none-the-less.<br />
+<br><br></p>
+<p>Let’s consider how to use interpolation to find a better value for the
+SQRT(9).  Clearly, the SQRT will be between SQRT(8) and SQRT(12). How
+much between?  Well 1/4 of the way because 9 is a 1/4 of the way between
+9 and 12.  Have the class write an equation describing SQRT(9) in
+terms of SQRT(12) and SQRT(8).</p>
+<pre>
+    SQRT(9) = SQRT(8) + 1/4*(SQRT(12)-SQRT(8))
+</pre>
+<p>Now write the equation replacing the 1/4 by a statement using 9,8, and 12.</p>
+<pre>
+    SQRT(9) = SQRT(8) + (9-8)/(12-8)*(SQRT(12)-SQRT(8))
+</pre>
+<p>Now divide the class into 16 sections and have them compute all the
+values of SQRT for 0-15.  Compare these to the excel spreadsheet
+(4pt SQRT tab).  In this spreadsheet, I’ve broken the computation
+down so that you can see what the individual parts are doing.</p>
+<ul>
+<li>base - this is the SQRT(8) term in the equation above.
+It represents the base value from which we will interpolate.
+<li>offset - this is the (9-8)/(12-8) term in the equation above.
+It represents how much offset you are into the interval.
+<li>delta - this is the SQRT(12)-SQRT(8) term in the equation
+above.  It's how much range the function covers between the two
+values in the LUT.
+<li>base + offset*delta - this is the value of the SQRT function
+for the input given in the "x" column.
+<li>error(x) - this is the absolute values of the difference between
+the linear interpolation value and the true value of the SQRT function.
+</ul>
+<p>Now we have to write a function to do this.</p>
+<pre>
+//----------------------------------------------
+// Fnc	SQRT
+// In	A 4-bit integer 
+// Out	An approximate SQRT
+// Pur	This function computes a linearly
+//	interpolated value for the SQRT
+//	function.  There are some significant
+//	data type issues that will have to
+//	be resolved - note the use of "type"
+//	in the function is a place-holder.
+//----------------------------------------------
+fixed SQRT(int4 x) {
+
+    fixed lut[5] = {0, 2, 2.828427125, 3.464101615, 4};
+    int8 index;
+    fixed base;
+
+    index = x >> 2;		// We are looking at sets of 4 points
+    base = lut[index];		// Get the base value to start interpolation
+    offset = (x & 0x03)>>2;	// The proportion into the interval - PROBLEM
+    delta = lut[x+1] - lut[x];	// The difference between consecutive SQRTs
+    return(base + offset*delta);
+} // end SQRT
+</pre>
+<h3>Data Type</h3>
+Let's ponder the data type of the SQRT type.  The input argument 
+could be a 4-bit value.  The output is a number between 0.0 and 4.0
+and include some fractional part.  Since 8-bit values are the norm
+with many micro-controllers, it makes sense to make the output an 8-bit value, but
+where to stick the decimal point?  It makes sense to place the
+decimal at the 6th bit.  Now it remains to write the SQRT code
+for this representation.
+<pre>
+//----------------------------------------------
+// Fnc	SQRT
+// In	A 4-bit integer 
+// Out	An approximate SQRT
+//	8-bit fixed point with decimal at 6th bit.
+// Pur	This function computes a linearly
+//	interpolated value for the SQRT.  The
+//	5th entry in the lut is an approximation
+//	to 4.
+//----------------------------------------------
+int8 SQRT(int8 x) {
+
+    int8 lut[5] = {0x00, 0x80, 0xB5, 0xDE, 0xFF};
+    int8 index;
+    fixed base;
+
+    index = x >> 2;	
+    base = lut[index];	
+    offset = (x & 0x03)	
+    delta = lut[index+1] - lut[index];
+    return(base + offset*delta)>>2;
+} // end SQRT
+</pre>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By James Trimble
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
