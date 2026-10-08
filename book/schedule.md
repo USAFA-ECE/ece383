@@ -35,7 +35,7 @@ This schedule is subject to change as appropriate.
 | 26     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-Functionality](Assignments/lab3.md) due taps </li></ul>  |       |
 | 27     | Direct Digital Synthesis    | <ul><li>[Lab3-README](Assignments/lab3.md) due BOC</li><li>[Lab 5: Final Project Proposal](Assignments/project.md) due taps</li><li>read [L27_notes](Lectures/lecture27.md) </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
 | 28     | Direct Digital Synthesis    | <ul><li>[HW12](Assignments/homework12.md) due BOC</li><li>read [L28_notes](Lectures/lecture28.md) </li><li> lesson slides are on course TEAMs site</li></ul>  |        | 
-| 29     | [Lab 4: Function Generator](Assignments/lab4.md) | <ul><li>[HW13](Assignments/homework13.md) due BOC </li><li>[Lab4-Gate Check1](Assignments/lab4.md) due taps L29</li></ul> |        |
+| 29     | [Lab 4: Function Generator](Assignments/lab4.md) Audio Generator? | <ul><li>[HW13](Assignments/homework13.md) due BOC </li><li>[Lab4-Gate Check1](Assignments/lab4.md) due taps L29</li></ul> |        |
 | 30     | Lab 4: Function Generator | <ul><li>[Lab4-Gate Check2](Assignments/lab4.md) due taps L30</li></ul> |        |
 | 31     | Lab 4: Function Generator | <ul><li>[Lab4-Functionality](Assignments/lab4.md) due taps L31</li></ul> |        |
 | 32     | GR2  |   GR2                   | GR2  |
