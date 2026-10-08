@@ -2,7 +2,7 @@
 
 The final project in this class will be the design and implementation of an engineering prototype to address some need. The final projects in this class are to be completed individually and each student shall implement a different project [with approval by instructor]. The project can use microblaze or pure hardware or a combination of both. The project must interface with a new device not used in class before.  The NES controller is popular, but worth less points.  The IR controller is worth more points.  Implementing a device never done before is usually worth the most points.  [the device interfaced must be approved by your instructor].
 
-[Final project guidelines and format.](https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/FinalProject.pdf)
+[Final project guidelines and format.](https://github.com/USAFA-ECE/ece383/blob/main/book/Assignments/files/FinalProject.docx)
 
 
 The following are significant deliverables in the completion of the final project. 
