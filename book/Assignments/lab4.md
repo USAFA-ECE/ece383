@@ -64,12 +64,12 @@ Looking at the data flow going into the two multipliers, the above ensured NEXT 
 ## 🚚 Deliverables
 
 ### Required Functionality
-<s>Use switch(5:4) to demonstrate your system can generate the 4 different frequencies.</s> Just need to show you can create a sine wave and interpolate it. For required functionality, Interpolation between the output samples is not required. The waveform should be played back through the Audio Codec interface on the left channel producing an audible tone on a speaker and the appropriate waveform should be displayed on your lab2 scopeface monitor. Remember to wait for the ready signal.
+Use switch(5:4) to demonstrate your system can generate the 4 different frequencies. For required functionality, Interpolation between the output samples is not required. The waveform should be played back through the Audio Codec interface on the left channel producing an audible tone on a speaker and the appropriate waveform should be displayed on your lab2 scopeface monitor. Remember to wait for the ready signal.
 
-<s>### B-level Functionality</s>
-<s>Switch(7:6) must be able to amplify or attenuate the signal to 4 different amplification levels. The signal must be equally amplified about the DC axis (row = 220).</s>
+### B-level Functionality
+Switch(7:6) must be able to amplify or attenuate the signal to 4 different amplification levels. The signal must be equally amplified about the DC axis (row = 220).
 
-<s>For B-level Functionality interpolation between the output samples is not required.</s>
+For B-level Functionality interpolation between the output samples is not required.
 
 ### A-level Functionality
 Modify the hardware for the right channel to interpolate between samples using (base + (next-base)*offset) method. You must create the Interpolated signal (for channel 2), you also must create the un-interpolated signal (for channel 1), so you can compare ch1 and ch2 to see the difference (and include an image of your scopeface monitor showing this difference). 
@@ -77,10 +77,10 @@ Modify the hardware for the right channel to interpolate between samples using (
 ```{note}
 This does NOT require duplicate hardware, since in calculating the interpolated signal, you also already create the un-interpolated signal (known as BASE).  However, you will need to amplify the BASE the same way you amplify the interpolated signal before if goes to channel 2.
 ```
-<s>You may swap A and B functionality if desired.</s>
+You may swap A and B functionality if desired.
 
-<s>### Bonus Functionality</s>
-<s>Modify your design to continuously create a "chirp" signal, by continuously incrementing the phase increment (with an appropriate time delay  between increments), and demonstrate using a speaker.</s>
+### Bonus Functionality (5 points)
+Modify your design to continuously create a "chirp" signal, by continuously incrementing the phase increment (with an appropriate time delay  between increments), and demonstrate using a speaker.
 
 ### Milestone 1
 - **[15 Points]** <s>At the COB of the day of the first lab session,</s> With your final lab turn-in you should have completed your design and uploaded it to github. This should include the mathematical analysis you did to meet the requirements in the "Requirements" section above, and answering the following questions.
