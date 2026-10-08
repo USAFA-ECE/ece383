@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Embedded Systems II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lectures/lecture27';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ece383.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ece383.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE383 Embedded Computer Systems II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vhdl_programming.html">💻 VHDL Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">🪲 Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final_project_gallery.html">🎮 Final Project Gallery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework1.html">✏️ HW 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework2.html">✏️ HW 2</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework3.html">✏️ HW 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework4.html">✏️ HW 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework5.html">✏️ HW 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework7.html">✏️ HW 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework8.html">✏️ HW 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework9.html">✏️ HW 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/homework12.html">✏️ HW 12</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab1.html">🔬 Lab 1: VGA Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab2.html">🔬 Lab 2: Data Acquisition, Storage and Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab3.html">🔬 Lab 3: Software Control of a Datapath</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/lab4.html">🔬 Lab 4: Direct Digital Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/project.html">🕹️ Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ICEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice1.html">🔬 ICE 1: Intro to Microblaze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice2.html">🔬 ICE 2: Microblaze Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignments/ice3.html">🔬 ICE 3: Microblaze Interrupts</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece383/issues/new?title=Issue%20on%20page%20%2FLectures/lecture27.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lectures/lecture27.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Lesson Notes for Lesson 27</h1>
+<h2>spreadsheet for today's class</h2>
+	See lecture 27 folder in class github repo [class github repo](https://github.com/USAFA-ECE/ece383_wksp) 
+<h3>Fixed Point Numbers</h3>
+Let's review binary points and binary. If you are told that 10010 is a binary number,
+you can easily determine which decimal value it represents by using this equation: 
+<CENTER>value = sum(b<SUB>i</SUB>*2<SUP>i</SUP>)</CENTER>
+where i is the index of the bit you are currently looking at (starting at i=0 for the lsb).
+Using this formula, 10010 can easily be converted to decimal:
+<pre>
+1*2<SUP>4</SUP> + 0*2<SUP>3</SUP> + 0*2<SUP>2</SUP> + 1*2<SUP>1</SUP> + 0*2<SUP>0</SUP> = 16 + 2 = 18
+</pre>
+<br>
+We'll now use this same method to convert 1.11 to binary. Important to note is that to represent
+values less than 1 (to the right of the decimal point), negative indices need to be used:
+<pre>
+1*2<SUP>0</SUP> + 1*2<SUP>-1</SUP> + 1*2<SUP>-2</SUP> = 1 + 0.5 + 0.25 = 1.75
+</pre>
+<br>
+Now, let's convert 1.53125 to binary. This is done by using the tried
+and true technique of finding the largest power of 2 that will fit into
+the number, subtracting it, and then continuing the conversion with the
+difference. This process stops when you reach zero or run out of bits. To illustrate:
+<UL>
+<LI>The largest power of two that fits into 1.53125 is 2<SUP>0</SUP> = 1.0
+<LI>The largest power of two that fits into 0.53125 is 2<SUP>-1</SUP> = 0.5
+<LI>The largest power of two that fits into 0.03125 is 2<SUP>-5</SUP> = 0.03125
+</UL>
+<p>Thus the binary representation of 1.53125 is 1.10001.
+<br>
+As you can imagine, some rational real numbers do not have a rational binary
+representation. For example, the decimal number
+0.1 cannot be represented as a finite binary string of 0’s and 1’s - it would repeat endlessly.
+You can give the conversion a try if you want to prove this yourself.</p>
+<H3>Fixed Point Arithmetic</H3>
+Fixed point numbers, as compared to floating point, are great when the need arises to represent numbers with fractions
+in a situation where hardware resources are limited or you would
+like to keep complexity to a minimum. For example, assume that you are
+working on a circuit which requires you to represent an angle which is not a whole number.  This can be done quite nicely
+using the following representation:
+<p><br><br>
+W7 W6 W5 W4 W3 W2 W1 W0 . F7 F6 F5 F4 F3 F2 F1
+<BR><br></p>
+<p>The 8 W-bits represent the whole portion of the number and the 8 F-bits
+represent the fractional portion.  This 16-bit number can
+be treated as a whole number with some minor book-keeping to keep track
+of the binary point.
+<br>
+As an exercise, convert 23.5 and 45.25 to binary using this 16-bit format.
+<br>
+Now, consider the problem of adding the fixed point angles 23.5 and 45.25:</p>
+<p><font size=2><PRE><br />
+00010111 10000000  (23.5)
++ 00101101 01000000  (45.25)
+———————
+01000100 11000000  (68.75)</PRE></FONT></p>
+<p>You can see that the addition is completed without concern for the
+binary point - it is almost like the binary point doesn’t exist.
+<br>
+It is only when we do multiplication or division that we need to do the “bookkeeping” mentioned above;
+you need to keep track of the binary point and put it where it belongs.
+In the abbreviated example below, we will assume that
+we have a 4-bit representation where the binary point resides in the
+middle of the number (after the 2-bit). The result will be 8 bits (4 bits + 4 bits).
+The multiplication of 3.75 and 1.25 is shown below.</p>
+<p><font size=2><PRE>
+1111 (3.75)
+x  0101 (1.25)
+————–
+1111
+0000
+1111
++ 0000
+—————-
+100.1011 (4.6875)
+</PRE></font></p>
+<p>A more interesting case arises when you have to use a multiplier that
+is not the right size. Let’s consider the multiplication
+of two 16-bit fixed point numbers representing angles, WA.FA and WB.FB.<br />
+From our discussion above, the product requires 32 bits to represent.<br />
+According to the rules of multiplication, the binary point
+will have to be placed after the 16-bit.  Unfortunately, you only have
+an 8-bit multiplier on hand that can take in two 8-bit numbers and generate a 16-bit
+result. The figure below shows how the operands are split naturally into
+8-bit chunks and how the partial product is naturally composed of 4
+chunks.  You would then have to make sure that you had hardware to perform
+the adds of the four resulting 16-bit quantities.</p>
+<p><img alt="image" src="../_images/lecture23-1.jpg" /></p>
+<!-- <P align=center><IMG src="./img/lecture23-1.jpg"></P> -->
+<h2>DDS</h2>
+Direct Digital Synthesis (DDS) is a technique to create periodic
+waveforms with very precise frequency control using a system with
+a fixed clock frequency.  The periodic function is stored in a look-up 
+table, like the one below, which represents one cycle of a sine wave.
+<pre>
+int8 sin[64] = {128,141,153,165,177,189,200,210,219,227,235,241,246,250,253,255,
+		255,254,252,248,244,238,231,223,214,205,194,183,171,159,147,134,
+		122,109, 97, 85, 73, 62, 51, 42, 33, 25, 18, 12,  8,  4,  2,  1,
+  		 1,  3,  6, 10, 15, 21, 29, 37, 46, 56, 67, 79, 91,103,115,128};
+</pre>
+<p><img alt="image" src="../_images/lecture23-2.png" /></p>
+<!-- <P align=center><IMG src="./img/lecture23-2.png"></P> -->
+<p>Being computer engineers, let’s use a table which has length which has a factor of 2^n (in this case 2^6 = 64 samples). This will
+prove to be a good choice later on.  Our goal is to reproduce this function
+for any choice of frequency <b>F</b>, which should be adjustable on-the-fly.</p>
+<h3>Phase Increment</h3>
+Let's say that you could provide a new sample from the sine table at 48kHZ (every 21us)
+through an interrupt to the codec. Since there are 64 values in the sine table, if you incremented the pointer in the sine
+table by 1 on every interrupt, then you would work your way through the table about
+every 64 * 21uS = 1.3mS, generating a sine wave with frequency about 750Hz.
+If you incremented the pointer in the sine table by 2 every interrupt, then
+you would only require 32 * 21uS = 0.65mS to generate one period of the 
+sine wave, resulting in a frequency of about 1.5kHz (and a sine wave with less samples).<br><br>
+<p>Using integer values for the increment, we are limited to very coarse
+adjustments in the frequency. For example, how could you use this schema
+to generate a sine wave with frequency of 1.0kHz?  Well, you would need to
+increment the pointer in the sine table by 1.5 every 21uS (trust me, the numbers work out).
+This is where the fixed point numbers come in.  The 1.5 just mentioned is called the <b>phase increment</b>, and will be represented by a fixed
+point number. Let’s look at how the phase
+increment, update rate, and size of the LUT are related to the output frequency.
+<br><br></p>
+<pre>
+You are:
+1) Given a lookup table with 2^N values corresponding to one wavelength of a function
+2) Given a sampling rate or a play back rate of f updates/second
+3) Given a phase increment x, which every 1/f is added to the index of the LUT
+
+f updates    x values     1 cycle     f*x
+--------- * ---------  * --------- =  --- hz
+1 second      update     2^N values   2^N
+
+</pre>
+<p><b>Question:</b>
+Assuming an update rate of 48kHz, a LUT with 1024 entries, and a phase increment
+of x, expressed as a 10.6 fixed point number, answer the following questions:</p>
+<ul>	<li>What is the maximum frequency we can generate?
+	<li>What is the minimum frequency we can generate?
+	<li>What is the smallest change in frequency we can make with the phase increment?
+	<li>What phase increment generates a frequency of 440hz?
+	<li>How did I arrive at the 10.6 format of the phase increment?
+</ul>
+<!------------
+f/2^N = 46.875
+largest x = 256 therefore 256*46.875 = 12kHz
+slowest x = 2^-6 therefore 0.015625*46.875 = 0.73Hz
+change x = 0.73Hz
+
+46.875*x = 440hz therefore x = 9.387
+
+The RAM needs a 10-bit address.  A standard 16-register would have 6 bits left over 
+for the fraction.
+------>
+<p><br><br><br></p>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By James Trimble
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
