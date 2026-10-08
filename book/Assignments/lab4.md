@@ -32,11 +32,11 @@ Here is a draft of the top_level [Lab 4 Block Diagram](https://georgeyork.github
 
 The final value for your left (un-interpolated) and right (interpolated) signal you generate will be connected to the Codec's L_Bus_in and R_Bus_in (signed values) so you can listen to the output tones using ear-buds or a speaker, and will also be sent to your Lab2 O'Scope, so a good insertion point would be where your lab2 datapath receives the L_Bus_Out and R_Bus_Out (signed values). Since you created an O'Scope in Lab2, you will use this to see your output signal on your monitor. Since your lab4 FSM and lab4 datapath will need the Audio_Codec_Wrapper (with Clock_Wiz_1) and "Ready" signal from Lab2, put your Lab4 FSM and Lab4 datapath inside your lab2 block diagram (see [Lab4_Block_Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Lab4_Block_Diagram.pptx)). Therefore, you will also turn in a modified Lab2 block diagram showing the interface to the Lab4 FSM and Lab4 datapath for milestone 1. So you can easily test if your lab2 is working, switch(2) will be used to select lab2 or lab4; for lab2 selecting the audio codec L_bus_out and R_bus_out as inputs, and for lab4 selecting your uninterpolated and interpolated signals to send to the Lab2 video.
 
-<s>For lab4, you will use switch(5:4) to select 4 pre-calulated phase-increments (see milestone 1) for 4 output frequencies</s> (see [Interpolation Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Interpolation_block_diagram.pptx) ):
-<s>- Exactly 2 Cycles of Sinusiod on Scopeface Monitor</s>
-<s>- 440 hz</s>
-<s>- Phase_increment = X = 1.0</s>
-<s>- low frequency such that you can see the difference between uninterpolated and interpolated on the monitor</s>
+For lab4, you will use switch(5:4) to select 4 pre-calulated phase-increments (see milestone 1) for 4 output frequencies (see [Interpolation Block Diagram](https://georgeyork.github.io/ECE383_web/lab/lab4/Interpolation_block_diagram.pptx) ):
+- Exactly 2 Cycles of Sinusiod on Scopeface Monitor
+- 440 hz
+- Phase_increment = X = 1.0
+- low frequency such that you can see the difference between uninterpolated and interpolated on the monitor
 - Choose a frequency so that you can see exactly 1.5 cycles of a sine wave on your display.
 
 ```{tip}
@@ -44,7 +44,7 @@ Think about how many pixels across your scopeface display is.  If each horizonta
 ```
 
 Also for lab4,
-<s>- Switch(7:6) will be used to amplify or attenuate the signal.</s>
+- Switch(7:6) will be used to amplify or attenuate the signal.
 
 ```{note}
 Signed Multiplication with Unsigned Data: Our VHDL multiplier does signed multiplication, not unsigned multiplication. It assumes the numbers being multiplied are signed, not unsigned. (For example, if the two numbers being multiplied have a '1' in the MSB, it assumes they are negative and produces a positive result, with a '0' in the MSB. So, if your two numbers were really intended to be unsigned positive numbers, you might get the wrong result).
