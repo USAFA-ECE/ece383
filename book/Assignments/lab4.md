@@ -83,7 +83,7 @@ You may swap A and B functionality if desired.
 Modify your design to continuously create a "chirp" signal, by continuously incrementing the phase increment (with an appropriate time delay  between increments), and demonstrate using a speaker.
 
 ### Milestone 1
-- **[15 Points]** <s>At the COB of the day of the first lab session,</s> With your final lab turn-in you should have completed your design and uploaded it to github. This should include the mathematical analysis you did to meet the requirements in the "Requirements" section above, and answering the following questions.
+- **[15 Points]** Complete your design and uploaded it to github. This should include the mathematical analysis you did to meet the requirements in the "Requirements" section above, and answering the following questions.
 (0) Given the mathematical analysis you did to meet the requirements in the "Requirements" section above, what is the Q format required for your index.offset register (like Qxx.xx)? Given this Q format, answer and show calculations for the following questions:
 (1) phase increment needed for the maximum frequency of 12,000 Hz. Give this answer in decimal and in binary in the proper Q format.
 (2) the size of the BRAM buffer needed, assuming it contains one cycle of a sinusoid
@@ -106,15 +106,16 @@ You should also include the hardware block diagram design and the State Machine 
 
 (12) The FSM state transition diagram and CW output table
 (13) The overall top-level lab4 block diagram modified from the old lab2 diagram, showing blocks for the lab4 datapath, lab4 FSM, and how they interact with the remaining lab2 components.
-
+- These questions would make excellent GR questions
+  
 ### Milestone 2
-- **[15 Points]** <s>At the COB of the day of the second lab period,</s> With your final lab turn-in you should have a working testbench testing your lab4 interpolation hardware block diagram (with your BRAM LUT inside) and lab4 FSM. When simulating your design, you can have the testbench supply a mock system clock (100 MHz) and a mock ready signal (clock at 48 kHz) in place of the ready signal generated the Audio_Codec_Wrapper.
+- **[15 Points]** Have a working testbench testing your lab4 interpolation hardware block diagram (with your BRAM LUT inside) and lab4 FSM. When simulating your design, you can have the testbench supply a mock system clock (100 MHz) and a mock ready signal (clock at 48 kHz) in place of the ready signal generated the Audio_Codec_Wrapper.
 
 You do not need to have your switches working for this test bench nor interfacing with your lab2 FSM or lab2 datapath.
 
 Have the testbench test the interpolation of at least four cases, two cases for positive NEXT and BASE and two cases for negative NEXT and BASE, and for each pair of cases have one such that NEXT is greater than BASE and the other such that BASE is greater than NEXT. Also do a simulation that increases the amplitude and one that decreases the amplitude with the amplitude multiplier.
 
-When complete, I expect your timing diagram to contain at least:
+When complete, your timing diagram to contain at least:
 - clk (simulated using CSA statements in testbench)
 - reset (simulated using CSA statements in testbench)
 - ready (simulated using CSA statements in testbench)
