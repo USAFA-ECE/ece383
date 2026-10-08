@@ -15,14 +15,6 @@ The proposal describes the need that the project fulfills, and the requirements 
 
 The project plan describes the hardware organization used to realize your design. In addition, it defines the technical accomplishments for the first and second milestones.
 
-## 🛣️ Milestone I
-
-A milestone is an intermediate level of technical accomplishment required in the final system. The first milestone will generally focus on getting the low level units of the design operational.
-
-## 🛣️ Milestone II
-
-The second milestone generally seeks to integrate the units of the design. You should aim to have a simplified version of your design complete.
-
 ## 	🧑‍🏫 Presentation
 
 A poster presentation or a presentation in front of the class covering the design needs, high level architecture, detailed design, and a demo of the final product.
