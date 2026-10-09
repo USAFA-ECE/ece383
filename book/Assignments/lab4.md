@@ -155,19 +155,7 @@ For Milestone 2, also describe your method for creating your BRAM look-up tables
 
 - **Milestone 1** products (Design and solutions to the 13 design questions)
 - **Milestone 2** simulation results and description of your method for creating your BRAM look-up tables for your waveforms (also upload any code like spreadsheets used.)
-- **Proof** (such as a stream or YouTube video) that you met Required, B, and A functionality (or statement you demonstrated to your instructor), with the date/time.
-
----
-
-For **Required functionality**, did your audio out work? Include images and analysis of your scopeface plots showing:
-
-1. The output waveform when x is set to produce exactly 2 cycles of a sine wave across the 600 pixels on your scopeface display (did this produce exactly two cycles of your sine wave? does this match your calculated frequency, based on your scopeface grid timing calculations? <s>What is the percentage error? show calculations.</s>)
-
-<s>For B-level functionality, include images of scopeface plots showing (1) the output waveform with your default amplitude, and (2) the output waveform after you increase (or decrease) the amplitude of your signal [does this match your calculations based on the switch settings? You should be comparing the relative amplitudes seen for the peak-to-peak signals displayed on your scope with the two different amplitude settings.]</s>
-
-For A-level functionality, include an image of your o'scope plot showing channel-1 (not interpolated) and channel-2 (interpolated). Try to pick a frequency such that interpolated looks better than non-interpolated.
-- Remember to upload your code with proper headers and comments
-- **Results** - Since we no longer use the printed lab cutsheets signed by your instructor as you meet each milestone, this section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and how you proved it (via demo or evidence like images/videos). For example, you could have a table like this:
+- - **Results** - This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and how you proved it (via demo or evidence like images/videos). For example, you could have a table like this:
 
 | Milestone              | Date/Time | What was achieved |
 |------------------------|-----------|--------------------|
@@ -177,7 +165,24 @@ For A-level functionality, include an image of your o'scope plot showing channel
 | B Functionality        |           |                    |
 | A Functionality        |           |                    |
 
-Grading
+- **Proof** (such as a stream or YouTube video) that you met Required, B, and A functionality (or statement you demonstrated to your instructor), with the date/time.
+
+For **Required functionality**, did your audio out work? Include images and analysis of your scopeface plots showing:
+
+- 1. The output waveform when x is set to produce exactly 2 cycles of a sine wave across the 600 pixels on your scopeface display (did this produce exactly two cycles of your sine wave? does this match your calculated frequency, based on your scopeface grid timing calculations? What is the percentage error? show calculations.
+-- In milestone 1 questions 7 and 8, you calculated the time for your grid blocks and Tick marks, so you should be able to verify the frequency. For example, you could measure one cycle of the sine wave to be 5.25 grid blocks, then convert this to time, which equals the period T of the sine wave. Then F = 1/T = xxx Hz, and you can compare this to your expected F for X value you used to make 2 cycles fit on the monitor. This shows if your system is calibrated or not. 
+- 2. The output waveform when x = 1.0 [does this match your calculated frequency, based on your scopeface grid timing calculations? What is the percentage error? show calculations similar to (1) above.
+- 3. The output waveform with x set to create ~440Hz. Does this match your calculated frequency, based on your scopeface grid timing calculations, similar to the (1) above? What is the percentage error? show calculations.
+
+For B-level functionality, include images of scopeface plots showing 
+- 1. the output waveform with your default amplitude, and
+- 2. the output waveform after you increase (or decrease) the amplitude of your signal Does this match your calculations based on the switch settings? You should be comparing the relative amplitudes seen for the peak-to-peak signals displayed on your scope with the two different amplitude settings.
+
+For A-level functionality, include an image of your o'scope plot showing channel-1 (not interpolated) and channel-2 (interpolated). Try to pick a frequency such that interpolated looks better than non-interpolated.
+
+- Remember to upload your code with proper headers and comments to your GitHub repo.
+
+###Grading
 
 | Item                    | Points |
 |-------------------------|--------|
