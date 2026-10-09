@@ -148,7 +148,7 @@ You need to describe in words and math what we are seeing in your simulation plo
 The above plot is just a testbench testing the interpolation math. This plot is missing signals clk, reset, ready, FSM state, Phase increment, Index.Offset, BRAM address, BRAM data, which are also needed for Milestone 2.
 ```
 
-For Milestone 2, also describe your method for creating your BRAM look-up tables for your waveforms in your README, and upload any code (like spreadsheets or python code) used. Here is an example spreadsheet to create the BRAM initialization text for a 1024 entry LUT SineWaveLUT_1024.xlsx which you would need to modify for your size LUT.
+For Milestone 2, also describe your method for creating your BRAM look-up tables for your waveforms in your README, and upload any code (like spreadsheets or python code) used. Here is an example spreadsheet to create the BRAM initialization text for a 1024 entry LUT [SineWaveLUT_1024.xlsx](https://github.com/USAFA-ECE/ece383/raw/refs/heads/main/book/Assignments/files/SineWaveLUT_1024.xlsx) which you would need to modify for your size LUT.
 
 ### README
 - **[10 Points]** The README writeup should include:
