@@ -80,7 +80,12 @@ This does NOT require duplicate hardware, since in calculating the interpolated 
 You may swap A and B functionality if desired.
 
 ### Bonus Functionality (5 points)
+# Bonus 1
 Modify your design to continuously create a "chirp" signal, by continuously incrementing the phase increment (with an appropriate time delay  between increments), and demonstrate using a speaker.
+
+# Bonus 2
+Analyze and calibrate your signals using a spectrum analyzer (for the signals/analysis listed below for basic and B functionality.
+You can use the spectrum analyzer [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/USAFA-ECE/ece383/refs/heads/main/book/Assignments/files/Lab04_spectrum_analyzer.htm).
 
 ### Milestone 1
 - **[15 Points]** Complete your design and uploaded it to github. This should include the mathematical analysis you did to meet the requirements in the "Requirements" section above, and answering the following questions.
@@ -155,7 +160,7 @@ For Milestone 2, also describe your method for creating your BRAM look-up tables
 
 - **Milestone 1** products (Design and solutions to the 13 design questions)
 - **Milestone 2** simulation results and description of your method for creating your BRAM look-up tables for your waveforms (also upload any code like spreadsheets used.)
-- - **Results** - This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and how you proved it (via demo or evidence like images/videos). For example, you could have a table like this:
+- **Results** - This section should clearly state for each milestone/functionality the date/time it was achieved, level of achievement (e.g, achieved, partially-achieved, not achieved), what was achieved, and how you proved it (via demo or evidence like images/videos). For example, you could have a table like this:
 
 | Milestone              | Date/Time | What was achieved |
 |------------------------|-----------|--------------------|
@@ -173,10 +178,12 @@ For **Required functionality**, did your audio out work? Include images and anal
 -- In milestone 1 questions 7 and 8, you calculated the time for your grid blocks and Tick marks, so you should be able to verify the frequency. For example, you could measure one cycle of the sine wave to be 5.25 grid blocks, then convert this to time, which equals the period T of the sine wave. Then F = 1/T = xxx Hz, and you can compare this to your expected F for X value you used to make 2 cycles fit on the monitor. This shows if your system is calibrated or not. 
 - 2. The output waveform when x = 1.0 [does this match your calculated frequency, based on your scopeface grid timing calculations? What is the percentage error? show calculations similar to (1) above.
 - 3. The output waveform with x set to create ~440Hz. Does this match your calculated frequency, based on your scopeface grid timing calculations, similar to the (1) above? What is the percentage error? show calculations.
+- Bonus: update the analysis for 1-3 signals using measurements/plot from a spectrum analyzer [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/USAFA-ECE/ece383/refs/heads/main/book/Assignments/files/Lab04_spectrum_analyzer.htm).
 
 For B-level functionality, include images of scopeface plots showing 
 - 1. the output waveform with your default amplitude, and
 - 2. the output waveform after you increase (or decrease) the amplitude of your signal Does this match your calculations based on the switch settings? You should be comparing the relative amplitudes seen for the peak-to-peak signals displayed on your scope with the two different amplitude settings.
+- Bonus: update the analysis for 1-2 signals using measurements/plot from a spectrum analyzer [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/USAFA-ECE/ece383/refs/heads/main/book/Assignments/files/Lab04_spectrum_analyzer.htm).
 
 For A-level functionality, include an image of your o'scope plot showing channel-1 (not interpolated) and channel-2 (interpolated). Try to pick a frequency such that interpolated looks better than non-interpolated.
 
