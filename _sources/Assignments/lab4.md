@@ -182,7 +182,7 @@ For A-level functionality, include an image of your o'scope plot showing channel
 
 - Remember to upload your code with proper headers and comments to your GitHub repo.
 
-###Grading
+### Grading
 
 | Item                    | Points |
 |-------------------------|--------|
