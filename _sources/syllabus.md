@@ -71,8 +71,8 @@ The **Grade distribution** for this course is shown below.
 | :--- | :--- | 
 | **GRs** | There are two GRs. All exams are closed textbook and notes. Both laboratory and classroom work will appear on exams. GRs are individual efforts.  |
 | **Labs 1-4** | The labs in this course are very hardware intensive. A disciplined approach to design, implementation, and testing is key to success; the **Big Bang** method (wiring and coding something up and debugging it until it works) usually does not work. Incomplete labs may be turned in, but points can be deducted for not meeting requirements (see the late work policy). Cadets use GitHub to provide their source code for labs. Students must complete all labs, meeting at least "basic functionality." Failure to meet "basic functionality" in all labs will result in a "controllable incomplete" grade, until all labs are complete. |
-| **Quizzes** | Graded primarily in Gradescope. Cadets who miss a lesson remain responsible for any quiz announced or assignment made that lesson. Quizzes may be announced or not announced prior to the lesson. | 
-| **CPH - Computer Homeworks** | Graded primarily in Gradescope. These assignments are a combination of Preflights (what you should have learned preparing for the upcoming lesson) and homework (problems based on the last lesson) | 
+| **Quizzes** | Cadets who miss a lesson remain responsible for any quiz that lesson. Quizzes may be announced or not announced prior to the lesson. | 
+| **CPH - Computer Homeworks** | Graded primarily in Gradescope. These assignments are a combination of Preflights (what you should have learned preparing for the upcoming lesson) and homework (problems based on the last lesson). Cadets who miss a lesson remain responsible for any assignment due that lesson. | 
 | **Final Project** | Details on the final project are on the class website.  Each student must do a different final project, approved by the instructor. |
 | **Subjective** | Listed in the grade distribution with no points assigned. |
 
