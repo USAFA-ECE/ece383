@@ -55,7 +55,7 @@ The **Grade distribution** for this course is shown below.
 | Lab 2                 | 0    | 10    |
 | Lab 3                 |      | 10    |
 | Lab 4                 |      | 10    |
-| Quizzes / Assignments | 20   | 10    |
+| Quizzes / CPH         | 20   | 10    |
 | Final Project         |      | 25    |
 | Subjective            |      |       |
 | **TOTAL**             | 100  | 100   |
