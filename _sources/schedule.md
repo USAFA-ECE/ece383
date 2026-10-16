@@ -22,36 +22,36 @@ This schedule is subject to change as appropriate.
 | 6      | [Lab 1: VGA Synchronization](Assignments/lab1.md)|  <ul><li>[HW5](Assignments/homework5.md)  due BOC </li><li> [Lab1-GateCheck1](Assignments/lab1.md) due taps L6 </li><li>Laptop/FPGA needed </li></ul>  |        |
 | 7      | Lab 1: VGA Synchronization                       |  <ul><li>[Lab1-GateCheck2](Assignments/lab1.md) due taps L7 </li><li>Laptop/FPGA needed  </li></ul>  |        |
 | 8      | Lab 1: VGA Synchronization                       |  <ul><li>[Lab1-Functionality](Assignments/lab1.md) due taps L8 </li><li>Laptop/FPGA needed  </li></ul>  |        | 
-| 9      | Finite State Machines                            |  <ul><li>[Lab1-README](Assignments/lab1.md) due taps L9 </li><li>read 10.2.1, 10.3.2, 10.4, 10.6.1 (U)</li><li>read [L9_notes](Lectures/lecture09.md) (U) </li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
-| 10     | Datapath and Control                             | <ul><li>[HW6](Assignments/homework6.md)  due BOC </li><li>read 11.1, 11.2, 14.4.2 (U) </li><li>read [L10_notes](Lectures/lecture10.md) (U)</li><li>lesson slides are on course TEAMs site</li></ul>  |        | 
-| 11     | Datapath and Control                             | <ul><li>[HW7](Assignments/homework7.md) due BOC </li><li>read 11.5 (U)</li><li>read [L11_notes](Lectures/lecture11.md) (U)</li><li>lesson slides are on course TEAMs</li></ul>  |        |
-| 12     | Datapath and Control, Lab intro                  |  <ul><li>[HW8](Assignments/homework8.md) due BOC </li><li>lesson slides are on course TEAMs</li></ul>  |        |
-| 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) | <ul><li>[HW8b2](Assignments/homework8b.md) due BOC</li></ul> |         |
-| 14     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck1](Assignments/lab2.md) due BOC</li></ul>                  |          |
-| 15     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck2](Assignments/lab2.md) due BOC</li></ul>                  |          |
-| 16     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck3](Assignments/lab2.md) due BOC</li></ul>                  |          |
-| 17     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-Functionality](Assignments/lab2.md) due taps</li></ul>               |          |
+| 9      | Finite State Machines                            |  <ul><li>[Lab1-README](Assignments/lab1.md) due taps L9 </li><li>read 10.2.1, 10.3.2, 10.4, 10.6.1 (U)</li><li>read [L9_notes](Lectures/lecture09.md) (U) </li><li>Laptop/FPGA needed </li><li>lesson slides are on course TEAMs site</li></ul>  |                                           |
+| 10     | Datapath and Control                             | <ul><li>[HW6](Assignments/homework6.md)  due BOC </li><li>read 11.1, 11.2, 14.4.2 (U) </li><li>read [L10_notes](Lectures/lecture10.md) (U)</li><li>Laptop/FPGA needed </li><li>lesson slides are on course TEAMs site</li></ul>  |        | 
+| 11     | Datapath and Control                             | <ul><li>[HW7](Assignments/homework7.md) due BOC </li><li>read 11.5 (U)</li><li>read [L11_notes](Lectures/lecture11.md) (U)</li><li>Laptop/FPGA needed </li><li>lesson slides are on course TEAMs</li></ul>  |        |
+| 12     | Datapath and Control, Lab intro                  |  <ul><li>[HW8](Assignments/homework8.md) due BOC </li><li>Laptop/FPGA needed </li><li>lesson slides are on course TEAMs</li></ul>  |        |
+| 13     | [Lab 2: Data acquisition, storage, and display](Assignments/lab2.md) | <ul><li>[HW8b2](Assignments/homework8b.md) due BOC </li><li>Laptop/FPGA needed </li></ul> |         |
+| 14     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck1](Assignments/lab2.md) due BOC </li><li>Laptop/FPGA needed </li></ul>                  |          |
+| 15     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck2](Assignments/lab2.md) due BOC </li><li>Laptop/FPGA needed </li></ul>                  |          |
+| 16     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-GateCheck3](Assignments/lab2.md) due BOC </li><li>Laptop/FPGA needed </li></ul>                  |          |
+| 17     | Lab 2: Data acquisition, storage, and display    | <ul><li>[Lab2-Functionality](Assignments/lab2.md) due taps </li><li>Laptop/FPGA needed </li></ul>               |          |
 | 18     | GR1                                              |  GR1                    | GR1    |
-| 19     | Soft CPU: do ICE 1                               | <ul><li>[Lab2-README](Assignments/lab2.md) due BOC</li><li>read [L19_notes](Lectures/lecture19.md) (U) </li></ul>  |        |
-| 20     | Soft CPU: do ICE 2                               | <ul><li>[HW9 - ICE 1](Assignments/homework9.md) due BOC </li></ul>  |        |
-| 21     | Soft CPU: do ICE 3                               | <ul><li>[ICE 2](Assignments/ice2.md) due BOC</li><li>read [L21_notes](Lectures/lecture21.md) (U)</li><li>[Final Project ideas](https://usafa-ece.github.io/ece383/final_project_gallery.html) (U)</li><li>[final project ideas](https://georgeyork.github.io/ECE383_web/lab/lab5/ideas.html) (S)</li></ul>  |        |
-| 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) | <ul><li>[ICE 3](Assignments/ice3.md) due BOC </li></ul>  |        |
-| 23     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck1](Assignments/lab3.md) due BOC </li></ul>  |        |
-| 24     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck2](Assignments/lab3.md) due BOC </li></ul>  |        |
-| 25     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck3](Assignments/lab3.md) due taps </li></ul> |        |
-| 26     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-Functionality](Assignments/lab3.md) due taps </li></ul>  |       |
-| 27     | Direct Digital Synthesis    | <ul><li>[Lab3-README](Assignments/lab3.md) due BOC</li><li>[Lab 5: Final Project Proposal](Assignments/project.md) due taps</li><li>read [L27_notes](Lectures/lecture27.md) (U) </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
-| 28     | Direct Digital Synthesis    | <ul><li>[HW12](Assignments/homework12.md) due BOC</li><li>read [L28_notes](Lectures/lecture28.md) (U) </li><li> lesson slides are on course TEAMs site</li></ul>  |        | 
-| 29     | [Lab 4: Function Generator](Assignments/lab4.md) Audio Generator? | <ul><li>[HW13](Assignments/homework13.md) due BOC </li><li>[Lab4-Gate Check1](Assignments/lab4.md) due taps L29</li></ul> |        |
-| 30     | Lab 4: Function Generator | <ul><li>[Lab4-Gate Check2](Assignments/lab4.md) due taps L30</li></ul> |        |
-| 31     | Lab 4: Function Generator | <ul><li>[Lab4-Functionality](Assignments/lab4.md) due taps L31</li></ul> |        |
+| 19     | Soft CPU: do ICE 1                               | <ul><li>[Lab2-README](Assignments/lab2.md) due BOC</li><li>read [L19_notes](Lectures/lecture19.md) (U) </li><li>Laptop/FPGA needed </li></ul>  |        |
+| 20     | Soft CPU: do ICE 2                               | <ul><li>[HW9 - ICE 1](Assignments/homework9.md) due BOC </li><li>Laptop/FPGA needed </li></ul>  |        |
+| 21     | Soft CPU: do ICE 3                               | <ul><li>[ICE 2](Assignments/ice2.md) due BOC</li><li>read [L21_notes](Lectures/lecture21.md) (U)</li><li>[Final Project ideas](https://usafa-ece.github.io/ece383/final_project_gallery.html) (U)</li><li>[final project ideas](https://georgeyork.github.io/ECE383_web/lab/lab5/ideas.html) (S) </li><li>Laptop/FPGA needed </li></ul>  |        |
+| 22     | [Lab 3: Oscilloscope Control](Assignments/lab3.md) | <ul><li>[ICE 3](Assignments/ice3.md) due BOC  </li><li>Laptop/FPGA needed </li></ul>  |        |
+| 23     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck1](Assignments/lab3.md) due BOC </li><li>Laptop/FPGA needed </li></ul>  |        |
+| 24     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck2](Assignments/lab3.md) due BOC </li><li>Laptop/FPGA needed </li></ul>  |        |
+| 25     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-GateCheck3](Assignments/lab3.md) due taps </li><li>Laptop/FPGA needed </li></ul> |        |
+| 26     | Lab 3: Oscilloscope Control | <ul><li>[Lab3-Functionality](Assignments/lab3.md) due taps </li><li>Laptop/FPGA needed </li></ul>  |       |
+| 27     | Direct Digital Synthesis    | <ul><li>[Lab3-README](Assignments/lab3.md) due BOC</li><li>[Lab 5: Final Project Proposal](Assignments/project.md) due taps</li><li>read [L27_notes](Lectures/lecture27.md) (U) </li><li>Laptop/FPGA needed </li><li>lesson slides are on course TEAMs site</li></ul>  |        |
+| 28     | Direct Digital Synthesis    | <ul><li>[HW12](Assignments/homework12.md) due BOC</li><li>read [L28_notes](Lectures/lecture28.md) (U) </li><li>Laptop/FPGA needed </li><li> lesson slides are on course TEAMs site</li></ul>  |        | 
+| 29     | [Lab 4: Function Generator](Assignments/lab4.md) Audio Generator? | <ul><li>[HW13](Assignments/homework13.md) due BOC </li><li>[Lab4-Gate Check1](Assignments/lab4.md) due taps L29 </li><li>Laptop/FPGA needed </li></ul> |        |
+| 30     | Lab 4: Function Generator | <ul><li>[Lab4-Gate Check2](Assignments/lab4.md) due taps L30 </li><li>Laptop/FPGA needed </li></ul> |        |
+| 31     | Lab 4: Function Generator | <ul><li>[Lab4-Functionality](Assignments/lab4.md) due taps L31 </li><li>Laptop/FPGA needed </li></ul> |        |
 | 32     | GR2  |   GR2                   | GR2  |
-| 33     | [Lab 5: Final Project](Assignments/project.md)          | <ul><li>[Lab4](Assignments/lab4.md) due BOC </li></ul>|     |
-| 34     | Lab 5: Final Project             |  <ul><li>[Lab 5: Final Project Plan](Assignments/project.md) and revised proposal due BOC    </li></ul>      |           |
-| 35     | Lab 5: Final Project             |                      |                                 |
-| 36     | Lab 5: Final Project             |                      |                                 |
-| 37     | Lab 5: Final Project             |                      |                                 |
-| 38     | Lab 5: Final Project             |                      |                                 |
-| 39     | Lab 5: Final Project             |                      |                                 |
-| 40     | Final Project Presentation/Demo Day  | <ul><li>[Lab 5: Functionality](Assignments/project.md) due BOC </li><li> [Lab 5: Presentation Slides](Assignments/project.md) due BOC  </li></ul>                    |  [Lab 5: Presentation_Demo](Assignments/project.md)  |
-| 41     | Final Report                     | <ul><li> [Lab 5: Final Report](Assignments/project.md)    due taps L41 </li></ul> |         |
+| 33     | [Lab 5: Final Project](Assignments/project.md)          | <ul><li>[Lab4](Assignments/lab4.md) due BOC  </li><li>Laptop/FPGA needed </li></ul>|     |
+| 34     | Lab 5: Final Project             |  <ul><li>[Lab 5: Final Project Plan](Assignments/project.md) and revised proposal due BOC  </li><li>Laptop/FPGA needed   </li></ul>      |           |
+| 35     | Lab 5: Final Project             |  <ul><li>Laptop/FPGA needed </li></ul>         |                                 |
+| 36     | Lab 5: Final Project             |  <ul><li>Laptop/FPGA needed </li></ul>         |                                 |
+| 37     | Lab 5: Final Project             |  <ul><li>Laptop/FPGA needed </li></ul>         |                                 |
+| 38     | Lab 5: Final Project             |  <ul><li>Laptop/FPGA needed </li></ul>         |                                 |
+| 39     | Lab 5: Final Project             |  <ul><li>Laptop/FPGA needed </li></ul>         |                                 |
+| 40     | Final Project Presentation/Demo Day  | <ul><li>[Lab 5: Functionality](Assignments/project.md) due BOC </li><li> [Lab 5: Presentation Slides](Assignments/project.md) due BOC </li><li>Laptop/FPGA needed  </li></ul>                    |  [Lab 5: Presentation_Demo](Assignments/project.md)  |
+| 41     | Final Report                     | <ul><li> [Lab 5: Final Report](Assignments/project.md)    due taps L41 </li><li>Laptop/FPGA needed  </li></ul> |         |
